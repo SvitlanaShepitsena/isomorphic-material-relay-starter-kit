@@ -4,6 +4,7 @@ import { GraphQLID, GraphQLNonNull, GraphQLObjectType } from "graphql";
 import ViewerType from "./ViewerType";
 import NodeInterface from "../interface/NodeInterface";
 
+import { House_list_get } from '../../data/da/House';
 import { DA_User_get } from '../../data/da/User';
 import { DA_Compendium_get } from '../../data/da/Compendium';
 import { DA_ToDo_get } from '../../data/da/ToDo';

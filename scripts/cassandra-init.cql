@@ -1,8 +1,3 @@
-DROP KEYSPACE IF EXISTS remax;
-
-CREATE KEYSPACE imrsk
-WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
-
 USE remax;
 
 CREATE TABLE "User"(

@@ -41,7 +41,7 @@
   "scripts": {
     "postinstall": "npm run build-schema&&npm run build-webpack",
     "setup-local": "cp ./doc/Example.env ./.env",
-    "setup-cassandra-init": "cqlsh -f ./scripts/cassandra-init.cql",
+    "init": "cqlsh -f ./scripts/cassandra-init.cql",
     "build-schema": "./node_modules/.bin/babel-node ./scripts/build-schema.js",
     "build-webpack": "./node_modules/.bin/webpack -p --output-filename app.js",
     "build-mui-icon-list": "./node_modules/.bin/babel-node ./scripts/build-mui-icon-list.js",
