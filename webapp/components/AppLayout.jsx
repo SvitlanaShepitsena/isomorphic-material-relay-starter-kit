@@ -2,6 +2,8 @@ import React from 'react';
 import Relay from 'react-relay';
 
 import AppCanvas from 'material-ui/lib/app-canvas';
+import AppBar from 'material-ui/lib/app-bar';
+import LeftNav from 'material-ui/lib/left-nav';
 import Colors from 'material-ui/lib/styles/colors';
 import Badge from 'material-ui/lib/badge';
 import LightRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme';
@@ -26,6 +28,7 @@ class AppLayout extends React.Component {
 
         this.state = {
             muiTheme: ThemeManager.getMuiTheme(LightRawTheme),
+            open: false,
         };
     }
 
@@ -37,30 +40,39 @@ class AppLayout extends React.Component {
         this.setState({muiTheme: newMuiTheme});
     }
 
+    handleToggle = () => this.setState({open: !this.state.open});
+    handleClose = () => this.setState({open: false});
+
     render() {
 
         return (
             <AppCanvas>
-                <ToolBar
-                    style={ {
-            backgroundColor: 'rgba(125, 88, 88, 0.06)',
-            boxShadow: '0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24)',
-          } }
+                <LeftNav
+                    docked={false}
+                    open={this.state.open}
+                    onRequestChange={open => this.setState({open})}
+                >
+                    <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
+                    <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+                </LeftNav>
+                <AppBar
+                    onLeftIconButtonTouchTap={this.handleToggle}
+                    title="Re/max"
                 >
                     <ToolbarGroup firstChild={true} float="left">
                         <AppBar_NavigationMenu />
                     </ToolbarGroup>
-                    <ToolbarGroup float="left">
-                        <ToolbarTitle text="Re/Max 1st Class"/>
-                    </ToolbarGroup>
                     <ToolbarGroup>
                         <ul style={{textAlign:'right'}}>
                             <li style={{display:'inline-block'}}>
-                                < Link style={{textDecoration:'none',padding:'16px 8px'}} to="/">Home</Link>
+                                < Link
+                                    style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"393939"}}
+                                    to="/">Home</Link>
                             </li>
                             <li style={{display:'inline-block'}}>
-                                <Link style={{textDecoration:'none',padding:'16px 8px',fontSize:14,color:"393939"}}
-                                      to="houses-for-sale">Houses For
+                                <Link
+                                    style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"393939"}}
+                                    to="houses-for-sale">Houses For
                                     Sale</Link>
                             </li>
                         </ul>
@@ -68,7 +80,7 @@ class AppLayout extends React.Component {
                     <ToolbarGroup float="right">
                         <AppBar_Auth Viewer={this.props.Viewer}/>
                     </ToolbarGroup>
-                </ToolBar>
+                </AppBar>
 
                 <div style={ { paddingTop: 10, paddingLeft: 4, paddingRight: 4, } }>
                     {this.props.children}
