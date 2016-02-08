@@ -14,96 +14,70 @@ import ToolbarSeparator from 'material-ui/lib/toolbar/toolbar-separator';
 import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
 
 import AppBar_Auth from './AppBar_Auth.jsx'
-import AppBar_Language from './AppBar_Language.jsx'
 import AppBar_NavigationMenu from './AppBar_NavigationMenu.jsx'
 
+class Chrome extends React.Component {
+    constructor() {
+        super();
 
-class Chrome extends React.Component
-{
-  constructor( )
-  {
-    super( );
+        this.state = {
+            muiTheme: ThemeManager.getMuiTheme(LightRawTheme),
+        };
+    }
 
-    this.state = {
-      muiTheme: ThemeManager.getMuiTheme( LightRawTheme ),
-    };
-  }
+    componentWillMount() {
+        let newMuiTheme = ThemeManager.modifyRawThemePalette(this.state.muiTheme, {
+            accent1Color: Colors.deepOrange500,
+        });
 
-  componentWillMount( )
-  {
-    let newMuiTheme = ThemeManager.modifyRawThemePalette(this.state.muiTheme, {
-      accent1Color: Colors.deepOrange500,
-    });
+        this.setState({muiTheme: newMuiTheme});
+    }
 
-    this.setState({muiTheme: newMuiTheme});
-  }
+    render() {
 
-  _handleOnFocusIncomplete( )
-  {
-    this.context.router.push( '/ToDos/active' );
-  }
-
-  render( )
-  {
-    let incompleteCount = this.props.Viewer.ToDo_TotalCount - this.props.Viewer.ToDo_CompletedCount;
-
-    let incompleteNotification = [ ];
-
-    if( incompleteCount > 0 )
-      incompleteNotification.push(
-        <Badge key="top-incomplete" style={ { marginTop: -11, marginBottom: -17 } } badgeContent={ incompleteCount } primary={ true } badgeStyle={{top:20, right:16}}>
-          <IconButton tooltip="Incomplete TODOs" onFocus={ this._handleOnFocusIncomplete.bind( this ) }>
-            <IconNotificationsEventAvailable />
-          </IconButton>
-        </Badge>
-      );
-
-    return (
-      <AppCanvas>
-        <ToolBar
-          style={ {
+        return (
+            <AppCanvas>
+                <ToolBar
+                    style={ {
             backgroundColor: 'rgba(125, 88, 88, 0.06)',
             boxShadow: '0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24)',
           } }
-        >
-          <ToolbarGroup firstChild={true} float="left">
-            <AppBar_NavigationMenu />
-          </ToolbarGroup>
-          <ToolbarGroup float="left">
-            <ToolbarTitle text="IMRSK" />
-          </ToolbarGroup>
-          <ToolbarGroup float="right">
-            { incompleteNotification }
-            <ToolbarSeparator />
-            <AppBar_Auth Viewer={this.props.Viewer} />
-            <AppBar_Language Viewer={this.props.Viewer} />
-          </ToolbarGroup>
-        </ToolBar>
+                >
+                    <ToolbarGroup firstChild={true} float="left">
+                        <AppBar_NavigationMenu />
+                    </ToolbarGroup>
+                    <ToolbarGroup float="left">
+                        <ToolbarTitle text="IMRSK"/>
+                    </ToolbarGroup>
+                    <ToolbarGroup float="right">
+                        <ToolbarSeparator />
+                        <AppBar_Auth Viewer={this.props.Viewer}/>
+                    </ToolbarGroup>
+                </ToolBar>
 
-        <div style={ { paddingTop: 10, paddingLeft: 4, paddingRight: 4, } }>
-          {this.props.children}
-        </div>
+                <div style={ { paddingTop: 10, paddingLeft: 4, paddingRight: 4, } }>
+                    {this.props.children}
+                </div>
 
-      </AppCanvas>
-    )
-  }
-};
+            </AppCanvas>
+        )
+    }
+}
+;
 
 //
 
 Chrome.contextTypes = {
-  router: React.PropTypes.object.isRequired,
-  muiTheme: React.PropTypes.object,
+    router: React.PropTypes.object.isRequired,
+    muiTheme: React.PropTypes.object,
 };
 
-export default Relay.createContainer( Chrome, {
-  fragments: {
-    Viewer: () => Relay.QL`
+export default Relay.createContainer(Chrome, {
+    fragments: {
+        Viewer: () => Relay.QL`
       fragment on Viewer {
-        ToDo_TotalCount,
-        ToDo_CompletedCount,
         ${AppBar_Auth.getFragment('Viewer')},
       }
     `,
-  },
+    },
 });

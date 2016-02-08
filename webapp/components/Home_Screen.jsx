@@ -14,10 +14,7 @@ class Home_Screen extends React.Component {
         console.log(this.props.Viewer);
         return (
             <div>
-                <span>Remax 1st class is the BEST Company</span>
-                <div>
-                    WE SELL THESE THE BEST HOUSES: (WANT LAST LONG)
-                </div>
+
                 {this.props.Viewer.Houses.edges.map((edge, index) => {
                     console.log(edge);
                     return (
@@ -39,7 +36,7 @@ export default Relay.createContainer(Home_Screen, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        Houses(first: 100) {
+        Houses(first: 10) {
           edges {
             node {
               id,

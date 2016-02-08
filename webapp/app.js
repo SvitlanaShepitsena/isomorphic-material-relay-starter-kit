@@ -1,4 +1,4 @@
-import { browserHistory } from 'react-router';
+import {browserHistory} from 'react-router';
 
 // First load isomorphic-relay:
 import IsomorphicRelay from 'isomorphic-relay';
@@ -14,25 +14,25 @@ import routes from './routes';
 
 import './styles/main.css';
 
-var isoVars = isomorphicVars( );
+var isoVars = isomorphicVars();
 
 //Needed for onTouchTap
 //Can go away when react 1.0 release
 //Check this repo:
 //https://github.com/zilverline/react-tap-event-plugin
 import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin( );
+injectTapEventPlugin();
 
 // This will ensure that on the client Relay is passing the HttpOnly cookie with auth
 let GraphQL_URL = ( isoVars.public_url == null ) ? '/graphql' : isoVars.public_url + '/graphql';
-Relay.injectNetworkLayer( new Relay.DefaultNetworkLayer( GraphQL_URL, { credentials: 'same-origin' } ) );
+Relay.injectNetworkLayer(new Relay.DefaultNetworkLayer(GraphQL_URL, {credentials: 'same-origin'}));
 
-const data = JSON.parse( document.getElementById( 'preloadedData' ).textContent );
-IsomorphicRelay.injectPreparedData( data );
+const data = JSON.parse(document.getElementById('preloadedData').textContent);
+IsomorphicRelay.injectPreparedData(data);
 
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-    <IsomorphicRouter.Router routes={routes} history={browserHistory} />,
+    <IsomorphicRouter.Router routes={routes} history={browserHistory}/>,
     rootElement
 );

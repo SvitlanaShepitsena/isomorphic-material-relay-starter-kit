@@ -251,7 +251,6 @@ class AppBar_Auth extends React.Component
     if( this.props.Viewer.User_IsAnonymous )
       return(
       <div>
-       <spa>Sodi huy</spa>
         <IconButton key='login' tooltip="Log In"onTouchTap={ this._handle_Open_Dialog_UserNameAndPassword.bind( this ) }>
           <IconSocialPersonOutline />
           { this.Dialog_UserNameAndPassword( ) }
