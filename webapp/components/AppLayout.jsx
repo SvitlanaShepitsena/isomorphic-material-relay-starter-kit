@@ -54,8 +54,16 @@ class AppLayout extends React.Component {
                         <ToolbarTitle text="Re/Max 1st Class"/>
                     </ToolbarGroup>
                     <ToolbarGroup>
-                        <Link to="/">Home</Link>
-                        <Link to="houses-for-sale">Houses For Sale</Link>
+                        <ul style={{textAlign:'right'}}>
+                            <li style={{display:'inline-block'}}>
+                                < Link style={{textDecoration:'none',padding:'16px 8px'}} to="/">Home</Link>
+                            </li>
+                            <li style={{display:'inline-block'}}>
+                                <Link style={{textDecoration:'none',padding:'16px 8px',fontSize:14,color:"393939"}}
+                                      to="houses-for-sale">Houses For
+                                    Sale</Link>
+                            </li>
+                        </ul>
                     </ToolbarGroup>
                     <ToolbarGroup float="right">
                         <AppBar_Auth Viewer={this.props.Viewer}/>
