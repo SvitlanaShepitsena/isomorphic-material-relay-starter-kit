@@ -3,6 +3,7 @@ import Relay from 'react-relay';
 
 import AppCanvas from 'material-ui/lib/app-canvas';
 import Colors from 'material-ui/lib/styles/colors';
+import Link from 'react-router';
 import Badge from 'material-ui/lib/badge';
 import LightRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme';
 import IconButton from 'material-ui/lib/icon-button';
@@ -48,6 +49,10 @@ class AppLayout extends React.Component {
                     </ToolbarGroup>
                     <ToolbarGroup float="left">
                         <ToolbarTitle text="Re/Max 1st Class"/>
+                    </ToolbarGroup>
+                    <ToolbarGroup>
+                        <div>
+                        </div>
                     </ToolbarGroup>
                     <ToolbarGroup float="right">
                         <ToolbarSeparator />
