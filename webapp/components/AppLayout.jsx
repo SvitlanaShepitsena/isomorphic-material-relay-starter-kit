@@ -16,7 +16,7 @@ import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
 import AppBar_Auth from './AppBar_Auth.jsx'
 import AppBar_NavigationMenu from './AppBar_NavigationMenu.jsx'
 
-class Chrome extends React.Component {
+class AppLayout extends React.Component {
     constructor() {
         super();
 
@@ -47,7 +47,7 @@ class Chrome extends React.Component {
                         <AppBar_NavigationMenu />
                     </ToolbarGroup>
                     <ToolbarGroup float="left">
-                        <ToolbarTitle text="IMRSK"/>
+                        <ToolbarTitle text="Re/Max 1st Class"/>
                     </ToolbarGroup>
                     <ToolbarGroup float="right">
                         <ToolbarSeparator />
@@ -67,12 +67,12 @@ class Chrome extends React.Component {
 
 //
 
-Chrome.contextTypes = {
+AppLayout.contextTypes = {
     router: React.PropTypes.object.isRequired,
     muiTheme: React.PropTypes.object,
 };
 
-export default Relay.createContainer(Chrome, {
+export default Relay.createContainer(AppLayout, {
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
