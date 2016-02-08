@@ -3,7 +3,6 @@ import Relay from 'react-relay';
 
 import AppCanvas from 'material-ui/lib/app-canvas';
 import Colors from 'material-ui/lib/styles/colors';
-import Link from 'react-router';
 import Badge from 'material-ui/lib/badge';
 import LightRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme';
 import IconButton from 'material-ui/lib/icon-button';
@@ -13,6 +12,10 @@ import ToolBar from 'material-ui/lib/toolbar/toolbar';
 import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group';
 import ToolbarSeparator from 'material-ui/lib/toolbar/toolbar-separator';
 import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
+
+import IconMenu from 'material-ui/lib/menus/icon-menu';
+import MenuItem from 'material-ui/lib/menus/menu-item';
+import {Link} from 'react-router';
 
 import AppBar_Auth from './AppBar_Auth.jsx'
 import AppBar_NavigationMenu from './AppBar_NavigationMenu.jsx'
@@ -51,11 +54,10 @@ class AppLayout extends React.Component {
                         <ToolbarTitle text="Re/Max 1st Class"/>
                     </ToolbarGroup>
                     <ToolbarGroup>
-                        <div>
-                        </div>
+                        <Link to="/">Home</Link>
+                        <Link to="houses-for-sale">Houses For Sale</Link>
                     </ToolbarGroup>
                     <ToolbarGroup float="right">
-                        <ToolbarSeparator />
                         <AppBar_Auth Viewer={this.props.Viewer}/>
                     </ToolbarGroup>
                 </ToolBar>

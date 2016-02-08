@@ -20,6 +20,7 @@ export default class AppBar_NavigationMenu extends React.Component {
         }
             >
                 <MenuItem key="/" primaryText="Home"/>
+                <MenuItem key="houses-for-sale" primaryText="Cities"/>
             </IconMenu>
         );
     }

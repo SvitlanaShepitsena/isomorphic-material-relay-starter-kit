@@ -11,8 +11,7 @@ class Home_Screen extends React.Component {
     render() {
         var isoVars = isomorphicVars();
         console.log(isoVars);
-        console.log(this.props.Viewer);
-        return (
+        console.log(this.props.Viewer); return (
             <div>
 
                 {this.props.Viewer.Houses.edges.map((edge, index) => {
