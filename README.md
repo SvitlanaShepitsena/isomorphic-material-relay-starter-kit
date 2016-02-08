@@ -1,6 +1,6 @@
 # Universal (Isomorfic) React Relay Application for Real Estate
 
-Initial Boilerplate: https://github.com/codefoundries/isomorphic-material-relay-starter-kit
+## Initial Boilerplate: https://github.com/codefoundries/isomorphic-material-relay-starter-kit
 
 Installation (development):
 
