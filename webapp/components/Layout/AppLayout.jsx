@@ -37,23 +37,32 @@ class AppLayout extends React.Component {
         return (
             <AppCanvas>
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
-                    <span className="LeftNav__Header">
+                    <AppBar
+                        showMenuIconButton={false}
+                        iconElementLeft={
                         <Link to="/" onTouchTap={this.handleClose}>
                             <img
-                                style={{padding:8,width:50,display:"block",float:"left"}}
+                                style={{padding:8,width:50}}
                                 src="http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png"
                                 alt="Re/Max 1st Class Realty Logo"
                             />
                         </Link>
+                        }
+                        iconElementRight={
                         <IconButton style={{color:"red",display:"block",float:"right"}}
                                     onTouchTap={this.handleClose}><NavigationClose
                         /></IconButton>
-                    </span>
-                    <MenuItem></MenuItem>
+                        }
+                        className="LeftNav__Header">
+                    </AppBar>
+
                     <MenuItem onTouchTap={this.handleClose}>
-                        <Link to="houses-for-sale" style={{textAlign:"left",display:"block"}}>Houses fo Sale</Link>
+                        <Link to="houses-for-sale">Houses fo Sale</Link>
                     </MenuItem>
-                    <MenuItem onTouchTap={this.handleClose} style={{textAlign:"left"}}>
+                    <MenuItem onTouchTap={this.handleClose}>
+                        <Link to="houses-for-rent">Houses fo Rent</Link>
+                    </MenuItem>
+                    <MenuItem onTouchTap={this.handleClose}>
                         <Link to="houses-for-rent">Houses fo Rent</Link>
                     </MenuItem>
                 </LeftNav>
