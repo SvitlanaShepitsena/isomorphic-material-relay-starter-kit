@@ -17,10 +17,11 @@ import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
 
 import IconMenu from 'material-ui/lib/menus/icon-menu';
 import MenuItem from 'material-ui/lib/menus/menu-item';
+import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+
 import {Link} from 'react-router';
 
 import AppBar_Auth from './AppBar_Auth.jsx'
-import AppBar_NavigationMenu from './AppBar_NavigationMenu.jsx'
 
 class AppLayout extends React.Component {
     constructor() {
@@ -52,20 +53,27 @@ class AppLayout extends React.Component {
                     open={this.state.open}
                     onRequestChange={open => this.setState({open})}
                 >
-                    <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
-                    <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+                    <AppBar
+                        iconElementLeft={<IconButton><NavigationClose  /></IconButton>}
+                        onLeftIconButtonTouchTap={this.handleClose()}
+                    >
+
+                    </AppBar>
+                    <MenuItem onTouchTap={this.handleClose}>
+                        <Link className="MenuItem__Link" to="/">Home</Link>
+                    </MenuItem>
+                    <MenuItem onTouchTap={this.handleClose}>
+                        <Link to="houses-for-sale">Houses fo Sale</Link>
+                    </MenuItem>
                 </LeftNav>
                 <AppBar
                     onLeftIconButtonTouchTap={this.handleToggle}
                     title="Re/max"
                 >
-                    <ToolbarGroup firstChild={true} float="left">
-                        <AppBar_NavigationMenu />
-                    </ToolbarGroup>
                     <ToolbarGroup>
                         <ul style={{textAlign:'right'}}>
                             <li style={{display:'inline-block'}}>
-                                < Link
+                                <Link
                                     style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"393939"}}
                                     to="/">Home</Link>
                             </li>

@@ -1,1 +1,11 @@
 /* Insert any additional CSS you need here */
+a {
+    color: #393939;
+    text-decoration: none;
+}
+
+.MenuItem__Link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
