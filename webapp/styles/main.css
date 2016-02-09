@@ -4,6 +4,10 @@ a {
     text-decoration: none;
 }
 
+.AppBar_Container {
+    max-height: 64px;
+}
+
 .MenuItem__Link {
     display: block;
     width: 100%;
