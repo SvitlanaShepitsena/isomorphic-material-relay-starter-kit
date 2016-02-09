@@ -7,6 +7,7 @@ import Relay from 'react-relay';
 import RelayStoreData from 'react-relay/lib/RelayStoreData';
 import {match} from 'react-router';
 import seqqueue from 'seq-queue';
+import Helmet from "react-helmet";
 
 import routes from './routes';
 import {isomorphicVars} from './scripts/isomorphicVars';
@@ -56,10 +57,11 @@ export default (req, res, next, assetsPath) => {
                             const reactOutput = ReactDOMServer.renderToString(
                                 <IsomorphicRouter.RouterContext {...renderProps} />
                             );
-
+                            let helmet = Helmet.rewind();
                             res.render(path.resolve(__dirname, '..', 'webapp/views', 'index.ejs'), {
                                 preloadedData: JSON.stringify(data),
                                 assetsPath: assetsPath,
+                                helmet,
                                 reactOutput,
                                 isomorphicVars: isoVars
                             });

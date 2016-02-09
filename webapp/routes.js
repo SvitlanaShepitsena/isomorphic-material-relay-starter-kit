@@ -1,7 +1,7 @@
 import AppLayout from './components/Layout/AppLayout.jsx';
 import ViewerQueries from './queries/ViewerQueries';
 
-import HouseScreen from './components/HouseSale/HouseScreen.jsx';
+import HomePage from './components/HouseSale/HomePage.jsx';
 import CitiesSale from './components/CitiesSale/CitiesSale.js';
 import CitiesRent from './components/CitiesRent/CitiesRent.js';
 
@@ -12,7 +12,7 @@ export default [
         queries: ViewerQueries,
 
         indexRoute: {
-            component: HouseScreen,
+            component: HomePage,
             queries: ViewerQueries,
         },
         childRoutes: [

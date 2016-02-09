@@ -8,6 +8,12 @@ a {
     max-height: 64px;
 }
 
+.AppLayout__content {
+    padding: 72px 8px 8px 8px;
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
 .MenuItem__Link {
     display: block;
     width: 100%;
@@ -23,7 +29,6 @@ a {
     .AppNav_Top {
         display: none;
     }
-
 }
 
 @media screen and (min-width: 480px) {
