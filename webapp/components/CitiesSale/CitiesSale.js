@@ -36,7 +36,7 @@ export default Relay.createContainer(CitiesSale, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        Cities(first: 10) {
+        Cities(first: 15) {
           edges {
             node {
             id,
