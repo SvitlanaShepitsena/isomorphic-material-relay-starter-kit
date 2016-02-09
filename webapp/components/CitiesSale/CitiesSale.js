@@ -16,25 +16,11 @@ class CitiesSale extends React.Component {
         console.log(this.props.Viewer);
         return (
             <div>
-                {this.props.Viewer.Houses.edges.map((edge, index) => {
-                    console.log(edge);
-                    return (
-                        <div >
-                            <ul key={index}>
-                                <li>
-                                    <p>House </p>
-                                </li>
-                            </ul>
-                        </div>
-                    )
-                })}
-                <h1>Houses for Sale</h1>
-
+                Houses for SALE!!
             </div>
         );
     }
-}
-;
+};
 
 export default Relay.createContainer(CitiesSale, {
     fragments: {

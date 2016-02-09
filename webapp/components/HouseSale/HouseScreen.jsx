@@ -37,10 +37,9 @@ export default Relay.createContainer(Home_Screen, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        Houses(first: 10) {
+        Houses(first: 100) {
           edges {
             node {
-              id,
               street,
               price
             },

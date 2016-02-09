@@ -25,17 +25,10 @@ import {Link} from 'react-router';
 import AppBar_Auth from '../AppBar/AppBar_Auth.jsx'
 
 class AppLayout extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            muiTheme: ThemeManager.getMuiTheme(LightRawTheme),
-            open: false,
-        };
-    }
-
-    componentWillMount() {
-    }
+    state = {
+        muiTheme: ThemeManager.getMuiTheme(LightRawTheme),
+        open: false
+    };
 
     handleToggle = () => this.setState({open: !this.state.open});
     handleClose = () => this.setState({open: false});

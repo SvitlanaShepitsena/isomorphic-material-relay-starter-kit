@@ -3,8 +3,10 @@ import {GraphQLBoolean, GraphQLInt, GraphQLString, GraphQLObjectType} from "grap
 import {connectionArgs, connectionFromArray} from "graphql-relay";
 
 import {House_list_get} from '../../data/da/House';
+import {City_list_get} from '../../data/da/City';
 import NodeInterface from "../interface/NodeInterface";
 import HousesConnection from './HousesConnection';
+import CitiesConnection from './CitiesConnection';
 import User from '../../data/model/User';
 import {Uuid} from '../../data/da_cassandra/_client.js';
 
@@ -33,6 +35,15 @@ export default new GraphQLObjectType({
             type: HousesConnection.connectionType,
             args: {...connectionArgs},
             resolve: (obj, {...args}, {rootValue: {user_id}}) => House_list_get(user_id).then((arr_House) => connectionFromArray(arr_House, args))
+        },
+
+        // <-<-<- Houses
+        // <-<-<- Cities
+
+        Cities: {
+            type: CitiesConnection.connectionType,
+            args: {...connectionArgs},
+            resolve: (obj, {...args}, {rootValue: {user_id}}) => City_list_get(user_id).then((arr_City) => connectionFromArray(arr_City, args))
         },
 
         // <-<-<- Houses

@@ -1,4 +1,10 @@
+DROP KEYSPACE IF EXISTS remax;
+
+CREATE KEYSPACE remax
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+
 USE remax;
+
 
 CREATE TABLE "User"(
   id uuid PRIMARY KEY,
@@ -10,6 +16,7 @@ CREATE TABLE "User"(
   "User_Locale" varchar
 );
 
+
 CREATE INDEX User_username_ix ON "User"( username );
 
 insert into "User"( id, "username", "password", "User_DisplayName", "User_ProfilePhoto", "User_Email", "User_Locale" )
@@ -19,3 +26,40 @@ insert into "User"( id, "username", "password", "User_DisplayName", "User_Profil
 values( 33171548-39d3-45d8-ab5c-5eedefe01dfc, 'jill', 'birthday', 'Jill McBear', '/profile_photos/jill.jpg', 'jill@example.com', '' );
 
 
+CREATE TABLE houses (
+  id uuid,
+  mls text,
+  beds text,
+  description text,
+  image text,
+  street text,
+  city text,
+  state text,
+  zip text,
+  type text,
+  price bigint,
+  PRIMARY KEY (mls));
+
+CREATE TABLE housesByCity (
+  mls text,
+  street text,
+  city text,
+  state text,
+  zip text,
+  type text,
+  price bigint,
+  year bigint,
+  PRIMARY KEY ((state,city),zip,mls));
+
+CREATE TABLE cities (
+  name text,
+  PRIMARY KEY (name));
+
+  CREATE TABLE zips (
+    code text,
+    city text,
+    PRIMARY KEY (code, city));
+
+      CREATE TABLE types (
+        type text,
+        PRIMARY KEY (type));
