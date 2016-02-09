@@ -25,31 +25,16 @@ import {Link} from 'react-router';
 import AppBar_Auth from '../AppBar/AppBar_Auth.jsx'
 
 class AppLayout extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             muiTheme: ThemeManager.getMuiTheme(LightRawTheme),
             open: false,
-            isMobile:false
-
         };
     }
 
-    computeDevice () {
-        console.log(window.innerWidth);
-        this.setState({isMobile: window.innerWidth > 480});
-        console.log(this.isMobile);
-    };
-
-    componentDidMount() {
-        this.computeDevice();
-
-        window.addEventListener('resize', this.computeDevice);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.computeDevice);
+    componentWillMount() {
     }
 
     handleToggle = () => this.setState({open: !this.state.open});
@@ -75,8 +60,7 @@ class AppLayout extends React.Component {
                         <Link to="houses-for-sale">Houses fo Sale</Link>
                     </MenuItem>
                 </LeftNav>
-                <AppBar
-                    showMenuIconButton={this.state.isMobile}
+                <AppBar className="AppBar_Container"
                     onLeftIconButtonTouchTap={this.handleToggle} title="Re/max">
                     <ToolbarGroup className="AppNav_Top">
                         <AppNav_Top></AppNav_Top>
