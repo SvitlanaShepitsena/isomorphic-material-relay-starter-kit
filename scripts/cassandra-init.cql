@@ -38,29 +38,14 @@ CREATE TABLE houses (
   zip text,
   type text,
   price bigint,
-  PRIMARY KEY (mls));
+  PRIMARY KEY (id,mls));
 
-CREATE TABLE housesByCity (
-  mls text,
-  street text,
-  city text,
-  state text,
-  zip text,
-  type text,
-  price bigint,
-  year bigint,
-  PRIMARY KEY ((state,city),zip,mls));
+CREATE INDEX  house_city ON houses( city);
+CREATE INDEX  house_zip ON houses( zip);
+CREATE INDEX  house_typ ON houses( type);
 
 CREATE TABLE cities (
   id uuid,
   name text,
   PRIMARY KEY (name));
 
-  CREATE TABLE zips (
-    code text,
-    city text,
-    PRIMARY KEY (code, city));
-
-      CREATE TABLE types (
-        type text,
-        PRIMARY KEY (type));

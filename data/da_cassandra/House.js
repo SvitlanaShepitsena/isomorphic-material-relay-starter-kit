@@ -10,6 +10,16 @@ export function House_list_get( )
 
   return runQuery( House, cqlText, cqlParams );
 }
+
+export function House_list_get_city( )
+{
+  let cqlText = 'SELECT * FROM "houses" WHERE city = ? ALLOW FILTERING;';
+  let cqlParams = [];
+
+  return runQuery( House, cqlText, cqlParams );
+}
+
+
 export function House_get( id )
 {
   const cqlText = 'SELECT * FROM "houses" WHERE id = ? ALLOW FILTERING;';

@@ -13,5 +13,6 @@ export default new GraphQLObjectType( {
     id: globalIdField('House'),
     street: { type: GraphQLString, resolve: (obj) => obj.street},
     price: { type: GraphQLString, resolve: (obj) => obj.price},
+    city: { type: GraphQLString, resolve: (obj) => obj.city},
   },
 } );
