@@ -1,8 +1,8 @@
-import AppLayout from './components/AppLayout.jsx';
+import AppLayout from './components/Layout/AppLayout.jsx';
 import ViewerQueries from './queries/ViewerQueries';
 
-import Home_Screen from './components/Home_Screen.jsx';
-import Cities from './components/Cities';
+import HouseScreen from './components/HouseSale/HouseScreen.jsx';
+import Cities from './components/CitiesSale/Cities.js';
 
 export default [
     {
@@ -10,7 +10,7 @@ export default [
         component: AppLayout,
         queries: ViewerQueries,
         indexRoute: {
-            component: Home_Screen,
+            component: HouseScreen,
             queries: ViewerQueries,
         },
         childRoutes: [

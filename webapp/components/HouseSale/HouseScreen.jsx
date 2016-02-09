@@ -1,17 +1,18 @@
 import React from 'react';
 import Relay from 'react-relay';
 
-import Card from 'material-ui/lib/card/card';
-import CardHeader from 'material-ui/lib/card/card-header';
-import CardText from 'material-ui/lib/card/card-text';
+import Card from '../../../node_modules/material-ui/lib/card/card';
+import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
+import CardText from '../../../node_modules/material-ui/lib/card/card-text';
 import House_List from './House_List.jsx';
-import {isomorphicVars} from '../scripts/isomorphicVars';
+import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class Home_Screen extends React.Component {
     render() {
         var isoVars = isomorphicVars();
         console.log(isoVars);
-        console.log(this.props.Viewer); return (
+        console.log(this.props.Viewer);
+        return (
             <div>
 
                 {this.props.Viewer.Houses.edges.map((edge, index) => {

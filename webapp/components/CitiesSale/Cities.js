@@ -4,8 +4,8 @@ import Relay from 'react-relay';
 import Card from 'material-ui/lib/card/card';
 import CardHeader from 'material-ui/lib/card/card-header';
 import CardText from 'material-ui/lib/card/card-text';
-import House_List from './House_List.jsx';
-import {isomorphicVars} from '../scripts/isomorphicVars';
+import House_List from './../HouseSale/House_List.jsx';
+import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class Cities extends React.Component {
     render() {

@@ -18,27 +18,38 @@ import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
 import IconMenu from 'material-ui/lib/menus/icon-menu';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+import AppNav_Top from '../AppBar/AppNav_Top.jsx';
 
 import {Link} from 'react-router';
 
-import AppBar_Auth from './AppBar_Auth.jsx'
+import AppBar_Auth from '../AppBar/AppBar_Auth.jsx'
 
 class AppLayout extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             muiTheme: ThemeManager.getMuiTheme(LightRawTheme),
             open: false,
+            isMobile:false
+
         };
     }
 
-    componentWillMount() {
-        let newMuiTheme = ThemeManager.modifyRawThemePalette(this.state.muiTheme, {
-            accent1Color: Colors.deepOrange500,
-        });
+    computeDevice () {
+        console.log(window.innerWidth);
+        this.setState({isMobile: window.innerWidth > 480});
+        console.log(this.isMobile);
+    };
 
-        this.setState({muiTheme: newMuiTheme});
+    componentDidMount() {
+        this.computeDevice();
+
+        window.addEventListener('resize', this.computeDevice);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.computeDevice);
     }
 
     handleToggle = () => this.setState({open: !this.state.open});
@@ -53,7 +64,8 @@ class AppLayout extends React.Component {
                             <img
                                 style={{padding:8,width:50,display:"block",float:"left"}}
                                 src="http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png"
-                                alt=""/>
+                                alt="Re/Max 1st Class Realty Logo"
+                            />
                         </Link>
                         <IconButton style={{color:"red",display:"block",float:"right"}}
                                     onTouchTap={this.handleClose}><NavigationClose
@@ -63,24 +75,11 @@ class AppLayout extends React.Component {
                         <Link to="houses-for-sale">Houses fo Sale</Link>
                     </MenuItem>
                 </LeftNav>
-                <AppBar onLeftIconButtonTouchTap={this.handleToggle} title="Re/max">
-                    <ToolbarGroup>
-                        <ul style={{textAlign:'right'}}>
-                            <li style={{display:'inline-block'}}>
-                                <Link
-                                    style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"393939"}}
-                                    to="/">Home</Link>
-                            </li>
-                            <li style={{display:'inline-block'}}>
-                                <Link
-                                    style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"393939"}}
-                                    to="houses-for-sale">Houses For
-                                    Sale</Link>
-                            </li>
-                        </ul>
-                    </ToolbarGroup>
-                    <ToolbarGroup float="right">
-                        <AppBar_Auth Viewer={this.props.Viewer}/>
+                <AppBar
+                    showMenuIconButton={this.state.isMobile}
+                    onLeftIconButtonTouchTap={this.handleToggle} title="Re/max">
+                    <ToolbarGroup className="AppNav_Top">
+                        <AppNav_Top></AppNav_Top>
                     </ToolbarGroup>
                 </AppBar>
 
@@ -92,9 +91,6 @@ class AppLayout extends React.Component {
         );
     }
 }
-;
-
-//
 
 AppLayout.contextTypes = {
     router: React.PropTypes.object.isRequired,
