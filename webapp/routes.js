@@ -10,6 +10,7 @@ export default [
         path: '/',
         component: AppLayout,
         queries: ViewerQueries,
+
         indexRoute: {
             component: HouseScreen,
             queries: ViewerQueries,

@@ -19,6 +19,7 @@ class Home_Screen extends React.Component {
                     console.log(edge);
                     return (
                         <div key={index}>
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
                             {edge.node.street}
                             {edge.node.price}
                         </div>
