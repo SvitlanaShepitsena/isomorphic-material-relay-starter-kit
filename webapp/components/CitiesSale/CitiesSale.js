@@ -16,23 +16,31 @@ class CitiesSale extends React.Component {
         console.log(this.props.Viewer);
         return (
             <div>
-                Houses for SALE!!
+                Houses for SALE!2
+                <ul>
+                    {this.props.Viewer.Cities.edges.map((city,index)=>
+                        <li key={city.node.id}>
+                            {city.node.name}
+
+                        </li>
+                    )}
+                </ul>
             </div>
         );
     }
-};
+}
+;
 
 export default Relay.createContainer(CitiesSale, {
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        Houses(first: 10) {
+        Cities(first: 10) {
           edges {
             node {
-              id,
-              street,
-              price
+            id,
+              name
             },
           },
         },

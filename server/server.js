@@ -49,7 +49,8 @@ router.use( '/graphql', graphQLHTTP( request => {
   return( {
     schema: schema,
     rootValue: { user_id: user_id },
-    pretty: true
+    pretty: true,
+    graphiql:true
   } )
 } ) );
 

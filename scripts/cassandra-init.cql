@@ -52,6 +52,7 @@ CREATE TABLE housesByCity (
   PRIMARY KEY ((state,city),zip,mls));
 
 CREATE TABLE cities (
+  id uuid,
   name text,
   PRIMARY KEY (name));
 
