@@ -6,15 +6,11 @@ import MenuItem from 'material-ui/lib/menus/menu-item';
 
 import {Link} from 'react-router';
 
-export default class AppBarTop extends React.Component {
-    constructor() {
-        super();
-        this.state = {};
-    }
+export default class AppNav_Top extends React.Component {
 
     render() {
         return (
-            <ul style={{textAlign:'right'}}>
+            <ul style={{textAlign:'right',margin:8}}>
                 <li style={{display:'inline-block'}}>
                     <MenuItem>
                         <Link
