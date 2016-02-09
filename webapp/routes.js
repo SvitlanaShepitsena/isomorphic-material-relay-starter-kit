@@ -2,7 +2,7 @@ import AppLayout from './components/Layout/AppLayout.jsx';
 import ViewerQueries from './queries/ViewerQueries';
 
 import HouseScreen from './components/HouseSale/HouseScreen.jsx';
-import Cities from './components/CitiesSale/Cities.js';
+import Cities from './components/CitiesSale/CitiesSale.js';
 
 export default [
     {
@@ -16,6 +16,13 @@ export default [
         childRoutes: [
             {
                 path: 'houses-for-sale',
+                indexRoute: {
+                    component: Cities,
+                    queries: ViewerQueries,
+                },
+            },
+            {
+                path: 'houses-for-rent',
                 indexRoute: {
                     component: Cities,
                     queries: ViewerQueries,

@@ -61,7 +61,7 @@ class AppLayout extends React.Component {
                     </MenuItem>
                 </LeftNav>
                 <AppBar className="AppBar_Container"
-                    onLeftIconButtonTouchTap={this.handleToggle} title="Re/max">
+                        onLeftIconButtonTouchTap={this.handleToggle} title="Re/max">
                     <ToolbarGroup className="AppNav_Top">
                         <AppNav_Top></AppNav_Top>
                     </ToolbarGroup>
