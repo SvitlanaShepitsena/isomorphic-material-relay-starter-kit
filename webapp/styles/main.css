@@ -9,3 +9,8 @@ a {
     width: 100%;
     height: 100%;
 }
+
+.LeftNav__Header {
+    height: 64px;
+    background: #EEEEEE;
+}

@@ -45,31 +45,25 @@ class AppLayout extends React.Component {
     handleClose = () => this.setState({open: false});
 
     render() {
-
         return (
             <AppCanvas>
-                <LeftNav
-                    docked={false}
-                    open={this.state.open}
-                    onRequestChange={open => this.setState({open})}
-                >
-                    <AppBar
-                        iconElementLeft={<IconButton><NavigationClose  /></IconButton>}
-                        onLeftIconButtonTouchTap={this.handleClose()}
-                    >
-
-                    </AppBar>
-                    <MenuItem onTouchTap={this.handleClose}>
-                        <Link className="MenuItem__Link" to="/">Home</Link>
-                    </MenuItem>
-                    <MenuItem onTouchTap={this.handleClose}>
+                <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
+                    <div className="LeftNav__Header">
+                        <Link to="/" onTouchTap={this.handleClose}>
+                            <img
+                                style={{padding:8,width:50,display:"block",float:"left"}}
+                                src="http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png"
+                                alt=""/>
+                        </Link>
+                        <IconButton style={{color:"red",display:"block",float:"right"}}
+                                    onTouchTap={this.handleClose}><NavigationClose
+                        /></IconButton>
+                    </div>
+                    <MenuItem onTouchTap={this.handleClose} style={{textAlign:"left"}}>
                         <Link to="houses-for-sale">Houses fo Sale</Link>
                     </MenuItem>
                 </LeftNav>
-                <AppBar
-                    onLeftIconButtonTouchTap={this.handleToggle}
-                    title="Re/max"
-                >
+                <AppBar onLeftIconButtonTouchTap={this.handleToggle} title="Re/max">
                     <ToolbarGroup>
                         <ul style={{textAlign:'right'}}>
                             <li style={{display:'inline-block'}}>
@@ -95,7 +89,7 @@ class AppLayout extends React.Component {
                 </div>
 
             </AppCanvas>
-        )
+        );
     }
 }
 ;
