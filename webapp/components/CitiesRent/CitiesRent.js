@@ -15,15 +15,13 @@ class CitiesRent extends React.Component {
         return (
             <div>
 
-                {Cities}
-
             </div>
         );
     }
 }
 ;
 
-export default Relay.createContainer(Cities, {
+export default Relay.createContainer(CitiesRent, {
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
