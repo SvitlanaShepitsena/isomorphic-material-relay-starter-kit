@@ -7,7 +7,7 @@ import CardText from 'material-ui/lib/card/card-text';
 import House_List from './../HouseSale/House_List.jsx';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
-class CitiesSale extends React.Component {
+class CitiesRent extends React.Component {
     render() {
         var isoVars = isomorphicVars();
         console.log(isoVars);

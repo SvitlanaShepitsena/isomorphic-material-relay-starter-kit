@@ -17,14 +17,14 @@ export default [
             {
                 path: 'houses-for-sale',
                 indexRoute: {
-                    component: Cities,
+                    component: CitiesSale,
                     queries: ViewerQueries,
                 },
             },
             {
                 path: 'houses-for-rent',
                 indexRoute: {
-                    component: Cities,
+                    component: CitiesRent,
                     queries: ViewerQueries,
                 },
             }
