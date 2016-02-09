@@ -21,17 +21,18 @@ a {
 }
 
 .LeftNav__Header {
+    display: block;
     height: 64px;
     background: #EEEEEE;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 580px) {
     .AppNav_Top {
         display: none;
     }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 580px) {
 
     .AppBar_Container button {
         display: none !important;

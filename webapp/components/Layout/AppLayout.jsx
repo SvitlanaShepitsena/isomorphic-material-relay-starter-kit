@@ -20,7 +20,6 @@ import MenuItem from 'material-ui/lib/menus/menu-item';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 import AppNav_Top from '../AppBar/AppNav_Top.jsx';
 
-
 import {Link} from 'react-router';
 
 import AppBar_Auth from '../AppBar/AppBar_Auth.jsx'
@@ -37,9 +36,8 @@ class AppLayout extends React.Component {
     render() {
         return (
             <AppCanvas>
-
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
-                    <div className="LeftNav__Header">
+                    <span className="LeftNav__Header">
                         <Link to="/" onTouchTap={this.handleClose}>
                             <img
                                 style={{padding:8,width:50,display:"block",float:"left"}}
@@ -50,9 +48,13 @@ class AppLayout extends React.Component {
                         <IconButton style={{color:"red",display:"block",float:"right"}}
                                     onTouchTap={this.handleClose}><NavigationClose
                         /></IconButton>
-                    </div>
+                    </span>
+                    <MenuItem></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose}>
+                        <Link to="houses-for-sale" style={{textAlign:"left",display:"block"}}>Houses fo Sale</Link>
+                    </MenuItem>
                     <MenuItem onTouchTap={this.handleClose} style={{textAlign:"left"}}>
-                        <Link to="houses-for-sale">Houses fo Sale</Link>
+                        <Link to="houses-for-rent">Houses fo Rent</Link>
                     </MenuItem>
                 </LeftNav>
                 <AppBar className="AppBar_Container"
