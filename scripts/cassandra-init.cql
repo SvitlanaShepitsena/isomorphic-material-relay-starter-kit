@@ -52,6 +52,7 @@ CREATE INDEX  house_type ON house( type);
  CREATE INDEX house_image ON image(house_id);
 
 CREATE TABLE city (
+  id uuid,
   name text,
   PRIMARY KEY (name));
 

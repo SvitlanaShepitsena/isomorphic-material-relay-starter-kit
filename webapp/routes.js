@@ -5,6 +5,7 @@ import HomePage from './containers/pages/HomePage.jsx';
 import AboutPage from './containers/pages/AboutPage';
 import CitiesSalePage from './containers/pages/CitiesSalePage';
 import CitiesRentPage from './containers/pages/CitiesRentPage';
+import ZipTypePage from './containers/pages/ZipTypePage';
 
 export default [
     {
@@ -23,6 +24,15 @@ export default [
                     component: CitiesSalePage,
                     queries: ViewerQueries,
                 },
+                childRoutes: [
+                    {
+                        path: ":city",
+                        indexRoute: {
+                            component: CitiesSalePage,
+                            queries: ViewerQueries,
+                        },
+                    }
+                ]
             },
             {
                 path: 'houses-for-rent',

@@ -4,7 +4,6 @@ import {GraphQLBoolean, GraphQLString, GraphQLObjectType} from "graphql";
 import NodeInterface from "../interface/NodeInterface";
 
 import House from '../../data/model/House';
-import CityType from './CityType';
 
 
 export default new GraphQLObjectType({
