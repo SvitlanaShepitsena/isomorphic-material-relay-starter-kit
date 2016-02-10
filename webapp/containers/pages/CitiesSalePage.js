@@ -13,6 +13,14 @@ import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class CitiesSale extends React.Component {
 
+    static childContextTypes:{
+        location: React.PropTypes.object
+        };
+
+    getChildContext() {
+        return {location: this.props.location}
+    }
+
     render() {
         var isoVars = isomorphicVars();
         console.log(this.context);
@@ -23,14 +31,15 @@ class CitiesSale extends React.Component {
                 <ul >
                     {this.props.Viewer.Cities.edges.map((city, index)=>
                         <li key={city.node.name}>
-                            <SvLink url={city.node.name} location={this.props.location.pathname}/>
+                            <SvLink url={city.node.name} />
 
                         </li>
                     )}
                 </ul>
                 <hr/>
                 <SvLink url="hoffman estates">
-                    <img style={{width:200}} src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Skokie,_Illinois.jpg"/>
+                    <img style={{width:200}}
+                         src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Skokie,_Illinois.jpg"/>
                 </SvLink>
             </div>
         );
