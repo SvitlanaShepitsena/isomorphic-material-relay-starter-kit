@@ -1,9 +1,10 @@
-import AppLayout from './components/Layout/AppLayout.jsx';
+import AppLayout from './containers/layout/AppLayout.jsx';
 import ViewerQueries from './queries/ViewerQueries';
 
-import HomePage from './components/HouseSale/HomePage.jsx';
-import CitiesSale from './components/CitiesSale/CitiesSale.js';
-import CitiesRent from './components/CitiesRent/CitiesRent.js';
+import HomePage from './containers/pages/HomePage.jsx';
+import AboutPage from './containers/pages/AboutPage';
+import CitiesSalePage from './containers/pages/CitiesSalePage';
+import CitiesRentPage from './containers/pages/CitiesRentPage';
 
 export default [
     {
@@ -19,14 +20,21 @@ export default [
             {
                 path: 'houses-for-sale',
                 indexRoute: {
-                    component: CitiesSale,
+                    component: CitiesSalePage,
                     queries: ViewerQueries,
                 },
             },
             {
                 path: 'houses-for-rent',
                 indexRoute: {
-                    component: CitiesRent,
+                    component: CitiesRentPage,
+                    queries: ViewerQueries,
+                },
+            },
+            {
+                path: 'about',
+                indexRoute: {
+                    component: AboutPage,
                     queries: ViewerQueries,
                 },
             }

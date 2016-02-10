@@ -4,7 +4,7 @@ import Relay from 'react-relay';
 import Card from '../../../node_modules/material-ui/lib/card/card';
 import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
 import CardText from '../../../node_modules/material-ui/lib/card/card-text';
-import House_List from './House_List.jsx';
+import House_List from './../../components/HouseSale/House_List.jsx';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 import Helmet from "react-helmet";
 

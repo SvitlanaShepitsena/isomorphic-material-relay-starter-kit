@@ -1,23 +1,21 @@
 import React from 'react';
 import Relay from 'react-relay';
+import {Link} from 'react-router';
 
 import AppCanvas from 'material-ui/lib/app-canvas';
 import AppBar from 'material-ui/lib/app-bar';
 import LeftNav from 'material-ui/lib/left-nav';
-
 import IconButton from 'material-ui/lib/icon-button';
-
-import IconMenu from 'material-ui/lib/menus/icon-menu';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 
-import AppNav_Top from '../AppBar/AppNav_Top.jsx';
-import {Link} from 'react-router';
-import AppBar_Auth from '../AppBar/AppBar_Auth.jsx'
+/*Components*/
+import AppNav_Top from './AppNav_Top.jsx';
+import AppBar_Auth from './AppBar_Auth.jsx'
 
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import MyRawTheme from '../Shared/AppMuiTheme.js';
+import MyRawTheme from '../../components/shared/AppMuiTheme.js';
 
 class AppLayout extends React.Component {
 
@@ -64,7 +62,7 @@ class AppLayout extends React.Component {
                         <Link to="houses-for-rent">Houses fo Rent</Link>
                     </MenuItem>
                     <MenuItem onTouchTap={this.handleClose}>
-                        <Link to="houses-for-rent">Houses fo Rent</Link>
+                        <Link to="about">About Us</Link>
                     </MenuItem>
                 </LeftNav>
                 <AppBar className="AppBar_Container"
