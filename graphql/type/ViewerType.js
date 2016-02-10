@@ -2,7 +2,7 @@ import {globalIdField} from "graphql-relay";
 import {GraphQLBoolean, GraphQLInt, GraphQLString, GraphQLObjectType} from "graphql";
 import {connectionArgs, connectionFromArray} from "graphql-relay";
 
-import {House_list_get_city} from '../../data/da/House';
+import {House_list_get} from '../../data/da/House';
 import {City_list_get} from '../../data/da/City';
 import NodeInterface from "../interface/NodeInterface";
 import HousesConnection from './HousesConnection';
@@ -34,7 +34,7 @@ export default new GraphQLObjectType({
         Houses: {
             type: HousesConnection.connectionType,
             args: {...connectionArgs},
-            resolve: (obj, {...args}, {rootValue: {user_id}}) => House_list_get_city(user_id).then((arr_House) => connectionFromArray(arr_House, args))
+            resolve: (obj, {...args}, {rootValue: {user_id}}) => House_list_get(user_id).then((arr_House) => connectionFromArray(arr_House, args))
         },
 
         // <-<-<- Houses

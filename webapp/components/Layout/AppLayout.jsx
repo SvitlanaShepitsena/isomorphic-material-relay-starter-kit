@@ -12,7 +12,6 @@ import IconNotificationsEventAvailable from 'material-ui/lib/svg-icons/notificat
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import ToolBar from 'material-ui/lib/toolbar/toolbar';
 import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group';
-import ToolbarSeparator from 'material-ui/lib/toolbar/toolbar-separator';
 import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
 
 import IconMenu from 'material-ui/lib/menus/icon-menu';
@@ -67,7 +66,12 @@ class AppLayout extends React.Component {
                     </MenuItem>
                 </LeftNav>
                 <AppBar className="AppBar_Container"
-                        onLeftIconButtonTouchTap={this.handleToggle} title="Re/max">
+                        onLeftIconButtonTouchTap={this.handleToggle}
+                        title={<Link className="AppBar__title"  to="/">
+                        <ul className="AppBar__title-ul">
+                        <li> <img className="AppBar__logo-img" src="http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png" alt="Re/Max 1st Class Realty Logo" /> </li>
+                        <li className="AppBar__title-li-text"> Re/Max 1st Class Realty </li> </ul>
+                        </Link>}>
                     <ToolbarGroup className="AppNav_Top">
                         <AppNav_Top></AppNav_Top>
                     </ToolbarGroup>

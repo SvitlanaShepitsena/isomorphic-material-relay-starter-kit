@@ -26,7 +26,7 @@ insert into "User"( id, "username", "password", "User_DisplayName", "User_Profil
 values( 33171548-39d3-45d8-ab5c-5eedefe01dfc, 'jill', 'birthday', 'Jill McBear', '/profile_photos/jill.jpg', 'jill@example.com', '' );
 
 
-CREATE TABLE house (
+CREATE TABLE houses (
   id uuid,
   mls text,
   beds text,
@@ -40,11 +40,11 @@ CREATE TABLE house (
   price bigint,
   PRIMARY KEY (id,mls));
 
-CREATE INDEX  house_city ON house( city);
-CREATE INDEX  house_zip ON house( zip);
-CREATE INDEX  house_typ ON house( type);
+CREATE INDEX  house_city ON houses( city);
+CREATE INDEX  house_zip ON houses( zip);
+CREATE INDEX  house_typ ON houses( type);
 
-CREATE TABLE city (
+CREATE TABLE cities (
   id uuid,
   name text,
   PRIMARY KEY (name));

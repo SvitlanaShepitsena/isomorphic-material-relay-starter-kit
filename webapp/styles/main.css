@@ -6,6 +6,55 @@ a {
 
 .AppBar_Container {
     max-height: 64px;
+    padding: 0px 8px !important;
+}
+
+.AppBar__title-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.AppBar__title-ul li {
+    display: inline-block;
+}
+
+.AppBar__title-li-text {
+    padding-left: 5px;
+    vertical-align: top;
+    font-size: 20px;
+    color: white;
+}
+
+.AppBar__logo-img {
+    padding: 8px;
+    width: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    .AppBar__logo-img {
+        padding-left: 0 !important;
+    }
+
+    .AppBar_Container {
+        padding: 0 18px !important;
+    }
+
+    .AppBar__title-li-text {
+        display: none !important;
+        margin-left: 16px;
+    }
+
+}
+
+.AppBar__title-li-logo {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.AppBar__title-li-logo img {
+    width: 50px;
+    display: block;
 }
 
 .AppLayout__content {
@@ -29,6 +78,10 @@ a {
 @media screen and (max-width: 580px) {
     .AppNav_Top {
         display: none;
+    }
+
+    .AppBar_Container button {
+        margin-right: 0 !important;
     }
 }
 
