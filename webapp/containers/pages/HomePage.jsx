@@ -11,8 +11,6 @@ import Helmet from "react-helmet";
 class HomePage extends React.Component {
     render() {
         var isoVars = isomorphicVars();
-        console.log(isoVars);
-        console.log(this.props.Viewer);
 
         var appType = "website";
         var appUrl = "http://www.remax1stclass.com/";
@@ -36,7 +34,6 @@ class HomePage extends React.Component {
                 ]}
                 />
                 {this.props.Viewer.Houses.edges.map((edge, index) => {
-                    console.log(edge);
                     return (
                         <div key={index}>
                             <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>

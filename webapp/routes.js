@@ -28,7 +28,7 @@ export default [
                     {
                         path: ":city",
                         indexRoute: {
-                            component: CitiesSalePage,
+                            component: ZipTypePage,
                             queries: ViewerQueries,
                         },
                     }

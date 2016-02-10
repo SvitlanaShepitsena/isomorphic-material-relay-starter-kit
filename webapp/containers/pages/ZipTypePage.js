@@ -7,7 +7,6 @@ import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
 import CardText from '../../../node_modules/material-ui/lib/card/card-text';
 import House_List from './../../components/HouseSale/House_List.jsx';
 
-import SvLink from '../../components/Shared/SvLink';
 
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
@@ -19,25 +18,13 @@ class ZipTypePage extends React.Component {
         console.log(this.props);
         return (
             <div>
-                Houses for SALE
-                <ul >
-                    {this.props.Viewer.Cities.edges.map((city, index)=>
-                        <li key={city.node.name}>
-                            <SvLink url={city.node.name} location={this.props.location.pathname}/>
+                Houses for SALE in {this.props.city}
 
-                        </li>
-                    )}
-                </ul>
-                <hr/>
-                <SvLink url="hoffman estates">
-                    <img style={{width:200}} src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Skokie,_Illinois.jpg"/>
-                </SvLink>
             </div>
         );
     }
 }
 ;
-
 export default Relay.createContainer(ZipTypePage, {
     fragments: {
         Viewer: () => Relay.QL`

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import {Link} from 'react-router';
 
@@ -13,25 +13,23 @@ import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class CitiesSale extends React.Component {
 
-    static childContextTypes:{
-        location: React.PropTypes.object
-        };
-
     getChildContext() {
-        return {location: this.props.location}
-    }
+       return {location:this.props.location};
+    };
+
+    static childContextTypes = {
+        location: PropTypes.object.isRequired
+    };
 
     render() {
         var isoVars = isomorphicVars();
-        console.log(this.context);
-        console.log(this.props);
         return (
             <div>
                 Houses for SALE
                 <ul >
                     {this.props.Viewer.Cities.edges.map((city, index)=>
                         <li key={city.node.name}>
-                            <SvLink url={city.node.name} />
+                            <SvLink url={city.node.name}/>
 
                         </li>
                     )}
