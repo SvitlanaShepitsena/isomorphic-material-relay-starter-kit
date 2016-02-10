@@ -5,8 +5,8 @@ import {connectionArgs, connectionFromArray} from "graphql-relay";
 import {House_list_get} from '../../data/da/House';
 import {City_list_get} from '../../data/da/City';
 import NodeInterface from "../interface/NodeInterface";
-import HousesConnection from './HousesConnection';
-import CitiesConnection from './CitiesConnection';
+import HousesConnection from './HouseConnection';
+import CitiesConnection from './CityConnection';
 import User from '../../data/model/User';
 import {Uuid} from '../../data/da_cassandra/_client.js';
 
