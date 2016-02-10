@@ -11,7 +11,7 @@ import SvLink from '../../components/Shared/SvLink';
 
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
-class CitiesSale extends React.Component {
+class ZipTypePage extends React.Component {
 
     render() {
         var isoVars = isomorphicVars();
@@ -38,7 +38,7 @@ class CitiesSale extends React.Component {
 }
 ;
 
-export default Relay.createContainer(CitiesSale, {
+export default Relay.createContainer(ZipTypePage, {
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
