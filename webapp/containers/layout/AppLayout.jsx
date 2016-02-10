@@ -1,31 +1,31 @@
 import React from 'react';
 import Relay from 'react-relay';
+import {Link} from 'react-router';
 
 import AppCanvas from 'material-ui/lib/app-canvas';
 import AppBar from 'material-ui/lib/app-bar';
 import LeftNav from 'material-ui/lib/left-nav';
-import Colors from 'material-ui/lib/styles/colors';
-import Badge from 'material-ui/lib/badge';
-import LightRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme';
 import IconButton from 'material-ui/lib/icon-button';
-import IconNotificationsEventAvailable from 'material-ui/lib/svg-icons/notification/event-available';
-import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import ToolBar from 'material-ui/lib/toolbar/toolbar';
-import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group';
-import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
-
-import IconMenu from 'material-ui/lib/menus/icon-menu';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
-import AppNav_Top from '../AppBar/AppNav_Top.jsx';
 
-import {Link} from 'react-router';
+/*Components*/
+import AppNav_Top from './AppNav_Top.jsx';
+import AppBar_Auth from './AppBar_Auth.jsx'
 
-import AppBar_Auth from '../AppBar/AppBar_Auth.jsx'
+/*App Color Theme*/
+import ThemeManager from 'material-ui/lib/styles/theme-manager';
+import MyRawTheme from '../../components/shared/AppMuiTheme.js';
 
 class AppLayout extends React.Component {
+
+    getChildContext() {
+        return {
+            muiTheme: ThemeManager.getMuiTheme(MyRawTheme),
+        };
+    }
+
     state = {
-        muiTheme: ThemeManager.getMuiTheme(LightRawTheme),
         open: false
     };
 
@@ -36,9 +36,9 @@ class AppLayout extends React.Component {
         return (
             <AppCanvas>
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
-                    <AppBar
-                        showMenuIconButton={false}
-                        iconElementLeft={
+                    <AppBar primary={true}
+                            showMenuIconButton={false}
+                            iconElementLeft={
                         <Link to="/" onTouchTap={this.handleClose}>
                             <img
                                 style={{padding:8,width:50}}
@@ -47,12 +47,12 @@ class AppLayout extends React.Component {
                             />
                         </Link>
                         }
-                        iconElementRight={
+                            iconElementRight={
                         <IconButton style={{color:"red",display:"block",float:"right"}}
                                     onTouchTap={this.handleClose}><NavigationClose
                         /></IconButton>
                         }
-                        className="LeftNav__Header">
+                            className="LeftNav__Header">
                     </AppBar>
 
                     <MenuItem onTouchTap={this.handleClose}>
@@ -62,7 +62,7 @@ class AppLayout extends React.Component {
                         <Link to="houses-for-rent">Houses fo Rent</Link>
                     </MenuItem>
                     <MenuItem onTouchTap={this.handleClose}>
-                        <Link to="houses-for-rent">Houses fo Rent</Link>
+                        <Link to="about">About Us</Link>
                     </MenuItem>
                 </LeftNav>
                 <AppBar className="AppBar_Container"
@@ -72,9 +72,9 @@ class AppLayout extends React.Component {
                         <li> <img className="AppBar__logo-img" src="http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png" alt="Re/Max 1st Class Realty Logo" /> </li>
                         <li className="AppBar__title-li-text"> Re/Max 1st Class Realty </li> </ul>
                         </Link>}>
-                    <ToolbarGroup className="AppNav_Top">
+                    <div className="AppNav_Top">
                         <AppNav_Top></AppNav_Top>
-                    </ToolbarGroup>
+                    </div>
                 </AppBar>
 
                 <div className="AppLayout__content">
@@ -88,6 +88,9 @@ class AppLayout extends React.Component {
 
 AppLayout.contextTypes = {
     router: React.PropTypes.object.isRequired,
+};
+
+AppLayout.childContextTypes = {
     muiTheme: React.PropTypes.object,
 };
 

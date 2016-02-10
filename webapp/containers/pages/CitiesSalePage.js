@@ -1,10 +1,10 @@
 import React from 'react';
 import Relay from 'react-relay';
 
-import Card from 'material-ui/lib/card/card';
-import CardHeader from 'material-ui/lib/card/card-header';
-import CardText from 'material-ui/lib/card/card-text';
-import House_List from './../HouseSale/House_List.jsx';
+import Card from '../../../node_modules/material-ui/lib/card/card';
+import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
+import CardText from '../../../node_modules/material-ui/lib/card/card-text';
+import House_List from './../../components/HouseSale/House_List.jsx';
 
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
