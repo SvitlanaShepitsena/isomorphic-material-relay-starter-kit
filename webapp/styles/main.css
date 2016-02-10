@@ -1,12 +1,29 @@
 /* Insert any additional CSS you need here */
+body {
+    font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
+}
+
 a {
     color: #393939;
     text-decoration: none;
 }
 
+/*Common styles*/
+.list-unstyled {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-unstyled li {
+    padding: 0;
+}
+
+/**/
+
 .AppBar_Container {
     max-height: 64px;
-    padding: 0px 8px !important;
+    padding: 0 8px !important;
 }
 
 .AppBar__title-ul {
@@ -60,7 +77,6 @@ a {
 .AppLayout__content {
     padding: 72px 8px 8px 8px;
     max-width: 1200px;
-    margin: 0px auto;
 }
 
 .MenuItem__Link {
@@ -91,3 +107,29 @@ a {
         display: none !important;
     }
 }
+
+/*=Desktop Footer*/
+
+.Footer__address span {
+    display: block;
+    text-decoration: none;
+    transition: .4s;
+    font-weight: 300;
+}
+
+/*Mobile Footer*/
+@media screen and (max-width: 579px) {
+    .Footer__section-header {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        font-size: 18px;
+    }
+
+    .Footer__address span {
+        height: auto;
+        padding-bottom: 12px;
+        font-size: 20px;
+        display: block;
+    }
+}
+

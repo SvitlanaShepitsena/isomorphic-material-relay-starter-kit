@@ -12,6 +12,7 @@ import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 /*Components*/
 import AppNav_Top from './AppNav_Top.jsx';
 import AppBar_Auth from './AppBar_Auth.jsx'
+import Footer from './AppFooterSmart.jsx';
 
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
@@ -34,7 +35,7 @@ class AppLayout extends React.Component {
 
     render() {
         return (
-            <AppCanvas>
+            <AppCanvas style={{height:"100%"}}>
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
                     <AppBar primary={true}
                             showMenuIconButton={false}
@@ -80,7 +81,7 @@ class AppLayout extends React.Component {
                 <div className="AppLayout__content">
                     {this.props.children}
                 </div>
-
+                <Footer></Footer>
             </AppCanvas>
         );
     }
