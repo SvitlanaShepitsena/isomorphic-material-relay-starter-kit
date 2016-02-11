@@ -35,7 +35,7 @@ class AppLayout extends React.Component {
 
     render() {
         return (
-            <AppCanvas style={{height:"100%"}}>
+            <AppCanvas style={{position:"relative",height:"100%"}} className="AppLayout">
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
                     <AppBar primary={true}
                             showMenuIconButton={false}

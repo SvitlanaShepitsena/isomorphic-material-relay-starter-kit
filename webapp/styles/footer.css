@@ -1,5 +1,13 @@
 /*=Desktop Footer*/
 
+.Footer {
+    min-height: 142px;
+}
+
+.Footer__section {
+    padding: 8px;
+}
+
 .Footer__address span {
     display: block;
     text-decoration: none;

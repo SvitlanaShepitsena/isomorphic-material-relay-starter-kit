@@ -18,7 +18,7 @@ export default class FooterContent extends React.Component {
             <footer className="Footer" style={footerStyle}>
                 <div className="container">
                     <div className="row">
-                        <div className="three columns">
+                        <div className="three columns Footer__section">
                             <h3 className="Footer__section-header" style={footerMenuHeader}>Re/Max 1st Class</h3>
                             <ul className="Footer__address list-unstyled">
                                 <li>
