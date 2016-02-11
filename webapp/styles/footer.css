@@ -8,9 +8,6 @@
 
 .Footer__section {
     padding: 8px;
-}
-
-.Footer__address span {
     display: block;
     text-decoration: none;
     transition: .4s;
@@ -37,7 +34,7 @@
         font-size: 18px;
     }
 
-    .Footer__address span {
+    .Footer__section ul > li {
         height: auto;
         padding-bottom: 12px;
         font-size: 20px;
