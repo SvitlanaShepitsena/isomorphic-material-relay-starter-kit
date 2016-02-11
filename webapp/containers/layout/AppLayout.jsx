@@ -16,7 +16,7 @@ import Footer from './AppFooterSmart.jsx';
 
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import MyRawTheme from '../../components/shared/AppMuiTheme.js';
+import MyRawTheme from '../../settings/AppMuiTheme.js';
 
 class AppLayout extends React.Component {
 

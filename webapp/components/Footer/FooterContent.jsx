@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
-import theme from '../../components/shared/AppMuiTheme.js';
+import theme from '../../settings/AppMuiTheme.js';
+import settings from '../../settings/settings.js';
 
 export default class FooterContent extends React.Component {
 
@@ -37,6 +38,23 @@ export default class FooterContent extends React.Component {
                                     <span>
                                         Fax: (847) 674-0411
                                     </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="three columns Footer__section">
+                            <h3 className="Footer__section-header" style={footerMenuHeader}>Keep in touch</h3>
+                            <ul className="Footer__address list-unstyled">
+                                <li>
+                                    <a href={settings.links.facebook}>Facebook</a>
+                                </li>
+                                <li>
+                                    <a href={settings.links.google}>Google Plus</a>
+                                </li>
+                                <li>
+                                    <a href={settings.links.twitter}>Twitter</a>
+                                </li>
+                                <li>
+                                    <a href={settings.links.linkedin}>LinkedIn</a>
                                 </li>
                             </ul>
                         </div>
