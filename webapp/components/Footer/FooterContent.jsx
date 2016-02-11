@@ -21,7 +21,7 @@ export default class FooterContent extends React.Component {
                     <div className="row">
                         <div className="four columns Footer__section">
                             <h3 className="Footer__section-header" style={footerMenuHeader}>{settings.companyName}</h3>
-                            <ul className="Footer__address list-unstyled">
+                            <ul className="list-unstyled">
                                 <li>
                                     <span>{settings.companyAddress}</span>
                                 </li>
