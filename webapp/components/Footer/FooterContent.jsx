@@ -20,23 +20,23 @@ export default class FooterContent extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="four columns Footer__section">
-                            <h3 className="Footer__section-header" style={footerMenuHeader}>Re/Max 1st Class</h3>
+                            <h3 className="Footer__section-header" style={footerMenuHeader}>{settings.companyName}</h3>
                             <ul className="Footer__address list-unstyled">
                                 <li>
-                                    <span >4023 W. Church St.</span>
+                                    <span>{settings.companyAddress}</span>
                                 </li>
                                 <li>
-                                    <span>Skokie IL, 60076</span>
+                                    <span>{settings.companyCity + " " + settings.companyState + ", " + settings.companyZip}</span>
                                 </li>
 
                                 <li>
                                     <span>
-                                        Phone: (847) 674-9797
+                                        {"Phone: " + settings.companyPhone}
                                     </span>
                                 </li>
                                 <li>
                                     <span>
-                                        Fax: (847) 674-0411
+                                        {"Fax: " + settings.companyFax}
                                     </span>
                                 </li>
                             </ul>
@@ -66,10 +66,10 @@ export default class FooterContent extends React.Component {
                                     <Link to="/about">About Us</Link>
                                 </li>
                                 <li>
-                                    <Link to="">Terms of use</Link>
+                                    <Link to="/terms">Terms of use</Link>
                                 </li>
                                 <li>
-                                    <Link to="">Privacy Policy</Link>
+                                    <Link to="/privacy">Privacy Policy</Link>
                                 </li>
                             </ul>
                         </div>

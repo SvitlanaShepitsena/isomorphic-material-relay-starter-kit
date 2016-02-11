@@ -2,12 +2,8 @@ import React from 'react';
 import Relay from 'react-relay';
 
 export default class About extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
-        // Determine error text, since we already have the errors in state
         return (
             <div className="AboutContent">
                 <h1>Why Re/Max 1st Class Realty is worth to work with: </h1>

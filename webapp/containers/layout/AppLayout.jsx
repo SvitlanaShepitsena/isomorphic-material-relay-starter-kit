@@ -1,6 +1,7 @@
 import React from 'react';
 import Relay from 'react-relay';
 import {Link} from 'react-router';
+import settings from '../../settings/settings.js';
 
 import AppCanvas from 'material-ui/lib/app-canvas';
 import AppBar from 'material-ui/lib/app-bar';
@@ -44,7 +45,7 @@ class AppLayout extends React.Component {
                             <img
                                 style={{padding:8,width:50}}
                                 src="http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png"
-                                alt="Re/Max 1st Class Realty Logo"
+                                alt={settings.companyName + " Logo"}
                             />
                         </Link>
                         }
@@ -70,8 +71,8 @@ class AppLayout extends React.Component {
                         onLeftIconButtonTouchTap={this.handleToggle}
                         title={<Link className="AppBar__title"  to="/">
                         <ul className="AppBar__title-ul">
-                        <li> <img className="AppBar__logo-img" src="http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png" alt="Re/Max 1st Class Realty Logo" /> </li>
-                        <li className="AppBar__title-li-text"> Re/Max 1st Class Realty </li> </ul>
+                        <li> <img className="AppBar__logo-img" src="http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png" alt={settings.companyName + " Logo"} /> </li>
+                        <li className="AppBar__title-li-text"> {settings.companyName} </li> </ul>
                         </Link>}>
                     <div className="AppNav_Top">
                         <AppNav_Top></AppNav_Top>

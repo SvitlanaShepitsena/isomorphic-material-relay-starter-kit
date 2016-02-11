@@ -1,6 +1,13 @@
 import React from 'react'
 
 export default {
+    companyName: "Re/Max 1st Class",
+    companyAddress: "4023 W. Church St.",
+    companyCity: "Skokie",
+    companyState: "IL",
+    companyZip: "60076",
+    companyPhone: "(847) 674-9797",
+    companyFax: "(847) 674-0411",
     links: {
         twitter: "https://twitter.com/remaxfirstclass",
         facebook: "https://www.facebook.com/ReMax-1st-Class-Realty-177448822432081",
