@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 class SvLink extends React.Component {
     static propTypes = {url: PropTypes.string.isRequired};
+
     static contextTypes = {location: PropTypes.object.isRequired};
 
     render() {
