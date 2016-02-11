@@ -9,9 +9,6 @@ export default class FooterContent extends React.Component {
             backgroundColor: theme.palette.footerColor,
             color: theme.palette.footerText,
         };
-        var footerMenu = {
-            padding: "12px"
-        };
         var footerMenuHeader = {
             fontWeight: 500,
             color: theme.palette.footerHeaderText,
@@ -19,9 +16,9 @@ export default class FooterContent extends React.Component {
         };
         return (
             <footer className="Footer" style={footerStyle}>
-                <ul className="list-unstyled">
-                    <li className="Footer__section">
-                        <div style={footerMenu} >
+                <div className="container">
+                    <div className="row">
+                        <div className="three columns">
                             <h3 className="Footer__section-header" style={footerMenuHeader}>Re/Max 1st Class</h3>
                             <ul className="Footer__address list-unstyled">
                                 <li>
@@ -43,11 +40,9 @@ export default class FooterContent extends React.Component {
                                 </li>
                             </ul>
                         </div>
-                    </li>
-                    <li className="Footer__section"></li>
-                    <li className="Footer__section"></li>
+                    </div>
+                </div>
 
-                </ul>
             </footer>
         );
     }
