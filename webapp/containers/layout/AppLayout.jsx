@@ -35,7 +35,7 @@ class AppLayout extends React.Component {
 
     render() {
         return (
-            <AppCanvas style={{height:"100%"}}>
+            <AppCanvas style={{position:"relative",height:"100%"}} className="AppLayout">
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
                     <AppBar primary={true}
                             showMenuIconButton={false}
@@ -78,8 +78,17 @@ class AppLayout extends React.Component {
                     </div>
                 </AppBar>
 
-                <div className="AppLayout__content">
-                    {this.props.children}
+                <div className="AppLayout__content container">
+
+                    <div className="row">
+                        <div className="eight columns">
+                            {this.props.children}
+                        </div>
+                        <div className="four columns">
+                            Sidenav
+                        </div>
+
+                    </div>
                 </div>
                 <Footer></Footer>
             </AppCanvas>

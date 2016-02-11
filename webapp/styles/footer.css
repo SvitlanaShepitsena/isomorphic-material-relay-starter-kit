@@ -1,0 +1,33 @@
+/*=Desktop Footer*/
+
+.Footer {
+    min-height: 142px;
+}
+
+.Footer__section {
+    padding: 8px;
+}
+
+.Footer__address span {
+    display: block;
+    text-decoration: none;
+    transition: .4s;
+    font-weight: 300;
+}
+
+/*Mobile Footer*/
+@media screen and (max-width: 579px) {
+    .Footer__section-header {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        font-size: 18px;
+    }
+
+    .Footer__address span {
+        height: auto;
+        padding-bottom: 12px;
+        font-size: 20px;
+        display: block;
+    }
+}
+
