@@ -35,7 +35,7 @@ class HomePage extends React.Component {
                 />
                 {this.props.Viewer.Houses.edges.map((edge, index) => {
                     return (
-                        <div key={index}>
+                        <div key={index} >
                             <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
                             {edge.node.street}
                             {edge.node.price}
