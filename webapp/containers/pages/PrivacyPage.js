@@ -1,19 +1,18 @@
 import React from 'react';
 import Relay from 'react-relay';
-import AboutContent from '../../components/About/AboutContent.jsx';
-
-class AboutPage extends React.Component {
+import PrivacyContent from '../../components/Privacy/PrivacyContent.jsx';
+class PrivacyPage extends React.Component {
     render() {
         return (
             <div>
-                <AboutContent/>
+                <PrivacyContent/>
             </div>
         );
     }
 }
 ;
 
-export default Relay.createContainer(AboutPage, {
+export default Relay.createContainer(PrivacyPage, {
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {

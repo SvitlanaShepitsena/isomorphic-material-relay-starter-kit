@@ -2,16 +2,27 @@
 
 .Footer {
     min-height: 142px;
+    padding-bottom: 8px;
+    font-size: 14px;
 }
 
 .Footer__section {
     padding: 8px;
-}
-
-.Footer__address span {
     display: block;
     text-decoration: none;
     transition: .4s;
+    font-weight: 300;
+}
+
+.Footer__section ul > li {
+    line-height: 24px;
+}
+
+.Footer__section ul > li > a {
+    display: block;
+    text-decoration: none;
+    transition: .4s;
+    color: #9a9a9a;
     font-weight: 300;
 }
 
@@ -23,7 +34,7 @@
         font-size: 18px;
     }
 
-    .Footer__address span {
+    .Footer__section ul > li {
         height: auto;
         padding-bottom: 12px;
         font-size: 20px;

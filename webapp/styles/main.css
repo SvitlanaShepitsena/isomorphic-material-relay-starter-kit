@@ -1,18 +1,10 @@
 @import "skeleton.css";
+@import 'typography.css';
 @import "AppLayout.css";
 @import "Footer.css";
+
 /* Insert any additional CSS you need here */
 
-body {
-    font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
-}
-
-a {
-    color: #393939;
-    text-decoration: none;
-}
-
-/*Common styles*/
 .list-unstyled {
     margin: 0;
     padding: 0;

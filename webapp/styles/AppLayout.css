@@ -22,6 +22,12 @@ a {
     padding: 72px 8px 8px 8px;
 }
 
+.AppLayout__content p {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 300;
+}
+
 @media screen and (min-width: 960px) {
     .AppLayout__content {
         min-height: 650px;
@@ -31,6 +37,12 @@ a {
 @media screen and (min-width: 1400px) {
     .AppLayout__content {
         min-height: 750px;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .AppLayout__content {
+        min-height: 850px;
     }
 }
 
@@ -72,14 +84,12 @@ a {
     display: block;
 }
 
-
 /*Left Nav (Drawer)*/
 .LeftNav__Header {
     display: block;
     height: 64px;
     background: #EEEEEE;
 }
-
 
 .LeftNav__Header {
     display: block;

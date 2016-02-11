@@ -1,19 +1,19 @@
 import React from 'react';
 import Relay from 'react-relay';
-import AboutContent from '../../components/About/AboutContent.jsx';
+import TermsContent from '../../components/Terms/TermsContent.jsx';
 
-class AboutPage extends React.Component {
+class TermsPage extends React.Component {
     render() {
         return (
             <div>
-                <AboutContent/>
+                <TermsContent/>
             </div>
         );
     }
 }
 ;
 
-export default Relay.createContainer(AboutPage, {
+export default Relay.createContainer(TermsPage, {
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
