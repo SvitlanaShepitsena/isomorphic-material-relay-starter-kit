@@ -13,7 +13,10 @@ export default class FooterContent extends React.Component {
         var footerMenuHeader = {
             fontWeight: 500,
             color: theme.palette.footerHeaderText,
-            textTransform: 'uppercase'
+            textTransform: 'uppercase',
+            margin: 0,
+            fontSize: 15
+
         };
         return (
             <footer className="Footer" style={footerStyle}>
