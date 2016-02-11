@@ -12,6 +12,18 @@ a {
     text-decoration: none;
 }
 
+h1 {
+    padding-top: 24px;
+    margin: 0px !important;
+    font-size: 34px;
+    font-weight: normal;
+    line-height: 46px;
+}
+
+hr {
+    margin: 24px 0;
+}
+
 /*Common styles*/
 .list-unstyled {
     margin: 0;

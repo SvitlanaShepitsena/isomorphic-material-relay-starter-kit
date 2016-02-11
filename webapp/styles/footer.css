@@ -17,6 +17,10 @@
     font-weight: 300;
 }
 
+.Footer__section ul > li {
+    line-height: 24px;
+}
+
 .Footer__section ul > li > a {
     display: block;
     text-decoration: none;

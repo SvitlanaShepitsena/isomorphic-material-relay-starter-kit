@@ -19,7 +19,7 @@ export default class FooterContent extends React.Component {
             <footer className="Footer" style={footerStyle}>
                 <div className="container">
                     <div className="row">
-                        <div className="three columns Footer__section">
+                        <div className="four columns Footer__section">
                             <h3 className="Footer__section-header" style={footerMenuHeader}>Re/Max 1st Class</h3>
                             <ul className="Footer__address list-unstyled">
                                 <li>
@@ -41,7 +41,7 @@ export default class FooterContent extends React.Component {
                                 </li>
                             </ul>
                         </div>
-                        <div className="three columns Footer__section">
+                        <div className="four columns Footer__section">
                             <h3 className="Footer__section-header" style={footerMenuHeader}>Keep in touch</h3>
                             <ul className="Footer__address list-unstyled">
                                 <li>
@@ -55,6 +55,21 @@ export default class FooterContent extends React.Component {
                                 </li>
                                 <li>
                                     <a href={settings.links.linkedin}>LinkedIn</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="four columns Footer__section">
+                            <h3 className="Footer__section-header" style={footerMenuHeader}>Do you like our
+                                company?</h3>
+                            <ul className="Footer__address list-unstyled">
+                                <li>
+                                    <Link to="/about">About Us</Link>
+                                </li>
+                                <li>
+                                    <Link to="">Terms of use</Link>
+                                </li>
+                                <li>
+                                    <Link to="">Privacy Policy</Link>
                                 </li>
                             </ul>
                         </div>
