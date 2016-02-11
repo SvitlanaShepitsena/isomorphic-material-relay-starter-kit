@@ -13,6 +13,7 @@ import ZipTypePage from './containers/pages/ZipTypePage';
 export default [
     {
         path: '/',
+        name: 'North Chicago Suburbs Properties',
         component: AppLayout,
         queries: ViewerQueries,
 
@@ -23,6 +24,7 @@ export default [
         childRoutes: [
             {
                 path: 'houses-for-sale',
+                name: 'Houses for Sale',
                 indexRoute: {
                     component: CitiesSalePage,
                     queries: ViewerQueries

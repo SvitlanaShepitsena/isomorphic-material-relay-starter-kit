@@ -9,6 +9,7 @@ import LeftNav from 'material-ui/lib/left-nav';
 import IconButton from 'material-ui/lib/icon-button';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+import ContactForm from '../../components/Contact/ContactForm.jsx';
 
 /*Components*/
 import AppNav_Top from './AppNav_Top.jsx';
@@ -86,7 +87,7 @@ class AppLayout extends React.Component {
                             {this.props.children}
                         </div>
                         <div className="four columns">
-                            Sidenav
+                            <ContactForm/>
                         </div>
 
                     </div>
