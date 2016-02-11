@@ -57,9 +57,36 @@ CREATE TABLE city (
   PRIMARY KEY (name));
 
 CREATE TABLE zip (
-  code text,
-  PRIMARY KEY (code));
+ id uuid,
+  zip text,
+  PRIMARY KEY (zip));
 
 CREATE TABLE type (
+ id uuid,
   type text,
   PRIMARY KEY (type));
+
+  CREATE TABLE city_zip (
+  id uuid,
+  city text,
+  zip text,
+  number counter,
+  PRIMARY KEY (id,city,zip));
+
+
+
+    CREATE TABLE city_type (
+    id uuid,
+    city text,
+    type text,
+    number counter,
+    PRIMARY KEY (id,city,type));
+
+
+CREATE TABLE zip_type (
+    id uuid,
+    zip text,
+    type text,
+    number counter,
+    PRIMARY KEY (id,zip,type));
+

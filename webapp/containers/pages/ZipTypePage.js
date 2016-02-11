@@ -7,7 +7,6 @@ import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
 import CardText from '../../../node_modules/material-ui/lib/card/card-text';
 import House_List from './../../components/HouseSale/House_List.jsx';
 
-
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class ZipTypePage extends React.Component {
@@ -30,7 +29,7 @@ export default Relay.createContainer(ZipTypePage, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        Cities(first: 15) {
+        Cities(first: 100) {
           edges {
             node {
             id,
