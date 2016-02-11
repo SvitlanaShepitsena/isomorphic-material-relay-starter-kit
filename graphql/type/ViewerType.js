@@ -4,9 +4,13 @@ import {connectionArgs, connectionFromArray} from "graphql-relay";
 
 import {House_list_get} from '../../data/da/House';
 import {City_list_get} from '../../data/da/City';
+import {City_zip_list_get} from '../../data/da/CityZip';
+import {City_type_list_get} from '../../data/da/CityType';
 import NodeInterface from "../interface/NodeInterface";
 import HousesConnection from './HouseConnection';
 import CitiesConnection from './CityConnection';
+import CityZipConnection from './CityZipConnection';
+import CityTypeConnection from './CityTypeConnection';
 import User from '../../data/model/User';
 import {Uuid} from '../../data/da_cassandra/_client.js';
 
@@ -44,6 +48,32 @@ export default new GraphQLObjectType({
             type: CitiesConnection.connectionType,
             args: {...connectionArgs},
             resolve: (obj, {...args}, {rootValue: {user_id}}) => City_list_get(user_id).then((arr_City) => connectionFromArray(arr_City, args))
+        },
+        CityZips: {
+            type: CityZipConnection.connectionType,
+            args: {
+                ...connectionArgs,
+                city: {
+                    type: GraphQLString
+                }
+            },
+            resolve: (obj, args, {rootValue: {user_id,city}}) => {
+
+                return City_zip_list_get(user_id,args.city).then((arr_CityZips) => connectionFromArray(arr_CityZips, args))
+            }
+        },
+        CityTypes: {
+            type: CityTypeConnection.connectionType,
+            args: {
+                ...connectionArgs,
+                city: {
+                    type: GraphQLString
+                }
+            },
+            resolve: (obj, args, {rootValue: {user_id,city}}) => {
+
+                return City_type_list_get(user_id,args.city).then((arr_CityTypes) => connectionFromArray(arr_CityTypes, args))
+            }
         },
 
         // <-<-<- Houses

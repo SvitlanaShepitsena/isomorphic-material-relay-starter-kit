@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import OpenBrowserPlugin  from 'extract-text-webpack-plugin';
 
 var version = require('./package.json').version;
 

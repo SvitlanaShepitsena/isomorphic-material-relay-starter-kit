@@ -11,29 +11,61 @@ import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class ZipTypePage extends React.Component {
 
+    componentDidMount() {
+        this.props.relay.setVariables({
+            city: this.props.params.city
+        })
+    }
+
     render() {
         var isoVars = isomorphicVars();
-        console.log(this.context);
-        console.log(this.props);
         return (
             <div>
-                Houses for SALE in {this.props.city}
+                <h3> Houses for SALE in {this.props.params.city} !</h3>
+                <h5> Zip Codes </h5>
+                    {this.props.Viewer.CityZips.edges.map((edge, index) => {
+                        const zip = edge.node;
+                        return (
+                            <div key={index}>
+                                <span>{`${zip.zip} (${zip.number})`}</span>
+                            </div>
+                        )
+                    })}
 
+                <hr/>
+                <h5> Property Types</h5>
+                    {this.props.Viewer.CityTypes.edges.map((edge, index) => {
+                        const type = edge.node;
+                        return (
+                            <div key={index}>
+                                <span>{`${type.type} (${type.number})`}</span>
+                            </div>
+                        )
+                    })}
             </div>
         );
     }
 }
 ;
 export default Relay.createContainer(ZipTypePage, {
+    initialVariables: {city: ''},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        Cities(first: 100) {
+        CityZips(city:$city,first:100) {
           edges {
             node {
-            id,
-              name
+           zip,
+           number
+            },
+          },
+        },
+        CityTypes(city:$city,first:100) {
+          edges {
+            node {
+           type,
+           number
             },
           },
         },
