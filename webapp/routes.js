@@ -2,12 +2,13 @@ import AppLayout from './containers/layout/AppLayout.jsx';
 import ViewerQueries from './queries/ViewerQueries';
 
 import AboutPage from './containers/pages/AboutPage';
-import PrivacyPage from './containers/pages/PrivacyPage';
-import TermsPage from './containers/pages/TermsPage';
 import CitiesSalePage from './containers/pages/CitiesSalePage';
 import CitiesRentPage from './containers/pages/CitiesRentPage';
-import ZipTypePage from './containers/pages/ZipTypePage';
+import ContactPage from './containers/pages/ContactPage';
 import HomePage from './containers/pages/HomePage.jsx';
+import PrivacyPage from './containers/pages/PrivacyPage';
+import TermsPage from './containers/pages/TermsPage';
+import ZipTypePage from './containers/pages/ZipTypePage';
 
 export default [
     {
@@ -61,6 +62,13 @@ export default [
                 path: 'privacy',
                 indexRoute: {
                     component: PrivacyPage,
+                    queries: ViewerQueries
+                },
+            },
+            {
+                path: 'contact',
+                indexRoute: {
+                    component: ContactPage,
                     queries: ViewerQueries
                 },
             }

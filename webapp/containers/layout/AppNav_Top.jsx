@@ -14,14 +14,6 @@ export default class AppNav_Top extends React.Component {
                 <li style={{display:'inline-block'}}>
                     <MenuItem>
                         <Link
-                            style={{color:"#ffffff",textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15}}
-                            to="/">Home
-                        </Link>
-                    </MenuItem>
-                </li>
-                <li style={{display:'inline-block'}}>
-                    <MenuItem>
-                        <Link
                             style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"#ffffff"}}
                             to="houses-for-sale">Houses For Sale
                         </Link>
@@ -32,6 +24,22 @@ export default class AppNav_Top extends React.Component {
                         <Link
                             style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"#ffffff"}}
                             to="houses-for-rent">Houses For Rent
+                        </Link>
+                    </MenuItem>
+                </li>
+                <li style={{display:'inline-block'}}>
+                    <MenuItem>
+                        <Link
+                            style={{color:"#ffffff",textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15}}
+                            to="/about">About
+                        </Link>
+                    </MenuItem>
+                </li>
+                <li style={{display:'inline-block'}}>
+                    <MenuItem>
+                        <Link
+                            style={{color:"#ffffff",textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15}}
+                            to="/contact">Contact
                         </Link>
                     </MenuItem>
                 </li>
