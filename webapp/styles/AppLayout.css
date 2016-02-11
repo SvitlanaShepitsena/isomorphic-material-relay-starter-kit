@@ -33,6 +33,11 @@ a {
         min-height: 750px;
     }
 }
+@media screen and (min-width: 1800px) {
+    .AppLayout__content {
+        min-height: 850px;
+    }
+}
 
 /*AppBar*/
 .AppBar_Container {
