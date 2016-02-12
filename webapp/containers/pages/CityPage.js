@@ -4,14 +4,18 @@ import {Link} from 'react-router';
 import _ from 'lodash';
 
 import Breadcrumbs from 'react-breadcrumbs';
-import Card from 'material-ui/lib/card/card';
-import CardHeader from 'material-ui/lib/card/card-header';
-import CardText from 'material-ui/lib/card/card-text';
 
 /*Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
 import SvLink from '../../components/Shared/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
+
+import Card from 'material-ui/lib/card/card';
+import CardActions from 'material-ui/lib/card/card-actions';
+import CardTitle from 'material-ui/lib/card/card-title';
+import FlatButton from 'material-ui/lib/flat-button';
+import CardText from 'material-ui/lib/card/card-text';
+import Divider from 'material-ui/lib/divider';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -30,6 +34,7 @@ class CityPage extends React.Component {
 
     render() {
         var isoVars = isomorphicVars();
+        var cityName = _.startCase(this.props.params.city);
         return (
 
             <div>
@@ -39,22 +44,28 @@ class CityPage extends React.Component {
                         params={this.props.params}
                     />
                 </div>
-                <h3> {"Houses for Sale in " + _.startCase(this.props.params.city) + "!"}</h3>
-                <h5> Zip Codes </h5>
-                <ul >
-                    {this.props.Viewer.CityZips.edges.map((edge)=> {
-                            const zip = edge.node;
-                            return (
-                                <li key={zip.zip}>
-                                    <SvLink url={zip.zip}>
-                                        {`${zip.zip}(${zip.number})`}
-                                    </SvLink>
+                <h1> {"Houses for Sale in " + _.startCase(this.props.params.city) + "!"}</h1>
+                <hr/>
+                <Card>
+                    <CardTitle title={cityName + " Homes for Sale by Zip"}/>
+                    <Divider />
+                    <CardActions>
 
-                                </li>
-                            )
-                        }
-                    )}
-                </ul>
+                        <ul className="list-unstyled">
+                            {this.props.Viewer.CityZips.edges.map((edge)=> {
+                                    const zip = edge.node;
+                                    return (
+                                        <li style={{display:"inline-block"}} key={zip.zip}>
+                                            <SvLink url={zip.zip}>
+                                                <FlatButton label={`${zip.zip}(${zip.number})`}/>
+                                            </SvLink>
+                                        </li>
+                                    )
+                                }
+                            )}
+                        </ul>
+                    </CardActions>
+                </Card>
 
                 <hr/>
                 <h5> Property Types</h5>
