@@ -89,7 +89,7 @@ p {
 }
 
 a {
-    color: rgb(255, 64, 129);
+    color: rgba(0, 0, 0, 0.67);
     font-weight: 500;
     text-decoration: none;
 }
@@ -140,3 +140,40 @@ ul, ol {
 hr {
     margin: 24px 0;
 }
+
+.textLink a:link {
+    color: rgba(0, 0, 0, 0.67);
+}
+
+/* visited link */
+.textLink a:visited {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+/* mouse over link */
+.textLink a:hover {
+    color: #2196F3;
+}
+
+/* selected link */
+.textLink a:active {
+    color: #2196F3;
+}
+
+.fs-18 {
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-17 {
+    font-size: 17px;
+}
+
