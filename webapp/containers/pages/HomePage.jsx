@@ -7,7 +7,7 @@ import CardText from '../../../node_modules/material-ui/lib/card/card-text';
 import House_List from './../../components/HouseSale/House_List.jsx';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 import Helmet from "react-helmet";
-import HomePageGrid from '../../components/Home/HomePageGrid.jsx';
+import HomePageGrid from '../../components/Home/HomePageMuiGrid.jsx';
 
 class HomePage extends React.Component {
     render() {
