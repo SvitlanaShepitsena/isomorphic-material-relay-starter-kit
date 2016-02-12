@@ -33,15 +33,7 @@ class HomePage extends React.Component {
                     {"property": "og:description", "content": `${homeDescription}`}
                 ]}
                 />
-                {this.props.Viewer.Houses.edges.map((edge, index) => {
-                    return (
-                        <div key={index} >
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
-                            {edge.node.street}
-                            {edge.node.price}
-                        </div>
-                    )
-                })}
+                <h1>Home Page Content</h1>
 
             </div>
         );
@@ -54,14 +46,7 @@ export default Relay.createContainer(HomePage, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        Houses(first: 100) {
-          edges {
-            node {
-              street,
-              price
-            },
-          },
-        },
+
       }
     `,
     },

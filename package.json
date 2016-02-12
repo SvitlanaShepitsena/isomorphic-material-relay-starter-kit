@@ -38,7 +38,7 @@
     "npm": "3.3.6"
   },
   "scripts": {
-    "postinstall": "npm run build-schema&&npm run build-webpack",
+    "postinstall": "npm run schema&&npm run build-webpack",
     "setup-local": "cp ./doc/Example.env ./.env",
     "init": "cqlsh -f ./scripts/cassandra-init.cql",
     "schema": "./node_modules/.bin/babel-node ./scripts/build-schema.js",
