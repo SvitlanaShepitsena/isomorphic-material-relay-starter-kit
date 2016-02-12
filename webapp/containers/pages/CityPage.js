@@ -10,7 +10,7 @@ import House_List from './../../components/HouseSale/House_List.jsx';
 
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
-class ZipTypePage extends React.Component {
+class CityPage extends React.Component {
     getChildContext() {
         return {location:this.props.location};
     };
@@ -73,13 +73,28 @@ class ZipTypePage extends React.Component {
     }
 }
 ;
-export default Relay.createContainer(ZipTypePage, {
-    initialVariables: {city: '',zipType:''},
+export default Relay.createContainer(CityPage, {
+    initialVariables: {city: ''},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-
+        CityZips(city:$city,first:100) {
+          edges {
+            node {
+           zip,
+           number
+            },
+          },
+        },
+        CityTypes(city:$city,first:100) {
+          edges {
+            node {
+           type,
+           number
+            },
+          },
+        },
       }
     `,
     },

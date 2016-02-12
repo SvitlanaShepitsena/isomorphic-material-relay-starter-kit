@@ -8,6 +8,7 @@ import ContactPage from './containers/pages/ContactPage';
 import HomePage from './containers/pages/HomePage.jsx';
 import PrivacyPage from './containers/pages/PrivacyPage';
 import TermsPage from './containers/pages/TermsPage';
+import CityPage from './containers/pages/CityPage';
 import ZipTypePage from './containers/pages/ZipTypePage';
 
 export default [
@@ -33,9 +34,18 @@ export default [
                     {
                         path: ":city",
                         indexRoute: {
-                            component: ZipTypePage,
+                            component: CityPage,
                             queries: ViewerQueries
                         },
+                        childRoutes: [
+                            {
+                                path: ":zipType",
+                                indexRoute: {
+                                    component: ZipTypePage,
+                                    queries: ViewerQueries
+                                },
+                            }
+                        ]
                     }
                 ]
             },
