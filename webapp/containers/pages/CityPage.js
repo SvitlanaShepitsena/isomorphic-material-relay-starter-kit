@@ -9,6 +9,7 @@ import Breadcrumbs from 'react-breadcrumbs';
 import House_List from './../../components/HouseSale/House_List.jsx';
 import SvLink from '../../components/Shared/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
+import MyTheme from '../../settings/AppMuiTheme.js';
 
 import Card from 'material-ui/lib/card/card';
 import CardActions from 'material-ui/lib/card/card-actions';
@@ -16,6 +17,7 @@ import CardTitle from 'material-ui/lib/card/card-title';
 import FlatButton from 'material-ui/lib/flat-button';
 import CardText from 'material-ui/lib/card/card-text';
 import Divider from 'material-ui/lib/divider';
+import Badge from 'material-ui/lib/badge';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -56,9 +58,16 @@ class CityPage extends React.Component {
                                     const zip = edge.node;
                                     return (
                                         <li style={{display:"inline-block"}} key={zip.zip}>
-                                            <SvLink url={zip.zip}>
-                                                <FlatButton label={`${zip.zip}(${zip.number})`}/>
-                                            </SvLink>
+                                            <Badge
+                                                badgeContent={`${zip.number}`}
+                                                badgeStyle={{backgroundColor:"#797979", color:"white", top: 18, right: 18}}
+                                            >
+                                                <SvLink url={zip.zip}>
+                                                    <FlatButton
+                                                        style={{fontSize:18, fontWeight:500}}
+                                                        label={`${zip.zip}`}/>
+                                                </SvLink>
+                                            </Badge>
                                         </li>
                                     )
                                 }
