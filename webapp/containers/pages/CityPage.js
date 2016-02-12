@@ -1,23 +1,27 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import SvLink from '../../components/Shared/SvLink';
 import {Link} from 'react-router';
-import Breadcrumbs from 'react-breadcrumbs';
-import Card from '../../../node_modules/material-ui/lib/card/card';
-import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
-import CardText from '../../../node_modules/material-ui/lib/card/card-text';
-import House_List from './../../components/HouseSale/House_List.jsx';
+import _ from 'lodash';
 
+import Breadcrumbs from 'react-breadcrumbs';
+import Card from 'material-ui/lib/card/card';
+import CardHeader from 'material-ui/lib/card/card-header';
+import CardText from 'material-ui/lib/card/card-text';
+
+/*Components*/
+import House_List from './../../components/HouseSale/House_List.jsx';
+import SvLink from '../../components/Shared/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class CityPage extends React.Component {
     getChildContext() {
-        return {location:this.props.location};
+        return {location: this.props.location};
     };
 
     static childContextTypes = {
         location: PropTypes.object.isRequired
     };
+
     componentDidMount() {
         this.props.relay.setVariables({
             city: this.props.params.city
@@ -35,7 +39,7 @@ class CityPage extends React.Component {
                         params={this.props.params}
                     />
                 </div>
-                <h3> Houses for SALE in {this.props.params.city} !</h3>
+                <h3> {"Houses for Sale in " + _.startCase(this.props.params.city) + "!"}</h3>
                 <h5> Zip Codes </h5>
                 <ul >
                     {this.props.Viewer.CityZips.edges.map((edge)=> {

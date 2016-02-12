@@ -14,7 +14,7 @@ import ZipTypePage from './containers/pages/ZipTypePage';
 export default [
     {
         path: '/',
-        name: 'North Chicago Suburbs Properties',
+        name: 'Home',
         component: AppLayout,
         queries: ViewerQueries,
 
