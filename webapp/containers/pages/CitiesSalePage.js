@@ -49,7 +49,7 @@ class CitiesSale extends React.Component {
                     params={this.props.params}
                 />
                 <h1>
-                    Houses for Sale
+                    North Chicago Suburbs Houses for Sale
                 </h1>
 
                 <hr/>

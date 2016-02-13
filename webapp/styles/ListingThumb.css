@@ -14,11 +14,6 @@
     margin: 0px 8px;
 }
 
-.ListingThumbCard__price {
-    font-size: 18px;
-    font-weight: 600;
-}
-
 .ListingImage__xl {
     width: 220px;
 }
@@ -28,3 +23,17 @@
 
     }
 }
+
+.img-thumb-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-thumb {
+    position: relative;
+    display: block;
+    width: 300px;
+    height: auto;
+    right: 20%;
+}
+

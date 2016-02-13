@@ -12,6 +12,7 @@ import FlatButton from 'material-ui/lib/flat-button';
 import CardText from 'material-ui/lib/card/card-text';
 import Divider from 'material-ui/lib/divider';
 import Badge from 'material-ui/lib/badge';
+import RaisedButton from 'material-ui/lib/raised-button';
 
 /*=Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
@@ -48,9 +49,21 @@ class CityPage extends React.Component {
                 </div>
                 <h1> {"Houses for Sale in " + _.startCase(this.props.params.city)}</h1>
                 <hr/>
-
-                <ListingThumb listingImageClass="ListingImage__xl"/>
+                <div className="row">
+                    <div className="six columns">
+                        <ListingThumb />
+                    </div>
+                    <div className="six columns">
+                        <ListingThumb />
+                    </div>
+                </div>
                 <br/>
+                <RaisedButton style={{display:"block",margin:"0px auto"}}
+                              label={"All " + cityName + " homes for sale (###)"}
+                              secondary={true}/>
+                <br/>
+                <br/>
+
                 <Card>
                     <CardTitle title={cityName + " Homes for Sale by Zip"}/>
                     <Divider />
@@ -62,12 +75,11 @@ class CityPage extends React.Component {
                                         <li style={{display:"inline-block"}} key={zip.zip}>
                                             <Badge
                                                 badgeContent={`${zip.number}`}
-                                                badgeStyle={{backgroundColor:"#797979", color:"white", top: 18, right: 18}}
+                                                badgeStyle={{backgroundColor:"#EEEEEE", color:"#212121", top: 18, right: 18}}
                                             >
                                                 <SvLink url={zip.zip}>
                                                     <FlatButton
-                                                        secondary={true}
-                                                        style={{fontSize:18, fontWeight:500}}
+                                                        style={{color:"#0277BD", fontSize:18, fontWeight:500}}
                                                         label={`${zip.zip}`}/>
                                                 </SvLink>
                                             </Badge>
@@ -90,12 +102,12 @@ class CityPage extends React.Component {
                                         <li style={{display:"inline-block"}} key={type.type}>
                                             <Badge
                                                 badgeContent={`${type.number}`}
-                                                badgeStyle={{backgroundColor:"#797979", color:"white", top: 18, right: 18}}
+                                                badgeStyle={{backgroundColor:"#EEEEEE", color:"#212121", top: 18, right: 18}}
                                             >
                                                 <SvLink url={type.type}>
                                                     <FlatButton
                                                         secondary={true}
-                                                        style={{fontSize:15, fontWeight:500}}
+                                                        style={{color:"#0277BD", fontSize:15, fontWeight:500}}
                                                         label={`${type.type}`}/>
                                                 </SvLink>
                                             </Badge>
