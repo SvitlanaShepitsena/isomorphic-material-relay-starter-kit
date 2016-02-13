@@ -2,15 +2,9 @@ import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import {Link} from 'react-router';
 import _ from 'lodash';
-
 import Breadcrumbs from 'react-breadcrumbs';
 
-/*Components*/
-import House_List from './../../components/HouseSale/House_List.jsx';
-import SvLink from '../../components/Shared/SvLink';
-import {isomorphicVars} from '../../scripts/isomorphicVars';
-import MyTheme from '../../settings/AppMuiTheme.js';
-
+/*=MaterialUi*/
 import Card from 'material-ui/lib/card/card';
 import CardActions from 'material-ui/lib/card/card-actions';
 import CardTitle from 'material-ui/lib/card/card-title';
@@ -18,6 +12,13 @@ import FlatButton from 'material-ui/lib/flat-button';
 import CardText from 'material-ui/lib/card/card-text';
 import Divider from 'material-ui/lib/divider';
 import Badge from 'material-ui/lib/badge';
+
+/*=Components*/
+import House_List from './../../components/HouseSale/House_List.jsx';
+import SvLink from '../../components/Shared/SvLink';
+import {isomorphicVars} from '../../scripts/isomorphicVars';
+import MyTheme from '../../settings/AppMuiTheme.js';
+import ListingThumb from '../../components/ListingThumb/ListingThumb.jsx';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -35,8 +36,7 @@ class CityPage extends React.Component {
     }
 
     render() {
-        var isoVars = isomorphicVars();
-        var cityName = _.startCase(this.props.params.city);
+        const cityName = _.startCase(this.props.params.city);
         return (
 
             <div>
@@ -48,6 +48,9 @@ class CityPage extends React.Component {
                 </div>
                 <h1> {"Houses for Sale in " + _.startCase(this.props.params.city)}</h1>
                 <hr/>
+
+                <ListingThumb listingImageClass="ListingImage__xl"/>
+                <br/>
                 <Card>
                     <CardTitle title={cityName + " Homes for Sale by Zip"}/>
                     <Divider />

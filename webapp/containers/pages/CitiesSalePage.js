@@ -4,9 +4,10 @@ import {Link} from 'react-router';
 import _ from 'lodash';
 import Breadcrumbs from 'react-breadcrumbs';
 
-import Card from '../../../node_modules/material-ui/lib/card/card';
-import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
-import CardText from '../../../node_modules/material-ui/lib/card/card-text';
+/*=MaterialUi*/
+import Card from 'material-ui/lib/card/card';
+import CardHeader from 'material-ui/lib/card/card-header';
+import CardText from 'material-ui/lib/card/card-text';
 import House_List from './../../components/HouseSale/House_List.jsx';
 
 import List from 'material-ui/lib/lists/list';
@@ -19,6 +20,8 @@ import ContentSend from 'material-ui/lib/svg-icons/content/send';
 import Divider from 'material-ui/lib/divider';
 import Avatar from 'material-ui/lib/avatar';
 import Colors from 'material-ui/lib/styles/colors';
+
+/*=Components*/
 import MyTheme from '../../settings/AppMuiTheme.js';
 import SvLink from '../../components/Shared/SvLink';
 
