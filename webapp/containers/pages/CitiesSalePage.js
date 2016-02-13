@@ -55,12 +55,13 @@ class CitiesSale extends React.Component {
                     insetSubheader={true}
                 >
                     {this.props.Viewer.Cities.edges.map((city, index)=>
-                        <SvLink url={city.node.name}>
+                        <SvLink url={city.node.name}
+                                key={city.node.name}
+                        >
                             <ListItem
                                 leftAvatar={<Avatar src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Skokie,_Illinois.jpg"/>}
                                 secondaryText={ <p> <span style={{color: Colors.darkBlack}}  > Median Price: </span> <br/> <span >#Listings: | </span> </p> }
                                 secondaryTextLines={2}
-                                key={city.node.name}
                                 rightIcon={<ActionInfo />} primaryText={_.startCase(city.node.name) + ", IL"}>
 
                             </ListItem>

@@ -46,13 +46,12 @@ class CityPage extends React.Component {
                         params={this.props.params}
                     />
                 </div>
-                <h1> {"Houses for Sale in " + _.startCase(this.props.params.city) + "!"}</h1>
+                <h1> {"Houses for Sale in " + _.startCase(this.props.params.city)}</h1>
                 <hr/>
                 <Card>
                     <CardTitle title={cityName + " Homes for Sale by Zip"}/>
                     <Divider />
                     <CardActions>
-
                         <ul className="list-unstyled">
                             {this.props.Viewer.CityZips.edges.map((edge)=> {
                                     const zip = edge.node;
@@ -64,6 +63,7 @@ class CityPage extends React.Component {
                                             >
                                                 <SvLink url={zip.zip}>
                                                     <FlatButton
+                                                        secondary={true}
                                                         style={{fontSize:18, fontWeight:500}}
                                                         label={`${zip.zip}`}/>
                                                 </SvLink>
@@ -75,23 +75,35 @@ class CityPage extends React.Component {
                         </ul>
                     </CardActions>
                 </Card>
+                <br/>
+                <Card>
+                    <CardTitle title={cityName + " Homes for Sale by Property Type"}/>
+                    <Divider />
+                    <CardActions>
+                        <ul className="list-unstyled">
+                            {this.props.Viewer.CityTypes.edges.map((edge)=> {
+                                    const type = edge.node;
+                                    return (
+                                        <li style={{display:"inline-block"}} key={type.type}>
+                                            <Badge
+                                                badgeContent={`${type.number}`}
+                                                badgeStyle={{backgroundColor:"#797979", color:"white", top: 18, right: 18}}
+                                            >
+                                                <SvLink url={type.type}>
+                                                    <FlatButton
+                                                        secondary={true}
+                                                        style={{fontSize:15, fontWeight:500}}
+                                                        label={`${type.type}`}/>
+                                                </SvLink>
+                                            </Badge>
+                                        </li>
+                                    )
+                                }
+                            )}
+                        </ul>
+                    </CardActions>
+                </Card>
 
-                <hr/>
-                <h5> Property Types</h5>
-                <ul >
-                    {this.props.Viewer.CityTypes.edges.map((edge)=> {
-                            const type = edge.node;
-                            return (
-                                <li key={type.type}>
-                                    <SvLink url={type.type}>
-                                        {`${type.type}(${type.number})`}
-                                    </SvLink>
-
-                                </li>
-                            )
-                        }
-                    )}
-                </ul>
             </div>
         );
     }
