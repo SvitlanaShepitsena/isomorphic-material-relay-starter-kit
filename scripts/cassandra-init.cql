@@ -27,7 +27,7 @@ values( 33171548-39d3-45d8-ab5c-5eedefe01dfc, 'jill', 'birthday', 'Jill McBear',
 
 
 CREATE TABLE house (
-  id uuid,
+  id text,
   mls text,
   beds text,
   description text,
