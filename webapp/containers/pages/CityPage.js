@@ -19,7 +19,7 @@ import House_List from './../../components/HouseSale/House_List.jsx';
 import SvLink from '../../components/Shared/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 import MyTheme from '../../settings/AppMuiTheme.js';
-import ListingThumb from '../../components/ListingThumb/ListingThumb.jsx';
+import ListingThumbLarge from '../../components/ListingThumb/ListingThumbLarge.jsx';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -51,18 +51,19 @@ class CityPage extends React.Component {
                 <hr/>
                 <div className="row">
                     <div className="six columns">
-                        <ListingThumb />
+                        <ListingThumbLarge />
                     </div>
                     <div className="six columns">
-                        <ListingThumb />
+                        <ListingThumbLarge />
                     </div>
                 </div>
                 <br/>
                 <RaisedButton style={{display:"block",margin:"0px auto"}}
                               label={"All " + cityName + " homes for sale (###)"}
-                              secondary={true}/>
+                              primary={true}/>
                 <br/>
                 <br/>
+
 
                 <Card>
                     <CardTitle title={cityName + " Homes for Sale by Zip"}/>

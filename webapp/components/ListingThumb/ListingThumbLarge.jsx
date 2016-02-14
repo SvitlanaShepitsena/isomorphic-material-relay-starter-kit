@@ -15,7 +15,7 @@ import House_List from './../../components/HouseSale/House_List.jsx';
 
 import ImageBackground from '../shared/ImageBackground.js';
 
-export default class ListingThumb extends React.Component {
+export default class ListingThumbLarge extends React.Component {
 
     render() {
         return (
