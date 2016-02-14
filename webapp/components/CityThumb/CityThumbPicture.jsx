@@ -19,9 +19,9 @@ export default class CityThumbPicture extends React.Component {
 
     render() {
         return (
-            <Card className="ListingThumbCard" shadow={0}>
+            <Card style={{margin:12}} shadow={0}>
                 <CardMedia
-                    overlay={<CardTitle style={{padding:"0 0 5px 16px"}}  subtitle="City Name" />}
+                    overlay={<CardTitle style={{padding:"0 0 5px 16px"}}  subtitle={this.props.cityName} />}
                 >
                     <img src="http://www.datarecovery.net/i/Places/skokie-il-hard-drive-data-recovery.jpg"/>
                 </CardMedia>

@@ -20,7 +20,7 @@ import ContentSend from 'material-ui/lib/svg-icons/content/send';
 import Divider from 'material-ui/lib/divider';
 import Avatar from 'material-ui/lib/avatar';
 import Colors from 'material-ui/lib/styles/colors';
-import CityThumbLarge from '../../components/CityThumb/CityThumPicture.jsx';
+import CityThumbLarge from '../../components/CityThumb/CityThumbPicture.jsx';
 
 /*=Components*/
 import MyTheme from '../../settings/AppMuiTheme.js';
@@ -54,38 +54,15 @@ class CitiesSale extends React.Component {
                 </h1>
 
                 <hr/>
-                <div className="row">
-
-                    <div className="three columns">
-                        <CityThumbLarge/>
-                    </div>
-                    <div className="three columns">
-                        <CityThumbLarge/>
-                    </div>
-                    <div className="three columns">
-                        <CityThumbLarge/>
-                    </div>
-
-                </div>
-
-                <List
-                    insetSubheader={true}
-                >
+                <div className="row ColsList-4">
                     {this.props.Viewer.Cities.edges.map((city, index)=>
-                        <SvLink url={city.node.name}
-                                key={city.node.name}
-                        >
-                            <ListItem
-                                leftAvatar={<Avatar src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Skokie,_Illinois.jpg"/>}
-                                secondaryText={ <p> <span style={{color: Colors.darkBlack}}  > Median Price: </span> <br/> <span >#Listings: | </span> </p> }
-                                secondaryTextLines={2}
-                                rightIcon={<ActionInfo />} primaryText={_.startCase(city.node.name) + ", IL"}>
-
-                            </ListItem>
-                        </SvLink>
+                        <div className="four columns" key={city.node.name}>
+                            <SvLink url={city.node.name}>
+                                <CityThumbLarge cityName={_.startCase(city.node.name)}/>
+                            </SvLink>
+                        </div>
                     )}
-                </List>
-                <hr/>
+                </div>
             </div>
         );
     }
