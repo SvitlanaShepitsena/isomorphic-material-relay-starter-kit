@@ -55,7 +55,7 @@ export default new GraphQLObjectType({
         House: {
             type: HouseType,
             args: {...{id: {type: GraphQLString}}},
-            resolve: ({id}, {rootValue: {user_id}}) => House_get(id)
+            resolve: (obj, {...args}, {rootValue: {user_id}}) => House_get(args.id)
         },
 
         // <-<-<- Houses

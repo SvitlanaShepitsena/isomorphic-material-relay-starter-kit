@@ -4,14 +4,14 @@ export default class House {
         this.id = fields.id;
         this.mls = fields.mls;
         this.city = fields.city;
-        this.beds = fields.beds
-        this.description = fields.description
-        this.image = fields.image
-        this.price = fields.price
-        this.state = fields.state
-        this.street = fields.street
-        this.type = fields.type
-        this.zip = fields.zip
+        this.beds = fields.beds;
+        this.description = fields.description;
+        this.image = fields.image;
+        this.price = fields.price;
+        this.state = fields.state;
+        this.street = fields.street;
+        this.type = fields.type;
+        this.zip = fields.zip;
 
     }
 }

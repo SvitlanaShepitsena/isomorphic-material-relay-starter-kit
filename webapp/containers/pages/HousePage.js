@@ -12,35 +12,73 @@ import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class HousePage extends React.Component {
     getChildContext() {
-        return {location:this.props.location};
+        return {location: this.props.location};
     };
 
     static childContextTypes = {
         location: PropTypes.object.isRequired
     };
-    // componentDidMount() {
-    //     this.props.relay.setVariables({
-    //         id: this.props.params.street
-    //     })
-    // }
+
+    componentDidMount() {
+        this.props.relay.setVariables({
+            id: this.props.params.street
+        })
+    }
 
     render() {
         var isoVars = isomorphicVars();
+        var house = this.props.Viewer.House;
         return (
 
             <div>
-                House 1
+                House in {house.city}
+                <hr/>
+                <div>
+                    {house.mls}
+                </div>
+                <hr/>
+                <div>
+                    {house.type}
+                </div>
+                <hr/>
+                <div>
+                    {house.description}
+                </div>
+                <hr/>
+                <div>
+                    {house.beds}
+                </div>
+                <hr/>
+                <div>
+                    {house.price}$
+                </div>
+                <hr/>
+                <div>
+                    <img src={house.image} alt={`Great House`}/>
+                </div>
             </div>
         );
     }
 }
 ;
 export default Relay.createContainer(HousePage, {
+    initialVariables: {id: '4423-north-hamlin-avenue'},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
-        User_IsAnonymous,
-
+        House(id:$id){
+      id,
+      mls,
+      type,
+      beds,
+      description,
+      price,
+      street,
+      city,
+      state,
+      zip,
+      image
+       }
       }
     `,
     },
