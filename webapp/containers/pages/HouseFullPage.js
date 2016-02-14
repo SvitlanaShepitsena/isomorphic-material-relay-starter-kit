@@ -10,7 +10,7 @@ import House_List from './../../components/HouseSale/House_List.jsx';
 
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
-class ZipTypePage extends React.Component {
+class HouseFullPage extends React.Component {
     getChildContext() {
         return {location: this.props.location};
     };
@@ -21,8 +21,7 @@ class ZipTypePage extends React.Component {
 
     componentDidMount() {
         this.props.relay.setVariables({
-            city: this.props.params.city,
-            zipType: this.props.params.zipType
+            id: this.props.params.street
         })
     }
 
@@ -31,39 +30,22 @@ class ZipTypePage extends React.Component {
         return (
 
             <div>
-                <h2>Houses for Sale </h2>
-                <ul>
-                    {this.props.Viewer.Houses.edges.map((edge, index) => {
-                        const house = edge.node;
-                        return (
-                            <li key={index}>
-                                <SvLink url={house.street}>
-                                    {house.street}
+                <h1>House for Sale </h1>
 
-                                </SvLink>
-                            </li>
-                        )
-                    })}
-                </ul>
             </div>
         );
     }
 }
 ;
-export default Relay.createContainer(ZipTypePage, {
-    initialVariables: {city: '', zipType: ''},
+export default Relay.createContainer(HouseFullPage, {
+    initialVariables: {id: ''},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-         Houses(city:$city,zipType:$zipType,first:100) {
-          edges {
-            node {
-         street,
-          price
-            },
-          },
-        },
+        House(id:$id){
+        id
+        }
       }
     `,
     },
