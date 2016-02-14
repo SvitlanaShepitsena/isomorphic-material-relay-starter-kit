@@ -4,3 +4,12 @@
     margin: 10px;
     padding-bottom: 10px;
 }
+
+.CitiesSlider__card__head {
+    text-align: center;
+}
+
+.CitiesSlider__card-image {
+    display: block;
+    width: 100%;
+}

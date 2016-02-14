@@ -12,17 +12,15 @@ import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class ZipTypePage extends React.Component {
     getChildContext() {
-        return {location: this.props.location};
+        return {location:this.props.location};
     };
 
     static childContextTypes = {
         location: PropTypes.object.isRequired
     };
-
     componentDidMount() {
         this.props.relay.setVariables({
-            city: this.props.params.city,
-            zipType: this.props.params.zipType
+            city: this.props.params.city
         })
     }
 
@@ -31,19 +29,44 @@ class ZipTypePage extends React.Component {
         return (
 
             <div>
-                <h2>Houses for Sale </h2>
-                <ul>
-                    {this.props.Viewer.Houses.edges.map((edge, index) => {
-                        const house = edge.node;
-                        return (
-                            <li key={index}>
-                                <SvLink url={house.street}>
-                                    {house.street}
+                <div>
+                    <Breadcrumbs
+                        routes={this.props.routes}
+                        params={this.props.params}
+                    />
+                </div>
+                <h3> Houses for SALE in {this.props.params.city} !</h3>
+                <h5> Zip Codes </h5>
+                <ul >
+                    {this.props.Viewer.CityZips.edges.map((edge)=> {
+                            const zip = edge.node;
+                            return (
+                                <li key={zip.zip}>
+                                    <SvLink url={zip.zip}>
+                                        {`${zip.zip}(${zip.number})`}
+                                    </SvLink>
 
-                                </SvLink>
-                            </li>
-                        )
-                    })}
+                                </li>
+                            )
+                        }
+                    )}
+                </ul>
+
+                <hr/>
+                <h5> Property Types</h5>
+                <ul >
+                    {this.props.Viewer.CityTypes.edges.map((edge)=> {
+                            const type = edge.node;
+                            return (
+                                <li key={type.type}>
+                                    <SvLink url={type.type}>
+                                        {`${type.type}(${type.number})`}
+                                    </SvLink>
+
+                                </li>
+                            )
+                        }
+                    )}
                 </ul>
             </div>
         );
@@ -51,19 +74,12 @@ class ZipTypePage extends React.Component {
 }
 ;
 export default Relay.createContainer(ZipTypePage, {
-    initialVariables: {city: '', zipType: ''},
+    initialVariables: {city: '',zipType:''},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-         Houses(city:$city,zipType:$zipType,first:100) {
-          edges {
-            node {
-         street,
-          price
-            },
-          },
-        },
+
       }
     `,
     },

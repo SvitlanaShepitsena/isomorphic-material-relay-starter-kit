@@ -4,7 +4,8 @@ import {GraphQLID, GraphQLNonNull, GraphQLObjectType} from "graphql";
 import ViewerType from "./ViewerType";
 import NodeInterface from "../interface/NodeInterface";
 
-import {House_get} from '../../data/da/House';
+import {House_list_get} from '../../data/da/House';
+import {City_get_house} from '../../data/da/City';
 import {DA_User_get} from '../../data/da/User';
 
 function resolveNodeField(source, args) {
@@ -18,6 +19,7 @@ function resolveNodeField(source, args) {
     switch (type) {
         case "Viewer":
             return DA_User_get(id);
+        case "City":         return City_get_house( id );
     }
 };
 

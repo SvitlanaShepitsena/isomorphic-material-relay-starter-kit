@@ -1,6 +1,5 @@
 import AppLayout from './containers/layout/AppLayout.jsx';
 import ViewerQueries from './queries/ViewerQueries';
-import QueryType from '../graphql/type/QueryType';
 
 import AboutPage from './containers/pages/AboutPage';
 import CitiesSalePage from './containers/pages/CitiesSalePage';
@@ -11,7 +10,6 @@ import PrivacyPage from './containers/pages/PrivacyPage';
 import TermsPage from './containers/pages/TermsPage';
 import CityPage from './containers/pages/CityPage';
 import ZipTypePage from './containers/pages/ZipTypePage';
-import HouseFullPage from './containers/pages/HouseFullPage';
 
 export default [
     {
@@ -46,15 +44,6 @@ export default [
                                     component: ZipTypePage,
                                     queries: ViewerQueries
                                 },
-                                childRoutes: [
-                                    {
-                                        path: ":street",
-                                        indexRoute: {
-                                            component: HouseFullPage,
-                                            queries: ViewerQueries
-                                        },
-                                    }
-                                ]
                             }
                         ]
                     }
