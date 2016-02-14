@@ -1256,6 +1256,11 @@
       "from": "camelcase-keys@>=2.0.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/camelcase-keys/-/camelcase-keys-2.0.0.tgz"
     },
+    "can-use-dom": {
+      "version": "0.1.0",
+      "from": "can-use-dom@>=0.1.0 <0.2.0",
+      "resolved": "https://registry.npmjs.org/can-use-dom/-/can-use-dom-0.1.0.tgz"
+    },
     "caniuse-db": {
       "version": "1.0.30000398",
       "from": "caniuse-db@>=1.0.30000387 <2.0.0",
@@ -1600,6 +1605,11 @@
         }
       }
     },
+    "enquire.js": {
+      "version": "2.1.1",
+      "from": "enquire.js@>=2.1.1 <3.0.0",
+      "resolved": "https://registry.npmjs.org/enquire.js/-/enquire.js-2.1.1.tgz"
+    },
     "envify": {
       "version": "3.4.0",
       "from": "envify@>=3.0.0 <4.0.0",
@@ -1664,6 +1674,11 @@
       "version": "0.1.6",
       "from": "eventsource@>=0.1.3 <0.2.0",
       "resolved": "https://registry.npmjs.org/eventsource/-/eventsource-0.1.6.tgz"
+    },
+    "exenv": {
+      "version": "1.2.0",
+      "from": "exenv@>=1.2.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/exenv/-/exenv-1.2.0.tgz"
     },
     "expand-brackets": {
       "version": "0.1.4",
@@ -2221,6 +2236,11 @@
       "from": "jodid25519@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/jodid25519/-/jodid25519-1.0.2.tgz"
     },
+    "jquery": {
+      "version": "2.2.0",
+      "from": "jquery@>=1.7.2",
+      "resolved": "https://registry.npmjs.org/jquery/-/jquery-2.2.0.tgz"
+    },
     "js-base64": {
       "version": "2.1.9",
       "from": "js-base64@>=2.1.9 <3.0.0",
@@ -2255,6 +2275,11 @@
       "version": "5.0.1",
       "from": "json-stringify-safe@>=5.0.1 <5.1.0",
       "resolved": "https://registry.npmjs.org/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz"
+    },
+    "json2mq": {
+      "version": "0.2.0",
+      "from": "json2mq@>=0.2.0 <0.3.0",
+      "resolved": "https://registry.npmjs.org/json2mq/-/json2mq-0.2.0.tgz"
     },
     "json3": {
       "version": "3.3.2",
@@ -3132,6 +3157,12 @@
       "from": "react-addons-update@>=0.14.0 <0.15.0",
       "resolved": "https://registry.npmjs.org/react-addons-update/-/react-addons-update-0.14.7.tgz"
     },
+    "react-breadcrumbs": {
+      "version": "1.3.8",
+      "from": "react-breadcrumbs@>=1.3.6 <2.0.0",
+      "resolved": "https://registry.npmjs.org/react-breadcrumbs/-/react-breadcrumbs-1.3.8.tgz",
+      "dependencies": {}
+    },
     "react-dom": {
       "version": "0.14.7",
       "from": "react-dom@>=0.14.7 <0.15.0",
@@ -3194,6 +3225,11 @@
         }
       }
     },
+    "react-responsive-mixin": {
+      "version": "0.3.5",
+      "from": "react-responsive-mixin@>=0.3.5 <0.4.0",
+      "resolved": "https://registry.npmjs.org/react-responsive-mixin/-/react-responsive-mixin-0.3.5.tgz"
+    },
     "react-router": {
       "version": "2.0.0",
       "from": "react-router@2.0.0",
@@ -3225,6 +3261,18 @@
           "version": "0.9.0",
           "from": "whatwg-fetch@>=0.9.0 <0.10.0",
           "resolved": "https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-0.9.0.tgz"
+        }
+      }
+    },
+    "react-slick": {
+      "version": "0.10.0",
+      "from": "react-slick@>=0.10.0 <0.11.0",
+      "resolved": "https://registry.npmjs.org/react-slick/-/react-slick-0.10.0.tgz",
+      "dependencies": {
+        "object-assign": {
+          "version": "2.1.1",
+          "from": "object-assign@>=2.0.0 <3.0.0",
+          "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-2.1.1.tgz"
         }
       }
     },
@@ -3492,6 +3540,11 @@
       "from": "slash@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/slash/-/slash-1.0.0.tgz"
     },
+    "slick-carousel": {
+      "version": "1.5.9",
+      "from": "slick-carousel@>=1.5.5 <2.0.0",
+      "resolved": "https://registry.npmjs.org/slick-carousel/-/slick-carousel-1.5.9.tgz"
+    },
     "slide": {
       "version": "1.1.6",
       "from": "slide@>=1.1.5 <2.0.0",
@@ -3629,6 +3682,11 @@
       "version": "0.10.31",
       "from": "string_decoder@>=0.10.0 <0.11.0",
       "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz"
+    },
+    "string-convert": {
+      "version": "0.2.1",
+      "from": "string-convert@>=0.2.0 <0.3.0",
+      "resolved": "https://registry.npmjs.org/string-convert/-/string-convert-0.2.1.tgz"
     },
     "string-length": {
       "version": "1.0.1",
