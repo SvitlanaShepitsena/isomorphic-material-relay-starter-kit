@@ -22,45 +22,45 @@ export default class House_List extends React.Component {
 
         const tilesData = [
             {
-                img: 'http://www.material-ui.com/images/grid-list/00-52-29-429_640.jpg',
-                title: 'Breakfast',
+                img: 'http://res.cloudinary.com/svitlana/image/upload/v1454622622/skokie_rzluio.jpg',
+                title: 'Skokie',
                 author: 'jill111',
                 featured: true,
             },
             {
-                img: 'http://www.material-ui.com/images/grid-list/burger-827309_640.jpg',
-                title: 'Tasty burger',
+                img: 'http://res.cloudinary.com/svitlana/image/upload/v1455168518/northbrook_yasan1.jpg',
+                title: 'New Listings',
                 author: 'pashminu',
             },
             {
-                img: 'http://www.material-ui.com/images/grid-list/camera-813814_640.jpg',
-                title: 'Camera',
+                img: 'http://res.cloudinary.com/svitlana/image/upload/v1453658589/Skokie-Fountain_infazt.jpg',
+                title: 'Popular',
                 author: 'Danson67',
             },
             {
-                img: 'http://www.material-ui.com/images/grid-list/morning-819362_640.jpg',
-                title: 'Morning',
+                img: 'http://res.cloudinary.com/svitlana/image/upload/v1454621648/evanston_nqfjkr.jpg',
+                title: 'Neighbourhood',
                 author: 'fancycrave1',
                 featured: true,
             },
             {
-                img: 'http://www.material-ui.com/images/grid-list/hats-829509_640.jpg',
-                title: 'Hats',
+                img: 'http://res.cloudinary.com/svitlana/image/upload/v1453658589/Skokie-Fountain_infazt.jpg',
+                title: 'Foreclosure',
                 author: 'Hans',
             },
             {
-                img: 'http://www.material-ui.com/images/grid-list/honey-823614_640.jpg',
-                title: 'Honey',
+                img: 'http://res.cloudinary.com/svitlana/image/upload/v1454622622/skokie_rzluio.jpg',
+                title: 'Bank Owned',
                 author: 'fancycravel',
             },
             {
-                img: 'http://www.material-ui.com/images/grid-list/vegetables-790022_640.jpg',
-                title: 'Vegetables',
+                img: 'http://res.cloudinary.com/svitlana/image/upload/v1454622622/skokie_rzluio.jpg',
+                title: 'Price Educed',
                 author: 'jill111',
             },
             {
-                img: 'http://www.material-ui.com/images/grid-list/water-plant-821293_640.jpg',
-                title: 'Water plant',
+                img: 'http://res.cloudinary.com/svitlana/image/upload/v1454622622/skokie_rzluio.jpg',
+                title: 'Short Sale',
                 author: 'BkrmadtyaKarki',
             },
         ];
@@ -72,9 +72,9 @@ export default class House_List extends React.Component {
                     padding={1}
                     className="HomePageGrid__GridList"
                 >
-                    {tilesData.map(tile => (
+                    {tilesData.map((tile,index) => (
                         <GridTile
-                            key={tile.img}
+                            key={index}
                             title={tile.title}
                             actionIcon={<IconButton><StarBorder color="white"/></IconButton>}
                             actionPosition="left"
