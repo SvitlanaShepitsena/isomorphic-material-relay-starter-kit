@@ -12,12 +12,13 @@ import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class ZipTypePage extends React.Component {
     getChildContext() {
-        return {location:this.props.location};
+        return {location: this.props.location};
     };
 
     static childContextTypes = {
         location: PropTypes.object.isRequired
     };
+
     componentDidMount() {
         this.props.relay.setVariables({
             city: this.props.params.city
@@ -74,7 +75,7 @@ class ZipTypePage extends React.Component {
 }
 ;
 export default Relay.createContainer(ZipTypePage, {
-    initialVariables: {city: '',zipType:''},
+    initialVariables: {city: '', zipType: ''},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
