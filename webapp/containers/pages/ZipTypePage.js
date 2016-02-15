@@ -29,38 +29,13 @@ class ZipTypePage extends React.Component {
         return (
 
             <div>
-                <div>
-                    <Breadcrumbs
-                        routes={this.props.routes}
-                        params={this.props.params}
-                    />
-                </div>
-                <h3> Houses for SALE in {this.props.params.city} !</h3>
-                <h5> Zip Codes </h5>
                 <ul >
-                    {this.props.Viewer.CityZips.edges.map((edge)=> {
-                            const zip = edge.node;
+                    {this.props.Viewer.Houses.edges.map((edge,index)=> {
+                            const house = edge.node;
                             return (
-                                <li key={zip.zip}>
-                                    <SvLink url={zip.zip}>
-                                        {`${zip.zip}(${zip.number})`}
-                                    </SvLink>
-
-                                </li>
-                            )
-                        }
-                    )}
-                </ul>
-
-                <hr/>
-                <h5> Property Types</h5>
-                <ul >
-                    {this.props.Viewer.CityTypes.edges.map((edge)=> {
-                            const type = edge.node;
-                            return (
-                                <li key={type.type}>
-                                    <SvLink url={type.type}>
-                                        {`${type.type}(${type.number})`}
+                                <li key={index}>
+                                    <SvLink url={house.street}>
+                                        {`${house.street} in (${house.city})`}
                                     </SvLink>
 
                                 </li>
@@ -79,7 +54,14 @@ export default Relay.createContainer(ZipTypePage, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-
+         Houses(city:$city,zipType:$zipType,first:100) {
+          edges {
+            node {
+         street,
+          price
+            },
+          },
+        },
       }
     `,
     },

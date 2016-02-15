@@ -8,9 +8,27 @@ export function House_list_get() {
 
     return runQuery(House, cqlText, cqlParams);
 }
-export function House_list_get_city(city) {
-    let cqlText = 'SELECT * FROM "house" where city = ? ALLOW FILTERING;';
-    let cqlParams = [city];
+export function House_list_get_city(city, zipType) {
+    console.log(city);
+    console.log(zipType);
+    let cqlParams;
+    let cqlText;
+    if (!zipType) {
+        cqlText = 'SELECT * FROM "house" where city = ? ALLOW FILTERING;';
+        cqlParams = [city];
+    } else {
+        if (zipType.match(/\d+/g)) {
+            console.log('House.js - line: 20');
+            cqlText = 'SELECT * FROM "house" where city = ? and zip = ? ALLOW FILTERING;';
+
+            cqlParams = [city, zipType];
+            console.log(cqlParams);
+        } else {
+            cqlText = 'SELECT * FROM "house" where city = ? and type = ? ALLOW FILTERING;';
+            cqlParams = [city, zipType];
+
+        }
+    }
 
     return runQuery(House, cqlText, cqlParams);
 }

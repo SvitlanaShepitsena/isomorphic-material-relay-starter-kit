@@ -1,8 +1,8 @@
 import {globalIdField} from "graphql-relay";
-import {GraphQLBoolean, GraphQLInt, GraphQLString, GraphQLObjectType} from "graphql";
+import {GraphQLBoolean, GraphQLID, GraphQLInt, GraphQLString, GraphQLObjectType} from "graphql";
 import {connectionArgs, connectionFromArray} from "graphql-relay";
 
-import {House_list_get} from '../../data/da/House';
+import {House_list_get_city, House_get} from '../../data/da/House';
 import {City_list_get} from '../../data/da/City';
 import {City_zip_list_get} from '../../data/da/CityZip';
 import {City_type_list_get} from '../../data/da/CityType';
@@ -11,6 +11,9 @@ import HousesConnection from './HouseConnection';
 import CitiesConnection from './CityConnection';
 import CityZipConnection from './CityZipConnection';
 import CityTypeConnection from './CityTypeConnection';
+
+import HouseType from './HouseType';
+
 import User from '../../data/model/User';
 import {Uuid} from '../../data/da_cassandra/_client.js';
 
@@ -37,8 +40,22 @@ export default new GraphQLObjectType({
 
         Houses: {
             type: HousesConnection.connectionType,
-            args: {...connectionArgs},
-            resolve: (obj, {...args}, {rootValue: {user_id}}) => House_list_get(user_id).then((arr_House) => connectionFromArray(arr_House, args))
+            args: {
+                ...connectionArgs,
+                city: {
+                    type: GraphQLString
+                },
+                zipType: {
+                    type: GraphQLString
+                }
+            },
+            resolve: (obj, {...args}, {rootValue: {user_id}}) => House_list_get_city(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args))
+        },
+
+        House: {
+            type: HouseType,
+            args: {...{id: {type: GraphQLString}}},
+            resolve: (obj, {...args}, {rootValue: {user_id}}) => House_get(args.id)
         },
 
         // <-<-<- Houses
