@@ -14,6 +14,7 @@ export function House_list_get_city(city, zipType) {
     let cqlParams;
     let cqlText;
     if (!zipType) {
+        console.log(city);
         cqlText = 'SELECT * FROM "house" where city = ? ALLOW FILTERING;';
         cqlParams = [city];
     } else {

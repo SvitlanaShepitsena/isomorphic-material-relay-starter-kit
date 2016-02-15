@@ -41,13 +41,12 @@ class CityPage extends React.Component {
         return (
 
             <div>
-                <div>
-                    <Breadcrumbs
-                        routes={this.props.routes}
-                        params={this.props.params}
-                    />
-                </div>
-                <h1> {"Houses for Sale in " + _.startCase(this.props.params.city)}</h1>
+                <Breadcrumbs
+                    routes={this.props.routes}
+                    params={this.props.params}
+                />
+
+                <h1> {"Houses for Sale in " + cityName} </h1>
                 <hr/>
                 <div className="row">
                     <div className="six columns">

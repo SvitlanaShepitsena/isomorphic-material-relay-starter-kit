@@ -2,9 +2,12 @@
 
 .ListingThumbCard {
     color: #797979;
+    margin-bottom: 12px;
 }
 
 .ListingThumbCard p {
+    font-size: 14px;
+    line-height: 22px;
     margin: 0px 10px;
 }
 

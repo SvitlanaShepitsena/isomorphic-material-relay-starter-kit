@@ -12,6 +12,7 @@ import {isomorphicVars} from '../../scripts/isomorphicVars';
 class CitiesRent extends React.Component {
     render() {
         var isoVars = isomorphicVars();
+        const cityName = _.startCase(this.props.params.city);
         console.log(isoVars);
         console.log(this.props.Viewer);
         return (
@@ -20,8 +21,8 @@ class CitiesRent extends React.Component {
                 {this.props.Viewer.Houses.edges.map((edge, index) => {
                     console.log(edge);
                     return (
-                        <div >
-                            <ListingThumbInline/>
+                        <div key="index">
+                            <ListingThumbInline city={cityName}/>
                             <br/>
                         </div>
                     )

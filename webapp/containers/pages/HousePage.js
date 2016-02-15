@@ -33,9 +33,9 @@ class HousePage extends React.Component {
             <div>
                 House in {house.city}
                 <hr/>
-                <div>
+                <divmg>
                     {house.mls}
-                </div>
+                </divmg>
                 <hr/>
                 <div>
                     {house.type}
