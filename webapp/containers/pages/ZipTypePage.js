@@ -12,12 +12,13 @@ import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class ZipTypePage extends React.Component {
     getChildContext() {
-        return {location:this.props.location};
+        return {location: this.props.location};
     };
 
     static childContextTypes = {
         location: PropTypes.object.isRequired
     };
+
     componentDidMount() {
         this.props.relay.setVariables({
             city: this.props.params.city,
@@ -32,7 +33,7 @@ class ZipTypePage extends React.Component {
             <div>
                 <h2>Houses for Sale </h2>
                 <ul>
-                    {this.props.Viewer.Houses && this.props.Viewer.Houses.edges.map((edge, index) => {
+                    {this.props.Viewer.Houses.edges.map((edge, index) => {
                         const house = edge.node;
                         return (
                             <li key={index}>
