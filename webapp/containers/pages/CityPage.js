@@ -56,10 +56,12 @@ class CityPage extends React.Component {
                         <ListingThumbLarge />
                     </div>
                 </div>
+                <SvLink url='all'>
+                    <RaisedButton style={{display:"block",margin:"0px auto"}}
+                                  label={"All " + cityName + " homes for sale (###)"}
+                                  primary={true}/>
+                </SvLink>
                 <br/>
-                <RaisedButton style={{display:"block",margin:"0px auto"}}
-                              label={"All " + cityName + " homes for sale (###)"}
-                              primary={true}/>
                 <br/>
                 <br/>
 

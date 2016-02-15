@@ -13,13 +13,13 @@ export function House_list_get_city(city, zipType) {
     console.log(zipType);
     let cqlParams;
     let cqlText;
-    if (!zipType) {
+    if (!zipType || zipType==='all') {
         console.log(city);
+            console.log('House.js - line: 20');
         cqlText = 'SELECT * FROM "house" where city = ? ALLOW FILTERING;';
         cqlParams = [city];
     } else {
         if (zipType.match(/\d+/g)) {
-            console.log('House.js - line: 20');
             cqlText = 'SELECT * FROM "house" where city = ? and zip = ? ALLOW FILTERING;';
 
             cqlParams = [city, zipType];

@@ -27,7 +27,8 @@ class ZipTypePage extends React.Component {
 
     componentDidMount() {
         this.props.relay.setVariables({
-            city: this.props.params.city
+            city: this.props.params.city,
+            zipType: this.props.params.zipType
         })
     }
 

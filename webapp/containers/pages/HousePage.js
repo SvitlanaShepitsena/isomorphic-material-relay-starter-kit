@@ -33,9 +33,12 @@ class HousePage extends React.Component {
             <div>
                 House in {house.city}
                 <hr/>
-                <divmg>
+                <div >
                     {house.mls}
-                </divmg>
+                </div>
+                <div>
+                    <img src={house.image} alt={`Great House`}/>
+                </div>
                 <hr/>
                 <div>
                     {house.type}
@@ -53,9 +56,6 @@ class HousePage extends React.Component {
                     {house.price}$
                 </div>
                 <hr/>
-                <div>
-                    <img src={house.image} alt={`Great House`}/>
-                </div>
             </div>
         );
     }
