@@ -10,6 +10,7 @@ import PrivacyPage from './containers/pages/PrivacyPage';
 import TermsPage from './containers/pages/TermsPage';
 import CityPage from './containers/pages/CityPage';
 import ZipTypePage from './containers/pages/ZipTypePage';
+import HousePage from './containers/pages/HousePage';
 
 export default [
     {
@@ -44,6 +45,15 @@ export default [
                                     component: ZipTypePage,
                                     queries: ViewerQueries
                                 },
+                                childRoutes: [
+                                    {
+                                        path: ":street",
+                                        indexRoute: {
+                                            component: HousePage,
+                                            queries: ViewerQueries
+                                        },
+                                    }
+                                ]
                             }
                         ]
                     }
