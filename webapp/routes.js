@@ -11,7 +11,11 @@ import PrivacyPage from './containers/pages/PrivacyPage';
 import TermsPage from './containers/pages/TermsPage';
 import CityPage from './containers/pages/CityPage';
 import ZipTypePage from './containers/pages/ZipTypePage';
+<<<<<<< HEAD
 import HouseFullPage from './containers/pages/HouseFullPage';
+=======
+import HousePage from './containers/pages/HousePage';
+>>>>>>> full-house
 
 export default [
     {
@@ -50,7 +54,11 @@ export default [
                                     {
                                         path: ":street",
                                         indexRoute: {
+<<<<<<< HEAD
                                             component: HouseFullPage,
+=======
+                                            component: HousePage,
+>>>>>>> full-house
                                             queries: ViewerQueries
                                         },
                                     }

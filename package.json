@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "babel-cli": "^6.3.17",
+
     "babel-core": "^6.3.26",
     "babel-loader": "^6.2.0",
     "babel-plugin-react-transform": "^1.1.1",
