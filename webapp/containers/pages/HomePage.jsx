@@ -8,6 +8,7 @@ import House_List from './../../components/HouseSale/House_List.jsx';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 import Helmet from "react-helmet";
 import HomePageGrid from '../../components/Home/HomePageMuiGrid.jsx';
+import PhotoGallery from '../../components/PhotoGallery/PhotoGallery.js';
 
 class HomePage extends React.Component {
     render() {
