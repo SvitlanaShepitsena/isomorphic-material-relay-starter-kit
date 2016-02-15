@@ -18,6 +18,13 @@
     text-align: center;
 }
 
+.ListingThumbInline__image {
+    display: block;
+    width: 170px;
+    height: auto;
+    margin: 0;
+}
+
 .ListingThumbInline__address {
     font-size: 18px;
     font-weight: 500;
