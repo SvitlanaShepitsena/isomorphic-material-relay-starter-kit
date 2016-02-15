@@ -33,11 +33,7 @@ class ZipTypePage extends React.Component {
             <div>
                 <h2>Houses for Sale </h2>
                 <ul>
-<<<<<<< HEAD
                     {this.props.Viewer.Houses.edges.map((edge, index) => {
-=======
-                    {this.props.Viewer.Houses && this.props.Viewer.Houses.edges.map((edge, index) => {
->>>>>>> full-house
                         const house = edge.node;
                         return (
                             <li key={index}>
