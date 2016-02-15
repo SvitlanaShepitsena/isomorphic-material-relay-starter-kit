@@ -1,0 +1,40 @@
+
+.ListingThumbInline {
+    color: #797979;
+    margin-bottom: 12px;
+}
+
+.ListingThumbInline p {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0;
+}
+
+.ListingThumbInline__image-container {
+    background-color: whitesmoke;
+    display: inline-block;
+    max-height: 132px;
+    padding: 6px;
+    text-align: center;
+}
+
+.ListingThumbInline__address {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0;
+    padding-top: 5px;
+}
+
+.ListingThumbInline__price {
+    color: #393939;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 0;
+
+}
+
+
+

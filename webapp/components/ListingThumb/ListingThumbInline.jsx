@@ -16,9 +16,8 @@ export default class ListingThumbLarge extends React.Component {
 
     render() {
         return (
-            <Card className="ListingThumbCard row" shadow={0}>
-                <div className="four columns"
-                     style={{display:"inline-block",padding:6,backgroundColor:"whitesmoke",textAlign:"center"}}>
+            <Card className="ListingThumbInline row" shadow={0}>
+                <div className="four columns ListingThumbInline__image-container ">
                     { this.props.image &&
                     <ImageBackground style={{margin:'0 auto'}}
                                      imgWidth="auto" imgHeight="120"
@@ -26,20 +25,16 @@ export default class ListingThumbLarge extends React.Component {
                     }
 
                     {!this.props.image &&
-                    <div style={{ maxHeight:120}}>
-                        <img
-                            className={this.props.listingImageClass}
-                            src='http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png'
-                            alt="" style={{ margin:"0 auto",display:"block",width:170, height:"auto"}}/>
-                    </div>
+                    <img
+                        className={this.props.listingImageClass}
+                        src='http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png'
+                        alt="" style={{ margin:"0 auto",display:"block",width:170, height:"auto"}}/>
                     }
                 </div>
-                <div className="six columns"
-                     style={{display:"inline-block"}}>
-                    <h4 style={{fontSize:18,fontWeight:500, margin:0, paddingTop:5, lineHeight:"24px"}}
-                        className="text-primary">
+                <div className="six columns">
+                    <h4 className="text-primary ListingThumbInline__address">
                         {this.props.street &&
-                        <span> {this.props.street + ", "} </span>
+                        <span> {this.props.street} </span>
                         }
                         <br/>
                         {this.props.city &&
@@ -50,9 +45,9 @@ export default class ListingThumbLarge extends React.Component {
                         <span> {this.props.zip} </span>
                         }
                     </h4>
-                    <h3 style={{lineHeight:"28px", fontSize:"20px", margin:0, fontFamily:"Helvetica neue", color:"#393939", fontWeight:"bold"}}>
+                    <h3 className="ListingThumbInline__price">
                         {this.props.price}</h3>
-                    <p style={{margin:0}}>
+                    <p>
                         {this.props.type &&
                         <span > {this.props.type}</span>
                         }
@@ -61,7 +56,7 @@ export default class ListingThumbLarge extends React.Component {
                             {" | MLS#: " + this.props.mls}
                         </span>}
                     </p>
-                    <p style={{margin:0}}>
+                    <p>
                         {this.props.beds &&
                         < span >
                         {"Beds: " + this.props.beds}
