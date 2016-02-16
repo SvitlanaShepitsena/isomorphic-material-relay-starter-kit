@@ -10,8 +10,8 @@ export function Cities_all() {
 }
 
 export function City_by_house(house_id) {
-    let cqlText = 'SELECT city FROM house WHERE ';
-    let cqlParams = [];
+    let cqlText = 'SELECT city FROM house WHERE id = ? ';
+    let cqlParams = [house_id];
 
     return runQuery(City, cqlText, cqlParams);
 }

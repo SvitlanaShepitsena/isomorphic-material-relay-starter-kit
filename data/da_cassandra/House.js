@@ -18,35 +18,16 @@ export function Houses_all() {
 }
 
 export function Houses_by_city(city) {
-    let cqlText = 'SELECT * FROM "house" where city = ? ALLOW FILTERING;';
+    let cqlText = 'SELECT * FROM houses_by_city where city_id = ? ALLOW FILTERING;';
     let cqlParams = [city];
 
     return runQuery(House, cqlText, cqlParams);
 }
 
 
-export function Houses_by_city_zipType(city, zipType) {
-    console.log(city);
-    console.log(zipType);
-    let cqlParams;
-    let cqlText;
-    if (!zipType) {
-        cqlText = 'SELECT * FROM "house" where city = ? ALLOW FILTERING;';
-        cqlParams = [city];
-    } else {
-        if (zipType.match(/\d+/g)) {
-            console.log('House.js - line: 20');
-            cqlText = 'SELECT * FROM "house" where city = ? and zip = ? ALLOW FILTERING;';
-
-            cqlParams = [city, zipType];
-            console.log(cqlParams);
-        } else {
-            cqlText = 'SELECT * FROM "house" where city = ? and type = ? ALLOW FILTERING;';
-            cqlParams = [city, zipType];
-
-        }
-    }
+export function Houses_by_city_zip(city,zip) {
+    let cqlText = 'SELECT * FROM houses_by_city_zip where city_id = ? AND zip_id = ? ALLOW FILTERING;';
+    let cqlParams = [city,zip];
 
     return runQuery(House, cqlText, cqlParams);
 }
-

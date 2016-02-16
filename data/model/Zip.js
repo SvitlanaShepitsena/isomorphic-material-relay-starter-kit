@@ -1,5 +1,5 @@
 // Class used by GraphQL Server
-export default class City {
+export default class Zip {
     constructor(fields) {
         this.id = fields.id;
 

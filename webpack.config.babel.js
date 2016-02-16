@@ -18,9 +18,14 @@ let config = {
     loaders: [
       {test: /\.js(x)?$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/},
       {test: /\.json$/, loaders: ['json']},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader') },
     ]
   },
+  postcss: [
+    require('autoprefixer-core'),
+    require('postcss-color-rebeccapurple')
+  ],
+
   plugins: [
     new webpack.NoErrorsPlugin(),
     new webpack.EnvironmentPlugin(Object.keys(process.env)),

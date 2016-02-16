@@ -33,29 +33,7 @@ class HousePage extends React.Component {
             <div>
                 House in {house.city}
                 <hr/>
-                <div>
-                    {house.mls}
-                </div>
-                <hr/>
-                <div>
-                    {house.type}
-                </div>
-                <hr/>
-                <div>
-                    {house.description}
-                </div>
-                <hr/>
-                <div>
-                    {house.beds}
-                </div>
-                <hr/>
-                <div>
-                    {house.price}$
-                </div>
-                <hr/>
-                <div>
-                    <img src={house.image} alt={`Great House`}/>
-                </div>
+
             </div>
         );
     }
@@ -67,7 +45,7 @@ export default Relay.createContainer(HousePage, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         House(id:$id){
-      mls
+        id
 
        }
       }

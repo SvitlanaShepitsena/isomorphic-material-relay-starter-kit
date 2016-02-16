@@ -59,7 +59,6 @@ export default Relay.createContainer(ZipTypePage, {
          Houses(city:$city,zipType:$zipType,first:100) {
           edges {
             node {
-         street,
           price
             },
           },

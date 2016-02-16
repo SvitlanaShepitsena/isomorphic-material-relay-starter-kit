@@ -1,7 +1,9 @@
 import {
-    City_list_get,
+    Cities_all,
+    City_by_house
 } from '../da_cassandra/City'
 
 export {
-    City_list_get,
+    Cities_all,
+    City_by_house
 };

@@ -78,7 +78,6 @@ export default Relay.createContainer(CitiesSale, {
           edges {
             node {
             id,
-              name
             },
           },
         },

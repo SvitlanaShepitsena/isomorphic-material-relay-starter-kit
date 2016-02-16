@@ -18,15 +18,7 @@ export default Relay.createContainer(AboutPage, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        Houses(first: 10) {
-          edges {
-            node {
-              id,
-              street,
-              price
-            },
-          },
-        },
+
       }
     `,
     },

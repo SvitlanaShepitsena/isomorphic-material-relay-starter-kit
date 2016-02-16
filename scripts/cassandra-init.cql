@@ -27,56 +27,28 @@ values( 33171548-39d3-45d8-ab5c-5eedefe01dfc, 'jill', 'birthday', 'Jill McBear',
 
 CREATE TABLE house (
   id text,
-  street text,
+  city_id text,
+  zip_id text,
   price bigint,
-  PRIMARY KEY (id,mls));
+  PRIMARY KEY (id));
 
-CREATE INDEX  house_city ON house( city);
-CREATE INDEX  house_zip ON house( zip);
-CREATE INDEX  house_type ON house( type);
+CREATE TABLE houses_by_city (
+  city_id text,
+  house_id text,
+  zip_id text,
+  price bigint,
+  PRIMARY KEY (city_id, house_id));
 
-  CREATE TABLE image (
-    house_id uuid,
-    url text,
-    PRIMARY KEY (url));
+CREATE TABLE houses_by_city_zip (
+   city_id text,
+    zip_id text,
+    house_id text,
+    price bigint,
+  PRIMARY KEY ((city_id, zip_id),house_id));
 
- CREATE INDEX house_image ON image(house_id);
-
-CREATE TABLE city (
-  id uuid,
-  name text,
-  PRIMARY KEY (name));
-
-CREATE TABLE zip (
- id uuid,
-  zip text,
-  PRIMARY KEY (zip));
-
-CREATE TABLE type (
- id uuid,
-  type text,
-  PRIMARY KEY (type));
-
-  CREATE TABLE city_zip (
-  id text,
-  city text,
-  zip text,
-  number counter,
-  PRIMARY KEY (id,city,zip));
+CREATE TABLE  city ( id text, PRIMARY KEY (id));
+CREATE TABLE  zip ( id text, PRIMARY KEY (id));
 
 
-    CREATE TABLE city_type (
-    id text,
-    city text,
-    type text,
-    number counter,
-    PRIMARY KEY (id,city,type));
 
-
-CREATE TABLE zip_type (
-    id text,
-    zip text,
-    type text,
-    number counter,
-    PRIMARY KEY (id,zip,type));
 

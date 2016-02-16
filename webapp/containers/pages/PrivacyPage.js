@@ -21,7 +21,6 @@ export default Relay.createContainer(PrivacyPage, {
           edges {
             node {
               id,
-              street,
               price
             },
           },
