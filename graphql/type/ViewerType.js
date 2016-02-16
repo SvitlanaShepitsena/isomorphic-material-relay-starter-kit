@@ -74,7 +74,7 @@ export default new GraphQLObjectType({
                     type: GraphQLString
                 }
             },
-            resolve: (obj, args, {rootValue: {user_id, city}}) => {
+            resolve: (obj, args, {rootValue: {user_id}}) => {
 
                 return City_zip_list_get(user_id, args.city).then((arr_CityZips) => connectionFromArray(arr_CityZips, args))
             }

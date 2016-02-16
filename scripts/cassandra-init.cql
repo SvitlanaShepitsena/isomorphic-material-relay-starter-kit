@@ -1,7 +1,6 @@
 DROP KEYSPACE IF EXISTS remax;
 
-CREATE KEYSPACE remax
-WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+CREATE KEYSPACE remax WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
 
 USE remax;
 
@@ -28,15 +27,7 @@ values( 33171548-39d3-45d8-ab5c-5eedefe01dfc, 'jill', 'birthday', 'Jill McBear',
 
 CREATE TABLE house (
   id text,
-  mls text,
-  beds text,
-  description text,
-  image text,
   street text,
-  city text,
-  state text,
-  zip text,
-  type text,
   price bigint,
   PRIMARY KEY (id,mls));
 

@@ -2,16 +2,9 @@
 export default class House {
     constructor(fields) {
         this.id = fields.id;
-        this.mls = fields.mls;
-        this.city = fields.city;
-        this.beds = fields.beds;
-        this.description = fields.description;
-        this.image = fields.image;
+        this.city_id = fields.city_d;
+        this.zip_id = fields.zip_id;
         this.price = fields.price;
-        this.state = fields.state;
-        this.street = fields.street;
-        this.type = fields.type;
-        this.zip = fields.zip;
 
     }
 }
