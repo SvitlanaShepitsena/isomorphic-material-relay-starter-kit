@@ -1,12 +1,18 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import SvLink from '../../components/Shared/SvLink';
+import _ from 'lodash';
 import {Link} from 'react-router';
 import Breadcrumbs from 'react-breadcrumbs';
+
+/*MaterialUi*/
+import Spinner from 'material-ui/lib/circular-progress';
 import Card from '../../../node_modules/material-ui/lib/card/card';
 import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
 import CardText from '../../../node_modules/material-ui/lib/card/card-text';
+
+/*Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
+import SvLink from '../../components/Shared/SvLink';
 
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
@@ -33,95 +39,105 @@ class HousePage extends React.Component {
 
         return (
             <div className="HousePage">
-                <Breadcrumbs
-                    routes={this.props.routes}
-                    params={this.props.params}
-                />
-                <hr/>
-                <Card className="HousePage__card">
-                    <div className="row HousePage__card-header">
-                        <div className="six columns HousePage__card-address">
-                            {/*=Address*/}
-                            <h1>
-                                {house.street &&
-                                <span>{houseStreet}</span>
-                                }
-                                <br/>
+                {!house &&
+                <div style={{textAlign:"center"}}>
+                    <Spinner size={1.5}/>
+                </div>
+                }
 
-                                {house.city &&
-                                <span> {houseCity + ", "} </span>
-                                }
-                                {house.state &&
-                                <span> {house.state} </span>
-                                }
-                            </h1>
-                            {house.type &&
-                            <p> {houseType} </p>
-                            }
-                        </div>
-                        <div className="six columns HousePage__card-price">
-                            {house.price &&
-                            <h4> ${house.price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")} </h4>
-                            }
-                            {house.shortSale &&
-                            <p> Short Sale </p>
-                            }
-                            {house.mls &&
-                            <p> {"MLS#: " + house.mls} </p>
-                            }
-                            {house.year &&
-                            <p> {"Year: " + house.year} </p>
-                            }
-                        </div>
-                    </div>
-
-                    <div>
-                        <img src={house.image} alt={`Great House`}/>
-                    </div>
+                {house &&
+                <div>
+                    <Breadcrumbs
+                        routes={this.props.routes}
+                        params={this.props.params}
+                    />
                     <hr/>
-                    <article>
-                        {house.description}
-                    </article>
-                    <hr/>
-                    <article >
-                        <h5>Key Facts:</h5>
-                        <div className="row">
-                            <div className="six columns">
+                    <Card className="HousePage__card">
+                        <div className="row HousePage__card-header">
+                            <div className="six columns HousePage__card-address">
+                                {/*=Address*/}
+                                <h1>
+                                    {house.street &&
+                                    <span>{houseStreet}</span>
+                                    }
+                                    <br/>
+                                    {house.city &&
+                                    <span> {houseCity + ", "} </span>
+                                    }
+                                    {house.state &&
+                                    <span> {house.state} </span>
+                                    }
+                                </h1>
                                 {house.type &&
-                                <p> {"Type: " + house.type} </p>
+                                <p> {houseType} </p>
                                 }
-
-                                {/*                                {house.exteriorDetails && house.exteriorDetails['Lot Size'] &&
-                                 <p> {"Lot Size: " + house.exteriorDetails['Lot Size']} </p>
-                                 }*/}
+                            </div>
+                            <div className="six columns HousePage__card-price">
                                 {house.price &&
-                                <p> Price: ${house.price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")} </p>
+                                <h4> ${house.price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")} </h4>
+                                }
+                                {house.shortSale &&
+                                <p> Short Sale </p>
+                                }
+                                {house.mls &&
+                                <p> {"MLS#: " + house.mls} </p>
                                 }
                                 {house.year &&
-                                <p> Year Built: {house.year} </p>
+                                <p> {"Year: " + house.year} </p>
                                 }
                             </div>
-                            <div className="six columns">
-                                {house.beds &&
-                                <p> {"Beds: " + house.beds} </p>
-                                }
-                                {house.bath &&
-                                <p> {"Baths: " + house.bath} </p>
-                                }
-                                {/*                                {house.exteriorDetails && house.exteriorDetails['Parking'] &&
-                                 <p> {"Parking: " + house.exteriorDetails['Parking']} </p>
-                                 }*/}
-                            </div>
-
                         </div>
-                    </article>
-                    <article>
-                        { house.price &
-                        <p>house.price</p>
+
+
+                        {house.image &&
+                        <div>
+                            <img src={house.image} alt={`House for sale`}/>
+                        </div>
                         }
+                        <hr/>
+                        <article>
+                            {house.description}
+                        </article>
+                        <hr/>
+                        <article >
+                            <h5>Key Facts:</h5>
+                            <div className="row">
+                                <div className="six columns">
+                                    {house.type &&
+                                    <p> {"Type: " + house.type} </p>
+                                    }
+
+                                    {/*                                {house.exteriorDetails && house.exteriorDetails['Lot Size'] &&
+                                     <p> {"Lot Size: " + house.exteriorDetails['Lot Size']} </p>
+                                     }*/}
+                                    {house.price &&
+                                    <p> Price: ${house.price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")} </p>
+                                    }
+                                    {house.year &&
+                                    <p> Year Built: {house.year} </p>
+                                    }
+                                </div>
+                                <div className="six columns">
+                                    {house.beds &&
+                                    <p> {"Beds: " + house.beds} </p>
+                                    }
+                                    {house.bath &&
+                                    <p> {"Baths: " + house.bath} </p>
+                                    }
+                                    {/*                                {house.exteriorDetails && house.exteriorDetails['Parking'] &&
+                                     <p> {"Parking: " + house.exteriorDetails['Parking']} </p>
+                                     }*/}
+                                </div>
+
+                            </div>
+                        </article>
+                        <article>
+                            { house.price &
+                            <p>house.price</p>
+                            }
 
 
-                    </article>
+                        </article>
                         {/*                    </article>
                          {
                          house.exteriorDetails &&
@@ -221,16 +237,18 @@ class HousePage extends React.Component {
                          </p>
                          </article>
                          }*/}
-                </Card>
+                    </Card>
+                </div>
+                }
             </div>
-    )
-    ;
+        )
+            ;
     }
-    }
-    ;
-    export default Relay.createContainer(HousePage, {
-        initialVariables: {id: '4423-north-hamlin-avenue'},
-        fragments: {
+}
+;
+export default Relay.createContainer(HousePage, {
+    initialVariables: {id: '4423-north-hamlin-avenue'},
+    fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         House(id:$id){
@@ -249,4 +267,4 @@ class HousePage extends React.Component {
       }
     `,
     },
-    });
+});

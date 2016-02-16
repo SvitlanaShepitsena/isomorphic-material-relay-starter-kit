@@ -30,6 +30,9 @@ import SvLink from '../../components/Shared/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class CitiesSale extends React.Component {
+    state = {
+        loading: true
+    };
 
     getChildContext() {
         return {location: this.props.location};
@@ -43,7 +46,8 @@ class CitiesSale extends React.Component {
         var isoVars = isomorphicVars();
         const cityText = {
             color: MyTheme.primary1Color
-        }
+        };
+        var cities = this.props.Viewer.Cities.edges;
         return (
             <div>
 
@@ -57,7 +61,12 @@ class CitiesSale extends React.Component {
 
                 <hr/>
                 <div className="row ColsList-4">
-                    {this.props.Viewer.Cities.edges.map((city, index)=>
+                    {!cities.length &&
+                    <div style={{textAlign:"center"}}>
+                        <Spinner size={1.5}/>
+                    </div>
+                    }
+                    {cities.length && this.props.Viewer.Cities.edges.map((city, index)=>
                         <div className="four columns" key={city.node.name}>
                             <SvLink url={city.node.name}>
                                 <CityThumbLarge cityName={_.startCase(city.node.name)}/>
