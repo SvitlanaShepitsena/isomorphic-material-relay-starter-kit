@@ -1,7 +1,6 @@
 import React from 'react';
 import Relay from 'react-relay';
 
-
 import Card from '../../../node_modules/material-ui/lib/card/card';
 import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
 import CardText from '../../../node_modules/material-ui/lib/card/card-text';
