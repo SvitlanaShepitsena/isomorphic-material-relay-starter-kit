@@ -1,3 +1,12 @@
+.HousePage {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.HousePage__key-facts p {
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
 .HousePage__card {
     padding: 16px 0;
 }

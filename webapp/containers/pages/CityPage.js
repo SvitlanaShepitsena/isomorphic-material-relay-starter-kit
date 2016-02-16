@@ -52,6 +52,7 @@ class CityPage extends React.Component {
 
                 {(zipsList.length || typesList.length) &&
                 <div>
+                    <br/>
                     <Breadcrumbs
                         routes={this.props.routes}
                         params={this.props.params}

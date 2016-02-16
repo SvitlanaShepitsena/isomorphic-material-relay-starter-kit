@@ -34,12 +34,12 @@ class ZipTypePage extends React.Component {
     }
 
     render() {
-        var isoVars = isomorphicVars();
         const cityName = _.startCase(this.props.params.city);
         const zip = this.props.params.zipType;
 
         return (
             <div>
+                <br/>
                 <Breadcrumbs
                     routes={this.props.routes}
                     params={this.props.params}

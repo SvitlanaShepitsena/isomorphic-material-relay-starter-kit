@@ -50,11 +50,12 @@ class CitiesSale extends React.Component {
         var cities = this.props.Viewer.Cities.edges;
         return (
             <div>
-
+                <br/>
                 <Breadcrumbs
                     routes={this.props.routes}
                     params={this.props.params}
                 />
+                <br/>
                 <h1>
                     North Chicago Suburbs Houses for Sale
                 </h1>

@@ -9,10 +9,12 @@ import Spinner from 'material-ui/lib/circular-progress';
 import Card from '../../../node_modules/material-ui/lib/card/card';
 import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
 import CardText from '../../../node_modules/material-ui/lib/card/card-text';
+import Slider from '../../components/PhotoGallery/PhotoGallery.js';
 
 /*Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
 import SvLink from '../../components/Shared/SvLink';
+import PhotoGallery from '../../components/PhotoGallery/PhotoGallery.js';
 
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
@@ -47,11 +49,12 @@ class HousePage extends React.Component {
 
                 {house &&
                 <div>
+                    <br/>
                     <Breadcrumbs
                         routes={this.props.routes}
                         params={this.props.params}
                     />
-                    <hr/>
+                    <br/>
                     <Card className="HousePage__card">
                         <div className="row HousePage__card-header">
                             <div className="six columns HousePage__card-address">
@@ -90,19 +93,22 @@ class HousePage extends React.Component {
 
 
                         {house.image &&
+
                         <div>
-                            <img src={house.image} alt={`House for sale`}/>
+                            <PhotoGallery image={house.image}/>
                         </div>
                         }
                         <hr/>
                         <article>
-                            {house.description}
+                            <p>
+                                {house.description}
+                            </p>
                         </article>
                         <hr/>
                         <article >
-                            <h5>Key Facts:</h5>
+                            <h4 style={{color:"#393939"}}>Key Facts:</h4>
                             <div className="row">
-                                <div className="six columns">
+                                <div className="six columns HousePage__key-facts">
                                     {house.type &&
                                     <p> {"Type: " + house.type} </p>
                                     }
