@@ -2,7 +2,7 @@
 @import 'typography.css';
 @import "AppLayout.css";
 @import "Footer.css";
-@import "HousePage.css";
+@import "../containers/pages/HousePage.css";
 @import "ListingThumb.css";
 @import "ListingThumbInline.css";
 @import "HomePageMuiGrid.css";

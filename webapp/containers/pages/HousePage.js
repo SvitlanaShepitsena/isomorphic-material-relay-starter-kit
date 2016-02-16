@@ -8,6 +8,7 @@ import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
 import CardText from '../../../node_modules/material-ui/lib/card/card-text';
 import House_List from './../../components/HouseSale/House_List.jsx';
 
+var styles = require("./HousePage.css");
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class HousePage extends React.Component {
@@ -38,9 +39,9 @@ class HousePage extends React.Component {
                     params={this.props.params}
                 />
                 <hr/>
-                <Card className="HousePage__card">
+                <Card className={styles.card-address}>
                     <div className="row HousePage__card-header">
-                        <div className="six columns HousePage__card-address">
+                        <div className={styles.card-address}>
                             {/*=Address*/}
                             <h1>
                                 {house.street &&

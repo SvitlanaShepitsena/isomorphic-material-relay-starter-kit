@@ -16,9 +16,9 @@ let config = {
   },
   module: {
     loaders: [
-      {test: /\.js(x)?$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/},
+      {test: /\.js(x)?$/, loaders: ['react-hot', 'babel','css-loader'], exclude: /node_modules/},
       {test: /\.json$/, loaders: ['json']},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
+      {test: /\.css$/, loader:ExtractTextPlugin.extract('style-loader', 'css-loader') },
     ]
   },
   plugins: [
