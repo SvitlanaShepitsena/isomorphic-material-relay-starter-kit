@@ -26,38 +26,75 @@ class HousePage extends React.Component {
     }
 
     render() {
-        var isoVars = isomorphicVars();
         var house = this.props.Viewer.House;
-        return (
+        const houseType = _.startCase(house.type.replace(/-+/g, ' '));
+        const houseCity = _.startCase(house.city.replace(/-+/g, ' '));
+        const houseStreet = _.startCase(house.street.replace(/-+/g, ' '));
 
-            <div>
-                House in {house.city}
+        return (
+            <div className="HousePage">
+                <Breadcrumbs
+                    routes={this.props.routes}
+                    params={this.props.params}
+                />
                 <hr/>
-                <div >
-                    {house.mls}
-                </div>
-                <div>
-                    <img src={house.image} alt={`Great House`}/>
-                </div>
-                <hr/>
-                <div>
-                    {house.type}
-                </div>
-                <hr/>
-                <div>
-                    {house.description}
-                </div>
-                <hr/>
-                <div>
-                    {house.beds}
-                </div>
-                <hr/>
-                <div>
-                    {house.price}$
-                </div>
-                <hr/>
+                <Card className="HousePage__card">
+                    <div className="row HousePage__card-header">
+                        <div className="six columns HousePage__card-address">
+                            {/*=Address*/}
+                            <h1>
+                                {house.street &&
+                                <span>{houseStreet}</span>
+                                }
+                                <br/>
+
+                                {house.city &&
+                                <span> {houseCity + ", "} </span>
+                                }
+                                {house.state &&
+                                <span> {house.state} </span>
+                                }
+                            </h1>
+                            {house.type &&
+                            <p> {houseType} </p>
+                            }
+                        </div>
+                        <div className="six columns HousePage__card-price">
+                            {house.price &&
+                            <h4> ${house.price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")} </h4>
+                            }
+                            {house.shortSale &&
+                            <p> Short Sale </p>
+                            }
+                            {house.mls &&
+                            <p> {"MLS#: " + house.mls} </p>
+                            }
+                            {house.year &&
+                            <p> {"Year: " + house.year} </p>
+                            }
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src={house.image} alt={`Great House`}/>
+                    </div>
+                    <hr/>
+                    <article>
+                        {house.description}
+                    </article>
+                    <hr/>
+                    <article>
+                        {house.beds}
+                    </article>
+                    <hr/>
+                    <div>
+                        {house.price}$
+                    </div>
+                    <hr/>
+                </Card>
             </div>
-        );
+        )
+            ;
     }
 }
 ;

@@ -72,7 +72,7 @@ export default class House_List extends React.Component {
                     padding={1}
                     className="HomePageGrid__GridList"
                 >
-                    {tilesData.map((tile,index) => (
+                    {tilesData.map((tile, index) => (
                         <GridTile
                             key={index}
                             title={tile.title}
