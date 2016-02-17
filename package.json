@@ -116,6 +116,7 @@
     "react-slick": "^0.10.0",
     "react-tap-event-plugin": "^0.2.1",
     "replace": "^0.3.0",
+    "searchkit": "^0.7.0",
     "seq-queue": "0.0.5",
     "squel": "^4.2.2",
     "style-loader": "^0.12.4",

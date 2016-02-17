@@ -10,6 +10,8 @@ import Helmet from "react-helmet";
 import HomePageGrid from '../../components/Home/HomePageMuiGrid.jsx';
 import PhotoGallery from '../../components/PhotoGallery/PhotoGallery.js';
 
+import Search from '../../components/shared/SearchForm.js';
+
 class HomePage extends React.Component {
     render() {
         var isoVars = isomorphicVars();
@@ -36,7 +38,7 @@ class HomePage extends React.Component {
                 ]}
                 />
                 <div>Home Page Content</div>
-
+                <Search/>
             </div>
         );
     }
