@@ -23,6 +23,12 @@ export function Houses_by_city(city) {
 
     return runQuery(House, cqlText, cqlParams);
 }
+export function Houses_by_zip(zip) {
+    let cqlText = 'SELECT * FROM houses_by_zip where zip_id = ? ALLOW FILTERING;';
+    let cqlParams = [zip];
+
+    return runQuery(House, cqlText, cqlParams);
+}
 
 
 export function Houses_by_city_zip(city,zip) {
