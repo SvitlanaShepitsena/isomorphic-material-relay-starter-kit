@@ -9,7 +9,7 @@ export function Types_all() {
     return runQuery(Type, cqlText, cqlParams);
 }
 export function Types_by_city(city) {
-    let cqlText = 'SELECT type FROM types_by_city where city_id = ?';
+    let cqlText = 'SELECT id,type FROM types_by_city where city_id = ?';
     let cqlParams = [city];
 
     return runQuery(Type, cqlText, cqlParams);
