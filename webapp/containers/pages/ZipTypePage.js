@@ -38,32 +38,7 @@ class ZipTypePage extends React.Component {
 
         return (
             <div>
-                <br/>
-                <Breadcrumbs
-                    routes={this.props.routes}
-                    params={this.props.params}
-                />
-                <h1>{cityName + " Homes for Sale"}</h1>
-                {this.props.Viewer.Houses.edges.map((edge, index)=> {
-                        const house = edge.node;
-                        return (
-                            <div key={index}>
-                                <SvLink url={house.street}>
-                                    <ListingThumbInline
-                                        image={house.image}
-                                        mls={house.mls}
-                                        beds={house.beds}
-                                        zip={house.zip}
-                                        street={_.startCase(house.street.replace(/-+/g, ' '))}
-                                        type={_.startCase(house.type.replace(/-+/g, ' '))}
-                                        price={"$"+ house.price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") }
-                                        city={cityName}
-                                    />
-                                </SvLink>
-                            </div>
-                        )
-                    }
-                )}
+                ZipType
             </div>
         );
     }
@@ -75,20 +50,7 @@ export default Relay.createContainer(ZipTypePage, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-         Houses(city:$city,zipType:$zipType,first:100) {
-          edges {
-            node {
-            beds,
-          image,
-          price,
-         street,
-         city,
-         zip,
-          type,
-          mls
-            },
-          },
-        },
+
       }
     `,
     },

@@ -18,7 +18,6 @@ export function Houses_all() {
 }
 
 export function Houses_by_city(city) {
-    console.log(city);
     let cqlText = 'SELECT * FROM houses_by_city where city_id = ? ALLOW FILTERING;';
     let cqlParams = [city];
 

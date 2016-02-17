@@ -68,10 +68,14 @@ class CitiesSale extends React.Component {
                     </div>
                     }
                     {cities.length && this.props.Viewer.Cities.edges.map((city, index)=>
+
                         <div className="four columns" key={city.node.name}>
                             <SvLink url={city.node.name}>
                                 <CityThumbLarge cityName={_.startCase(city.node.name)}/>
                             </SvLink>
+                            <div>
+                                Number of Houses: {city.node.Houses_Count}
+                            </div>
                         </div>
                     )}
                 </div>
@@ -86,14 +90,16 @@ export default Relay.createContainer(CitiesSale, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        Cities(first: 15) {
-          edges {
-            node {
-            id,
-              name
-            },
-          },
-        },
+          Cities(first :100){
+            edges{
+                node{
+
+          name,
+          Houses_Count
+
+        }
+      }
+    }
       }
     `,
     },

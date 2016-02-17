@@ -10,8 +10,6 @@ class SvLink extends React.Component {
 
     render() {
         const href = this.props.url.trim().toLowerCase().replace(/\s+/g, '-');
-        console.log('href:'+href);
-        console.log('current path:'+this.context.location.pathname);
         const fullUrl = `${this.context.location.pathname}/${href}`;
         const anchor = _.startCase(href);
         return (
