@@ -38,3 +38,27 @@
     margin-bottom: 24px;
 }
 
+.breadcrumbs span a {
+    color: #1976d2;
+    text-transform: capitalize;
+}
+
+.breadcrumbs span span {
+    color: #1976d2;
+}
+
+.breadcrumbs span:last-child a {
+    color: #393939;
+    cursor: default;
+}
+
+.breadcrumbs span:last-child span {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .breadcrumbs a {
+        font-size: 15px;
+    }
+}
+
