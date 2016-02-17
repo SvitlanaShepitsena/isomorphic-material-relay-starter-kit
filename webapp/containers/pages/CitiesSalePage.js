@@ -74,9 +74,6 @@ class CitiesSale extends React.Component {
                                     housesLength={city.node.Houses_Count}
                                     cityName={_.startCase(city.node.name)}/>
                             </SvLink>
-                            <div>
-                                {"Number of Houses: " + city.node.Houses_Count}
-                            </div>
                         </div>
                     )}
                 </div>
