@@ -39,18 +39,18 @@ class CityPage extends React.Component {
 
     render() {
         const cityName = _.startCase(this.props.params.city);
-        var city = this.props.Viewer.City;
         var zipsList = this.props.Viewer.City.Zips.edges;
+        var typesList = this.props.Viewer.City.Types.edges;
         return (
 
             <div>
-                {!(zipsList.length) &&
+                {!(zipsList.length || typesList.length) &&
                 <div style={{textAlign:"center"}}>
                     <Spinner size={1.5}/>
                 </div>
                 }
 
-                {(zipsList.length ) &&
+                {(zipsList.length || typesList.length) &&
                 <div>
                     <br/>
                     <Breadcrumbs
@@ -108,6 +108,36 @@ class CityPage extends React.Component {
                 </Card>
                 }
                 <br/>
+                {
+                <Card>
+                    <CardTitle title={cityName + " Homes for Sale by Property Type"}/>
+                    <Divider />
+                    <CardActions>
+                        <ul className="list-unstyled">
+                            {typesList.map((edge)=> {
+                                    const type = edge.node;
+                                    console.log(type);
+                                    return (
+                                        <li style={{display: "inline-block"}} key={type.type}>
+                                            <Badge
+                                                badgeContent={`${type.Houses_Count}`}
+                                                badgeStyle={{backgroundColor: "#EEEEEE", color: "#212121", top: 18, right: 18}}
+                                            >
+                                                <SvLink url={type.type}>
+                                                    <FlatButton
+                                                        secondary={true}
+                                                        style={{color: "#0277BD", fontSize: 15, fontWeight: 500}}
+                                                        label={`${type.type}`}/>
+                                                </SvLink>
+                                            </Badge>
+                                        </li>
+                                    )
+                                }
+                            )}
+                        </ul>
+                    </CardActions>
+                </Card>
+                }
             </div>
         );
     }
@@ -131,11 +161,11 @@ export default Relay.createContainer(CityPage, {
 
             },
 
-            Types(first:100){
+            Types(first:100,city:$city){
               edges{
                 node{
                   type,
-                  Houses_Count
+                  Houses_Count(city:$city)
                 }
               }
             }

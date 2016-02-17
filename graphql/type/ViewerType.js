@@ -13,6 +13,7 @@ import CitiesConnection from './CityConnection';
 
 import HouseType from './HouseType';
 import CityType from './CityType';
+import TypeType from './CityType';
 
 import User from '../../data/model/User';
 import {Uuid} from '../../data/da_cassandra/_client.js';
