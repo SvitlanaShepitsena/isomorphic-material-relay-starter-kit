@@ -37,3 +37,11 @@ export function Houses_by_city_zip(city,zip) {
 
     return runQuery(House, cqlText, cqlParams);
 }
+export function Houses_by_city_type(city,type) {
+    console.log('city- '+city);
+    console.log('type- '+type);
+    let cqlText = 'SELECT * FROM houses_by_city_type where city_id = ? AND type_id = ? ALLOW FILTERING;';
+    let cqlParams = [city,type];
+
+    return runQuery(House, cqlText, cqlParams);
+}

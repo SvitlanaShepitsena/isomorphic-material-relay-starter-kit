@@ -39,6 +39,7 @@ class CityPage extends React.Component {
 
     render() {
         const cityName = _.startCase(this.props.params.city);
+        var city = this.props.Viewer.City;
         var zipsList = this.props.Viewer.City.Zips.edges;
         return (
 
@@ -89,7 +90,7 @@ class CityPage extends React.Component {
                                     return (
                                         <li style={{display:"inline-block"}} key={zip.code}>
                                             <Badge
-                                                badgeContent={`${City.Zips__Count}`}
+                                                badgeContent={`${zip.Houses_Count}`}
                                                 badgeStyle={{backgroundColor:"#EEEEEE", color:"#212121", top: 18, right: 18}}
                                             >
                                                 <SvLink url={zip.code}>
@@ -119,11 +120,22 @@ export default Relay.createContainer(CityPage, {
       fragment on Viewer {
         User_IsAnonymous,
         City(city:$city){
-            Zips_Count,
+
             Zips(first:100){
               edges{
                 node{
-                  code
+                  code,
+                  Houses_Count
+                }
+              },
+
+            },
+
+            Types(first:100){
+              edges{
+                node{
+                  type,
+                  Houses_Count
                 }
               }
             }
