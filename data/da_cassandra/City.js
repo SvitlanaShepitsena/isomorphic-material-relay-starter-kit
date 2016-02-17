@@ -22,6 +22,12 @@ export function City_by_zip(zip_id) {
 
     return runQueryOneResult(City, cqlText, cqlParams);
 }
+export function City_get(city) {
+    let cqlText = 'select * from city where id = ? ALLOW FILTERING;';
+    let cqlParams = [city];
+
+    return runQueryOneResult(City, cqlText, cqlParams);
+}
 
 
 
