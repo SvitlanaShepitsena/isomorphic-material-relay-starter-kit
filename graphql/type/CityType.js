@@ -1,4 +1,4 @@
-import {globalIdField, connectionArgs,} from "graphql-relay";
+import {globalIdField, connectionArgs,connectionFromArray} from "graphql-relay";
 import {GraphQLInt, GraphQLNonNull, GraphQLID, GraphQLString, GraphQLList, GraphQLObjectType} from "graphql";
 
 import NodeInterface from "../interface/NodeInterface";
