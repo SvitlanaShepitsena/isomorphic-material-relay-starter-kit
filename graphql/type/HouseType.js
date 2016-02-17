@@ -1,26 +1,30 @@
 import {globalIdField} from "graphql-relay";
-import {GraphQLBoolean, GraphQLString, GraphQLObjectType} from "graphql";
+import {GraphQLBoolean, GraphQLNonNull,GraphQLID, GraphQLString, GraphQLObjectType} from "graphql";
 
 import NodeInterface from "../interface/NodeInterface";
 
 import House from '../../data/model/House';
 
+import CityType from './CityType';
+import {City_by_house} from '../../data/da_cassandra/City';
+
+import ZipType from './ZipType';
+import {Zip_by_house} from '../../data/da_cassandra/Zip';
 
 export default new GraphQLObjectType({
     name: 'House',
     interfaces: [NodeInterface],
-    isTypeOf: object => object instanceof House,
-    fields: {
-        id: globalIdField('House'),
-        mls: {type: GraphQLString, resolve: (obj) => obj.mls},
-        city: {type: GraphQLString, resolve: (obj) => obj.city},
-        state: {type: GraphQLString, resolve: (obj) => obj.state},
-        street: {type: GraphQLString, resolve: (obj) => obj.street},
-        zip: {type: GraphQLString, resolve: (obj) => obj.zip},
-        price: {type: GraphQLString, resolve: (obj) => obj.price},
-        beds: {type: GraphQLString, resolve: (obj) => obj.beds},
-        description: {type: GraphQLString, resolve: (obj) => obj.description},
-        image: {type: GraphQLString, resolve: (obj) => obj.image},
-        type: {type: GraphQLString, resolve: (obj) => obj.type}
-    },
+    isTypeOf: obj => obj instanceof House,
+    fields: () => ({
+        id: {
+            type: new GraphQLNonNull(GraphQLID),
+            resolve: (obj) => obj.id
+        },
+        city: {type: CityType, resolve: (obj) => City_by_house(obj.city_id)},
+        zip: {type: ZipType, resolve: (obj) =>Zip_by_house(obj.id)},
+        price: {type: GraphQLString, resolve: (obj) =>obj.price},
+        street: {type: GraphQLString, resolve: (obj) =>obj.street}
+
+
+    }),
 });

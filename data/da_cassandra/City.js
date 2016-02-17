@@ -1,4 +1,4 @@
-import {runQuery, runQueryNoResult, Uuid} from './_client.js';
+import {runQuery, runQueryNoResult, runQueryOneResult, Uuid} from './_client.js';
 
 import City from '../model/City'
 
@@ -9,11 +9,11 @@ export function Cities_all() {
     return runQuery(City, cqlText, cqlParams);
 }
 
-export function City_by_house(house_id) {
-    let cqlText = 'SELECT city FROM house WHERE id = ? ';
-    let cqlParams = [house_id];
+export function City_by_house(city_id) {
+    let cqlText = 'SELECT * FROM city WHERE id = ? ';
+    let cqlParams = [city_id];
 
-    return runQuery(City, cqlText, cqlParams);
+    return runQueryOneResult(City, cqlText, cqlParams);
 }
 
 

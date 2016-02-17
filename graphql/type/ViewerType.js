@@ -2,7 +2,7 @@ import {globalIdField} from "graphql-relay";
 import {GraphQLBoolean, GraphQLID, GraphQLInt, GraphQLString, GraphQLObjectType} from "graphql";
 import {connectionArgs, connectionFromArray} from "graphql-relay";
 
-import {Houses_by_city_zip,Houses_by_city, Houses_all, House_get} from '../../data/da/House';
+import {Houses_by_city_zip, Houses_by_city, Houses_all, House_get} from '../../data/da/House';
 
 import {Cities_all} from '../../data/da/City';
 
@@ -10,7 +10,6 @@ import NodeInterface from "../interface/NodeInterface";
 
 import HousesConnection from './HouseConnection';
 import CitiesConnection from './CityConnection';
-
 
 import HouseType from './HouseType';
 
@@ -25,6 +24,8 @@ export default new GraphQLObjectType({
     isTypeOf: object => object instanceof User,
     fields: {
         id: globalIdField('Viewer'),
+
+        // ->->-> User properties
 
         User_IsAnonymous: {type: GraphQLBoolean, resolve: (obj) => obj.id.equals(Uuid_0)},
         User_DisplayName: {type: GraphQLString, resolve: (obj) => obj.User_DisplayName},
@@ -45,6 +46,7 @@ export default new GraphQLObjectType({
             },
             resolve: (obj, {...args}, {rootValue: {user_id}}) => Houses_all().then((arr_House) => connectionFromArray(arr_House, args))
         },
+
         Houses_Count: {
             type: GraphQLInt,
             args: {
@@ -58,11 +60,13 @@ export default new GraphQLObjectType({
             },
             resolve: (obj, {...args}, {rootValue: {user_id}}) => Houses_all().then((arr_House) => arr_House.length)
         },
+
         House: {
             type: HouseType,
             args: {...{id: {type: GraphQLString}}},
             resolve: (obj, {...args}, {rootValue: {user_id}}) => House_get(args.id)
         },
+
         Cities: {
             type: CitiesConnection.connectionType,
             args: {...connectionArgs},
@@ -73,6 +77,7 @@ export default new GraphQLObjectType({
             type: GraphQLInt,
             args: {...connectionArgs},
             resolve: (obj, {...args}, {rootValue: {user_id}}) => Cities_all(user_id).then((arr_City) => arr_City.length)
-        },
+        }
+
     },
 });
