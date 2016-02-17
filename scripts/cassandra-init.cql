@@ -35,19 +35,19 @@ CREATE TABLE house (
 
 CREATE TABLE houses_by_city (
   city_id text,
+  id text,
   street text,
-  house_id text,
   zip_id text,
   price bigint,
-  PRIMARY KEY (city_id, house_id));
+  PRIMARY KEY (city_id, id));
 
 CREATE TABLE houses_by_city_zip (
     city_id text,
-    street text,
     zip_id text,
-    house_id text,
+    id text,
+    street text,
     price bigint,
-  PRIMARY KEY ((city_id, zip_id),house_id));
+  PRIMARY KEY ((city_id, zip_id),id));
 
   CREATE INDEX city_zip ON houses_by_city_zip (city_id);
 
