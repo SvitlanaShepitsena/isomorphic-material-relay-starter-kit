@@ -17,6 +17,7 @@ export default Relay.createContainer(PrivacyPage, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
+<<<<<<< HEAD
         Houses(first: 10) {
           edges {
             node {
@@ -27,5 +28,9 @@ export default Relay.createContainer(PrivacyPage, {
         },
       }
     `,
+=======
+
+      } `,
+>>>>>>> origin/master
     },
 });

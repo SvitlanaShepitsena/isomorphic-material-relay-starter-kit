@@ -5,6 +5,7 @@ import _ from 'lodash';
 import Breadcrumbs from 'react-breadcrumbs';
 
 /*=MaterialUi*/
+import Spinner from 'material-ui/lib/circular-progress';
 import Card from 'material-ui/lib/card/card';
 import CardActions from 'material-ui/lib/card/card-actions';
 import CardTitle from 'material-ui/lib/card/card-title';
@@ -38,33 +39,47 @@ class CityPage extends React.Component {
 
     render() {
         const cityName = _.startCase(this.props.params.city);
+        var zipsList = this.props.Viewer.CityZips.edges;
+        var typesList = this.props.Viewer.CityTypes.edges;
         return (
 
             <div>
+                {!(zipsList.length || typesList.length) &&
+                <div style={{textAlign:"center"}}>
+                    <Spinner size={1.5}/>
+                </div>
+                }
+
+                {(zipsList.length || typesList.length) &&
                 <div>
+                    <br/>
                     <Breadcrumbs
                         routes={this.props.routes}
                         params={this.props.params}
                     />
-                </div>
-                <h1> {"Houses for Sale in " + _.startCase(this.props.params.city)}</h1>
-                <hr/>
-                <div className="row">
-                    <div className="six columns">
-                        <ListingThumbLarge />
-                    </div>
-                    <div className="six columns">
-                        <ListingThumbLarge />
-                    </div>
-                </div>
-                <br/>
-                <RaisedButton style={{display:"block",margin:"0px auto"}}
-                              label={"All " + cityName + " homes for sale (###)"}
-                              primary={true}/>
-                <br/>
-                <br/>
 
+                    <h1> {"Houses for Sale in " + cityName} </h1>
+                    <hr/>
+                    <div className="row">
+                        <div className="six columns">
+                            <ListingThumbLarge />
+                        </div>
+                        <div className="six columns">
+                            <ListingThumbLarge />
+                        </div>
+                    </div>
+                    <SvLink url='all'>
+                        <RaisedButton style={{display:"block",margin:"0px auto"}}
+                                      label={"All " + cityName + " homes for sale (###)"}
+                                      primary={true}/>
+                    </SvLink>
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+                }
 
+                {zipsList.length &&
                 <Card>
                     <CardTitle title={cityName + " Homes for Sale by Zip"}/>
                     <Divider />
@@ -91,7 +106,9 @@ class CityPage extends React.Component {
                         </ul>
                     </CardActions>
                 </Card>
+                }
                 <br/>
+                {typesList.length &&
                 <Card>
                     <CardTitle title={cityName + " Homes for Sale by Property Type"}/>
                     <Divider />
@@ -100,15 +117,15 @@ class CityPage extends React.Component {
                             {this.props.Viewer.CityTypes.edges.map((edge)=> {
                                     const type = edge.node;
                                     return (
-                                        <li style={{display:"inline-block"}} key={type.type}>
+                                        <li style={{display: "inline-block"}} key={type.type}>
                                             <Badge
                                                 badgeContent={`${type.number}`}
-                                                badgeStyle={{backgroundColor:"#EEEEEE", color:"#212121", top: 18, right: 18}}
+                                                badgeStyle={{backgroundColor: "#EEEEEE", color: "#212121", top: 18, right: 18}}
                                             >
                                                 <SvLink url={type.type}>
                                                     <FlatButton
                                                         secondary={true}
-                                                        style={{color:"#0277BD", fontSize:15, fontWeight:500}}
+                                                        style={{color: "#0277BD", fontSize: 15, fontWeight: 500}}
                                                         label={`${type.type}`}/>
                                                 </SvLink>
                                             </Badge>
@@ -119,7 +136,7 @@ class CityPage extends React.Component {
                         </ul>
                     </CardActions>
                 </Card>
-
+                }
             </div>
         );
     }

@@ -64,8 +64,39 @@ export default new GraphQLObjectType({
         Cities: {
             type: CitiesConnection.connectionType,
             args: {...connectionArgs},
+<<<<<<< HEAD
             resolve: (obj, {...args}, {rootValue: {user_id}}) => Cities_all(user_id).then((arr_City) => connectionFromArray(arr_City, args))
+=======
+            resolve: (obj, {...args}, {rootValue: {user_id}}) => City_list_get(user_id).then((arr_City) => connectionFromArray(arr_City, args))
         },
-    },
+        CityZips: {
+            type: CityZipConnection.connectionType,
+            args: {
+                ...connectionArgs,
+                city: {
+                    type: GraphQLString
+                }
+            },
+            resolve: (obj, args, {rootValue: {user_id,city}}) => {
 
+                return City_zip_list_get(user_id,args.city).then((arr_CityZips) => connectionFromArray(arr_CityZips, args))
+            }
+        },
+        CityTypes: {
+            type: CityTypeConnection.connectionType,
+            args: {
+                ...connectionArgs,
+                city: {
+                    type: GraphQLString
+                }
+            },
+            resolve: (obj, args, {rootValue: {user_id,city}}) => {
+
+                return City_type_list_get(user_id,args.city).then((arr_CityTypes) => connectionFromArray(arr_CityTypes, args))
+            }
+>>>>>>> origin/master
+        },
+
+        // <-<-<- Houses
+    },
 });

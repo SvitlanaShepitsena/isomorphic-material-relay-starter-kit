@@ -2,7 +2,20 @@
 export default class House {
     constructor(fields) {
         this.id = fields.id;
+<<<<<<< HEAD
         this.price = fields.price;
+=======
+        this.mls = fields.mls;
+        this.city = fields.city;
+        this.beds = fields.beds
+        this.description = fields.description
+        this.image = fields.image
+        this.price = fields.price
+        this.state = fields.state
+        this.street = fields.street
+        this.type = fields.type
+        this.zip = fields.zip
+>>>>>>> origin/master
 
     }
 }
