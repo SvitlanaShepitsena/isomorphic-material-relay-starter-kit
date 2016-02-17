@@ -6,7 +6,11 @@
 
 .CityThumbPicture__city-name {
     padding: 0 0 5px 16px;
+}
 
+.CityThumbPicture__city-name span {
+    font-size: 16px !important;
+    color: whitesmoke !important;
 }
 
 .CityThumbPicture__card-title {
