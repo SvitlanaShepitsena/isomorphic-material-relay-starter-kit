@@ -1,64 +1,27 @@
 /*=Desktop Footer*/
 
-.ListingThumbCard {
+.ListingThumbLarge {
     color: #797979;
+    margin-bottom: 12px;
 }
 
-.ListingThumbCard p {
+.ListingThumbLarge p {
+    font-size: 14px;
+    line-height: 22px;
     margin: 0px 10px;
 }
 
-.ListingThumbCard__address {
-    font-size: 16px;
-    margin: 0px 8px;
+.ListingThumbLarge__address {
+    font-weight: 500;
+    margin: 0;
+    line-height: 1;
+    padding-bottom: 5px;
 }
 
-.ListingImage__xl {
-    width: 220px;
-}
-
-@media screen and (max-width: 600px) {
-    .ListingImage__xl {
-
-    }
-}
-
-.img-thumb-container {
-    position: relative;
-    overflow: hidden;
-}
-
-.img-thumb {
-    position: relative;
+.ListingThumbLarge__image {
     display: block;
-    width: 300px;
+    width: 170px;
     height: auto;
-    right: 20%;
+    margin: 0 auto;
 }
 
-.ColsList-4 .column:nth-child(4),
-.ColsList-4 .columns:nth-child(4) {
-    margin-left: 0;
-}
-
-.ColsList-4 .column:nth-child(7),
-.ColsList-4 .columns:nth-child(7) {
-    margin-left: 0;
-}
-
-.ColsList-4 .column:nth-child(10),
-.ColsList-4 .columns:nth-child(10) {
-    margin-left: 0;
-}
-.ColsList-4 .column:nth-child(13),
-.ColsList-4 .columns:nth-child(13) {
-    margin-left: 0;
-}
-.ColsList-4 .column:nth-child(16),
-.ColsList-4 .columns:nth-child(16) {
-    margin-left: 0;
-}
-.ColsList-4 .column:nth-child(19),
-.ColsList-4 .columns:nth-child(19) {
-    margin-left: 0;
-}

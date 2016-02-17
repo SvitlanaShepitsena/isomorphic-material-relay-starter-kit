@@ -1,0 +1,48 @@
+.HousePage {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.HousePage__key-facts p {
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.HousePage__card {
+    padding: 16px 0;
+}
+
+.HousePage__card article {
+    padding: 0 16px;
+}
+
+.HousePage__card-address h1 {
+    margin: 0 0 5px;
+    font-size: 22px;
+}
+
+.HousePage__card-price h4 {
+    margin: 0 0 5px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.HousePage__card-address {
+    padding: 0 16px;
+    text-align: left;
+}
+
+.HousePage__card-price {
+    padding: 0 16px;
+    text-align: right;
+}
+
+@media (max-width: 599px) {
+    .HousePage__card-address {
+        text-align: center;
+    }
+
+    .HousePage__card-price {
+        text-align: center;
+    }
+
+}

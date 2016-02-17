@@ -19,16 +19,18 @@ export default class CityThumbPicture extends React.Component {
 
     render() {
         return (
-            <Card style={{margin:12}} shadow={0}>
+            <Card className="CityThumbPicture" shadow={0}>
                 <CardMedia
-                    overlay={<CardTitle style={{padding:"0 0 5px 16px"}}  subtitle={this.props.cityName} />}
-                >
+                    overlay={<CardTitle className="CityThumbPicture__city-name"  subtitle={this.props.cityName} />}>
                     <img src="http://www.datarecovery.net/i/Places/skokie-il-hard-drive-data-recovery.jpg"/>
                 </CardMedia>
-                <CardTitle style={{padding:"5px 12px 0px", margin:0, fontSize:13}}
-                           subtitle="# homes for sale"/>
-                <CardText style={{padding:"5px 12px 12px",fontSize:13}}>
-                    Median price:
+                <CardTitle className="CityThumbPicture__card-title"
+                           subtitle={
+                           <span> # homes for sale : {this.props.housesLength && <span> { + this.props.housesLenght} </span> } </span>
+                           }
+                />
+                <CardText className="CityThumbPicture__card-text ">
+                    Median price: {this.props.medianPrice && <span> { +this.props.medianPrice} </span> }
                 </CardText>
             </Card >
 

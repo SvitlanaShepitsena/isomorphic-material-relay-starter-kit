@@ -15,7 +15,7 @@ export default class AppNav_Top extends React.Component {
                     <MenuItem>
                         <Link
                             style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"#ffffff"}}
-                            to="houses-for-sale">Houses For Sale
+                            to="/houses-for-sale">Houses For Sale
                         </Link>
                     </MenuItem>
                 </li>
@@ -23,7 +23,7 @@ export default class AppNav_Top extends React.Component {
                     <MenuItem>
                         <Link
                             style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"#ffffff"}}
-                            to="houses-for-rent">Houses For Rent
+                            to="/houses-for-rent">Houses For Rent
                         </Link>
                     </MenuItem>
                 </li>

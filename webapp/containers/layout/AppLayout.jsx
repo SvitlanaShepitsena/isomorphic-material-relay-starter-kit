@@ -59,13 +59,13 @@ class AppLayout extends React.Component {
                     </AppBar>
 
                     <MenuItem onTouchTap={this.handleClose}>
-                        <Link to="houses-for-sale">Houses fo Sale</Link>
+                        <Link to="/houses-for-sale">Houses fo Sale</Link>
                     </MenuItem>
                     <MenuItem onTouchTap={this.handleClose}>
-                        <Link to="houses-for-rent">Houses fo Rent</Link>
+                        <Link to="/houses-for-rent">Houses fo Rent</Link>
                     </MenuItem>
                     <MenuItem onTouchTap={this.handleClose}>
-                        <Link to="about">About Us</Link>
+                        <Link to="/about">About Us</Link>
                     </MenuItem>
                 </LeftNav>
                 <AppBar className="AppBar_Container"
@@ -80,16 +80,18 @@ class AppLayout extends React.Component {
                     </div>
                 </AppBar>
 
-                <div className="AppLayout__content container">
-
+                <div className="container">
                     <div className="row">
                         <div className="eight columns">
-                            {this.props.children}
+                            <div className="AppLayout__content">
+                                {this.props.children}
+                            </div>
                         </div>
                         <div className="four columns">
-                            <ContactForm/>
+                            <div className="AppLayout__aside">
+                                <ContactForm/>
+                            </div>
                         </div>
-
                     </div>
                 </div>
                 <Footer></Footer>
