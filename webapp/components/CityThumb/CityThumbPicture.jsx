@@ -26,7 +26,7 @@ export default class CityThumbPicture extends React.Component {
                 </CardMedia>
                 <CardTitle className="CityThumbPicture__card-title"
                            subtitle={
-                           <span> # homes for sale : {this.props.housesLength && <span> { + this.props.housesLenght} </span> } </span>
+                           <span> {this.props.housesLength && <span> { + this.props.housesLength} </span> } </span>
                            }
                 />
                 <CardText className="CityThumbPicture__card-text ">

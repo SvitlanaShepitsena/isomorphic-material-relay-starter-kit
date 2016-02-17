@@ -22,7 +22,7 @@ let config = {
     ]
   },
   postcss: [
-    require('autoprefixer-core'),
+    require('autoprefixer'),
     require('postcss-color-rebeccapurple')
   ],
 

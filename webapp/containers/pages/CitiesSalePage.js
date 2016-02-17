@@ -43,7 +43,6 @@ class CitiesSale extends React.Component {
     };
 
     render() {
-        var isoVars = isomorphicVars();
         const cityText = {
             color: MyTheme.primary1Color
         };
@@ -71,10 +70,12 @@ class CitiesSale extends React.Component {
 
                         <div className="four columns" key={city.node.name}>
                             <SvLink url={city.node.name}>
-                                <CityThumbLarge cityName={_.startCase(city.node.name)}/>
+                                <CityThumbLarge
+                                    housesLength={city.node.Houses_Count}
+                                    cityName={_.startCase(city.node.name)}/>
                             </SvLink>
                             <div>
-                                Number of Houses: {city.node.Houses_Count}
+                                {"Number of Houses: " + city.node.Houses_Count}
                             </div>
                         </div>
                     )}
@@ -93,10 +94,8 @@ export default Relay.createContainer(CitiesSale, {
           Cities(first :100){
             edges{
                 node{
-
-          name,
-          Houses_Count
-
+                      name,
+                      Houses_Count
         }
       }
     }
