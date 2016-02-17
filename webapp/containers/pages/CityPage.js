@@ -148,13 +148,29 @@ export default Relay.createContainer(CityPage, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-          Cities(first :100){
-            edges{
-                node{
-                      name,
-                      Houses_Count
-            }
-          }
+        Cities(first:100){
+      edges{
+        node{
+             name,
+             Types_Count,
+          		Types{
+                edges{
+                  node{
+                    type
+                  }
+                }
+              },
+           Zips_Count,
+          		Zips{
+                edges{
+                  node{
+                    code
+                  }
+                }
+              }
+           }
+        }
+      }
         }
       }
     `,
