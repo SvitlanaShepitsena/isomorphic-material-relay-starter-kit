@@ -1,12 +1,14 @@
 import {
     House_get,
-    House_list_get,
-    House_list_get_city,
+    Houses_all,
+    Houses_by_city,
+    Houses_by_city_zip
 
 } from '../da_cassandra/House'
 
 export {
     House_get,
-    House_list_get,
-    House_list_get_city,
+    Houses_all,
+    Houses_by_city,
+    Houses_by_city_zip
 };
