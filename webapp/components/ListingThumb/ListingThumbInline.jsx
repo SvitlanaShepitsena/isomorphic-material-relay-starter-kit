@@ -24,7 +24,7 @@ export default class ListingThumbLarge extends React.Component {
                                      backgroundImage={this.props.image}/>
                     }
 
-                    {this.props.image &&
+                    {!this.props.image &&
                     <img
                         className={this.props.listingImageClass ? this.props.listingImageClass: "ListingThumbInline__image"}
                         src='http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png'

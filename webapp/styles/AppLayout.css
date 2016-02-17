@@ -19,13 +19,19 @@ a {
 }
 
 .AppLayout__content {
-    padding: 72px 0 8px 0;
+    padding-top: 72px;
 }
 
 .AppLayout__content p {
     font-size: 16px;
     line-height: 28px;
     font-weight: 300;
+}
+
+@media screen and (min-width: 960px) {
+    .AppLayout__aside {
+        padding-top: 86px;
+    }
 }
 
 @media screen and (min-width: 960px) {
@@ -98,7 +104,7 @@ a {
 }
 
 /*Media Mobile*/
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
     .AppBar__logo-img {
         padding-left: 0 !important;
     }
@@ -114,7 +120,7 @@ a {
 
 }
 
-@media screen and (max-width: 701px) {
+@media screen and (max-width: 750px) {
     .AppNav_Top {
         display: none;
     }
@@ -125,10 +131,40 @@ a {
 }
 
 /*Media Desktop*/
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 751px) {
 
     .AppBar_Container button {
         display: none !important;
     }
 }
 
+/*houses-for-sale grid*/
+.ColsList-4 .column:nth-child(4),
+.ColsList-4 .columns:nth-child(4) {
+    margin-left: 0;
+}
+
+.ColsList-4 .column:nth-child(7),
+.ColsList-4 .columns:nth-child(7) {
+    margin-left: 0;
+}
+
+.ColsList-4 .column:nth-child(10),
+.ColsList-4 .columns:nth-child(10) {
+    margin-left: 0;
+}
+
+.ColsList-4 .column:nth-child(13),
+.ColsList-4 .columns:nth-child(13) {
+    margin-left: 0;
+}
+
+.ColsList-4 .column:nth-child(16),
+.ColsList-4 .columns:nth-child(16) {
+    margin-left: 0;
+}
+
+.ColsList-4 .column:nth-child(19),
+.ColsList-4 .columns:nth-child(19) {
+    margin-left: 0;
+}

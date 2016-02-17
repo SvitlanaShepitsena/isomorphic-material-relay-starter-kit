@@ -19,29 +19,43 @@ export default class ListingThumbLarge extends React.Component {
 
     render() {
         return (
-            <Card className="ListingThumbCard" shadow={0}>
+            <Card className="ListingThumbLarge" shadow={0}>
                 <CardHeader
-                    title="Price: "
-                    subtitle="Property Type: "
+                    title={"Price: " + this.props.price}
+                    subtitle={"Property Type: " + this.props.type}
                 />
                 <CardMedia
-                    overlay={<CardTitle style={{padding:"0 0 5px 16px"}}  subtitle="Beds:  Baths" />}
+                    overlay={<CardTitle style={{padding:"0 0 5px 16px"}}  subtitle={"Beds:" + this.props.beds +  "Baths: " + this.props.baths } />}
                 >
-                    <ImageBackground style={{margin:'0 auto'}}
-                                     imgWidth="auto" imgHeight="180"
-                                     backgroundImage="http://img4.homefinder.com/i/1751e1b8-c695-11e5-9132-2c768a520588/w592-h-q"/>
+                    <div>
+                        {this.props.image &&
+                        <ImageBackground style={{margin:'0 auto'}}
+                                         imgWidth="auto" imgHeight="180"
+                                         backgroundImage={this.props.image}/>
+                        }
 
-                    {/*                    <div style={{display:"block", width:"220px", margin:"0 auto"}}>
-                     <img
-                     className={this.props.listingImageClass}
-                     src='http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png'
-                     alt="" style={{display:"block", width:"220px", margin:"0 autd"}}/>
-                     </div>*/}
+                        {!this.props.image &&
+                        <img
+                            className={this.props.imgClassName ? this.props.imgClassName: "ListingThumbLarge__image"}
+                            src='http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png'
+                            alt=""/>
+                        }
+                    </div>
                 </CardMedia>
                 <CardTitle
                     title={
-                   <h4 style={{fontWeight:500, margin:0}} >
-                    Street, City, State, Zip
+                   <h4 className="ListingThumbLarge__address">
+                        {this.props.street &&
+                        <span> {this.props.street} </span>
+                        }
+                        <br/>
+                        {this.props.city &&
+                        < span > {this.props.city } </span>
+                        }
+                        <span> IL, </span>
+                        {this.props.zip &&
+                        <span> {this.props.zip} </span>
+                        }
                      </h4>
                    }
                     subtitle={

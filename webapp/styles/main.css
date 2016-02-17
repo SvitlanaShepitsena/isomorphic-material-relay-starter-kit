@@ -1,12 +1,13 @@
-@import "skeleton.css";
-@import 'typography.css';
 @import "AppLayout.css";
+@import "CityThumbPicture.css";
 @import "Footer.css";
+@import "HomePageMuiGrid.css";
 @import "HousePage.css";
 @import "ListingThumb.css";
 @import "ListingThumbInline.css";
-@import "HomePageMuiGrid.css";
 @import "PhotoGallery.css";
+@import "skeleton.css";
+@import 'typography.css';
 
 /* Insert any additional CSS you need here */
 

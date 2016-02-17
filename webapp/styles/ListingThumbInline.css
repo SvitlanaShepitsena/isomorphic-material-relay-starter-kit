@@ -22,7 +22,7 @@
     display: block;
     width: 170px;
     height: auto;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .ListingThumbInline__address {

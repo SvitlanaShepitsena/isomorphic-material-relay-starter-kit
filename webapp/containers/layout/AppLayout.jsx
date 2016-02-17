@@ -80,16 +80,18 @@ class AppLayout extends React.Component {
                     </div>
                 </AppBar>
 
-                <div className="AppLayout__content container">
-
+                <div className="container">
                     <div className="row">
                         <div className="eight columns">
-                            {this.props.children}
+                            <div className="AppLayout__content">
+                                {this.props.children}
+                            </div>
                         </div>
                         <div className="four columns">
-                            <ContactForm/>
+                            <div className="AppLayout__aside">
+                                <ContactForm/>
+                            </div>
                         </div>
-
                     </div>
                 </div>
                 <Footer></Footer>

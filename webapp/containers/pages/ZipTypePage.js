@@ -35,7 +35,6 @@ class ZipTypePage extends React.Component {
 
     render() {
         const cityName = _.startCase(this.props.params.city);
-        const zip = this.props.params.zipType;
 
         return (
             <div>
@@ -54,11 +53,11 @@ class ZipTypePage extends React.Component {
                                         image={house.image}
                                         mls={house.mls}
                                         beds={house.beds}
+                                        zip={house.zip}
                                         street={_.startCase(house.street.replace(/-+/g, ' '))}
                                         type={_.startCase(house.type.replace(/-+/g, ' '))}
                                         price={"$"+ house.price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") }
                                         city={cityName}
-                                        zip={zip}
                                     />
                                 </SvLink>
                             </div>
@@ -83,6 +82,8 @@ export default Relay.createContainer(ZipTypePage, {
           image,
           price,
          street,
+         city,
+         zip,
           type,
           mls
             },
