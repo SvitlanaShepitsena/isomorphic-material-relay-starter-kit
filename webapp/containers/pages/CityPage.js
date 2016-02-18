@@ -19,9 +19,10 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import House_List from './../../components/HouseSale/House_List.jsx';
 import SvLink from '../../components/Shared/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
-import MyTheme from '../../settings/AppMuiTheme.js';
 import ListingThumbLarge from '../../components/ListingThumb/ListingThumbLarge.jsx';
-import ZipsList from '../../components/ZipsList/ZipsList.js';
+import HousesByPropsList from '../../components/shared/HousesByPropsList.js';
+/*Inline Styles*/
+import style from '../../settings/AppMuiTheme.js';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -40,14 +41,14 @@ class CityPage extends React.Component {
 
     render() {
         var badgeStyle = {
-            backgroundColor: "#EEEEEE",
-            color: "#212121",
+            backgroundColor: style.palette.default3Color,
+            color: style.palette.textColor,
             top: 18,
             right: 18
         };
         var btnLabelStyle = {
-            color: "#0277BD",
-            fontSize: 16,
+            color: style.palette.primary2Color,
+            fontSize: 15,
             fontWeight: 500
         };
 
@@ -66,10 +67,7 @@ class CityPage extends React.Component {
                 {(zipsList.length || typesList.length) &&
                 <div>
                     <br/>
-                    <Breadcrumbs
-                        routes={this.props.routes}
-                        params={this.props.params}
-                    />
+                    <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
 
                     <h1> {"Houses for Sale in " + cityName} </h1>
                     <hr/>
@@ -88,50 +86,29 @@ class CityPage extends React.Component {
                     </SvLink>
                     <br/>
                     <br/>
-                    <br/>
                 </div>
                 }
 
                 {zipsList.length &&
-                <Card>
-                    <CardTitle title={cityName + " Homes for Sale by Zip"}/>
-                    <Divider />
-                    <CardActions>
-                        <ul className="list-unstyled">
-                            {zipsList.map((edge)=> {
-                                    const zip = edge.node;
-                                    return (
-                                        <li style={{display:"inline-block"}} key={zip.code}>
-                                            <Badge
-                                                badgeContent={`${zip.Houses_Count}`}
-                                                badgeStyle={{backgroundColor:"#EEEEEE", color:"#212121", top: 18, right: 18}}
-                                            >
-                                                <SvLink url={zip.code}>
-                                                    <FlatButton
-                                                        style={{color:"#0277BD", fontSize:18, fontWeight:500}}
-                                                        label={`${zip.code}`}/>
-                                                </SvLink>
-                                            </Badge>
-                                        </li>
-                                    )
-                                }
-                            )}
-                        </ul>
-                    </CardActions>
-                </Card>
+                <HousesByPropsList
+                    item="code"
+                    list={zipsList}
+                    badgeStyle={badgeStyle}
+                    btnLabelStyle={btnLabelStyle}
+                    sectionTitle={`${cityName} Homes for Sale by Zip`}
+                />
                 }
+
                 <br/>
-                <div style={{backgroundColor:"orange"}}>
-                    <ZipsList
-                        item="type"
-                        list={typesList}
-                        badgeStyle={badgeStyle}
-                        btnLabelStyle={btnLabelStyle}
-                        sectionTitle={`${cityName} Homes for Sale by Property Type`}
-                    />
-
-                </div>
-
+                {typesList.length &&
+                <HousesByPropsList
+                    item="type"
+                    list={typesList}
+                    badgeStyle={badgeStyle}
+                    btnLabelStyle={btnLabelStyle}
+                    sectionTitle={`${cityName} Homes for Sale by Property Type`}
+                />
+                }
             </div>
         );
     }

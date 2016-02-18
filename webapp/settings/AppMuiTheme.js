@@ -24,6 +24,9 @@ export default {
         success1Color: Colors.green500,
         success2Color: Colors.green700,
         success3Color: Colors.green100,
+        default1Color: Colors.grey400,
+        default2Color: Colors.grey700,
+        default3Color: Colors.grey100,
 
         footerColor: '#343434',
         footerText: '#9a9a9a',

@@ -10,10 +10,10 @@ import Divider from 'material-ui/lib/divider';
 import Badge from 'material-ui/lib/badge';
 
 /*=Components*/
-import SvLink from '../../components/Shared/SvLink';
+import SvLink from './SvLink';
 import MyTheme from '../../settings/AppMuiTheme.js';
 
-class ZipsList extends React.Component {
+class HousesByPropsList extends React.Component {
     static propTypes = {
         item: PropTypes.string.isRequired
     };
@@ -56,4 +56,4 @@ class ZipsList extends React.Component {
 }
 ;
 
-export default ZipsList;
+export default HousesByPropsList;
