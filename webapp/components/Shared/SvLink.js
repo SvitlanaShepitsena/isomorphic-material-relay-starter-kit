@@ -4,9 +4,7 @@ import _ from 'lodash';
 
 class SvLink extends React.Component {
     static propTypes = {url: PropTypes.string.isRequired};
-
     static contextTypes = {location: PropTypes.object.isRequired};
-
 
     render() {
         const href = this.props.url.trim().toLowerCase().replace(/\s+/g, '-');
@@ -15,10 +13,10 @@ class SvLink extends React.Component {
         return (
             <div>
                 {this.props.children &&
-                <Link to={fullUrl} >{this.props.children}</Link>
+                <Link to={fullUrl}>{this.props.children}</Link>
                 }
                 {!this.props.children &&
-                <Link to={fullUrl} >{anchor}</Link>
+                <Link to={fullUrl}>{anchor}</Link>
                 }
 
             </div>
