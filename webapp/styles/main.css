@@ -12,16 +12,6 @@
 
 /* Insert any additional CSS you need here */
 
-.list-unstyled {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.list-unstyled li {
-    padding: 0;
-}
-
 .MenuItem__Link {
     display: block;
     width: 100%;

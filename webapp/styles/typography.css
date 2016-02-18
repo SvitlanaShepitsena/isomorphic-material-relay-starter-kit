@@ -188,3 +188,26 @@ hr {
 .fw-500 {
     font-weight: 500;
 }
+
+/*=custom styles*/
+/*=badge*/
+.badge-default {
+    background-color: #EEEEEE;
+    color: #212121;
+    top: 18px;
+    right: 18px;
+}
+
+.list-unstyled {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-inline li {
+    display: inline-block;
+}
+
+.list-unstyled li {
+    padding: 0;
+}

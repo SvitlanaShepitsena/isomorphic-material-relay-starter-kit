@@ -21,6 +21,7 @@ import SvLink from '../../components/Shared/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 import MyTheme from '../../settings/AppMuiTheme.js';
 import ListingThumbLarge from '../../components/ListingThumb/ListingThumbLarge.jsx';
+import ZipsList from '../../components/ZipsList/ZipsList.js';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -38,6 +39,18 @@ class CityPage extends React.Component {
     }
 
     render() {
+        var badgeStyle = {
+            backgroundColor: "#EEEEEE",
+            color: "#212121",
+            top: 18,
+            right: 18
+        };
+        var btnLabelStyle = {
+            color: "#0277BD",
+            fontSize: 16,
+            fontWeight: 500
+        };
+
         const cityName = _.startCase(this.props.params.city);
         var zipsList = this.props.Viewer.City.Zips.edges;
         var typesList = this.props.Viewer.City.Types.edges;
@@ -108,36 +121,17 @@ class CityPage extends React.Component {
                 </Card>
                 }
                 <br/>
-                {
-                    <Card>
-                        <CardTitle title={cityName + " Homes for Sale by Property Type"}/>
-                        <Divider />
-                        <CardActions>
-                            <ul className="list-unstyled">
-                                {typesList.map((edge)=> {
-                                        const type = edge.node;
-                                        console.log(type);
-                                        return (
-                                            <li style={{display: "inline-block"}} key={type.type}>
-                                                <Badge
-                                                    badgeContent={`${type.Houses_Count}`}
-                                                    badgeStyle={{backgroundColor: "#EEEEEE", color: "#212121", top: 18, right: 18}}
-                                                >
-                                                    <SvLink url={type.type}>
-                                                        <FlatButton
-                                                            secondary={true}
-                                                            style={{color: "#0277BD", fontSize: 15, fontWeight: 500}}
-                                                            label={`${type.type}`}/>
-                                                    </SvLink>
-                                                </Badge>
-                                            </li>
-                                        )
-                                    }
-                                )}
-                            </ul>
-                        </CardActions>
-                    </Card>
-                }
+                <div style={{backgroundColor:"orange"}}>
+                    <ZipsList
+                        item="type"
+                        list={typesList}
+                        badgeStyle={badgeStyle}
+                        btnLabelStyle={btnLabelStyle}
+                        sectionTitle={`${cityName} Homes for Sale by Property Type`}
+                    />
+
+                </div>
+
             </div>
         );
     }
@@ -158,7 +152,6 @@ export default Relay.createContainer(CityPage, {
                   Houses_Count
                 }
               },
-
             },
 
             Types(first:100,city:$city){
