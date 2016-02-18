@@ -19,7 +19,6 @@ class CitiesRent extends React.Component {
             <div>
                 <h1>Houses for Rent</h1>
                 {this.props.Viewer.Houses.edges.map((edge, index) => {
-                    console.log(edge);
                     return (
                         <div key="index">
                             <ListingThumbInline city={cityName}/>

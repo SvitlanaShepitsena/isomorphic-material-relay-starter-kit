@@ -35,7 +35,6 @@ class House_List extends React.Component {
      */
 
     render() {
-        console.log(this.props);
         return (
             <div>
                 <List>

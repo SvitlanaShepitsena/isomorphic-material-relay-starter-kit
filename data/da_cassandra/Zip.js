@@ -28,7 +28,7 @@ export function Zip_by_house(zip_id) {
     let cqlText = 'SELECT * FROM zip WHERE id = ? ';
     let cqlParams = [zip_id];
 
-    return runQuery(Zip, cqlText, cqlParams);
+    return runQueryOneResult(Zip, cqlText, cqlParams);
 }
 
 

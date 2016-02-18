@@ -38,7 +38,30 @@ class ZipTypePage extends React.Component {
 
         return (
             <div>
-                ZipType
+                <ol>
+                    {
+                        this.props.Viewer.Houses.edges.map((edge, index)=> {
+                            const house = edge.node;
+                            return (
+                                <li key={index}>
+                                    <SvLink url={house.id} >
+                                        <div>
+                                            {house.street}
+                                        </div>
+                                        <div>
+                                            {house.type.type}
+                                        </div>
+                                        <div>
+                                            <img src={house.image} alt="House" style={{width:100}}/>
+                                        </div>
+                                        <hr/>
+                                    </SvLink>
+                                </li>
+                            );
+                        })
+                    }
+                </ol>
+
             </div>
         );
     }
@@ -51,6 +74,19 @@ export default Relay.createContainer(ZipTypePage, {
       fragment on Viewer {
         User_IsAnonymous,
 
+        Houses(city:$city,zipType:$zipType, first:20){
+            edges{
+                node{
+                   id,
+                   street,
+                   type,
+                   mls,
+                   image
+
+
+                }
+            }
+        }
       }
     `,
     },
