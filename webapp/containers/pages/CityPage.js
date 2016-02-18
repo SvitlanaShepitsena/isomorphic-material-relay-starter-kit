@@ -39,8 +39,8 @@ class CityPage extends React.Component {
 
     render() {
         const cityName = _.startCase(this.props.params.city);
-        var zipsList = this.props.Viewer.CityZips.edges;
-        var typesList = this.props.Viewer.CityTypes.edges;
+        var zipsList = this.props.Viewer.City.Zips.edges;
+        var typesList = this.props.Viewer.City.Types.edges;
         return (
 
             <div>
@@ -85,18 +85,18 @@ class CityPage extends React.Component {
                     <Divider />
                     <CardActions>
                         <ul className="list-unstyled">
-                            {this.props.Viewer.CityZips.edges.map((edge)=> {
+                            {zipsList.map((edge)=> {
                                     const zip = edge.node;
                                     return (
-                                        <li style={{display:"inline-block"}} key={zip.zip}>
+                                        <li style={{display:"inline-block"}} key={zip.code}>
                                             <Badge
-                                                badgeContent={`${zip.number}`}
+                                                badgeContent={`${zip.Houses_Count}`}
                                                 badgeStyle={{backgroundColor:"#EEEEEE", color:"#212121", top: 18, right: 18}}
                                             >
-                                                <SvLink url={zip.zip}>
+                                                <SvLink url={zip.code}>
                                                     <FlatButton
                                                         style={{color:"#0277BD", fontSize:18, fontWeight:500}}
-                                                        label={`${zip.zip}`}/>
+                                                        label={`${zip.code}`}/>
                                                 </SvLink>
                                             </Badge>
                                         </li>
@@ -108,34 +108,35 @@ class CityPage extends React.Component {
                 </Card>
                 }
                 <br/>
-                {typesList.length &&
-                <Card>
-                    <CardTitle title={cityName + " Homes for Sale by Property Type"}/>
-                    <Divider />
-                    <CardActions>
-                        <ul className="list-unstyled">
-                            {this.props.Viewer.CityTypes.edges.map((edge)=> {
-                                    const type = edge.node;
-                                    return (
-                                        <li style={{display: "inline-block"}} key={type.type}>
-                                            <Badge
-                                                badgeContent={`${type.number}`}
-                                                badgeStyle={{backgroundColor: "#EEEEEE", color: "#212121", top: 18, right: 18}}
-                                            >
-                                                <SvLink url={type.type}>
-                                                    <FlatButton
-                                                        secondary={true}
-                                                        style={{color: "#0277BD", fontSize: 15, fontWeight: 500}}
-                                                        label={`${type.type}`}/>
-                                                </SvLink>
-                                            </Badge>
-                                        </li>
-                                    )
-                                }
-                            )}
-                        </ul>
-                    </CardActions>
-                </Card>
+                {
+                    <Card>
+                        <CardTitle title={cityName + " Homes for Sale by Property Type"}/>
+                        <Divider />
+                        <CardActions>
+                            <ul className="list-unstyled">
+                                {typesList.map((edge)=> {
+                                        const type = edge.node;
+                                        console.log(type);
+                                        return (
+                                            <li style={{display: "inline-block"}} key={type.type}>
+                                                <Badge
+                                                    badgeContent={`${type.Houses_Count}`}
+                                                    badgeStyle={{backgroundColor: "#EEEEEE", color: "#212121", top: 18, right: 18}}
+                                                >
+                                                    <SvLink url={type.type}>
+                                                        <FlatButton
+                                                            secondary={true}
+                                                            style={{color: "#0277BD", fontSize: 15, fontWeight: 500}}
+                                                            label={`${type.type}`}/>
+                                                    </SvLink>
+                                                </Badge>
+                                            </li>
+                                        )
+                                    }
+                                )}
+                            </ul>
+                        </CardActions>
+                    </Card>
                 }
             </div>
         );
@@ -143,27 +144,32 @@ class CityPage extends React.Component {
 }
 ;
 export default Relay.createContainer(CityPage, {
-    initialVariables: {city: ''},
+    initialVariables: {city: 'skokie'},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        CityZips(city:$city,first:100) {
-          edges {
-            node {
-           zip,
-           number
+        City(city:$city){
+
+            Zips(first:100){
+              edges{
+                node{
+                  code,
+                  Houses_Count
+                }
+              },
+
             },
-          },
-        },
-        CityTypes(city:$city,first:100) {
-          edges {
-            node {
-           type,
-           number
-            },
-          },
-        },
+
+            Types(first:100,city:$city){
+              edges{
+                node{
+                  type,
+                  Houses_Count(city:$city)
+                }
+              }
+            }
+        }
       }
     `,
     },

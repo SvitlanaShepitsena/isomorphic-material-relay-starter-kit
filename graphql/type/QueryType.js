@@ -19,7 +19,6 @@ function resolveNodeField(source, args) {
     switch (type) {
         case "Viewer":
             return DA_User_get(id);
-        case "City":         return City_get_house( id );
     }
 };
 

@@ -253,23 +253,11 @@ class HousePage extends React.Component {
 }
 ;
 export default Relay.createContainer(HousePage, {
-    initialVariables: {id: '4423-north-hamlin-avenue'},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
-        House(id:$id){
-      id,
-      mls,
-      type,
-      beds,
-      description,
-      price,
-      street,
-      city,
-      state,
-      zip,
-      image
-       }
+        User_IsAnonymous,
+
       }
     `,
     },

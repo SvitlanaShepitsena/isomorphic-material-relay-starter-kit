@@ -1,0 +1,48 @@
+/*Mobile*/
+@media (max-width: 600px) {
+    .SearchForm__button-container {
+        padding-top: 10px;
+
+    }
+
+    .SearchForm__button-container div {
+        width: 100% !important;
+    }
+
+    .SearchForm__button-container div .SearchForm__button {
+        display: block !important;
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+}
+
+.SearchForm__box {
+    min-width: 100px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .30);
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    padding: 3px 16px;
+    border-radius: 3px;
+    margin: 0;
+    align-items: center;
+    transition: .3s;
+    cursor: default;
+}
+
+.SearchForm__input {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    width: 100%;
+    color: #393939;
+}
+
+.SearchForm__input:focus {
+    outline: 0;
+}

@@ -25,13 +25,16 @@ export default class CityThumbPicture extends React.Component {
                     <img src="http://www.datarecovery.net/i/Places/skokie-il-hard-drive-data-recovery.jpg"/>
                 </CardMedia>
                 <CardTitle className="CityThumbPicture__card-title"
-                           subtitle={
-                           <span> # homes for sale : {this.props.housesLength && <span> { + this.props.housesLenght} </span> } </span>
+                           subtitle={ <span>
+                            Listings for sale:
+                           {this.props.housesLength &&
+                               <span className="text-primary"> {this.props.housesLength} </span> }
+                                </span>
                            }
                 />
-                <CardText className="CityThumbPicture__card-text ">
-                    Median price: {this.props.medianPrice && <span> { +this.props.medianPrice} </span> }
-                </CardText>
+                {/*                <CardText className="CityThumbPicture__card-text ">
+                 Median price: {this.props.medianPrice && <span> { +this.props.medianPrice} </span> }
+                 </CardText>*/}
             </Card >
 
         );

@@ -2,6 +2,7 @@
 
 .CityThumbPicture {
     margin: 12px 0;
+    padding-bottom: 16px;
 }
 
 .CityThumbPicture__city-name {
@@ -19,7 +20,7 @@
 }
 
 .CityThumbPicture__card-text {
-    padding: 5px 12px 12px;
+    padding: 5px 12px 0;
     font-size: 13px;
 }
 

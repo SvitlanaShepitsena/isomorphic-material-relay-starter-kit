@@ -1,7 +1,6 @@
 DROP KEYSPACE IF EXISTS remax;
 
-CREATE KEYSPACE remax
-WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+CREATE KEYSPACE remax WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
 
 USE remax;
 
@@ -30,62 +29,85 @@ CREATE TABLE house (
   id text,
   mls text,
   beds text,
+  type_id text,
   description text,
   image text,
   street text,
-  city text,
-  state text,
-  zip text,
-  type text,
+  city_id text,
+  zip_id text,
   price bigint,
-  PRIMARY KEY (id,mls));
+  PRIMARY KEY (id));
 
-CREATE INDEX  house_city ON house( city);
-CREATE INDEX  house_zip ON house( zip);
-CREATE INDEX  house_type ON house( type);
+CREATE TABLE houses_by_city (
+   id text,
+    mls text,
+    beds text,
+    type_id text,
+    description text,
+    image text,
+    street text,
+    city_id text,
+    zip_id text,
+    price bigint,
+  PRIMARY KEY (city_id, id));
 
-  CREATE TABLE image (
-    house_id uuid,
-    url text,
-    PRIMARY KEY (url));
+CREATE TABLE houses_by_zip (
+   id text,
+    mls text,
+    beds text,
+    type_id text,
+    description text,
+    image text,
+    street text,
+    city_id text,
+    zip_id text,
+    price bigint,
+  PRIMARY KEY (zip_id, id));
 
- CREATE INDEX house_image ON image(house_id);
+CREATE TABLE houses_by_city_zip (
+    id text,
+     mls text,
+     beds text,
+     type_id text,
+     description text,
+     image text,
+     street text,
+     city_id text,
+     zip_id text,
+     price bigint,
+  PRIMARY KEY ((city_id, zip_id),id));
 
-CREATE TABLE city (
-  id uuid,
-  name text,
-  PRIMARY KEY (name));
+CREATE TABLE houses_by_city_type (
+    id text,
+     mls text,
+     beds text,
+     type_id text,
+     description text,
+     image text,
+     street text,
+     city_id text,
+     zip_id text,
+     price bigint,
+  PRIMARY KEY ((city_id, type_id),id));
 
-CREATE TABLE zip (
- id uuid,
-  zip text,
-  PRIMARY KEY (zip));
+CREATE TABLE  city ( id text, name text, PRIMARY KEY (id));
 
-CREATE TABLE type (
- id uuid,
-  type text,
-  PRIMARY KEY (type));
-
-  CREATE TABLE city_zip (
+CREATE TABLE zips_by_city (
   id text,
-  city text,
-  zip text,
-  number counter,
-  PRIMARY KEY (id,city,zip));
+  city_id text,
+  code text,
+  PRIMARY KEY (city_id, id));
+
+CREATE TABLE types_by_city (
+  id text,
+  city_id text,
+  type text,
+  PRIMARY KEY (city_id, id));
 
 
-    CREATE TABLE city_type (
-    id text,
-    city text,
-    type text,
-    number counter,
-    PRIMARY KEY (id,city,type));
+CREATE TABLE  zip ( id text, code text, city_id text, PRIMARY KEY (id));
+CREATE TABLE  type ( id text, type text, PRIMARY KEY (id));
 
 
-CREATE TABLE zip_type (
-    id text,
-    zip text,
-    type text,
-    number counter,
-    PRIMARY KEY (id,zip,type));
+
 
