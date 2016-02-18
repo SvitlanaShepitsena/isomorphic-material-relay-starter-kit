@@ -32,6 +32,8 @@ export function Houses_by_zip(zip) {
 
 
 export function Houses_by_city_zip(city,zip) {
+    console.log('House.js - line: 35');
+    console.log(city,zip);
     let cqlText = 'SELECT * FROM houses_by_city_zip where city_id = ? AND zip_id = ? ALLOW FILTERING;';
     let cqlParams = [city,zip];
 

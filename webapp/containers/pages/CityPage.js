@@ -116,7 +116,6 @@ class CityPage extends React.Component {
                         <ul className="list-unstyled">
                             {typesList.map((edge)=> {
                                     const type = edge.node;
-                                    console.log(type);
                                     return (
                                         <li style={{display: "inline-block"}} key={type.type}>
                                             <Badge

@@ -35,9 +35,6 @@ class HousePage extends React.Component {
 
     render() {
         var house = this.props.Viewer.House;
-        const houseType = _.startCase(house.type.replace(/-+/g, ' '));
-        const houseCity = _.startCase(house.city.replace(/-+/g, ' '));
-        const houseStreet = _.startCase(house.street.replace(/-+/g, ' '));
 
         return (
             <div className="HousePage">
@@ -61,27 +58,24 @@ class HousePage extends React.Component {
                                 {/*=Address*/}
                                 <h1>
                                     {house.street &&
-                                    <span>{houseStreet}</span>
+                                    <span>{house.street}</span>
                                     }
                                     <br/>
                                     {house.city &&
-                                    <span> {houseCity + ", "} </span>
+                                    <span> {house.city.name + ", "} </span>
                                     }
-                                    {house.state &&
-                                    <span> {house.state} </span>
-                                    }
+
                                 </h1>
+
                                 {house.type &&
-                                <p> {houseType} </p>
+                                <p> {house.type.type} </p>
                                 }
                             </div>
                             <div className="six columns HousePage__card-price">
                                 {house.price &&
                                 <h4> ${house.price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")} </h4>
                                 }
-                                {house.shortSale &&
-                                <p> Short Sale </p>
-                                }
+
                                 {house.mls &&
                                 <p> {"MLS#: " + house.mls} </p>
                                 }
@@ -109,8 +103,8 @@ class HousePage extends React.Component {
                             <h4 style={{color:"#393939"}}>Key Facts:</h4>
                             <div className="row">
                                 <div className="six columns HousePage__key-facts">
-                                    {house.type &&
-                                    <p> {"Type: " + house.type} </p>
+                                    {house.type.type &&
+                                    <p> {"Type: " + house.type.type} </p>
                                     }
 
                                     {/*                                {house.exteriorDetails && house.exteriorDetails['Lot Size'] &&
@@ -144,105 +138,7 @@ class HousePage extends React.Component {
 
 
                         </article>
-                        {/*                    </article>
-                         {
-                         house.exteriorDetails &&
-                         <article >
-                         <h5>Exterior Details</h5>
-                         <ul style={{fontSize: 16}}>
-                         {
-                         Object.keys(house.exteriorDetails).map(extDetail => {
-                         const val = house.exteriorDetails[extDetail];
-                         return (
-                         <li key={extDetail}>
-                         {extDetail + ": " + val}
-                         </li>
-                         );
-                         })
-                         }
-                         </ul>
 
-                         </article>
-                         }
-                         {
-                         house.interiorDetails &&
-                         <article >
-                         <h5>Interior Details</h5>
-                         <ul style={{fontSize: 16}}>
-                         {
-                         Object.keys(house.interiorDetails).map(intDetail => {
-                         const val = house.interiorDetails[intDetail];
-                         return (
-                         <li key={intDetail}>
-                         {intDetail + ": " + val }
-                         </li>
-                         );
-                         })
-                         }
-                         </ul>
-                         </article>
-                         }
-                         {
-                         house.utilities &&
-                         <article >
-                         <h5>Utilities</h5>
-                         <ul style={{fontSize: 16}}>
-                         {
-                         Object.keys(house.utilities).map(util => {
-                         const val = house.utilities[util];
-                         return (
-                         <li key={util}>
-                         {util + ": " + val}
-                         </li>
-                         );
-                         })
-                         }
-                         </ul>
-                         </article>
-                         }
-                         {
-                         house.publicFacts &&
-                         <article >
-                         <h5>Public Facts</h5>
-                         <ul style={{fontSize: 16}}>
-                         {
-                         Object.keys(house.publicFacts).map(publicFact => {
-                         const val = house.publicFacts[publicFact];
-                         return (
-                         <li key={publicFact}>
-                         {publicFact + ": " + val}
-                         </li>
-                         );
-                         })
-                         }
-                         </ul>
-                         </article>
-                         }
-                         {
-                         house.taxes &&
-                         <article >
-                         <h5>Taxes</h5>
-                         <ul style={{fontSize: 16}}>
-                         {
-                         Object.keys(house.taxes).map(tax => {
-                         const val = house.taxes[tax];
-                         return (
-                         <li key={tax}>
-                         {tax + ": " + val}
-                         </li>
-                         );
-                         })
-                         }
-                         </ul>
-                         </article>
-                         }
-                         {
-                         house.agent &&
-                         <article style={{margin: '0px 10px', paddingBottom: 16}}>
-                         <p> {"Listing Broker:" + house.agent.split('_').map(init=>init[0].toUpperCase() + init.slice(1)).join(' ')}
-                         </p>
-                         </article>
-                         }*/}
                     </Card>
                 </div>
                 }
@@ -253,11 +149,28 @@ class HousePage extends React.Component {
 }
 ;
 export default Relay.createContainer(HousePage, {
+    initialVariables: {id: 'id'},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
-        User_IsAnonymous,
-
+        House(id:$id){
+      id,
+      mls,
+      type {
+      type
+      }
+      beds,
+      description,
+      price,
+      street,
+      city{
+      name
+      }
+      zip{
+      code
+      },
+      image
+       }
       }
     `,
     },

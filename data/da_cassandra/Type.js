@@ -1,4 +1,4 @@
-import {runQuery, runQueryNoResult, Uuid} from './_client.js';
+import {runQuery, runQueryNoResult, runQueryOneResult, Uuid} from './_client.js';
 
 import Type from '../model/Type'
 
@@ -19,7 +19,7 @@ export function Type_by_house(type_id) {
     let cqlText = 'SELECT * FROM type WHERE id = ? ';
     let cqlParams = [type_id];
 
-    return runQuery(Type, cqlText, cqlParams);
+    return runQueryOneResult(Type, cqlText, cqlParams);
 }
 
 

@@ -2,9 +2,9 @@ import {globalIdField} from "graphql-relay";
 import {GraphQLBoolean, GraphQLID, GraphQLInt, GraphQLString, GraphQLObjectType} from "graphql";
 import {connectionArgs, connectionFromArray} from "graphql-relay";
 
-import {Houses_by_city_zip, Houses_by_city, Houses_all, House_get} from '../../data/da/House';
+import {Houses_by_city_zip, Houses_by_city_type, Houses_by_city, Houses_all, House_get} from '../../data/da/House';
 
-import {Cities_all,City_get} from '../../data/da/City';
+import {Cities_all, City_get} from '../../data/da/City';
 
 import NodeInterface from "../interface/NodeInterface";
 
@@ -47,9 +47,24 @@ export default new GraphQLObjectType({
                 }
             },
             resolve: (obj, {...args}) => {
-                console.log(args);
+                if (args.city && args.zipType) {
+                    if (args.zipType.match(/^\d+$/g)) {
 
-              return  Houses_all().then((arr_House) => connectionFromArray(arr_House, args))}
+                        return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
+                    } else{
+
+                        return Houses_by_city_type(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
+                    }
+
+                }
+
+                if (args.city && !args.zipType) {
+                    return Houses_by_city(args.city).then((arr_House) => connectionFromArray(arr_House, args));
+                }
+
+                return Houses_all().then((arr_House) => connectionFromArray(arr_House, args));
+
+            }
         },
 
         Houses_Count: {
@@ -63,7 +78,24 @@ export default new GraphQLObjectType({
                     type: GraphQLString
                 }
             },
-            resolve: (obj, {...args}, {rootValue: {user_id}}) => Houses_all().then((arr_House) => arr_House.length)
+            resolve: (obj, {...args}) => {
+                if (args.city && args.zipType) {
+                    if (args.zipType.match(/^\d+$/g)) {
+
+                        return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => arr_House.length);
+                    } else{
+
+                        return Houses_by_city_type(args.city, args.zipType).then((arr_House) => arr_House.length);
+                    }
+                }
+
+                if (args.city && !args.zipType) {
+                    return Houses_by_city(args.city).then((arr_House) => arr_House.length);
+                }
+
+                return Houses_all().then((arr_House) => arr_House.length);
+
+            }
         },
 
         House: {
