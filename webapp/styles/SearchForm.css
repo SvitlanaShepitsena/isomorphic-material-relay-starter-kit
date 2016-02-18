@@ -1,3 +1,21 @@
+/*Mobile*/
+@media (max-width: 600px) {
+    .SearchForm__button-container {
+        padding-top: 10px;
+
+    }
+
+    .SearchForm__button-container div {
+        width: 100% !important;
+    }
+
+    .SearchForm__button-container div .SearchForm__button {
+        display: block !important;
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+}
+
 .SearchForm__box {
     min-width: 100px;
     box-sizing: border-box;

@@ -109,34 +109,34 @@ class CityPage extends React.Component {
                 }
                 <br/>
                 {
-                <Card>
-                    <CardTitle title={cityName + " Homes for Sale by Property Type"}/>
-                    <Divider />
-                    <CardActions>
-                        <ul className="list-unstyled">
-                            {typesList.map((edge)=> {
-                                    const type = edge.node;
-                                    console.log(type);
-                                    return (
-                                        <li style={{display: "inline-block"}} key={type.type}>
-                                            <Badge
-                                                badgeContent={`${type.Houses_Count}`}
-                                                badgeStyle={{backgroundColor: "#EEEEEE", color: "#212121", top: 18, right: 18}}
-                                            >
-                                                <SvLink url={type.type}>
-                                                    <FlatButton
-                                                        secondary={true}
-                                                        style={{color: "#0277BD", fontSize: 15, fontWeight: 500}}
-                                                        label={`${type.type}`}/>
-                                                </SvLink>
-                                            </Badge>
-                                        </li>
-                                    )
-                                }
-                            )}
-                        </ul>
-                    </CardActions>
-                </Card>
+                    <Card>
+                        <CardTitle title={cityName + " Homes for Sale by Property Type"}/>
+                        <Divider />
+                        <CardActions>
+                            <ul className="list-unstyled">
+                                {typesList.map((edge)=> {
+                                        const type = edge.node;
+                                        console.log(type);
+                                        return (
+                                            <li style={{display: "inline-block"}} key={type.type}>
+                                                <Badge
+                                                    badgeContent={`${type.Houses_Count}`}
+                                                    badgeStyle={{backgroundColor: "#EEEEEE", color: "#212121", top: 18, right: 18}}
+                                                >
+                                                    <SvLink url={type.type}>
+                                                        <FlatButton
+                                                            secondary={true}
+                                                            style={{color: "#0277BD", fontSize: 15, fontWeight: 500}}
+                                                            label={`${type.type}`}/>
+                                                    </SvLink>
+                                                </Badge>
+                                            </li>
+                                        )
+                                    }
+                                )}
+                            </ul>
+                        </CardActions>
+                    </Card>
                 }
             </div>
         );
