@@ -18,6 +18,7 @@ export default Relay.createContainer(PrivacyPage, {
       fragment on Viewer {
         User_IsAnonymous,
 
+
       } `,
     },
 });
