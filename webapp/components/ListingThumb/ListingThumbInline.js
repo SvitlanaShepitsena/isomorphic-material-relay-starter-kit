@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 
 /*=MaterialUi*/
@@ -13,57 +13,71 @@ import FlatButton from 'material-ui/lib/flat-button';
 import ImageBackground from '../Common/ImageBackground.js';
 
 export default class ListingThumbLarge extends React.Component {
+    static propTypes = {
+        house: PropTypes.object.isRequired,
+        imgClassName: PropTypes.string
+    };
 
     render() {
+        var price = this.props.house.price;
+        var type = this.props.house.type.type;
+        var beds = this.props.house.beds;
+        var baths = this.props.house.baths;
+        var mls = this.props.house.mls;
+        var image = this.props.house.image;
+        var street = this.props.house.street;
+        var city = this.props.house.city.name;
+        var zip = this.props.house.zip.code;
+        var inlineImgClass = this.props.inlineImgClass;
         return (
             <Card className="ListingThumbInline row" shadow={0}>
                 <div className="four columns ListingThumbInline__image-container ">
-                    { this.props.image &&
+                    { image &&
                     <ImageBackground style={{margin:'0 auto'}}
                                      imgWidth="auto" imgHeight="120"
-                                     backgroundImage={this.props.image}/>
+                                     backgroundImage={image}/>
                     }
 
-                    {!this.props.image &&
+                    {!image &&
                     <img
-                        className={this.props.listingImageClass ? this.props.listingImageClass: "ListingThumbInline__image"}
+                        className={inlineImgClass ? inlineImgClass: "ListingThumbInline__image"}
                         src='http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png'
                         alt=""/>
                     }
                 </div>
                 <div className="six columns">
                     <h4 className="text-primary ListingThumbInline__address">
-                        {this.props.street &&
-                        <span> {this.props.street} </span>
+                        {street &&
+                        <span> {street} </span>
                         }
                         <br/>
-                        {this.props.city &&
-                        < span > {this.props.city } </span>
+                        {city &&
+                        < span > {city } </span>
                         }
                         <span> IL, </span>
-                        {this.props.zip &&
-                        <span> {this.props.zip} </span>
+                        {zip &&
+                        <span> {zip} </span>
                         }
                     </h4>
                     <h3 className="ListingThumbInline__price">
-                        {this.props.price}</h3>
+                        {price}</h3>
                     <p>
-                        {this.props.type &&
-                        <span > {this.props.type}</span>
+                        {type &&
+                        <span > {type}</span>
                         }
-                        {this.props.mls &&
+                        {mls &&
                         <span>
-                            {" | MLS#: " + this.props.mls}
+                            {" | MLS#: " + mls}
                         </span>}
                     </p>
                     <p>
-                        {this.props.beds &&
+                        {beds &&
                         < span >
-                        {"Beds: " + this.props.beds}
+                        {"Beds: " + beds}
                             </span>}
-                        {this.props.baths &&
+                        {baths &&
                         <span>
-                            {" | Baths: " + this.props.baths}
+                            {" | Baths: " + baths}
                         </span>
                         }
                     </p>

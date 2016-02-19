@@ -2,15 +2,11 @@ import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import _ from 'lodash';
 import Breadcrumbs from 'react-breadcrumbs';
-
-/*=MaterialUi*/
 import Spinner from 'material-ui/lib/circular-progress';
-
 /*=Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
 import HousesList from '../../components/Common/HousesList.js'
 import HousesByPropsList from '../../components/Common/HousesByPropsList.js';
-import ListingThumbLarge from '../../components/ListingThumb/ListingThumbLarge.js';
 import SvLink from '../../components/Common/SvLink';
 
 /*Inline Styles*/
@@ -65,8 +61,9 @@ class CityPage extends React.Component {
 
                 {zipsList.length &&
                 <HousesList
+                    list={newHouses}
+                    gridColsClass="six columns"
                     cityName={cityName}
-                    houses={newHouses}
                     housesNumber={housesCount}
                     listType="large"/>
                 }

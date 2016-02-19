@@ -3,6 +3,7 @@ import Relay from 'react-relay';
 import _ from 'lodash';
 import {Link} from 'react-router';
 import Breadcrumbs from 'react-breadcrumbs';
+import HousesList from '../../components/Common/HousesList.js';
 
 /*MaterialUi*/
 import Spinner from 'material-ui/lib/circular-progress';
@@ -14,7 +15,7 @@ import CardText from 'material-ui/lib/card/card-text';
 import House_List from './../../components/HouseSale/House_List.jsx';
 import ListingThumbInline from '../../components/ListingThumb/ListingThumbInline.js';
 import SvLink from '../../components/Common/SvLink';
-import HousesByPropsList from '../../components/Common/HousesByPropsList.js';
+
 /*Inline Styles*/
 import style from '../../settings/AppMuiTheme.js';
 
@@ -49,47 +50,18 @@ class HousesListPage extends React.Component {
         };
 
         const cityName = _.startCase(this.props.params.city);
+        var cityHouses = this.props.Viewer.Houses.edges;
         return (
             <div>
                 <br/>
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <br/>
                 <h1> {"Houses for Sale in " + cityName + ", " + this.props.params.zipType} </h1>
-                <ol>
-                    {
-                        this.props.Viewer.Houses.edges.map((edge, index)=> {
-                            const house = edge.node;
-                            // const urlAppend=this.props.params.zipType.mat
-                            const houseUrl = `${house.city.name}/${house.zip.code}/${house.type.type}/${house.id}`;
-                            return (
-                                <li key={index}>
-                                    <Link to={`/houses-for-sale/${houseUrl}`}>
-                                        <div>
-                                            {house.street}
-                                        </div>
-                                        <div>
-                                            {house.type.type}
-                                        </div>
-                                        <div>
-                                            <img src={house.image} alt="House" style={{width:100}}/>
-                                        </div>
-                                        <hr/>
-                                    </Link>
-                                </li>
-                            );
-                        })
-                    }
-                </ol>
+                <HousesList
+                    list={cityHouses}
+                    cityName={cityName}
+                    listType="inline"/>
                 <br/>
-
-                <HousesByPropsList
-                    item="type"
-                    list={typesList}
-                    badgeStyle={badgeStyle}
-                    btnLabelStyle={btnLabelStyle}
-                    sectionTitle={`${cityName} Homes for Sale by Property Type`}
-                />
-
             </div>
         );
     }
