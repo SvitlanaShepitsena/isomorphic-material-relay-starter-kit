@@ -1,27 +1,18 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import {Link} from 'react-router';
 import _ from 'lodash';
 import Breadcrumbs from 'react-breadcrumbs';
 
 /*=MaterialUi*/
 import Spinner from 'material-ui/lib/circular-progress';
-import Card from 'material-ui/lib/card/card';
-import CardActions from 'material-ui/lib/card/card-actions';
-import CardTitle from 'material-ui/lib/card/card-title';
-import FlatButton from 'material-ui/lib/flat-button';
-import CardText from 'material-ui/lib/card/card-text';
-import Divider from 'material-ui/lib/divider';
-import Badge from 'material-ui/lib/badge';
-import RaisedButton from 'material-ui/lib/raised-button';
 
 /*=Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
-import SvLink from '../../components/Common/SvLink';
-import {isomorphicVars} from '../../scripts/isomorphicVars';
-import ListingThumbLarge from '../../components/ListingThumb/ListingThumbLarge.js';
-import HousesByPropsList from '../../components/Common/HousesByPropsList.js';
 import HousesList from '../../components/Common/HousesList.js'
+import HousesByPropsList from '../../components/Common/HousesByPropsList.js';
+import ListingThumbLarge from '../../components/ListingThumb/ListingThumbLarge.js';
+import SvLink from '../../components/Common/SvLink';
+
 /*Inline Styles*/
 import style from '../../settings/AppMuiTheme.js';
 
@@ -57,6 +48,7 @@ class CityPage extends React.Component {
         var zipsList = this.props.Viewer.City.Zips.edges;
         var typesList = this.props.Viewer.City.Types.edges;
         var newHouses = this.props.Viewer.City.Houses.edges;
+        var housesCount = this.props.Viewer.City.Houses_Count;
         return (
 
             <div>
@@ -65,27 +57,20 @@ class CityPage extends React.Component {
                     <Spinner size={1.5}/>
                 </div>
                 }
+                <br/>
+                <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
 
-                {(zipsList.length || typesList.length) &&
-                <div>
-                    <br/>
-                    <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
+                <h1> {"Houses for Sale in " + cityName} </h1>
+                <hr/>
 
-                    <h1> {"Houses for Sale in " + cityName} </h1>
-                    <hr/>
-                    <HousesList  houses={newHouses} listType="large"/>
-
-                    <SvLink url='all'>
-                        <RaisedButton style={{display:"block",margin:"0px auto"}}
-                                      label={"All " + cityName + " homes for sale (###)"}
-                                      primary={true}/>
-
-                    </SvLink>
-                    <br/>
-                    <br/>
-                </div>
+                {zipsList.length &&
+                <HousesList
+                    cityName={cityName}
+                    houses={newHouses}
+                    housesNumber={housesCount}
+                    listType="large"/>
                 }
-
+                <br/>
 
                 {zipsList.length &&
                 <HousesByPropsList
@@ -119,6 +104,7 @@ export default Relay.createContainer(CityPage, {
       fragment on Viewer {
         User_IsAnonymous,
         City(city:$city){
+            Houses_Count
             Houses(first:2){
                 edges{
                     node{
