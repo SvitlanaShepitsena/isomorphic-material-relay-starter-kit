@@ -17,15 +17,13 @@ import ImageBackground from '../Common/ImageBackground.js';
 export default class ListingThumbLarge extends React.Component {
     static propTypes = {
         house: PropTypes.object.isRequired,
-        imgClassName:PropTypes.string
+        imgClassName: PropTypes.string
     };
 
     render() {
 
-        console.log(this.props.house);
-        var price = this.props.price;
-        console.log(price);
-        
+        var price = this.props.house.price;
+
         var type = this.props.house.type.type;
         var beds = this.props.house.beds;
         var mls = this.props.house.mls;
@@ -42,7 +40,7 @@ export default class ListingThumbLarge extends React.Component {
                     subtitle={"Property Type: " + type}
                 />
                 <CardMedia
-                    overlay={<CardTitle style={{padding:"0 0 5px 16px"}}  subtitle={"Beds:" + beds +  "Baths: " + baths } />}
+                    overlay={<CardTitle style={{padding:"0 0 5px 16px"}}  subtitle={"Beds:" + beds  } />}
                 >
                     <div>
                         {image &&

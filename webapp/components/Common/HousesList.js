@@ -14,17 +14,17 @@ class HousesList extends React.Component {
 
     render() {
         return (
-            <div className="row">
+            <ul className="row">
                 {this.props.houses.map((edge, index)=> {
                         const house = edge.node;
-                        console.log(house);
-
-                        <div className="six columns" key={index}>
-                            <ListingThumbLarge price={house.price} house={house}/>
-                        </div>
+                        return (
+                            <li className="six columns" key={index}>
+                                <ListingThumbLarge house={house}/>
+                            </li>
+                        )
                     }
                 )}
-            </div>
+            </ul>
         );
     }
 }

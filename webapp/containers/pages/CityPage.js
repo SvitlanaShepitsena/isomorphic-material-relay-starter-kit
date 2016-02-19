@@ -74,8 +74,6 @@ class CityPage extends React.Component {
                     <h1> {"Houses for Sale in " + cityName} </h1>
                     <hr/>
 
-                    <HousesList houses={newHouses} listType="large"/>
-
                     <SvLink url='all'>
                         <RaisedButton style={{display:"block",margin:"0px auto"}}
                                       label={"All " + cityName + " homes for sale (###)"}
@@ -86,6 +84,8 @@ class CityPage extends React.Component {
                     <br/>
                 </div>
                 }
+
+                <HousesList  houses={newHouses} listType="large"/>
 
                 {zipsList.length &&
                 <HousesByPropsList
