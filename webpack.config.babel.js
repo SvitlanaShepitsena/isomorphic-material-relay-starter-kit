@@ -38,6 +38,10 @@ let config = {
         }
     }),
   ],
+    watchOptions: {
+        aggregateTimeout: 5,
+        poll: 50
+    },
   devtool: 'source-map'
 };
 

@@ -47,18 +47,21 @@ export default new GraphQLObjectType({
                 }
             },
             resolve: (obj, {...args}) => {
-                if (args.city && args.zipType) {
+                console.log(args);
+
+                if (args.city && args.zipType && args.zipType !== 'all') {
                     if (args.zipType.match(/^\d+$/g)) {
 
                         return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
-                    } else{
+                    } else {
 
                         return Houses_by_city_type(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
                     }
 
                 }
 
-                if (args.city && !args.zipType) {
+                if (args.city && (args.zipType == 'all' || args.zipType == '' || !args.zipType)) {
+                    console.log('run here ViewerType.js');
                     return Houses_by_city(args.city).then((arr_House) => connectionFromArray(arr_House, args));
                 }
 
@@ -83,7 +86,7 @@ export default new GraphQLObjectType({
                     if (args.zipType.match(/^\d+$/g)) {
 
                         return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => arr_House.length);
-                    } else{
+                    } else {
 
                         return Houses_by_city_type(args.city, args.zipType).then((arr_House) => arr_House.length);
                     }

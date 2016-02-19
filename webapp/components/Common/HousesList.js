@@ -17,9 +17,13 @@ class HousesList extends React.Component {
             <ul className="row">
                 {this.props.houses.map((edge, index)=> {
                         const house = edge.node;
+                        const houseUrl = `${house.zip.code}/${house.type.type}/${house.id}`;
+
                         return (
                             <li className="six columns" key={index}>
-                                <ListingThumbLarge house={house}/>
+                                <SvLink url={houseUrl}>
+                                    <ListingThumbLarge house={house}/>
+                                </SvLink>
                             </li>
                         )
                     }

@@ -17,7 +17,7 @@ import ListingThumbInline from '../../components/ListingThumb/ListingThumbInline
 import SvLink from '../../components/Common/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
-class ZipTypePage extends React.Component {
+class HousesListPage extends React.Component {
     getChildContext() {
         return {location: this.props.location};
     };
@@ -38,13 +38,19 @@ class ZipTypePage extends React.Component {
 
         return (
             <div>
+                <br/>
+                <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
+                <br/>
+                <h1> {"Houses for Sale in " + cityName + ", " + this.props.params.zipType} </h1>
                 <ol>
                     {
                         this.props.Viewer.Houses.edges.map((edge, index)=> {
                             const house = edge.node;
+                            // const urlAppend=this.props.params.zipType.mat
+                            const houseUrl = `${house.city.name}/${house.zip.code}/${house.type.type}/${house.id}`;
                             return (
                                 <li key={index}>
-                                    <SvLink url={house.id} >
+                                    <Link to={`/houses-for-sale/${houseUrl}`}>
                                         <div>
                                             {house.street}
                                         </div>
@@ -55,7 +61,7 @@ class ZipTypePage extends React.Component {
                                             <img src={house.image} alt="House" style={{width:100}}/>
                                         </div>
                                         <hr/>
-                                    </SvLink>
+                                    </Link>
                                 </li>
                             );
                         })
@@ -76,15 +82,22 @@ export default Relay.createContainer(ZipTypePage, {
 
         Houses(city:$city,zipType:$zipType, first:20){
             edges{
-                node{
-                   id,
-                   street,
-                   type,
-                   mls,
-                   image
-
-
-                }
+               node{
+                        id
+                        city{
+                          name
+                        }
+                        zip{
+                          code
+                        }
+                        type{
+                          type
+                        }
+                        price
+                        beds
+                        description
+                        image
+                    }
             }
         }
       }

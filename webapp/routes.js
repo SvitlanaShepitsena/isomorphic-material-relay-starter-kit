@@ -9,7 +9,7 @@ import HomePage from './containers/pages/HomePage.jsx';
 import PrivacyPage from './containers/pages/PrivacyPage';
 import TermsPage from './containers/pages/TermsPage';
 import CityPage from './containers/pages/CityPage';
-import ZipTypePage from './containers/pages/ZipTypePage';
+import HousesListPage from './containers/pages/HousesListPage';
 import HousePage from './containers/pages/HousePage';
 
 export default [
@@ -42,16 +42,26 @@ export default [
                             {
                                 path: ":zipType",
                                 indexRoute: {
-                                    component: ZipTypePage,
+                                    component: HousesListPage,
                                     queries: ViewerQueries
                                 },
                                 childRoutes: [
                                     {
-                                        path: ":street",
+                                        path: ":type",
                                         indexRoute: {
                                             component: HousePage,
                                             queries: ViewerQueries
                                         },
+
+                                        childRoutes: [
+                                            {
+                                                path: ":street",
+                                                indexRoute: {
+                                                    component: HousePage,
+                                                    queries: ViewerQueries
+                                                },
+                                            }
+                                        ]
                                     }
                                 ]
                             },
