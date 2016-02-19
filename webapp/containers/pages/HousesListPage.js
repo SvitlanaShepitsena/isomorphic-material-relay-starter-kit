@@ -30,6 +30,7 @@ class HousesListPage extends React.Component {
     componentDidMount() {
         this.props.relay.setVariables({
             city: this.props.params.city,
+            zip: this.props.params.zipType,
             zipType: this.props.params.zipType
         })
     }
@@ -95,11 +96,20 @@ class HousesListPage extends React.Component {
 }
 ;
 export default Relay.createContainer(HousesListPage, {
-    initialVariables: {city: '', zipType: ''},
+    initialVariables: {city: '', zipType: '',zip:''},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
+               Types(city: "skokie", zip: "60076", first:100) {
+              edges {
+                node {
+                  type,
+                  Houses_Count(city:"skokie",zipType:"60076")
+                }
+              }
+            }
+    
 
         Houses(city:$city,zipType:$zipType, first:20){
             edges{
