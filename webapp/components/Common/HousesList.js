@@ -8,7 +8,7 @@ import SvLink from './SvLink';
 
 class HousesList extends React.Component {
     static propTypes = {
-        houses: PropTypes.array.isRequired,
+        list: PropTypes.array.isRequired,
         listType: PropTypes.string.isRequired
 
     };
@@ -16,28 +16,32 @@ class HousesList extends React.Component {
     render() {
         var cityName = this.props.cityName;
         var housesNumber = this.props.housesNumber;
+        var gridColsClass = this.props.gridColsClass;
         return (
             <div style={{width:"100%"}}>
                 <div className="row">
-                    {this.props.houses.map((edge, index)=> {
+                    {this.props.list.map((edge, index)=> {
                             const house = edge.node;
                             const houseUrl = `${house.zip.code}/${house.type.type}/${house.id}`;
 
                             return (
-                                <div className="six columns" key={index}>
+                                <div className={gridColsClass ? gridColsClass : "twelve columns"} key={index}>
                                     <SvLink url={houseUrl}>
-                                        <ListingThumbLarge house={house}/>
+                                        {this.props.listType == "large" && <ListingThumbLarge house={house}/> }
+                                        {this.props.listType == "inline" && <ListingThumbInline house={house}/> }
                                     </SvLink>
                                 </div>
                             )
                         }
                     )}
                 </div>
+                {this.props.listType == "large" &&
                 <SvLink url="all">
                     <RaisedButton style={{display: "block", margin: "0px auto"}}
                                   label={"All " + cityName + " homes for sale" +  " (" + housesNumber + ")"}
                                   primary={true}/>
                 </SvLink>
+                }
             </div>
         );
     }

@@ -23,7 +23,6 @@ export default class ListingThumbLarge extends React.Component {
     render() {
 
         var price = this.props.house.price;
-
         var type = this.props.house.type.type;
         var beds = this.props.house.beds;
         var mls = this.props.house.mls;
