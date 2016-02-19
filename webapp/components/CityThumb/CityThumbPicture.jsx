@@ -13,7 +13,7 @@ import FlatButton from '../../../node_modules/material-ui/lib/flat-button';
 /*Components*/
 import House_List from './../HouseSale/House_List.jsx';
 
-import ImageBackground from '../shared/ImageBackground.js';
+import ImageBackground from '../Common/ImageBackground.js';
 
 export default class CityThumbPicture extends React.Component {
 

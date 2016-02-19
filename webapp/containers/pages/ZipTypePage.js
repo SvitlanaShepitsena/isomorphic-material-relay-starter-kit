@@ -14,7 +14,7 @@ import CardText from 'material-ui/lib/card/card-text';
 import House_List from './../../components/HouseSale/House_List.jsx';
 import ListingThumbInline from '../../components/ListingThumb/ListingThumbInline.jsx';
 
-import SvLink from '../../components/Shared/SvLink';
+import SvLink from '../../components/Common/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 
 class ZipTypePage extends React.Component {

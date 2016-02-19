@@ -12,7 +12,7 @@ import FlatButton from 'material-ui/lib/flat-button';
 
 /*Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
-import ImageBackground from '../shared/ImageBackground.js';
+import ImageBackground from '../Common/ImageBackground.js';
 
 export default class ListingThumbLarge extends React.Component {
     static propTypes = {
