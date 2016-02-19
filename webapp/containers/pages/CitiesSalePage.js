@@ -25,7 +25,7 @@ import CityThumbLarge from '../../components/CityThumb/CityThumbPicture.jsx';
 
 /*=Components*/
 import MyTheme from '../../settings/AppMuiTheme.js';
-import SvLink from '../../components/Shared/SvLink';
+import SvLink from '../../components/Common/SvLink';
 
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 

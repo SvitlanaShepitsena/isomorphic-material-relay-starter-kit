@@ -13,7 +13,7 @@ import Slider from '../../components/PhotoGallery/PhotoGallery.js';
 
 /*Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
-import SvLink from '../../components/Shared/SvLink';
+import SvLink from '../../components/Common/SvLink';
 import PhotoGallery from '../../components/PhotoGallery/PhotoGallery.js';
 
 import {isomorphicVars} from '../../scripts/isomorphicVars';

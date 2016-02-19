@@ -10,7 +10,7 @@ import CardText from 'material-ui/lib/card/card-text';
 import CardActions from 'material-ui/lib/card/card-actions';
 import FlatButton from 'material-ui/lib/flat-button';
 
-import ImageBackground from '../shared/ImageBackground.js';
+import ImageBackground from '../Common/ImageBackground.js';
 
 export default class ListingThumbLarge extends React.Component {
 

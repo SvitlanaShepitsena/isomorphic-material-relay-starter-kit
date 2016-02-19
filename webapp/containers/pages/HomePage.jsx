@@ -10,7 +10,7 @@ import Helmet from "react-helmet";
 import HomePageGrid from '../../components/Home/HomePageMuiGrid.jsx';
 import PhotoGallery from '../../components/PhotoGallery/PhotoGallery.js';
 
-import Search from '../../components/shared/SearchForm.js';
+import Search from '../../components/Common/SearchForm.js';
 
 class HomePage extends React.Component {
     render() {

@@ -17,10 +17,10 @@ import RaisedButton from 'material-ui/lib/raised-button';
 
 /*=Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
-import SvLink from '../../components/Shared/SvLink';
+import SvLink from '../../components/Common/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 import ListingThumbLarge from '../../components/ListingThumb/ListingThumbLarge.jsx';
-import HousesByPropsList from '../../components/shared/HousesByPropsList.js';
+import HousesByPropsList from '../../components/Common/HousesByPropsList.js';
 /*Inline Styles*/
 import style from '../../settings/AppMuiTheme.js';
 
