@@ -13,10 +13,10 @@ class HousesByPropsList extends React.Component {
         return (
             <div className="row">
                 {this.props.list.map((edge, index)=> {
-                        var svLinkUrl = edge.node[this.props.item];
+
                         <div className="six columns" key={index}>
                             <SvLink url={svLinkUrl}>
-                                <ListingThumbLarge />
+                                <ListingThumbLarge house={}/>
                             </SvLink>
                         </div>
                     }
