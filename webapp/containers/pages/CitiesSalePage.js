@@ -43,7 +43,6 @@ class CitiesSale extends React.Component {
     };
 
     render() {
-        var isoVars = isomorphicVars();
         const cityText = {
             color: MyTheme.primary1Color
         };
@@ -68,9 +67,12 @@ class CitiesSale extends React.Component {
                     </div>
                     }
                     {cities.length && this.props.Viewer.Cities.edges.map((city, index)=>
+
                         <div className="four columns" key={city.node.name}>
                             <SvLink url={city.node.name}>
-                                <CityThumbLarge cityName={_.startCase(city.node.name)}/>
+                                <CityThumbLarge
+                                    housesLength={city.node.Houses_Count}
+                                    cityName={_.startCase(city.node.name)}/>
                             </SvLink>
                         </div>
                     )}
@@ -86,13 +88,14 @@ export default Relay.createContainer(CitiesSale, {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
-        Cities(first: 15) {
-          edges {
-            node {
-            id,
-            },
-          },
-        },
+          Cities(first :100){
+            edges{
+                node{
+                      name,
+                      Houses_Count
+        }
+      }
+    }
       }
     `,
     },

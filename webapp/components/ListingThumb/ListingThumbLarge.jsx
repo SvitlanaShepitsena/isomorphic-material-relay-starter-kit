@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 
 /*=MaterialUi*/
@@ -12,31 +12,44 @@ import FlatButton from 'material-ui/lib/flat-button';
 
 /*Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
-
 import ImageBackground from '../shared/ImageBackground.js';
 
 export default class ListingThumbLarge extends React.Component {
+    static propTypes = {
+        city: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired
+    };
 
     render() {
+        var price = this.props.price;
+        var type = this.props.type;
+        var beds = this.props.beds;
+        var baths = this.props.baths;
+        var image = this.props.image;
+        var street = this.props.street;
+        var city = this.props.city;
+        var zip = this.props.zip;
+        var year = this.props.year;
+        var imgClassName = this.props.imgClassName;
         return (
             <Card className="ListingThumbLarge" shadow={0}>
                 <CardHeader
-                    title={"Price: " + this.props.price}
-                    subtitle={"Property Type: " + this.props.type}
+                    title={"Price: " + price}
+                    subtitle={"Property Type: " + type}
                 />
                 <CardMedia
-                    overlay={<CardTitle style={{padding:"0 0 5px 16px"}}  subtitle={"Beds:" + this.props.beds +  "Baths: " + this.props.baths } />}
+                    overlay={<CardTitle style={{padding:"0 0 5px 16px"}}  subtitle={"Beds:" + beds +  "Baths: " + baths } />}
                 >
                     <div>
-                        {this.props.image &&
+                        {image &&
                         <ImageBackground style={{margin:'0 auto'}}
                                          imgWidth="auto" imgHeight="180"
-                                         backgroundImage={this.props.image}/>
+                                         backgroundImage={image}/>
                         }
 
-                        {!this.props.image &&
+                        {!image &&
                         <img
-                            className={this.props.imgClassName ? this.props.imgClassName: "ListingThumbLarge__image"}
+                            className={imgClassName ? imgClassName: "ListingThumbLarge__image"}
                             src='http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png'
                             alt=""/>
                         }
@@ -45,16 +58,16 @@ export default class ListingThumbLarge extends React.Component {
                 <CardTitle
                     title={
                    <h4 className="ListingThumbLarge__address">
-                        {this.props.street &&
-                        <span> {this.props.street} </span>
+                        {street &&
+                        <span> {street} </span>
                         }
                         <br/>
-                        {this.props.city &&
-                        < span > {this.props.city } </span>
+                        {city &&
+                        < span > {city } </span>
                         }
                         <span> IL, </span>
-                        {this.props.zip &&
-                        <span> {this.props.zip} </span>
+                        {zip &&
+                        <span> {zip} </span>
                         }
                      </h4>
                    }

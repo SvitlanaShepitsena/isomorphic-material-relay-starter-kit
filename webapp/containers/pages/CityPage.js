@@ -19,8 +19,10 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import House_List from './../../components/HouseSale/House_List.jsx';
 import SvLink from '../../components/Shared/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';
-import MyTheme from '../../settings/AppMuiTheme.js';
 import ListingThumbLarge from '../../components/ListingThumb/ListingThumbLarge.jsx';
+import HousesByPropsList from '../../components/shared/HousesByPropsList.js';
+/*Inline Styles*/
+import style from '../../settings/AppMuiTheme.js';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -38,9 +40,21 @@ class CityPage extends React.Component {
     }
 
     render() {
+        var badgeStyle = {
+            backgroundColor: style.palette.default3Color,
+            color: style.palette.textColor,
+            top: 18,
+            right: 18
+        };
+        var btnLabelStyle = {
+            color: style.palette.primary2Color,
+            fontSize: 15,
+            fontWeight: 500
+        };
+
         const cityName = _.startCase(this.props.params.city);
-        var zipsList = this.props.Viewer.CityZips.edges;
-        var typesList = this.props.Viewer.CityTypes.edges;
+        var zipsList = this.props.Viewer.City.Zips.edges;
+        var typesList = this.props.Viewer.City.Types.edges;
         return (
 
             <div>
@@ -53,10 +67,7 @@ class CityPage extends React.Component {
                 {(zipsList.length || typesList.length) &&
                 <div>
                     <br/>
-                    <Breadcrumbs
-                        routes={this.props.routes}
-                        params={this.props.params}
-                    />
+                    <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
 
                     <h1> {"Houses for Sale in " + cityName} </h1>
                     <hr/>
@@ -72,70 +83,32 @@ class CityPage extends React.Component {
                         <RaisedButton style={{display:"block",margin:"0px auto"}}
                                       label={"All " + cityName + " homes for sale (###)"}
                                       primary={true}/>
+
                     </SvLink>
-                    <br/>
                     <br/>
                     <br/>
                 </div>
                 }
 
                 {zipsList.length &&
-                <Card>
-                    <CardTitle title={cityName + " Homes for Sale by Zip"}/>
-                    <Divider />
-                    <CardActions>
-                        <ul className="list-unstyled">
-                            {this.props.Viewer.CityZips.edges.map((edge)=> {
-                                    const zip = edge.node;
-                                    return (
-                                        <li style={{display:"inline-block"}} key={zip.zip}>
-                                            <Badge
-                                                badgeContent={`${zip.number}`}
-                                                badgeStyle={{backgroundColor:"#EEEEEE", color:"#212121", top: 18, right: 18}}
-                                            >
-                                                <SvLink url={zip.zip}>
-                                                    <FlatButton
-                                                        style={{color:"#0277BD", fontSize:18, fontWeight:500}}
-                                                        label={`${zip.zip}`}/>
-                                                </SvLink>
-                                            </Badge>
-                                        </li>
-                                    )
-                                }
-                            )}
-                        </ul>
-                    </CardActions>
-                </Card>
+                <HousesByPropsList
+                    item="code"
+                    list={zipsList}
+                    badgeStyle={badgeStyle}
+                    btnLabelStyle={btnLabelStyle}
+                    sectionTitle={`${cityName} Homes for Sale by Zip`}
+                />
                 }
+
                 <br/>
                 {typesList.length &&
-                <Card>
-                    <CardTitle title={cityName + " Homes for Sale by Property Type"}/>
-                    <Divider />
-                    <CardActions>
-                        <ul className="list-unstyled">
-                            {this.props.Viewer.CityTypes.edges.map((edge)=> {
-                                    const type = edge.node;
-                                    return (
-                                        <li style={{display: "inline-block"}} key={type.type}>
-                                            <Badge
-                                                badgeContent={`${type.number}`}
-                                                badgeStyle={{backgroundColor: "#EEEEEE", color: "#212121", top: 18, right: 18}}
-                                            >
-                                                <SvLink url={type.type}>
-                                                    <FlatButton
-                                                        secondary={true}
-                                                        style={{color: "#0277BD", fontSize: 15, fontWeight: 500}}
-                                                        label={`${type.type}`}/>
-                                                </SvLink>
-                                            </Badge>
-                                        </li>
-                                    )
-                                }
-                            )}
-                        </ul>
-                    </CardActions>
-                </Card>
+                <HousesByPropsList
+                    item="type"
+                    list={typesList}
+                    badgeStyle={badgeStyle}
+                    btnLabelStyle={btnLabelStyle}
+                    sectionTitle={`${cityName} Homes for Sale by Property Type`}
+                />
                 }
             </div>
         );
@@ -143,12 +116,31 @@ class CityPage extends React.Component {
 }
 ;
 export default Relay.createContainer(CityPage, {
-    initialVariables: {city: ''},
+    initialVariables: {city: 'skokie'},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {
         User_IsAnonymous,
+        City(city:$city){
 
+            Zips(first:100){
+              edges{
+                node{
+                  code,
+                  Houses_Count
+                }
+              },
+            },
+
+            Types(first:100,city:$city){
+              edges{
+                node{
+                  type,
+                  Houses_Count(city:$city)
+                }
+              }
+            }
+        }
       }
     `,
     },
