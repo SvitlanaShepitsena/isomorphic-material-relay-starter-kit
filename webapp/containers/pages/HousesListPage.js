@@ -73,7 +73,7 @@ class HousesListPage extends React.Component {
     }
 }
 ;
-export default Relay.createContainer(ZipTypePage, {
+export default Relay.createContainer(HousesListPage, {
     initialVariables: {city: '', zipType: ''},
     fragments: {
         Viewer: () => Relay.QL`
