@@ -13,8 +13,8 @@ class CitiesRent extends React.Component {
     render() {
         var isoVars = isomorphicVars();
         const cityName = _.startCase(this.props.params.city);
-        console.log(isoVars);
-        console.log(this.props.Viewer);
+        
+
         return (
             <div>
                 <h1>Houses for Rent</h1>

@@ -3,7 +3,7 @@ import {runQuery, runQueryNoResult, runQueryOneResult, Uuid} from './_client.js'
 import Zip from '../model/Zip'
 
 export function Zip_get(id) {
-    console.log(id);
+    
     const cqlText = 'SELECT * FROM zip WHERE id = ? ALLOW FILTERING;';
     const cqlParams = [id];
 
@@ -17,7 +17,7 @@ export function Zips_all() {
     return runQuery(Zip, cqlText, cqlParams);
 }
 export function Zips_by_city(city) {
-    console.log(city);
+    
     let cqlText = 'SELECT * FROM zips_by_city where city_id = ?';
     let cqlParams = [city];
 

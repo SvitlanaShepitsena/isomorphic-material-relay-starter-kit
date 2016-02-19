@@ -32,10 +32,10 @@ function ensureNoErrorOrReport( qText, qVar, err, reject )
 {
   if( err )
   {
-    console.log( chalk.bold.red( err ) );
-    console.log( chalk.gray( "Query: " ) + chalk.red( qText ) );
-    console.log( chalk.gray( "Parameters: " ) + chalk.red( JSON.stringify( qVar ) ) );
-    console.log( chalk.blue( "." ) );
+    
+    
+    
+    
 
     reject( err ); // Because terrisgit said so
   }
@@ -45,7 +45,7 @@ function ensureNoErrorOrReport( qText, qVar, err, reject )
 
 export function runQuery( objectPrototype, qText, qVar )
 {
-  //console.log( "runQuery [" + qText + "] params=" + JSON.stringify( qVar ) );
+  //
   return new Promise( ( resolve, reject ) =>
   {
     client.execute( qText, qVar, {prepare: true}, ( err, result ) => { if( ensureNoErrorOrReport( qText, qVar, err, reject ) )
@@ -57,7 +57,7 @@ export function runQuery( objectPrototype, qText, qVar )
         let row = result.rows[ ixRow ];
         resultAsObjects.push( new objectPrototype( row ) );
       }
-      //console.log( "runQuery: " + JSON.stringify( resultAsObjects ) );
+      //
       resolve( resultAsObjects );
     } } );
   } );
@@ -65,12 +65,12 @@ export function runQuery( objectPrototype, qText, qVar )
 
 export function runQueryOneResult( objectPrototype, qText, qVar )
 {
-  //console.log( "runQueryOneResult [" + qText + "] params=" + JSON.stringify( qVar ) );
+  //
   return new Promise( ( resolve, reject ) =>
   {
     client.execute( qText, qVar, {prepare: true}, ( err, result ) => { if( ensureNoErrorOrReport( qText, qVar, err, reject ) )
     {
-      //console.log( "runQueryOneResult [" + qText + "] params=" + JSON.stringify( qVar ) + " err=" + JSON.stringify( err ) + " result=" + JSON.stringify( result ) );
+      //
       if( result.rowLength > 0 )
       {
         let row = result.rows[ 0 ];
@@ -85,12 +85,12 @@ export function runQueryOneResult( objectPrototype, qText, qVar )
 
 export function runQueryNoResult( qText, qVar )
 {
-  //console.log( "runQueryNoResult [" + qText + "] params=" + JSON.stringify( qVar ) );
+  //
   return new Promise( ( resolve, reject ) =>
   {
     client.execute( qText, qVar, {prepare: true}, ( err ) => { if( ensureNoErrorOrReport( qText, qVar, err, reject ) )
     {
-      //console.log( "runQueryNoResult [" + qText + "] params=" + JSON.stringify( qVar ) + " err=" + JSON.stringify( err ) );
+      //
       resolve( );
     } } );
   } );

@@ -47,7 +47,6 @@ export default new GraphQLObjectType({
                 }
             },
             resolve: (obj, {...args}) => {
-                console.log(args);
 
                 if (args.city && args.zipType && args.zipType !== 'all') {
                     if (args.zipType.match(/^\d+$/g)) {

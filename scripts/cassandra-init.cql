@@ -29,6 +29,7 @@ CREATE TABLE house (
   id text,
   mls text,
   beds text,
+  baths text,
   type_id text,
   description text,
   image text,
@@ -42,6 +43,7 @@ CREATE TABLE houses_by_city (
    id text,
     mls text,
     beds text,
+     baths text,
     type_id text,
     description text,
     image text,
@@ -55,6 +57,7 @@ CREATE TABLE houses_by_zip (
    id text,
     mls text,
     beds text,
+     baths text,
     type_id text,
     description text,
     image text,
@@ -68,6 +71,7 @@ CREATE TABLE houses_by_city_zip (
     id text,
      mls text,
      beds text,
+     baths text,
      type_id text,
      description text,
      image text,
@@ -81,6 +85,7 @@ CREATE TABLE houses_by_city_type (
     id text,
      mls text,
      beds text,
+      baths text,
      type_id text,
      description text,
      image text,
@@ -103,6 +108,13 @@ CREATE TABLE types_by_city (
   city_id text,
   type text,
   PRIMARY KEY (city_id, id));
+
+CREATE TABLE types_by_city_zip (
+  id text,
+  city_id text,
+  zip_id text,
+  type text,
+  PRIMARY KEY ((city_id, zip_id), id));
 
 
 CREATE TABLE  zip ( id text, code text, city_id text, PRIMARY KEY (id));

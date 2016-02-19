@@ -67,15 +67,15 @@ export default (req, res, next, assetsPath) => {
                             });
                         }
                         catch (err) {
-                            console.log(chalk.gray("renderOnServer exception: ") + chalk.red.bold(err.message));
-                            console.log(chalk.red(err.stack));
-                            console.log(chalk.blue('.'));
+                            
+                            
+                            
                         }
 
                         queueTask.done();
                     }
                 },
-                () => console.log("Timeout for renderer"),
+                () => 
                 2000
             ); // 2 second time out for rendering an isomorphic page
         }
