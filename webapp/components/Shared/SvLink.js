@@ -12,7 +12,7 @@ class SvLink extends React.Component {
         const anchor = _.startCase(href);
         return (
             <div>
-                {this.props.children &&
+                {this.props.children && 
                 <Link to={fullUrl}>{this.props.children}</Link>
                 }
                 {!this.props.children &&
