@@ -36,7 +36,8 @@ export default (req, res, next, assetsPath) => {
                 queueTask => {
                     // Setting the STATIC network layer. No fear about it being static - we are in a queue!
                     Relay.injectNetworkLayer(new Relay.DefaultNetworkLayer(GRAPHQL_URL, {headers: headers}));
-
+                    RelayStoreData.getDefaultInstance().getChangeEmitter().injectBatchingStrategy(() => {
+                    });
 
                     if (error)
                         next(error);
@@ -47,13 +48,13 @@ export default (req, res, next, assetsPath) => {
                     else
                         res.status(404).send('Not Found');
 
-                    function render(data,props) {
+                    function render(data) {
                         try {
                             // Setting up static, global navigator object to pass user agent to material-ui. Again, not to
                             // fear, we are in a queue.
                             GLOBAL.navigator = {userAgent: req.headers['user-agent']};
 
-                            const reactOutput = ReactDOMServer.renderToStaticMarkup(
+                            const reactOutput = ReactDOMServer.renderToString(
                                 <IsomorphicRouter.RouterContext {...renderProps} />
                             );
                             let helmet = Helmet.rewind();

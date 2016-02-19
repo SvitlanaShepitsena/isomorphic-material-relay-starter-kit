@@ -19,7 +19,6 @@ export default Relay.createContainer(TermsPage, {
       fragment on Viewer {
         User_IsAnonymous,
 
-
       } `,
     },
 });
