@@ -12,7 +12,7 @@ import CardText from 'material-ui/lib/card/card-text';
 
 /*Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
-import ListingThumbInline from '../../components/ListingThumb/ListingThumbInline.jsx';
+import ListingThumbInline from '../../components/ListingThumb/ListingThumbInline.js';
 
 import SvLink from '../../components/Common/SvLink';
 import {isomorphicVars} from '../../scripts/isomorphicVars';

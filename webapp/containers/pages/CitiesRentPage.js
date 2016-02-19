@@ -5,7 +5,7 @@ import Card from 'material-ui/lib/card/card';
 import CardHeader from 'material-ui/lib/card/card-header';
 import CardText from 'material-ui/lib/card/card-text';
 import House_List from './../../components/HouseSale/House_List.jsx';
-import ListingThumbInline from '../../components/ListingThumb/ListingThumbInline.jsx';
+import ListingThumbInline from '../../components/ListingThumb/ListingThumbInline.js';
 
 import {isomorphicVars} from '../../scripts/isomorphicVars';
 

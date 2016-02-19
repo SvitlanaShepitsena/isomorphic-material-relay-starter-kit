@@ -16,20 +16,24 @@ import ImageBackground from '../Common/ImageBackground.js';
 
 export default class ListingThumbLarge extends React.Component {
     static propTypes = {
-        city: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired
+        house: PropTypes.object.isRequired,
+        imgClassName:PropTypes.string
     };
 
     render() {
+
+        console.log(this.props.house);
         var price = this.props.price;
-        var type = this.props.type;
-        var beds = this.props.beds;
-        var baths = this.props.baths;
-        var image = this.props.image;
-        var street = this.props.street;
-        var city = this.props.city;
-        var zip = this.props.zip;
-        var year = this.props.year;
+        console.log(price);
+        
+        var type = this.props.house.type.type;
+        var beds = this.props.house.beds;
+        var mls = this.props.house.mls;
+        var image = this.props.house.image;
+        var description = this.props.house.description;
+        var street = this.props.house.street;
+        var city = this.props.house.city.name;
+        var zip = this.props.house.zip.code;
         var imgClassName = this.props.imgClassName;
         return (
             <Card className="ListingThumbLarge" shadow={0}>
