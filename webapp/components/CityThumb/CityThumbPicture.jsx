@@ -1,5 +1,4 @@
 import React from 'react';
-import Relay from 'react-relay';
 
 /*=MaterialUi*/
 import Card from '../../../node_modules/material-ui/lib/card/card';
@@ -8,12 +7,6 @@ import CardMedia from '../../../node_modules/material-ui/lib/card/card-media';
 import CardTitle from '../../../node_modules/material-ui/lib/card/card-title';
 import CardText from '../../../node_modules/material-ui/lib/card/card-text';
 import CardActions from '../../../node_modules/material-ui/lib/card/card-actions';
-import FlatButton from '../../../node_modules/material-ui/lib/flat-button';
-
-/*Components*/
-import House_List from './../HouseSale/House_List.jsx';
-
-import ImageBackground from '../Common/ImageBackground.js';
 
 export default class CityThumbPicture extends React.Component {
 

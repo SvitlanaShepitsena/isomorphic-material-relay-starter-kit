@@ -3,11 +3,10 @@ import Relay from 'react-relay';
 import _ from 'lodash';
 import Breadcrumbs from 'react-breadcrumbs';
 import Spinner from 'material-ui/lib/circular-progress';
+
 /*=Components*/
-import House_List from './../../components/HouseSale/House_List.jsx';
 import HousesList from '../../components/Common/HousesList.js'
 import HousesByPropsList from '../../components/Common/HousesByPropsList.js';
-import SvLink from '../../components/Common/SvLink';
 
 /*Inline Styles*/
 import style from '../../settings/AppMuiTheme.js';
@@ -28,18 +27,6 @@ class CityPage extends React.Component {
     }
 
     render() {
-        var badgeStyle = {
-            backgroundColor: style.palette.default3Color,
-            color: style.palette.textColor,
-            top: 18,
-            right: 18
-        };
-        var btnLabelStyle = {
-            color: style.palette.primary2Color,
-            fontSize: 15,
-            fontWeight: 500
-        };
-
         const cityName = _.startCase(this.props.params.city);
         var zipsList = this.props.Viewer.City.Zips.edges;
         var typesList = this.props.Viewer.City.Types.edges;
@@ -48,18 +35,19 @@ class CityPage extends React.Component {
         return (
 
             <div>
-                {!(zipsList.length || typesList.length) &&
-                <div style={{textAlign:"center"}}>
-                    <Spinner size={1.5}/>
-                </div>
-                }
                 <br/>
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
 
                 <h1> {"Houses for Sale in " + cityName} </h1>
                 <hr/>
 
-                {zipsList.length &&
+                {!(newHouses.length || zipsList.length || typesList.length) &&
+                <div style={{textAlign:"center"}}>
+                    <Spinner size={1.5}/>
+                </div>
+                }
+
+                {newHouses.length &&
                 <HousesList
                     list={newHouses}
                     gridColsClass="six columns"
@@ -73,8 +61,6 @@ class CityPage extends React.Component {
                 <HousesByPropsList
                     item="code"
                     list={zipsList}
-                    badgeStyle={badgeStyle}
-                    btnLabelStyle={btnLabelStyle}
                     sectionTitle={`${cityName} Homes for Sale by Zip`}
                 />
                 }
@@ -84,8 +70,6 @@ class CityPage extends React.Component {
                 <HousesByPropsList
                     item="type"
                     list={typesList}
-                    badgeStyle={badgeStyle}
-                    btnLabelStyle={btnLabelStyle}
                     sectionTitle={`${cityName} Homes for Sale by Property Type`}
                 />
                 }

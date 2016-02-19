@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import {Link} from 'react-router';
 import _ from 'lodash';
-import Breadcrumbs from 'react-breadcrumbs';
 
 /*=MaterialUi*/
 import Spinner from 'material-ui/lib/circular-progress';
@@ -50,11 +49,9 @@ class CitiesSale extends React.Component {
         return (
             <div>
                 <br/>
-
                 <h1>
                     North Chicago Suburbs Houses for Sale
                 </h1>
-
                 <hr/>
                 <div className="row ColsList-4">
                     {!cities.length &&

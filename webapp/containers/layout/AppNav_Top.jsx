@@ -19,14 +19,14 @@ export default class AppNav_Top extends React.Component {
                         </Link>
                     </MenuItem>
                 </li>
-                <li style={{display:'inline-block'}}>
-                    <MenuItem>
-                        <Link
-                            style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"#ffffff"}}
-                            to="/houses-for-rent">Houses For Rent
-                        </Link>
-                    </MenuItem>
-                </li>
+                {/*                <li style={{display:'inline-block'}}>
+                 <MenuItem>
+                 <Link
+                 style={{textDecoration:'none',padding:'16px 8px',margin:5, fontSize:15,color:"#ffffff"}}
+                 to="/houses-for-rent">Houses For Rent
+                 </Link>
+                 </MenuItem>
+                 </li>*/}
                 <li style={{display:'inline-block'}}>
                     <MenuItem>
                         <Link

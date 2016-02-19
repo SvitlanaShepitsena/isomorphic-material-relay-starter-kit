@@ -5,13 +5,14 @@ import Card from 'material-ui/lib/card/card';
 import CardActions from 'material-ui/lib/card/card-actions';
 import CardTitle from 'material-ui/lib/card/card-title';
 import FlatButton from 'material-ui/lib/flat-button';
-import CardText from 'material-ui/lib/card/card-text';
 import Divider from 'material-ui/lib/divider';
 import Badge from 'material-ui/lib/badge';
 
 /*=Components*/
 import SvLink from './SvLink';
-import MyTheme from '../../settings/AppMuiTheme.js';
+
+/*Inline Styles*/
+import style from '../../settings/AppMuiTheme.js';
 
 class HousesByPropsList extends React.Component {
     static propTypes = {
@@ -19,6 +20,17 @@ class HousesByPropsList extends React.Component {
     };
 
     render() {
+        var defaultBadgeStyle = {
+            backgroundColor: style.palette.default3Color,
+            color: style.palette.textColor,
+            top: 18,
+            right: 18
+        };
+        var defaultBtnLabelStyle = {
+            color: style.palette.primary2Color,
+            fontSize: 15,
+            fontWeight: 500
+        };
         var sectionTitle = this.props.sectionTitle;
         return (
             <Card>
@@ -36,11 +48,12 @@ class HousesByPropsList extends React.Component {
                                 return (
                                     <li key={index}>
                                         <Badge badgeContent={badgeValue}
-                                               badgeStyle={badgeStyle}
+                                               badgeStyle={badgeStyle ? badgeStyle : defaultBadgeStyle}
                                         >
                                             <SvLink url={svLinkUrl}>
                                                 <FlatButton
-                                                    labelStyle={btnLabelStyle}
+                                                    labelStyle={btnLabelStyle ? btnLabelStyle: defaultBtnLabelStyle}
+                                                    primary={true}
                                                     label={btnLabel}/>
                                             </SvLink>
                                         </Badge>

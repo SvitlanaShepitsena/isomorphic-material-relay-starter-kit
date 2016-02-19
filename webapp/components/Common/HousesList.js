@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import RaisedButton from 'material-ui/lib/raised-button';
+import {Link} from 'react-router';
 
 /*Components*/
 import ListingThumbInline from '../ListingThumb/ListingThumbInline';
@@ -22,14 +23,20 @@ class HousesList extends React.Component {
                 <div className="row">
                     {this.props.list.map((edge, index)=> {
                             const house = edge.node;
-                            const houseUrl = `${house.zip.code}/${house.type.type}/${house.id}`;
-
+                            const houseThumbUrl = `${house.zip.code}/${house.type.type}/${house.id}`;
+                            const houseInlineUrl = `${house.city.name}/${house.zip.code}/${house.type.type}/${house.id}`;
                             return (
                                 <div className={gridColsClass ? gridColsClass : "twelve columns"} key={index}>
-                                    <SvLink url={houseUrl}>
-                                        {this.props.listType == "large" && <ListingThumbLarge house={house}/> }
-                                        {this.props.listType == "inline" && <ListingThumbInline house={house}/> }
+                                    {this.props.listType == "large" &&
+                                    <SvLink url={houseThumbUrl}>
+                                        <ListingThumbLarge house={house}/>
                                     </SvLink>
+                                    }
+                                    {this.props.listType == "inline" &&
+                                    <Link to={`/houses-for-sale/${houseInlineUrl}`}>
+                                        <ListingThumbInline house={house}/>
+                                    </Link>
+                                    }
                                 </div>
                             )
                         }

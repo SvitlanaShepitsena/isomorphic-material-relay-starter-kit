@@ -61,9 +61,9 @@ class AppLayout extends React.Component {
                     <MenuItem onTouchTap={this.handleClose}>
                         <Link to="/houses-for-sale">Houses fo Sale</Link>
                     </MenuItem>
-                    <MenuItem onTouchTap={this.handleClose}>
-                        <Link to="/houses-for-rent">Houses fo Rent</Link>
-                    </MenuItem>
+                    {/*                    <MenuItem onTouchTap={this.handleClose}>
+                     <Link to="/houses-for-rent">Houses fo Rent</Link>
+                     </MenuItem>*/}
                     <MenuItem onTouchTap={this.handleClose}>
                         <Link to="/about">About Us</Link>
                     </MenuItem>
