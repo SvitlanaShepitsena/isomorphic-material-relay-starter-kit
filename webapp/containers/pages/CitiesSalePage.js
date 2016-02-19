@@ -8,7 +8,6 @@ import Spinner from 'material-ui/lib/circular-progress';
 import Card from 'material-ui/lib/card/card';
 import CardHeader from 'material-ui/lib/card/card-header';
 import CardText from 'material-ui/lib/card/card-text';
-import House_List from './../../components/HouseSale/House_List.jsx';
 
 import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';

@@ -7,7 +7,7 @@ import Breadcrumbs from 'react-breadcrumbs';
 import Spinner from 'material-ui/lib/circular-progress';
 
 /*Components*/
-import House_List from './../../components/HouseSale/House_List.jsx';
+import HousesByPropsList from '../../components/Common/HousesByPropsList.js';
 import HousesList from '../../components/Common/HousesList.js';
 import ListingThumbInline from '../../components/ListingThumb/ListingThumbInline.js';
 import SvLink from '../../components/Common/SvLink';
@@ -39,6 +39,7 @@ class HousesListPage extends React.Component {
         const cityName = _.startCase(this.props.params.city);
         const zipType = this.props.params.zipType;
 
+        const typesList = this.props.Viewer.Types.edges;
         return (
             <div>
                 <br/>
@@ -60,13 +61,21 @@ class HousesListPage extends React.Component {
                     listType="inline"/>
                 }
                 <br/>
+
+                {typesList.length &&
+                <HousesByPropsList
+                    item="type"
+                    list={typesList}
+                    sectionTitle={`${cityName} Homes for Sale by Property Type`}
+                />
+                }
             </div>
         );
     }
 }
 ;
 export default Relay.createContainer(HousesListPage, {
-    initialVariables: {city: '', zipType: '',zip:''},
+    initialVariables: {city: '', zipType: '', zip: ''},
     fragments: {
         Viewer: () => Relay.QL`
       fragment on Viewer {

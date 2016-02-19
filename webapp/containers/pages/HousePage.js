@@ -12,7 +12,6 @@ import CardText from '../../../node_modules/material-ui/lib/card/card-text';
 import Slider from '../../components/PhotoGallery/PhotoGallery.js';
 
 /*Components*/
-import House_List from './../../components/HouseSale/House_List.jsx';
 import SvLink from '../../components/Common/SvLink';
 import PhotoGallery from '../../components/PhotoGallery/PhotoGallery.js';
 
