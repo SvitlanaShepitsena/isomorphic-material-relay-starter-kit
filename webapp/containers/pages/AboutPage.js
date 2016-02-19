@@ -19,6 +19,11 @@ export default Relay.createContainer(AboutPage, {
       fragment on Viewer {
         User_IsAnonymous,
 
+<<<<<<< HEAD
+      }
+    `,
+=======
       } `,
+>>>>>>> origin/master
     },
 });
