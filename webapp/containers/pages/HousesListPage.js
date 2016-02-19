@@ -13,9 +13,10 @@ import CardText from 'material-ui/lib/card/card-text';
 /*Components*/
 import House_List from './../../components/HouseSale/House_List.jsx';
 import ListingThumbInline from '../../components/ListingThumb/ListingThumbInline.js';
-
 import SvLink from '../../components/Common/SvLink';
-import {isomorphicVars} from '../../scripts/isomorphicVars';
+import HousesByPropsList from '../../components/Common/HousesByPropsList.js';
+/*Inline Styles*/
+import style from '../../settings/AppMuiTheme.js';
 
 class HousesListPage extends React.Component {
     getChildContext() {
@@ -34,8 +35,19 @@ class HousesListPage extends React.Component {
     }
 
     render() {
-        const cityName = _.startCase(this.props.params.city);
+        var badgeStyle = {
+            backgroundColor: style.palette.default3Color,
+            color: style.palette.textColor,
+            top: 18,
+            right: 18
+        };
+        var btnLabelStyle = {
+            color: style.palette.primary2Color,
+            fontSize: 15,
+            fontWeight: 500
+        };
 
+        const cityName = _.startCase(this.props.params.city);
         return (
             <div>
                 <br/>
@@ -67,6 +79,15 @@ class HousesListPage extends React.Component {
                         })
                     }
                 </ol>
+                <br/>
+
+                <HousesByPropsList
+                    item="type"
+                    list={typesList}
+                    badgeStyle={badgeStyle}
+                    btnLabelStyle={btnLabelStyle}
+                    sectionTitle={`${cityName} Homes for Sale by Property Type`}
+                />
 
             </div>
         );
@@ -83,21 +104,21 @@ export default Relay.createContainer(HousesListPage, {
         Houses(city:$city,zipType:$zipType, first:20){
             edges{
                node{
-                        id
-                        city{
-                          name
-                        }
-                        zip{
-                          code
-                        }
-                        type{
-                          type
-                        }
-                        price
-                        beds
-                        description
-                        image
+                    id
+                    city{
+                      name
                     }
+                    zip{
+                      code
+                    }
+                    type{
+                      type
+                    }
+                    price
+                    beds
+                    description
+                    image
+                }
             }
         }
       }
