@@ -52,7 +52,7 @@ export default new GraphQLObjectType({
             resolve: (obj, {...args}) => Houses_by_zip(obj.id).then((arr_House) => arr_House.length)
         },
         Types: {
-            type: TypesConnection.connectionType,
+            type: HousesConnection.connectionType,
             args: {
                 ...connectionArgs,
                 city: {

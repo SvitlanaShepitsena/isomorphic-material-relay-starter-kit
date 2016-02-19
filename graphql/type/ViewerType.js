@@ -3,12 +3,14 @@ import {GraphQLBoolean, GraphQLID, GraphQLInt, GraphQLString, GraphQLObjectType}
 import {connectionArgs, connectionFromArray} from "graphql-relay";
 
 import {Houses_by_city_zip, Houses_by_city_type, Houses_by_city, Houses_all, House_get} from '../../data/da/House';
+import {Types_all, Types_by_city, Types_by_city_zip} from '../../data/da/Type';
 
 import {Cities_all, City_get} from '../../data/da/City';
 
 import NodeInterface from "../interface/NodeInterface";
 
 import HousesConnection from './HouseConnection';
+import TypeConnection from './TypeConnection';
 import CitiesConnection from './CityConnection';
 
 import HouseType from './HouseType';
@@ -120,7 +122,60 @@ export default new GraphQLObjectType({
             type: GraphQLInt,
             args: {...connectionArgs},
             resolve: (obj, {...args}, {rootValue: {user_id}}) => Cities_all(user_id).then((arr_City) => arr_City.length)
-        }
+        },
+        Types: {
+            type: TypeConnection.connectionType,
+            args: {
+                ...connectionArgs,
+                city: {
+                    type: GraphQLString
+                },
+                zip: {
+                    type: GraphQLString
+                }
+            },
+            resolve: (obj, {...args}) => {
+
+                if (args.city && args.zip) {
+
+                    return Types_by_city_zip(args.city, args.zip).then((arr_Type) => connectionFromArray(arr_Type, args));
+                }
+                if (args.city && !args.zip) {
+
+                    return Types_by_city(args.city).then((arr_Type) => connectionFromArray(arr_Type, args));
+                }
+
+                return Types_all().then((arr_Type) => connectionFromArray(arr_Type, args));
+
+            }
+        },
+
+        Types_Count: {
+            type: GraphQLInt,
+            args: {
+                ...connectionArgs,
+                city: {
+                    type: GraphQLString
+                },
+                zip: {
+                    type: GraphQLString
+                }
+            },
+            resolve: (obj, {...args}) => {
+
+                if (args.city && args.zip) {
+
+                    return Types_by_city_zip(args.city, args.zip).then((arr_Type) => arr_Type.length);
+                }
+                if (args.city && !args.zip) {
+
+                    return Types_by_city(args.city).then((arr_Type) => arr_Type.length);
+                }
+
+                return Types_all().then((arr_Type) => arr_Type.length);
+
+            }
+        },
 
     },
 });

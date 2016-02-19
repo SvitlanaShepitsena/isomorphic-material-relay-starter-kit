@@ -3,6 +3,7 @@ import {
     Houses_all,
     Houses_by_city,
     Houses_by_city_zip,
+    Houses_by_city_zip_type,
     Houses_by_city_type
 
 } from '../da_cassandra/House'
@@ -12,5 +13,6 @@ export {
     Houses_all,
     Houses_by_city,
     Houses_by_city_zip,
+    Houses_by_city_zip_type,
     Houses_by_city_type
 };

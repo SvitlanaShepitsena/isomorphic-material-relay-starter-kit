@@ -4,11 +4,12 @@ import {GraphQLInt, GraphQLNonNull, GraphQLID, GraphQLString, GraphQLList, Graph
 import NodeInterface from "../interface/NodeInterface";
 
 import City from '../../data/model/City';
+import ZipType from '../../data/model/Zip';
 
 import {Houses_by_city} from '../../data/da_cassandra/House';
 import HousesConnection from './HouseConnection';
 
-import {Zips_by_city} from '../../data/da_cassandra/Zip';
+import {Zips_by_city,Zip_get} from '../../data/da_cassandra/Zip';
 import ZipConnection from './ZipConnection';
 
 import {Types_by_city} from '../../data/da_cassandra/Type';
@@ -48,6 +49,7 @@ export default new GraphQLObjectType({
             },
             resolve: (obj, {...args}) => Houses_by_city(obj.id).then((arr_House) => arr_House.length)
         },
+        
         Zips: {
             type: ZipConnection.connectionType,
             args: {

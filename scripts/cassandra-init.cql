@@ -95,6 +95,20 @@ CREATE TABLE houses_by_city_type (
      price bigint,
   PRIMARY KEY ((city_id, type_id),id));
 
+CREATE TABLE houses_by_city_zip_type (
+    id text,
+     mls text,
+     beds text,
+     baths text,
+     type_id text,
+     description text,
+     image text,
+     street text,
+     city_id text,
+     zip_id text,
+     price bigint,
+  PRIMARY KEY ((city_id, zip_id, type_id),id));
+
 CREATE TABLE  city ( id text, name text, PRIMARY KEY (id));
 
 CREATE TABLE zips_by_city (

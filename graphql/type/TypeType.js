@@ -1,8 +1,8 @@
-import {globalIdField, connectionArgs,connectionFromArray} from "graphql-relay";
-import { GraphQLInt, GraphQLString, GraphQLObjectType, GraphQLNonNull,GraphQLID} from "graphql";
+import {globalIdField, connectionArgs, connectionFromArray} from "graphql-relay";
+import {GraphQLInt, GraphQLString, GraphQLObjectType, GraphQLNonNull, GraphQLID} from "graphql";
 
 import NodeInterface from "../interface/NodeInterface";
-import {Houses_by_city_type} from '../../data/da_cassandra/House';
+import {Houses_by_city_type, Houses_by_city_zip_type} from '../../data/da_cassandra/House';
 import HousesConnection from './HouseConnection';
 
 import Type from '../../data/model/Type';
@@ -20,32 +20,53 @@ export default new GraphQLObjectType({
             type: GraphQLString,
             resolve: (obj) => obj.type
         },
+
         Houses: {
-            type: HousesConnection.connectionType,
+            type: GraphQLInt,
             args: {
                 ...connectionArgs,
                 city: {
                     type: GraphQLString
+                },
+                zipType: {
+                    type: GraphQLString
                 }
-            },
-            resolve: (obj, {...args}) => Houses_by_city_type(args.city,obj.id).then((arr_House) => connectionFromArray(arr_House, args))
-        },
 
+            },
+            resolve: (obj, {...args}) => {
+                if (args.zipType) {
+
+                    return Houses_by_city_zip_type(args.city, args.zipType, obj.id).then((arr_House) => connectionFromArray(arr_House, args));
+                } else{
+                    return Houses_by_city_type(args.city, obj.id).then((arr_House) => connectionFromArray(arr_House, args));
+                }
+
+            }
+
+        },
         Houses_Count: {
             type: GraphQLInt,
             args: {
                 ...connectionArgs,
                 city: {
                     type: GraphQLString
+                },
+                zipType: {
+                    type: GraphQLString
                 }
 
             },
-            resolve: (obj, args) => {
-               return  Houses_by_city_type(args.city,obj.id).then((arr_House) => arr_House.length)
+            resolve: (obj, {...args}) => {
+                if (args.zipType) {
+
+                    return Houses_by_city_zip_type(args.city, args.zipType, obj.id).then((arr_House) => arr_House.length);
+                } else{
+                    return Houses_by_city_type(args.city, obj.id).then((arr_House) => arr_House.length);
+                }
+
             }
 
         },
-
 
     })
 });
