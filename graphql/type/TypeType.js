@@ -41,7 +41,6 @@ export default new GraphQLObjectType({
 
             },
             resolve: (obj, args) => {
-                console.log(args);
                return  Houses_by_city_type(args.city,obj.id).then((arr_House) => arr_House.length)
             }
 
