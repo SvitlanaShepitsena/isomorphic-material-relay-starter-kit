@@ -16,7 +16,7 @@ class HousesByPropsList extends React.Component {
 
                         <div className="six columns" key={index}>
                             <SvLink url={svLinkUrl}>
-                                <ListingThumbLarge house={}/>
+                                <ListingThumbLarge house={} />
                             </SvLink>
                         </div>
                     }

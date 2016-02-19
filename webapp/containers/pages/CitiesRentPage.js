@@ -42,6 +42,7 @@ export default Relay.createContainer(CitiesRent, {
           edges {
             node {
               id,
+              street,
               price
             },
           },
