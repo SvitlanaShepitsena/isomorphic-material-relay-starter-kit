@@ -1,18 +1,15 @@
 import React from 'react';
 import Relay from 'react-relay';
-import settings from '../../settings/settings.js';
+import settings from '../../../settings/settings.js';
 import {Link} from 'react-router';
 
 /*MaterialUI*/
-import Paper from 'material-ui/lib/paper';
-import Card from 'material-ui/lib/card/card';
-import CardActions from 'material-ui/lib/card/card-actions';
-import CardHeader from 'material-ui/lib/card/card-header';
-import CardMedia from 'material-ui/lib/card/card-media';
-import CardTitle from 'material-ui/lib/card/card-title';
-import FlatButton from 'material-ui/lib/flat-button';
-import CardText from 'material-ui/lib/card/card-text';
-import TextField from 'material-ui/lib/text-field';
+import Card from '../../../../node_modules/material-ui/lib/card/card';
+import CardActions from '../../../../node_modules/material-ui/lib/card/card-actions';
+import CardTitle from '../../../../node_modules/material-ui/lib/card/card-title';
+import FlatButton from '../../../../node_modules/material-ui/lib/flat-button';
+import CardText from '../../../../node_modules/material-ui/lib/card/card-text';
+import TextField from '../../../../node_modules/material-ui/lib/text-field';
 
 export default class ContactForm extends React.Component {
 

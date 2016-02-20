@@ -55,6 +55,7 @@ export default Relay.createContainer(HousePage, {
           mls,
           type {type}
           beds,
+          baths,
           description,
           price,
           street,

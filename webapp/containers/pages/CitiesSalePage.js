@@ -33,7 +33,7 @@ class CitiesSalePage extends React.Component {
                     <Spinner size={1.5}/>
                 </div>
                 }
-                <CitiesList list={cities}/>
+                <CitiesList list={cities} itemId="name" children="Houses"/>
             </div>
         );
     }

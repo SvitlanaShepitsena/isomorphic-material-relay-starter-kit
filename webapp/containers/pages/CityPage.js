@@ -48,7 +48,7 @@ class CityPage extends React.Component {
 
                 {newHouses.length &&
                 <HousesList
-                    list={newHouses}
+                    houses={newHouses}
                     gridColsClass="six columns"
                     cityName={cityFormatted}
                     housesNumber={housesCount}

@@ -28,6 +28,7 @@ export default new GraphQLObjectType({
         type: {type: TypeType, resolve: (obj) =>Type_by_house(obj.type_id)},
         price: {type: GraphQLString, resolve: (obj) =>obj.price},
         beds: {type: GraphQLString, resolve: (obj) =>obj.beds},
+        baths: {type: GraphQLString, resolve: (obj) =>obj.baths},
         description: {type: GraphQLString, resolve: (obj) =>obj.description},
         image: {type: GraphQLString, resolve: (obj) =>obj.image},
         mls: {type: GraphQLString, resolve: (obj) =>obj.mls},

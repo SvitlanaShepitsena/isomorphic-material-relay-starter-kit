@@ -9,7 +9,7 @@ import SvLink from './../../Common/SvLink';
 
 export default class HousesList extends React.Component {
     static propTypes = {
-        list: PropTypes.array.isRequired,
+        houses: PropTypes.array.isRequired,
         listType: PropTypes.string.isRequired
     };
 
@@ -20,7 +20,7 @@ export default class HousesList extends React.Component {
         return (
             <div style={{width:"100%"}}>
                 <div className="row">
-                    {this.props.list.map((edge, index)=> {
+                    {this.props.houses.map((edge, index)=> {
                             const house = edge.node;
                             const houseThumbUrl = `${house.zip.code}/${house.type.type}/${house.id}`;
                             const houseInlineUrl = `${house.city.name}/${house.zip.code}/${house.type.type}/${house.id}`;
@@ -51,6 +51,5 @@ export default class HousesList extends React.Component {
             </div>
         );
     }
-}
-;
+};
 

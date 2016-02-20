@@ -9,7 +9,7 @@ import LeftNav from 'material-ui/lib/left-nav';
 import IconButton from 'material-ui/lib/icon-button';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
-import ContactForm from '../../components/Contact/ContactForm.js';
+import ContactForm from '../../components/AppViews/Contact/ContactForm.js';
 
 /*Components*/
 import AppNav_Top from './AppNav_Top.js';

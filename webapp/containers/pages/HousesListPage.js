@@ -51,7 +51,7 @@ class HousesListPage extends React.Component {
 
                 {cityHouses &&
                 <HousesList
-                    list={cityHouses}
+                    house={cityHouses}
                     cityName={cityName}
                     listType="inline"/>
                 }
@@ -60,7 +60,7 @@ class HousesListPage extends React.Component {
                 {typesList.length &&
                 <HousesByPropsList
                     item="type"
-                    list={typesList}
+                    house={typesList}
                     sectionTitle={`${cityName} Homes for Sale by Property Type`}
                 />
                 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
 
+import urlToText from '../../../utils/urlToText.js';
+
 /*=MaterialUi*/
 import Card from 'material-ui/lib/card/card';
 import CardMedia from 'material-ui/lib/card/card-media';
@@ -13,7 +15,7 @@ export default class CityThumbPicture extends React.Component {
         const housesLength = this.props.housesLength;
 
         /*Formatter*/
-        let cityFormatted = _.startCase(city.replace(/-+/g, ' '));
+        let cityFormatted = urlToText(city);
 
         return (
             <Card className="CityThumbPicture" shadow={0}>

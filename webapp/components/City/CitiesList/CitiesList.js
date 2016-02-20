@@ -10,19 +10,26 @@ import SvLink from '../../Common/SvLink.js';
 export default class CitiesList extends React.Component {
 
     static propTypes = {
-        list: PropTypes.array.isRequired
+        list: PropTypes.array.isRequired,
+        itemId: PropTypes.string.isRequired,
+        children: PropTypes.string
     };
 
     render() {
         return (
             <div className="row ColsList-4">
-                {this.props.list.map((city, index)=> {
+                {this.props.list.map(edge => {
+                        const item = edge.node;
+                        const itemId = this.props.itemId;
+                        const children = this.props.children;
+
+                        const itemValue = item[itemId];
                         return (
-                            <div className="four columns" key={index}>
-                                <SvLink url={city.node.name}>
+                            <div className="four columns" key={itemValue}>
+                                <SvLink url={itemValue}>
                                     <CityThumbPicture
-                                        housesLength={city.node.Houses_Count}
-                                        cityName={city.node.name}/>
+                                        housesLength={item[`${children}_Count`]}
+                                        cityName={itemValue}/>
                                 </SvLink>
                             </div>
                         )
