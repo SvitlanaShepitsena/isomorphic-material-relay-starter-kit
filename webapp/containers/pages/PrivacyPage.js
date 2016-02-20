@@ -1,6 +1,6 @@
 import React from 'react';
 import Relay from 'react-relay';
-import PrivacyContent from '../../components/Privacy/PrivacyContent.jsx';
+import PrivacyContent from '../../components/Privacy/PrivacyContent.js';
 class PrivacyPage extends React.Component {
     render() {
         return (

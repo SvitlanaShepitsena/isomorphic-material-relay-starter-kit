@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
 /*=MaterialUi*/
-import CityThumbPicture from '../CityThumb/CityThumbPicture.jsx';
+import CityThumbPicture from '../CityThumb/CityThumbPicture.js';
 
 /*=Components*/
 import SvLink from '../../Common/SvLink.js';

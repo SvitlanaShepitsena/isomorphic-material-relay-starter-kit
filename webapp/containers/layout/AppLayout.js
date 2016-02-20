@@ -9,12 +9,12 @@ import LeftNav from 'material-ui/lib/left-nav';
 import IconButton from 'material-ui/lib/icon-button';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
-import ContactForm from '../../components/Contact/ContactForm.jsx';
+import ContactForm from '../../components/Contact/ContactForm.js';
 
 /*Components*/
-import AppNav_Top from './AppNav_Top.jsx';
-import AppBar_Auth from './AppBar_Auth.jsx'
-import Footer from './AppFooterSmart.jsx';
+import AppNav_Top from './AppNav_Top.js';
+import AppBar_Auth from './AppBar_Auth.js'
+import Footer from './AppFooterSmart.js';
 
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';

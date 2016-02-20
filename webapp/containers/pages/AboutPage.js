@@ -1,6 +1,6 @@
 import React from 'react';
 import Relay from 'react-relay';
-import AboutContent from '../../components/About/AboutContent.jsx';
+import AboutContent from '../../components/About/AboutContent.js';
 
 class AboutPage extends React.Component {
     render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Relay from 'react-relay';
-import TermsContent from '../../components/Terms/TermsContent.jsx';
+import TermsContent from '../../components/Terms/TermsContent.js';
 
 class TermsPage extends React.Component {
     render() {

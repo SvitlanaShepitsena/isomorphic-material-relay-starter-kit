@@ -1,4 +1,4 @@
-import AppLayout from './containers/layout/AppLayout.jsx';
+import AppLayout from './containers/layout/AppLayout.js';
 import ViewerQueries from './queries/ViewerQueries';
 
 import AboutPage from './containers/pages/AboutPage';

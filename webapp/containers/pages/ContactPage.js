@@ -1,6 +1,6 @@
 import React from 'react';
 import Relay from 'react-relay';
-import ContactForm from '../../components/Contact/ContactForm.jsx';
+import ContactForm from '../../components/Contact/ContactForm.js';
 
 class ContactPage extends React.Component {
     render() {
