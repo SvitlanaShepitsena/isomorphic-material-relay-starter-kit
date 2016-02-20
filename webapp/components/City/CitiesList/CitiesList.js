@@ -10,7 +10,7 @@ import SvLink from '../../Common/SvLink.js';
 export default class CitiesList extends React.Component {
 
     static propTypes = {
-        list: PropTypes.object.isRequired,
+        list: PropTypes.array.isRequired
     };
 
     render() {
@@ -18,7 +18,6 @@ export default class CitiesList extends React.Component {
             <div className="row ColsList-4">
                 {this.props.list.map((city, index)=> {
                         return (
-
                             <div className="four columns" key={index}>
                                 <SvLink url={city.node.name}>
                                     <CityThumbPicture
