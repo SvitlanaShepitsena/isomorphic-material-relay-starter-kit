@@ -3,15 +3,14 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import {Link} from 'react-router';
 
 /*Components*/
-import ListingThumbInline from '../ListingThumb/ListingThumbInline';
-import ListingThumbLarge from '../ListingThumb/ListingThumbLarge';
-import SvLink from './SvLink';
+import HouseThumbInline from '../HouseThumbInline/HouseThumbInline';
+import HouseThumbLarge from '../HouseThumbLarge/HouseThumbLarge';
+import SvLink from './../../Common/SvLink';
 
-class HousesList extends React.Component {
+export default class HousesList extends React.Component {
     static propTypes = {
         list: PropTypes.array.isRequired,
         listType: PropTypes.string.isRequired
-
     };
 
     render() {
@@ -29,12 +28,12 @@ class HousesList extends React.Component {
                                 <div className={gridColsClass ? gridColsClass : "twelve columns"} key={index}>
                                     {this.props.listType == "large" &&
                                     <SvLink url={houseThumbUrl}>
-                                        <ListingThumbLarge house={house}/>
+                                        <HouseThumbLarge house={house}/>
                                     </SvLink>
                                     }
                                     {this.props.listType == "inline" &&
                                     <Link to={`/houses-for-sale/${houseInlineUrl}`}>
-                                        <ListingThumbInline house={house}/>
+                                        <HouseThumbInline house={house}/>
                                     </Link>
                                     }
                                 </div>
@@ -55,4 +54,3 @@ class HousesList extends React.Component {
 }
 ;
 
-export default HousesList;

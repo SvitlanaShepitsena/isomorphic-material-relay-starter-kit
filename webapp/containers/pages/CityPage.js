@@ -5,11 +5,8 @@ import Breadcrumbs from 'react-breadcrumbs';
 import Spinner from 'material-ui/lib/circular-progress';
 
 /*=Components*/
-import HousesList from '../../components/Common/HousesList.js'
-import HousesByPropsList from '../../components/Common/HousesByPropsList.js';
-
-/*Inline Styles*/
-import style from '../../settings/AppMuiTheme.js';
+import HousesList from '../../components/House/HousesList/HousesList.js'
+import HousesByPropsList from '../../components/House/HousesByPropsList/HousesByPropsList.js';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -27,18 +24,20 @@ class CityPage extends React.Component {
     }
 
     render() {
-        const cityName = _.startCase(this.props.params.city);
-        var zipsList = this.props.Viewer.City.Zips.edges;
-        var typesList = this.props.Viewer.City.Types.edges;
-        var newHouses = this.props.Viewer.City.Houses.edges;
-        var housesCount = this.props.Viewer.City.Houses_Count;
+        const city = this.props.params.city;
+        const zipsList = this.props.Viewer.City.Zips.edges;
+        const typesList = this.props.Viewer.City.Types.edges;
+        const newHouses = this.props.Viewer.City.Houses.edges;
+        const housesCount = this.props.Viewer.City.Houses_Count;
+        /*Formatter*/
+        let cityFormatted = _.startCase(city.replace(/-+/g, ' '));
         return (
 
             <div>
                 <br/>
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
 
-                <h1> {"Houses for Sale in " + cityName} </h1>
+                <h1> {"Houses for Sale in " + cityFormatted} </h1>
                 <hr/>
 
                 {!(newHouses.length || zipsList.length || typesList.length) &&
@@ -51,7 +50,7 @@ class CityPage extends React.Component {
                 <HousesList
                     list={newHouses}
                     gridColsClass="six columns"
-                    cityName={cityName}
+                    cityName={cityFormatted}
                     housesNumber={housesCount}
                     listType="large"/>
                 }
@@ -61,7 +60,7 @@ class CityPage extends React.Component {
                 <HousesByPropsList
                     item="code"
                     list={zipsList}
-                    sectionTitle={`${cityName} Homes for Sale by Zip`}
+                    sectionTitle={`${cityFormatted} Homes for Sale by Zip`}
                 />
                 }
 
@@ -70,7 +69,7 @@ class CityPage extends React.Component {
                 <HousesByPropsList
                     item="type"
                     list={typesList}
-                    sectionTitle={`${cityName} Homes for Sale by Property Type`}
+                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
                 />
                 }
             </div>
@@ -90,16 +89,11 @@ export default Relay.createContainer(CityPage, {
                 edges{
                     node{
                         id
-                        city{
-                          name
-                        }
-                        zip{
-                          code
-                        }
-                        type{
-                          type
-                        }
+                        city{name}
+                        zip{code}
+                        type{type}
                         price
+                        street
                         beds
                         description
                         image

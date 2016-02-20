@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import _ from 'lodash';
 
 /*=MaterialUi*/
 import Card from 'material-ui/lib/card/card';
@@ -9,10 +10,10 @@ import Divider from 'material-ui/lib/divider';
 import Badge from 'material-ui/lib/badge';
 
 /*=Components*/
-import SvLink from './SvLink';
+import SvLink from './../../Common/SvLink';
 
 /*Inline Styles*/
-import style from '../../settings/AppMuiTheme.js';
+import style from '../../../settings/AppMuiTheme.js';
 
 class HousesByPropsList extends React.Component {
     static propTypes = {
@@ -45,6 +46,7 @@ class HousesByPropsList extends React.Component {
                                 var badgeValue = edge.node.Houses_Count;
                                 var svLinkUrl = edge.node[this.props.item];
                                 var btnLabel = edge.node[this.props.item];
+                                var btnLabelFormatted = _.startCase(btnLabel.replace(/-+/g, ' '));
                                 return (
                                     <li key={index}>
                                         <Badge badgeContent={badgeValue}
@@ -54,7 +56,7 @@ class HousesByPropsList extends React.Component {
                                                 <FlatButton
                                                     labelStyle={btnLabelStyle ? btnLabelStyle: defaultBtnLabelStyle}
                                                     primary={true}
-                                                    label={btnLabel}/>
+                                                    label={btnLabelFormatted}/>
                                             </SvLink>
                                         </Badge>
                                     </li>

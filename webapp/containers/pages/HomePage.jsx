@@ -1,20 +1,12 @@
 import React from 'react';
 import Relay from 'react-relay';
 
-import Card from '../../../node_modules/material-ui/lib/card/card';
-import CardHeader from '../../../node_modules/material-ui/lib/card/card-header';
-import CardText from '../../../node_modules/material-ui/lib/card/card-text';
-import {isomorphicVars} from '../../scripts/isomorphicVars';
 import Helmet from "react-helmet";
-import HomePageGrid from '../../components/Home/HomePageMuiGrid.jsx';
-import PhotoGallery from '../../components/PhotoGallery/PhotoGallery.js';
 
 import Search from '../../components/Common/SearchForm.js';
 
 class HomePage extends React.Component {
     render() {
-        var isoVars = isomorphicVars();
-
         var appType = "website";
         var appUrl = "http://www.remax1stclass.com/";
         var homeDescription = "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston houses apartments for sale rent";

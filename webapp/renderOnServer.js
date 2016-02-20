@@ -67,16 +67,14 @@ export default (req, res, next, assetsPath) => {
                             });
                         }
                         catch (err) {
-                            
-                            
-                            
+
                         }
 
                         queueTask.done();
                     }
                 },
-                () => 
-                2000
+                () =>
+                    2000
             ); // 2 second time out for rendering an isomorphic page
         }
     );

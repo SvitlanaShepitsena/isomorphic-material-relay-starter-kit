@@ -1,34 +1,35 @@
 import React, {PropTypes} from 'react';
-import Relay from 'react-relay';
+import _ from 'lodash';
 
 /*=MaterialUi*/
 import Card from 'material-ui/lib/card/card';
-import CardHeader from 'material-ui/lib/card/card-header';
-import CardMedia from 'material-ui/lib/card/card-media';
-import CardTitle from 'material-ui/lib/card/card-title';
-import CardText from 'material-ui/lib/card/card-text';
-import CardActions from 'material-ui/lib/card/card-actions';
-import FlatButton from 'material-ui/lib/flat-button';
+import ImageBackground from '../../Common/ImageBackground.js';
 
-import ImageBackground from '../Common/ImageBackground.js';
-
-export default class ListingThumbLarge extends React.Component {
+export default class HouseThumbInline extends React.Component {
     static propTypes = {
         house: PropTypes.object.isRequired,
         imgClassName: PropTypes.string
     };
 
     render() {
-        var price = this.props.house.price;
-        var type = this.props.house.type.type;
-        var beds = this.props.house.beds;
         var baths = this.props.house.baths;
-        var mls = this.props.house.mls;
-        var image = this.props.house.image;
-        var street = this.props.house.street;
+        var beds = this.props.house.beds;
         var city = this.props.house.city.name;
+        var image = this.props.house.image;
+        var mls = this.props.house.mls;
+        var price = this.props.house.price;
+        var street = this.props.house.street;
+        var type = this.props.house.type.type;
         var zip = this.props.house.zip.code;
+       
         var inlineImgClass = this.props.inlineImgClass;
+
+        /*Formatter*/
+        let cityFormatted = _.startCase(city.replace(/-+/g, ' '));
+        let streetFormatted = _.startCase(street.replace(/-+/g, ' '));
+        let priceFormatted = price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        let typeFormatted = _.startCase(type.replace(/-+/g, ' '));
+
         return (
             <Card className="ListingThumbInline row" shadow={0}>
                 <div className="four columns ListingThumbInline__image-container ">
@@ -48,11 +49,11 @@ export default class ListingThumbLarge extends React.Component {
                 <div className="six columns">
                     <h4 className="text-primary ListingThumbInline__address">
                         {street &&
-                        <span> {street} </span>
+                        <span> {streetFormatted} </span>
                         }
                         <br/>
                         {city &&
-                        < span > {city } </span>
+                        < span > {cityFormatted} </span>
                         }
                         <span> IL, </span>
                         {zip &&
@@ -60,10 +61,13 @@ export default class ListingThumbLarge extends React.Component {
                         }
                     </h4>
                     <h3 className="ListingThumbInline__price">
-                        {price}</h3>
+                        {price &&
+                        <span> ${priceFormatted} </span>
+                        }
+                    </h3>
                     <p>
                         {type &&
-                        <span > {type}</span>
+                        <span > {typeFormatted}</span>
                         }
                         {mls &&
                         <span>

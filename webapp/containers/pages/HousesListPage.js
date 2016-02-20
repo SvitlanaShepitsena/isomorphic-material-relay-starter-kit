@@ -7,13 +7,8 @@ import Breadcrumbs from 'react-breadcrumbs';
 import Spinner from 'material-ui/lib/circular-progress';
 
 /*Components*/
-import HousesByPropsList from '../../components/Common/HousesByPropsList.js';
-import HousesList from '../../components/Common/HousesList.js';
-import ListingThumbInline from '../../components/ListingThumb/ListingThumbInline.js';
-import SvLink from '../../components/Common/SvLink';
-
-/*Inline Styles*/
-import style from '../../settings/AppMuiTheme.js';
+import HousesByPropsList from '../../components/House/HousesByPropsList/HousesByPropsList.js';
+import HousesList from '../../components/House/HousesList/HousesList.js';
 
 class HousesListPage extends React.Component {
     getChildContext() {
@@ -88,22 +83,16 @@ export default Relay.createContainer(HousesListPage, {
                 }
               }
             }
-    
 
         Houses(city:$city,zipType:$zipType, first:20){
             edges{
                node{
                     id
-                    city{
-                      name
-                    }
-                    zip{
-                      code
-                    }
-                    type{
-                      type
-                    }
+                    city{ name }
+                    zip{ code }
+                    type{ type }
                     price
+                    street
                     beds
                     description
                     image
