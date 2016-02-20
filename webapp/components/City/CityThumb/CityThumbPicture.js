@@ -13,7 +13,6 @@ export default class CityThumbPicture extends React.Component {
     render() {
         const city = this.props.cityName;
         const housesLength = this.props.housesLength;
-
         /*Formatter*/
         let cityFormatted = urlToText(city);
 

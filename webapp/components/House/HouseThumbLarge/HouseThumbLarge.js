@@ -1,5 +1,7 @@
 import React, {PropTypes} from 'react';
 import _ from 'lodash';
+import urlToText from '../../../utils/urlToText.js';
+import textToPrice from '../../../utils/textToPrice.js';
 
 /*=MaterialUi*/
 import Card from 'material-ui/lib/card/card';
@@ -10,7 +12,7 @@ import CardTitle from 'material-ui/lib/card/card-title';
 /*Components*/
 import ImageBackground from '../../Common/ImageBackground.js';
 
-export default class HouseThumbLarge extends React.Component {
+class HouseThumbLarge extends React.Component {
     static propTypes = {
         house: PropTypes.object.isRequired,
         imgClassName: PropTypes.string
@@ -29,16 +31,16 @@ export default class HouseThumbLarge extends React.Component {
         var year = this.props.house.year;
         var zip = this.props.house.zip.code;
         /*Formatter*/
-        let cityFormatted = _.startCase(city.replace(/-+/g, ' '));
-        let streetFormatted = _.startCase(street.replace(/-+/g, ' '));
-        let priceFormatted = price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-        let typeFormatted = _.startCase(type.replace(/-+/g, ' '));
+        let cityFormatted = urlToText(city);
+        let streetFormatted = urlToText(street);
+        let typeFormatted = urlToText(type);
+        let priceFormatted = textToPrice(price);
 
         var imgClassName = this.props.imgClassName;
 
         return (
             <Card className="ListingThumbLarge" shadow={0}>
-                <CardHeader title={"$" + priceFormatted}
+                <CardHeader title={priceFormatted}
                             subtitle={typeFormatted}
                 />
                 <CardMedia
@@ -88,3 +90,12 @@ export default class HouseThumbLarge extends React.Component {
         );
     }
 }
+
+export default Relay.createContainer(HouseThumbLarge, {
+    fragments: {
+        Viewer: () => Relay.QL`
+      fragment on Viewer {
+      
+        `,
+    },
+});
