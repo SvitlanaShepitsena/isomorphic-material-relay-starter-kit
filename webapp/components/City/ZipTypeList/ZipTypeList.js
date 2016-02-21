@@ -14,7 +14,8 @@ class ZipTypeList extends React.Component {
     static propTypes = {
         list: PropTypes.array.isRequired,
         itemId: PropTypes.string.isRequired,
-        children: PropTypes.string
+        children: PropTypes.string,
+        sectionTitle: PropTypes.string
     };
 
     render() {

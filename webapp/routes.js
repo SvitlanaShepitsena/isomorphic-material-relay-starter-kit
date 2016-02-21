@@ -49,7 +49,7 @@ export default [
                                     {
                                         path: ":type",
                                         indexRoute: {
-                                            component: HousePage,
+                                            component: HousesListPage,
                                             queries: ViewerQueries
                                         },
 

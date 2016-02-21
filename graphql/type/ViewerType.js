@@ -2,7 +2,14 @@ import {globalIdField} from "graphql-relay";
 import {GraphQLBoolean, GraphQLID, GraphQLInt, GraphQLString, GraphQLObjectType} from "graphql";
 import {connectionArgs, connectionFromArray} from "graphql-relay";
 
-import {Houses_by_city_zip, Houses_by_city_type, Houses_by_city, Houses_all, House_get} from '../../data/da/House';
+import {
+    Houses_by_city_zip,
+    Houses_by_city_zip_type,
+    Houses_by_city_type,
+    Houses_by_city,
+    Houses_all,
+    House_get
+} from '../../data/da/House';
 import {Types_all, Types_by_city, Types_by_city_zip} from '../../data/da/Type';
 
 import {Cities_all, City_get} from '../../data/da/City';
@@ -46,14 +53,23 @@ export default new GraphQLObjectType({
                 },
                 zipType: {
                     type: GraphQLString
-                }
+                },
+                type: {
+                    type: GraphQLString
+                },
+
             },
             resolve: (obj, {...args}) => {
-
+                console.log('run here a');
+                console.log(args);
                 if (args.city && args.zipType && args.zipType !== 'all') {
                     if (args.zipType.match(/^\d+$/g)) {
+                        if (args.type) {
+                            return Houses_by_city_zip_type(args.city, args.zipType, args.type).then((arr_House) => connectionFromArray(arr_House, args));
+                        } else {
 
-                        return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
+                            return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
+                        }
                     } else {
 
                         return Houses_by_city_type(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
@@ -62,7 +78,6 @@ export default new GraphQLObjectType({
                 }
 
                 if (args.city && (args.zipType == 'all' || args.zipType == '' || !args.zipType)) {
-                    console.log('run here ViewerType.js');
                     return Houses_by_city(args.city).then((arr_House) => connectionFromArray(arr_House, args));
                 }
 
@@ -80,13 +95,21 @@ export default new GraphQLObjectType({
                 },
                 zipType: {
                     type: GraphQLString
-                }
+                },
+                type: {
+                    type: GraphQLString
+                },
             },
             resolve: (obj, {...args}) => {
                 if (args.city && args.zipType) {
                     if (args.zipType.match(/^\d+$/g)) {
+                        if (args.type) {
+                            return Houses_by_city_zip_type(args.city, args.zipType, args.type).then((arr_House) => arr_House.length);
 
-                        return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => arr_House.length);
+                        } else {
+
+                            return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => arr_House.length);
+                        }
                     } else {
 
                         return Houses_by_city_type(args.city, args.zipType).then((arr_House) => arr_House.length);

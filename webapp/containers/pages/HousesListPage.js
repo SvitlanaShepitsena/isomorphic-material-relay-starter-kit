@@ -11,6 +11,8 @@ import ZipTypeList from '../../components/City/ZipTypeList/ZipTypeList.js';
 import HousesList from '../../components/House/HousesList/HousesList.js';
 
 class HousesListPage extends React.Component {
+    state = {compare: true};
+
     getChildContext() {
         return {location: this.props.location};
     };
@@ -23,8 +25,30 @@ class HousesListPage extends React.Component {
         this.props.relay.setVariables({
             city: this.props.params.city,
             zip: this.props.params.zipType,
-            zipType: this.props.params.zipType
+            type: this.props.params.type
         })
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.params);
+        console.log('ddddddddddddddddddddddd');
+        console.log(this.props.relay.variables);
+        console.log('ddddddddddddddddddddddd');
+
+        if (this.state.compare) {
+            this.setState({compare: false});
+            this.props.relay.setVariables({
+                city: this.props.params.city,
+                zip: this.props.params.zipType,
+                type: this.props.params.type
+
+            }, ()=> {
+                this.setState({compare: true});
+            });
+            console.log('run');
+
+        }
+
     }
 
     render() {
@@ -43,6 +67,15 @@ class HousesListPage extends React.Component {
                 <h1> {"Houses for Sale in " + cityName + ", " + zipType} </h1>
                 <hr/>
 
+                {typesList.length && !params.type &&
+                <ZipTypeList
+                    itemId="type"
+                    list={typesList}
+                    children="Houses"
+                    sectionTitle={`${cityName} Homes for Sale by Property Type`}
+                />
+                }
+                <hr/>
                 {!cityHouses &&
                 <div style={{textAlign:"center"}}>
                     <Spinner size={1.5}/>
@@ -57,49 +90,42 @@ class HousesListPage extends React.Component {
                 }
                 <br/>
 
-                {typesList.length &&
-                <ZipTypeList
-                    item="type"
-                    list={typesList}
-                    sectionTitle={`${cityName} Homes for Sale by Property Type`}
-                />
-                }
             </div>
         );
     }
 }
 ;
 export default Relay.createContainer(HousesListPage, {
-    initialVariables: {city: '', zipType: '', zip: ''},
+    initialVariables: {city: '', zip: '', type: ''},
     fragments: {
         Viewer: () => Relay.QL`
-      fragment on Viewer {
-        User_IsAnonymous,
-               Types(city: "skokie", zip: "60076", first:100) {
-              edges {
-                node {
-                  type,
-                  Houses_Count(city:"skokie",zipType:"60076")
+            fragment on Viewer {
+                User_IsAnonymous,
+                Types(city: $city, zip: $zip, first:100) {
+                    edges {
+                        node {
+                            type,
+                            Houses_Count(city:$city,zipType:$zip)
+                        }
+                    }
                 }
-              }
-            }
 
-        Houses(city:$city,zipType:$zipType, first:20){
-            edges{
-               node{
-                    id
-                    city{ name }
-                    zip{ code }
-                    type{ type }
-                    price
-                    street
-                    beds
-                    description
-                    image
+                Houses(city:$city,zipType:$zip,type:$type, first:20){
+                    edges{
+                        node{
+                            id
+                            city{ name }
+                            zip{ code }
+                            type{ type }
+                            price
+                            street
+                            beds
+                            description
+                            image
+                        }
+                    }
                 }
             }
-        }
-      }
-    `,
+        `,
     },
 });
