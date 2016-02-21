@@ -3,7 +3,10 @@ import Relay from 'react-relay';
 
 import Helmet from "react-helmet";
 
-import Search from '../../components/Common/SearchForm.js';
+/*Components*/
+import Search from '../../components/Search/SearchFormSimple.js';
+import SearchFormInline from '../../components/Search/SearchFormInline.js';
+import SortBy from '../../components/Common/SortBy/SortBy.js';
 
 class HomePage extends React.Component {
     render() {

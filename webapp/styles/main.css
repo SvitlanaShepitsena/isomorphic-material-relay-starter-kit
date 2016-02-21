@@ -8,6 +8,7 @@
 @import "SearchForm.css";
 @import "skeleton.css";
 @import 'typography.css';
+@import '../components/Common/SelectMenu/SelectMenu.css';
 
 /* Insert any additional CSS you need here */
 

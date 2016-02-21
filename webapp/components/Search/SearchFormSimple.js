@@ -2,16 +2,11 @@
 import React, {Component, PropTypes} from 'react';
 
 /*MaterialUI*/
-import Button      from 'material-ui';
-import Colors from 'material-ui/lib/styles/colors';
-import FontIcon from 'material-ui/lib/font-icon';
-import IconButton from 'material-ui';
-import Paper from 'material-ui/lib/paper';
-import RaisedButton from 'material-ui/lib/raised-button';
-import TextField from 'material-ui/lib/text-field';
-import AutoComplete from 'material-ui/lib/auto-complete';
+import Paper from '../../../node_modules/material-ui/lib/paper';
+import RaisedButton from '../../../node_modules/material-ui/lib/raised-button';
+import AutoComplete from '../../../node_modules/material-ui/lib/auto-complete';
 
-class SearchForm extends Component {
+class SearchFormSimple extends Component {
 
     state = {
         dataSource: [],
@@ -47,4 +42,4 @@ class SearchForm extends Component {
         );
     }
 }
-export default  SearchForm;
+export default  SearchFormSimple;
