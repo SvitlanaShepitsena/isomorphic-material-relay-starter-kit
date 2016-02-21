@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
-import _ from 'lodash';
+import urlToText from '../../../utils/urlToText.js';
+import textToPrice from '../../../utils/textToPrice.js';
 
 /*=MaterialUi*/
 import Card from 'material-ui/lib/card/card';
@@ -21,14 +22,14 @@ export default class HouseThumbInline extends React.Component {
         var street = this.props.house.street;
         var type = this.props.house.type.type;
         var zip = this.props.house.zip.code;
-       
+
         var inlineImgClass = this.props.inlineImgClass;
 
         /*Formatter*/
-        let cityFormatted = _.startCase(city.replace(/-+/g, ' '));
-        let streetFormatted = _.startCase(street.replace(/-+/g, ' '));
-        let priceFormatted = price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-        let typeFormatted = _.startCase(type.replace(/-+/g, ' '));
+        let cityFormatted = urlToText(city);
+        let streetFormatted = urlToText(street);
+        let typeFormatted = urlToText(type);
+        let priceFormatted = textToPrice(price);
 
         return (
             <Card className="ListingThumbInline row" shadow={0}>

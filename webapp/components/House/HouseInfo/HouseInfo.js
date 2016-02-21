@@ -1,4 +1,6 @@
 import React, {PropTypes} from 'react';
+import urlToText from '../../../utils/urlToText.js';
+import textToPrice from '../../../utils/textToPrice.js';
 
 import Card from 'material-ui/lib/card/card';
 import PhotoGallery from '../../PhotoGallery/PhotoGallery.js';
@@ -22,10 +24,10 @@ export default class HouseInfo extends React.Component {
         var description = this.props.house.description;
 
         /*Formatter*/
-        let cityFormatted = _.startCase(city.replace(/-+/g, ' '));
-        let priceFormatted = price.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-        let streetFormatted = _.startCase(street.replace(/-+/g, ' '));
-        let typeFormatted = _.startCase(type.replace(/-+/g, ' '));
+        let cityFormatted = urlToText(city);
+        let streetFormatted = urlToText(street);
+        let typeFormatted = urlToText(type);
+        let priceFormatted = textToPrice(price);
 
         return (
             <Card className="HouseInfo">

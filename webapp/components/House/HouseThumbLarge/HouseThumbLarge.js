@@ -12,7 +12,7 @@ import CardTitle from 'material-ui/lib/card/card-title';
 /*Components*/
 import ImageBackground from '../../Common/ImageBackground.js';
 
-class HouseThumbLarge extends React.Component {
+export default class HouseThumbLarge extends React.Component {
     static propTypes = {
         house: PropTypes.object.isRequired,
         imgClassName: PropTypes.string
@@ -90,12 +90,3 @@ class HouseThumbLarge extends React.Component {
         );
     }
 }
-
-export default Relay.createContainer(HouseThumbLarge, {
-    fragments: {
-        Viewer: () => Relay.QL`
-      fragment on Viewer {
-      
-        `,
-    },
-});
