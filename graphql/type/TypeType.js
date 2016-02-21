@@ -28,7 +28,7 @@ export default new GraphQLObjectType({
                 city: {
                     type: GraphQLString
                 },
-                zipType: {
+                zip: {
                     type: GraphQLString
                 }
 
@@ -51,7 +51,7 @@ export default new GraphQLObjectType({
                 city: {
                     type: GraphQLString
                 },
-                zipType: {
+                zip: {
                     type: GraphQLString
                 }
 

@@ -51,7 +51,7 @@ export default new GraphQLObjectType({
                 city: {
                     type: GraphQLString
                 },
-                zipType: {
+                zip: {
                     type: GraphQLString
                 },
                 type: {
@@ -62,22 +62,22 @@ export default new GraphQLObjectType({
             resolve: (obj, {...args}) => {
                 console.log('run here a');
                 console.log(args);
-                if (args.city && args.zipType && args.zipType !== 'all') {
-                    if (args.zipType.match(/^\d+$/g)) {
+                if (args.city && args.zip && args.zip !== 'all') {
+                    if (args.zip.match(/^\d+$/g)) {
                         if (args.type) {
-                            return Houses_by_city_zip_type(args.city, args.zipType, args.type).then((arr_House) => connectionFromArray(arr_House, args));
+                            return Houses_by_city_zip_type(args.city, args.zip, args.type).then((arr_House) => connectionFromArray(arr_House, args));
                         } else {
 
-                            return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
+                            return Houses_by_city_zip(args.city, args.zip).then((arr_House) => connectionFromArray(arr_House, args));
                         }
                     } else {
 
-                        return Houses_by_city_type(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
+                        return Houses_by_city_type(args.city, args.zip).then((arr_House) => connectionFromArray(arr_House, args));
                     }
 
                 }
 
-                if (args.city && (args.zipType == 'all' || args.zipType == '' || !args.zipType)) {
+                if (args.city && (args.zip == 'all' || args.zip == '' || !args.zip)) {
                     return Houses_by_city(args.city).then((arr_House) => connectionFromArray(arr_House, args));
                 }
 
@@ -93,7 +93,7 @@ export default new GraphQLObjectType({
                 city: {
                     type: GraphQLString
                 },
-                zipType: {
+                zip: {
                     type: GraphQLString
                 },
                 type: {
@@ -101,22 +101,22 @@ export default new GraphQLObjectType({
                 },
             },
             resolve: (obj, {...args}) => {
-                if (args.city && args.zipType) {
-                    if (args.zipType.match(/^\d+$/g)) {
+                if (args.city && args.zip) {
+                    if (args.zip.match(/^\d+$/g)) {
                         if (args.type) {
-                            return Houses_by_city_zip_type(args.city, args.zipType, args.type).then((arr_House) => arr_House.length);
+                            return Houses_by_city_zip_type(args.city, args.zip, args.type).then((arr_House) => arr_House.length);
 
                         } else {
 
-                            return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => arr_House.length);
+                            return Houses_by_city_zip(args.city, args.zip).then((arr_House) => arr_House.length);
                         }
                     } else {
 
-                        return Houses_by_city_type(args.city, args.zipType).then((arr_House) => arr_House.length);
+                        return Houses_by_city_type(args.city, args.zip).then((arr_House) => arr_House.length);
                     }
                 }
 
-                if (args.city && !args.zipType) {
+                if (args.city && !args.zip) {
                     return Houses_by_city(args.city).then((arr_House) => arr_House.length);
                 }
 

@@ -9,7 +9,10 @@ import HomePage from './containers/pages/HomePage.js';
 import PrivacyPage from './containers/pages/PrivacyPage';
 import TermsPage from './containers/pages/TermsPage';
 import CityPage from './containers/pages/CityPage';
-import HousesListPage from './containers/pages/HousesListPage';
+
+import ZipHousesListPage from './containers/pages/ZipHousesListPage';
+import ZipTypeHousesListPage from './containers/pages/ZipTypeHousesListPage';
+import TypeHousesListPage from './containers/pages/TypeHousesListPage';
 import HousePage from './containers/pages/HousePage';
 
 export default [
@@ -40,16 +43,22 @@ export default [
                         },
                         childRoutes: [
                             {
-                                path: ":zipType",
+                                path: ":zip",
+
                                 indexRoute: {
-                                    component: HousesListPage,
+                                    component: ZipHousesListPage,
                                     queries: ViewerQueries
+                                },
+                                onEnter: function (nextState, replace) {
+                                    debugger;
+
+                                    replace(nextState.params.zip)
                                 },
                                 childRoutes: [
                                     {
                                         path: ":type",
                                         indexRoute: {
-                                            component: HousesListPage,
+                                            component: ZipTypeHousesListPage,
                                             queries: ViewerQueries
                                         },
 
@@ -64,6 +73,14 @@ export default [
                                         ]
                                     }
                                 ]
+                            },
+                            {
+                                path: ":type",
+                                indexRoute: {
+                                    component: TypeHousesListPage,
+                                    queries: ViewerQueries
+                                }
+
                             },
 
                         ]
