@@ -1,13 +1,13 @@
 import {
     City_get,
-    Cities_all,
     City_by_house,
-    City_by_zip
+    City_by_zip,
+    Cities_with_args
 } from '../da_cassandra/City'
 
 export {
     City_get,
-    Cities_all,
+    Cities_with_args,
     City_by_house,
     City_by_zip
 };

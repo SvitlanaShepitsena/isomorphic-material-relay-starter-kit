@@ -1,12 +1,12 @@
-import {runQuery, runQueryNoResult, runQueryOneResult, Uuid} from './_client.js';
+import {runQuery, runQueryOneResult} from './_client.js';
 
 import City from '../model/City'
 
-export function Cities_all() {
-    let cqlText = 'SELECT * FROM "city"';
-    let cqlParams = [];
+export function City_get(city) {
+    let cqlText = 'select * from city where id = ? ALLOW FILTERING;';
+    let cqlParams = [city];
 
-    return runQuery(City, cqlText, cqlParams);
+    return runQueryOneResult(City, cqlText, cqlParams);
 }
 
 export function City_by_house(city_id) {
@@ -17,17 +17,21 @@ export function City_by_house(city_id) {
 }
 
 export function City_by_zip(zip_id) {
-    let cqlText = 'select city_id from zips_by_city where zip_id = ? ALLOW FILTERING;';
+    let cqlText = 'SELECT * FROM city WHERE id = ? ';
     let cqlParams = [zip_id];
 
     return runQueryOneResult(City, cqlText, cqlParams);
 }
-export function City_get(city) {
-    let cqlText = 'select * from city where id = ? ALLOW FILTERING;';
-    let cqlParams = [city];
 
-    return runQueryOneResult(City, cqlText, cqlParams);
+export function Cities_with_args(args) {
+    console.log('City.js - line: 27');
+    console.log(args);
+    let cqlText;
+    let cqlParams = [];
+
+    cqlText = 'SELECT * FROM city';
+
+    return runQuery(City, cqlText, cqlParams);
 }
-
 
 

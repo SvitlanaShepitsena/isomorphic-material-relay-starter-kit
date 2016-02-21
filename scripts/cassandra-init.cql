@@ -67,19 +67,7 @@ CREATE TABLE houses_by_zip (
     price bigint,
   PRIMARY KEY (zip_id, id));
 
-CREATE TABLE houses_by_city_zip (
-    id text,
-     mls text,
-     beds text,
-     baths text,
-     type_id text,
-     description text,
-     image text,
-     street text,
-     city_id text,
-     zip_id text,
-     price bigint,
-  PRIMARY KEY ((city_id, zip_id),id));
+
 
 CREATE TABLE houses_by_city_type (
     id text,
@@ -95,7 +83,7 @@ CREATE TABLE houses_by_city_type (
      price bigint,
   PRIMARY KEY ((city_id, type_id),id));
 
-CREATE TABLE houses_by_city_zip_type (
+CREATE TABLE houses_by_zip_type (
     id text,
      mls text,
      beds text,
@@ -107,7 +95,7 @@ CREATE TABLE houses_by_city_zip_type (
      city_id text,
      zip_id text,
      price bigint,
-  PRIMARY KEY ((city_id, zip_id, type_id),id));
+  PRIMARY KEY ((zip_id, type_id),id));
 
 CREATE TABLE  city ( id text, name text, PRIMARY KEY (id));
 
@@ -123,12 +111,11 @@ CREATE TABLE types_by_city (
   type text,
   PRIMARY KEY (city_id, id));
 
-CREATE TABLE types_by_city_zip (
+CREATE TABLE types_by_zip (
   id text,
-  city_id text,
   zip_id text,
   type text,
-  PRIMARY KEY ((city_id, zip_id), id));
+  PRIMARY KEY (zip_id, id));
 
 
 CREATE TABLE  zip ( id text, code text, city_id text, PRIMARY KEY (id));

@@ -22,6 +22,8 @@ class ZipHousesListPage extends React.Component {
     };
 
     componentDidMount() {
+        console.log('ZipHousesListPage.js - line: 25');
+
         this.props.relay.setVariables({
             city: this.props.params.city,
             zip: this.props.params.zip,
@@ -29,12 +31,12 @@ class ZipHousesListPage extends React.Component {
         })
     }
 
-   
+
 
     render() {
         const routes = this.props.routes;
         const params = this.props.params;
-        
+
         const cityName = _.startCase(this.props.params.city);
         const zip = this.props.params.zip;
 
@@ -54,7 +56,7 @@ class ZipHousesListPage extends React.Component {
                     children="Houses"
                     sectionTitle={`${cityName} Homes for Sale by Property Type`}
                 />
-                
+
                 <hr/>
                 {!cityHouses &&
                 <div style={{textAlign:"center"}}>
@@ -88,8 +90,7 @@ export default Relay.createContainer(ZipHousesListPage, {
                         }
                     }
                 }
-
-                Houses(city:$city,zip:$zip,type:$type, first:20){
+                Houses(city:$city,zip:$zip,first:10){
                     edges{
                         node{
                             id

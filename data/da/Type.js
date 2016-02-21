@@ -1,13 +1,9 @@
 import {
-    Types_all,
-    Type_by_house,
-    Types_by_city,
-    Types_by_city_zip
+    Type_get,
+    Types_with_args
 } from '../da_cassandra/Type'
 
 export {
-    Types_all,
-    Type_by_house,
-    Types_by_city,
-    Types_by_city_zip
+    Type_get,
+    Types_with_args
 };

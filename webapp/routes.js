@@ -44,16 +44,11 @@ export default [
                         childRoutes: [
                             {
                                 path: ":zip",
-
                                 indexRoute: {
                                     component: ZipHousesListPage,
                                     queries: ViewerQueries
                                 },
-                                onEnter: function (nextState, replace) {
-                                    debugger;
 
-                                    replace(nextState.params.zip)
-                                },
                                 childRoutes: [
                                     {
                                         path: ":type",
@@ -75,7 +70,7 @@ export default [
                                 ]
                             },
                             {
-                                path: ":type",
+                                path: "type/:type",
                                 indexRoute: {
                                     component: TypeHousesListPage,
                                     queries: ViewerQueries
