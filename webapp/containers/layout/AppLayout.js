@@ -10,6 +10,7 @@ import IconButton from 'material-ui/lib/icon-button';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 import ContactForm from '../../components/AppViews/Contact/ContactForm.js';
+import SearchFormInline from '../../components/Search/SearchFormInline.js';
 
 /*Components*/
 import AppNav_Top from './AppNav_Top.js';
@@ -79,17 +80,20 @@ class AppLayout extends React.Component {
                         <AppNav_Top></AppNav_Top>
                     </div>
                 </AppBar>
-
-                <div className="container">
-                    <div className="row">
-                        <div className="eight columns">
-                            <div className="AppLayout__content">
-                                {this.props.children}
+                <div className="AppLayout__content">
+                    <div className="container">
+                        <SearchFormInline/>
+                        <div className="row">
+                            <div className="eight columns">
+                                <div >
+                                    {this.props.children}
+                                    <br/>
+                                </div>
                             </div>
-                        </div>
-                        <div className="four columns">
-                            <div className="AppLayout__aside">
-                                <ContactForm/>
+                            <div className="four columns">
+                                <div className="AppLayout__aside">
+                                    <ContactForm/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -111,9 +115,9 @@ AppLayout.childContextTypes = {
 export default Relay.createContainer(AppLayout, {
     fragments: {
         Viewer: () => Relay.QL`
-      fragment on Viewer {
-        ${AppBar_Auth.getFragment('Viewer')},
-      }
-    `,
+            fragment on Viewer {
+                ${AppBar_Auth.getFragment('Viewer')},
+            }
+        `,
     },
 });
