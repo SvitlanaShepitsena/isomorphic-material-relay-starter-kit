@@ -39,7 +39,7 @@ class ZipTypeList extends React.Component {
                                     <li key={itemValue}>
                                         <ButtonWithBadge
                                             btnLabel={itemValueFormatted}
-                                            btnUrl={itemId=='type'?`type/${itemValue}`:itemValue}
+                                            btnUrl={itemValue}
                                             badgeValue={item[`${children}_Count`]}
                                         />
                                     </li>
