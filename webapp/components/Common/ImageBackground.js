@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-export default class SvLink extends React.Component {
+class SvLink extends React.Component {
     render() {
         return (
             <div
@@ -22,4 +22,4 @@ export default class SvLink extends React.Component {
         );
     }
 }
-;
+export default  SvLink;

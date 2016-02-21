@@ -2,7 +2,7 @@ import React from 'react';
 import Relay from 'react-relay';
 import {Link} from 'react-router';
 
-export default class Terms extends React.Component {
+class Terms extends React.Component {
 
     render() {
         // Determine error text, since we already have the errors in state
@@ -301,4 +301,4 @@ export default class Terms extends React.Component {
         );
     }
 }
-
+export default  Terms;

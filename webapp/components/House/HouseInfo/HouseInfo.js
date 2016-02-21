@@ -5,7 +5,7 @@ import textToPrice from '../../../utils/textToPrice.js';
 import Card from 'material-ui/lib/card/card';
 import PhotoGallery from '../../PhotoGallery/PhotoGallery.js';
 
-export default class HouseInfo extends React.Component {
+class HouseInfo extends React.Component {
     static propTypes = {
         house: PropTypes.object.isRequired
     };
@@ -43,7 +43,7 @@ export default class HouseInfo extends React.Component {
                         {type && <p> {typeFormatted} </p> }
                     </div>
                     <div className="six columns HouseInfo__card-price">
-                        {price && <h4> ${priceFormatted} </h4> }
+                        {price && <h4> {priceFormatted} </h4> }
                         {mls && <p> {"MLS#: " + mls} </p> }
                         {year && <p> {"Year: " + year} </p> }
                     </div>
@@ -84,4 +84,4 @@ export default class HouseInfo extends React.Component {
         );
     }
 }
-;
+export default HouseInfo;

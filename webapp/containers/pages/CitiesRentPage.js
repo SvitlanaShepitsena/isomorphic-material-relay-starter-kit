@@ -23,7 +23,7 @@ export default Relay.createContainer(CitiesRent, {
             node {
               id,
               street,
-              price
+                price
             },
           },
         },

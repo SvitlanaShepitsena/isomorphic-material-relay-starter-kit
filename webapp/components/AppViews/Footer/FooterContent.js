@@ -1,18 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router';
-import theme from '../../../settings/AppMuiTheme.js';
+import styles from '../../../settings/AppMuiTheme.js';
 import settings from '../../../settings/settings.js';
 
-export default class FooterContent extends React.Component {
+class FooterContent extends React.Component {
 
     render() {
         var footerStyle = {
-            backgroundColor: theme.palette.footerColor,
-            color: theme.palette.footerText,
+            backgroundColor: styles.palette.footerColor,
+            color: styles.palette.footerText,
         };
         var footerMenuHeader = {
             fontWeight: 500,
-            color: theme.palette.footerHeaderText,
+            color: styles.palette.footerHeaderText,
             textTransform: 'uppercase',
             margin: 0,
             fontSize: 15
@@ -83,3 +83,4 @@ export default class FooterContent extends React.Component {
         );
     }
 }
+export default FooterContent;

@@ -23,5 +23,4 @@ class SvLink extends React.Component {
         );
     }
 }
-;
 export default SvLink;

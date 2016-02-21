@@ -16,18 +16,18 @@ class ContactPage extends React.Component {
 export default Relay.createContainer(ContactPage, {
     fragments: {
         Viewer: () => Relay.QL`
-      fragment on Viewer {
-        User_IsAnonymous,
-        Houses(first: 10) {
-          edges {
-            node {
-              id,
-              street,
-              price
-            },
-          },
-        },
-      }
-    `,
+            fragment on Viewer {
+                User_IsAnonymous,
+                Houses(first: 10) {
+                    edges {
+                        node {
+                            id,
+                            street,
+                            price
+                        },
+                    },
+                },
+            }
+        `,
     },
 });

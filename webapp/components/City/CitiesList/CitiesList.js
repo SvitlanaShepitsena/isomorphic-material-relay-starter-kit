@@ -7,7 +7,7 @@ import CityThumbPicture from '../CityThumb/CityThumbPicture.js';
 /*=Components*/
 import SvLink from '../../Common/SvLink.js';
 
-export default class CitiesList extends React.Component {
+class CitiesList extends React.Component {
 
     static propTypes = {
         list: PropTypes.array.isRequired,
@@ -23,7 +23,7 @@ export default class CitiesList extends React.Component {
                         const itemId = this.props.itemId;
                         const children = this.props.children;
                         const itemValue = item[itemId];
-                    
+
                         return (
                             <div className="four columns" key={itemValue}>
                                 <SvLink url={itemValue}>
@@ -39,5 +39,5 @@ export default class CitiesList extends React.Component {
         );
     }
 }
-;
 
+export default  CitiesList;

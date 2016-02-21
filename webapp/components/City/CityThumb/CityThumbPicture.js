@@ -1,5 +1,4 @@
 import React from 'react';
-
 import urlToText from '../../../utils/urlToText.js';
 
 /*=MaterialUi*/
@@ -7,12 +6,12 @@ import Card from 'material-ui/lib/card/card';
 import CardMedia from 'material-ui/lib/card/card-media';
 import CardTitle from 'material-ui/lib/card/card-title';
 
-export default class CityThumbPicture extends React.Component {
+class CityThumbPicture extends React.Component {
 
     render() {
         const city = this.props.cityName;
         const housesLength = this.props.housesLength;
-        
+
         /*Formatter*/
         let cityFormatted = urlToText(city);
 
@@ -35,3 +34,4 @@ export default class CityThumbPicture extends React.Component {
         );
     }
 }
+export default CityThumbPicture;

@@ -37,10 +37,10 @@ class HomePage extends React.Component {
 export default Relay.createContainer(HomePage, {
     fragments: {
         Viewer: () => Relay.QL`
-      fragment on Viewer {
-        User_IsAnonymous,
+            fragment on Viewer {
+                User_IsAnonymous,
 
-      }
-    `,
+            }
+        `,
     },
 });

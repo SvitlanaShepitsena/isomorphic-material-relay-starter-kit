@@ -10,7 +10,7 @@ import SvLink from './SvLink';
 /*Inline Styles*/
 import style from '../../settings/AppMuiTheme.js';
 
-export default class ButtonWithBadge extends React.Component {
+class ButtonWithBadge extends React.Component {
     static propTypes = {
         btnLabel: PropTypes.string.isRequired,
         btnUrl: PropTypes.string.isRequired,
@@ -52,5 +52,5 @@ export default class ButtonWithBadge extends React.Component {
         );
     }
 }
-;
 
+export default  ButtonWithBadge;

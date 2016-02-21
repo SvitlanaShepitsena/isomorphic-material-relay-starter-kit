@@ -11,7 +11,7 @@ import FlatButton from '../../../../node_modules/material-ui/lib/flat-button';
 import CardText from '../../../../node_modules/material-ui/lib/card/card-text';
 import TextField from '../../../../node_modules/material-ui/lib/text-field';
 
-export default class ContactForm extends React.Component {
+class ContactForm extends React.Component {
 
     render() {
         return (
@@ -46,3 +46,4 @@ export default class ContactForm extends React.Component {
         );
     }
 }
+export default ContactForm;

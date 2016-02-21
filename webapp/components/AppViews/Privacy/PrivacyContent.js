@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-export default class Privacy extends React.Component {
+class PrivacyContent extends React.Component {
 
     render() {
         // Determine error text, since we already have the errors in state
@@ -250,4 +250,4 @@ export default class Privacy extends React.Component {
         );
     }
 }
-
+export default PrivacyContent;

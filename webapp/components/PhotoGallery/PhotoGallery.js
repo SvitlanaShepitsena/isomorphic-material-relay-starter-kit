@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 
-export default class PhotoGallery extends React.Component {
+class PhotoGallery extends React.Component {
 
     render() {
         var settings = {
@@ -28,3 +28,4 @@ export default class PhotoGallery extends React.Component {
         );
     }
 }
+export default PhotoGallery; 

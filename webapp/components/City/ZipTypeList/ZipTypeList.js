@@ -26,7 +26,7 @@ class ZipTypeList extends React.Component {
                 <Divider />
                 <CardActions>
                     <ul className="list-unstyled list-inline">
-                        {this.props.list.map((edge, index)=> {
+                        {this.props.list.map(edge=> {
 
                                 const item = edge.node;
                                 const itemId = this.props.itemId;
@@ -52,6 +52,5 @@ class ZipTypeList extends React.Component {
         );
     }
 }
-;
 
 export default ZipTypeList;

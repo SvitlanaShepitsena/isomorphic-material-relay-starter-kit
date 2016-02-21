@@ -6,7 +6,7 @@ import textToPrice from '../../../utils/textToPrice.js';
 import Card from 'material-ui/lib/card/card';
 import ImageBackground from '../../Common/ImageBackground.js';
 
-export default class HouseThumbInline extends React.Component {
+class HouseThumbInline extends React.Component {
     static propTypes = {
         house: PropTypes.object.isRequired,
         imgClassName: PropTypes.string
@@ -63,7 +63,7 @@ export default class HouseThumbInline extends React.Component {
                     </h4>
                     <h3 className="ListingThumbInline__price">
                         {price &&
-                        <span> ${priceFormatted} </span>
+                        <span> {priceFormatted} </span>
                         }
                     </h3>
                     <p>
@@ -91,3 +91,4 @@ export default class HouseThumbInline extends React.Component {
         );
     }
 }
+export default HouseThumbInline;

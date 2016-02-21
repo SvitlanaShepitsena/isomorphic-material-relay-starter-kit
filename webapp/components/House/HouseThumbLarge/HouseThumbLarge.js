@@ -12,7 +12,7 @@ import CardTitle from 'material-ui/lib/card/card-title';
 /*Components*/
 import ImageBackground from '../../Common/ImageBackground.js';
 
-export default class HouseThumbLarge extends React.Component {
+class HouseThumbLarge extends React.Component {
     static propTypes = {
         house: PropTypes.object.isRequired,
         imgClassName: PropTypes.string
@@ -90,3 +90,4 @@ export default class HouseThumbLarge extends React.Component {
         );
     }
 }
+export default HouseThumbLarge;

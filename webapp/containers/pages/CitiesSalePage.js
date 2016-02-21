@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import _ from 'lodash';
 
 /*=MaterialUi*/
 import Spinner from 'material-ui/lib/circular-progress';
@@ -43,17 +42,17 @@ class CitiesSalePage extends React.Component {
 export default Relay.createContainer(CitiesSalePage, {
     fragments: {
         Viewer: () => Relay.QL`
-      fragment on Viewer {
-        User_IsAnonymous,
-          Cities(first :100){
-            edges{
-               node{
-                 name,
-                  Houses_Count
+            fragment on Viewer {
+                User_IsAnonymous,
+                Cities(first :100){
+                    edges{
+                        node{
+                            name,
+                            Houses_Count
+                        }
+                    }
                 }
-              }
             }
-          }
         `,
     },
 });

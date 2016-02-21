@@ -11,7 +11,7 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import TextField from 'material-ui/lib/text-field';
 import AutoComplete from 'material-ui/lib/auto-complete';
 
-export default class SearchForm extends Component {
+class SearchForm extends Component {
 
     state = {
         dataSource: [],
@@ -47,3 +47,4 @@ export default class SearchForm extends Component {
         );
     }
 }
+export default  SearchForm;

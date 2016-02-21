@@ -7,7 +7,7 @@ import HouseThumbInline from '../HouseThumbInline/HouseThumbInline';
 import HouseThumbLarge from '../HouseThumbLarge/HouseThumbLarge';
 import SvLink from './../../Common/SvLink';
 
-export default class HousesList extends React.Component {
+class HousesList extends React.Component {
     static propTypes = {
         list: PropTypes.array.isRequired,
         listType: PropTypes.string.isRequired
@@ -52,5 +52,4 @@ export default class HousesList extends React.Component {
         );
     }
 }
-;
-
+export default HousesList;
