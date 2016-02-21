@@ -2,17 +2,9 @@ import {globalIdField} from "graphql-relay";
 import {GraphQLBoolean, GraphQLID, GraphQLInt, GraphQLString, GraphQLObjectType} from "graphql";
 import {connectionArgs, connectionFromArray} from "graphql-relay";
 
-import {
-    Houses_by_city_zip,
-    Houses_by_city_zip_type,
-    Houses_by_city_type,
-    Houses_by_city,
-    Houses_all,
-    House_get
-} from '../../data/da/House';
-import {Types_all, Types_by_city, Types_by_city_zip} from '../../data/da/Type';
-
-import {Cities_all, City_get} from '../../data/da/City';
+import {Houses_with_args, House_get} from '../../data/da/House';
+import {Types_with_args} from '../../data/da/Type';
+import {Cities_with_args, City_get} from '../../data/da/City';
 
 import NodeInterface from "../interface/NodeInterface";
 
@@ -22,7 +14,6 @@ import CitiesConnection from './CityConnection';
 
 import HouseType from './HouseType';
 import CityType from './CityType';
-import TypeType from './CityType';
 
 import User from '../../data/model/User';
 import {Uuid} from '../../data/da_cassandra/_client.js';
@@ -51,7 +42,7 @@ export default new GraphQLObjectType({
                 city: {
                     type: GraphQLString
                 },
-                zipType: {
+                zip: {
                     type: GraphQLString
                 },
                 type: {
@@ -60,29 +51,7 @@ export default new GraphQLObjectType({
 
             },
             resolve: (obj, {...args}) => {
-                console.log('run here a');
-                console.log(args);
-                if (args.city && args.zipType && args.zipType !== 'all') {
-                    if (args.zipType.match(/^\d+$/g)) {
-                        if (args.type) {
-                            return Houses_by_city_zip_type(args.city, args.zipType, args.type).then((arr_House) => connectionFromArray(arr_House, args));
-                        } else {
-
-                            return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
-                        }
-                    } else {
-
-                        return Houses_by_city_type(args.city, args.zipType).then((arr_House) => connectionFromArray(arr_House, args));
-                    }
-
-                }
-
-                if (args.city && (args.zipType == 'all' || args.zipType == '' || !args.zipType)) {
-                    return Houses_by_city(args.city).then((arr_House) => connectionFromArray(arr_House, args));
-                }
-
-                return Houses_all().then((arr_House) => connectionFromArray(arr_House, args));
-
+                return Houses_with_args(args).then((arr) => connectionFromArray(arr, args));
             }
         },
 
@@ -93,7 +62,7 @@ export default new GraphQLObjectType({
                 city: {
                     type: GraphQLString
                 },
-                zipType: {
+                zip: {
                     type: GraphQLString
                 },
                 type: {
@@ -101,26 +70,8 @@ export default new GraphQLObjectType({
                 },
             },
             resolve: (obj, {...args}) => {
-                if (args.city && args.zipType) {
-                    if (args.zipType.match(/^\d+$/g)) {
-                        if (args.type) {
-                            return Houses_by_city_zip_type(args.city, args.zipType, args.type).then((arr_House) => arr_House.length);
 
-                        } else {
-
-                            return Houses_by_city_zip(args.city, args.zipType).then((arr_House) => arr_House.length);
-                        }
-                    } else {
-
-                        return Houses_by_city_type(args.city, args.zipType).then((arr_House) => arr_House.length);
-                    }
-                }
-
-                if (args.city && !args.zipType) {
-                    return Houses_by_city(args.city).then((arr_House) => arr_House.length);
-                }
-
-                return Houses_all().then((arr_House) => arr_House.length);
+                return Houses_with_args(args).then(arr => arr.length);
 
             }
         },
@@ -138,13 +89,13 @@ export default new GraphQLObjectType({
         Cities: {
             type: CitiesConnection.connectionType,
             args: {...connectionArgs},
-            resolve: (obj, {...args}, {rootValue: {user_id}}) => Cities_all(user_id).then((arr_City) => connectionFromArray(arr_City, args))
+            resolve: (obj, {...args}, {rootValue: {user_id}}) => Cities_with_args(args).then((arr) => connectionFromArray(arr, args))
         },
 
         Cities_Count: {
             type: GraphQLInt,
             args: {...connectionArgs},
-            resolve: (obj, {...args}, {rootValue: {user_id}}) => Cities_all(user_id).then((arr_City) => arr_City.length)
+            resolve: (obj, {...args}, {rootValue: {user_id}}) => Cities_with_args(args).then((arr) => arr.length)
         },
         Types: {
             type: TypeConnection.connectionType,
@@ -159,16 +110,7 @@ export default new GraphQLObjectType({
             },
             resolve: (obj, {...args}) => {
 
-                if (args.city && args.zip) {
-
-                    return Types_by_city_zip(args.city, args.zip).then((arr_Type) => connectionFromArray(arr_Type, args));
-                }
-                if (args.city && !args.zip) {
-
-                    return Types_by_city(args.city).then((arr_Type) => connectionFromArray(arr_Type, args));
-                }
-
-                return Types_all().then((arr_Type) => connectionFromArray(arr_Type, args));
+                return Types_with_args(args).then((arr) => connectionFromArray(arr, args));
 
             }
         },
@@ -185,17 +127,7 @@ export default new GraphQLObjectType({
                 }
             },
             resolve: (obj, {...args}) => {
-
-                if (args.city && args.zip) {
-
-                    return Types_by_city_zip(args.city, args.zip).then((arr_Type) => arr_Type.length);
-                }
-                if (args.city && !args.zip) {
-
-                    return Types_by_city(args.city).then((arr_Type) => arr_Type.length);
-                }
-
-                return Types_all().then((arr_Type) => arr_Type.length);
+                return Types_with_args(args).then((arr) => arr.length);
 
             }
         },

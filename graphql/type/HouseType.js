@@ -12,7 +12,7 @@ import {City_by_house} from '../../data/da_cassandra/City';
 
 import ZipType from './ZipType';
 import {Zip_by_house} from '../../data/da_cassandra/Zip';
-import {Type_by_house} from '../../data/da_cassandra/Type';
+import {Type_get} from '../../data/da_cassandra/Type';
 
 export default new GraphQLObjectType({
     name: 'House',
@@ -25,7 +25,7 @@ export default new GraphQLObjectType({
         },
         city: {type: CityType, resolve: (obj) => City_by_house(obj.city_id)},
         zip: {type: ZipType, resolve: (obj) =>Zip_by_house(obj.zip_id)},
-        type: {type: TypeType, resolve: (obj) =>Type_by_house(obj.type_id)},
+        type: {type: TypeType, resolve: (obj) =>Type_get(obj.type_id)},
         price: {type: GraphQLString, resolve: (obj) =>obj.price},
         beds: {type: GraphQLString, resolve: (obj) =>obj.beds},
         baths: {type: GraphQLString, resolve: (obj) =>obj.baths},

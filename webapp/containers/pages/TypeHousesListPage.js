@@ -10,7 +10,7 @@ import Spinner from 'material-ui/lib/circular-progress';
 import ZipTypeList from '../../components/City/ZipTypeList/ZipTypeList.js';
 import HousesList from '../../components/House/HousesList/HousesList.js';
 
-class HousesListPage extends React.Component {
+class TypeHousesListPage extends React.Component {
     state = {compare: true};
 
     getChildContext() {
@@ -54,38 +54,29 @@ class HousesListPage extends React.Component {
     render() {
         const routes = this.props.routes;
         const params = this.props.params;
-        const cityHouses = this.props.Viewer.Houses.edges;
-        const cityName = _.startCase(this.props.params.city);
-        const zipType = this.props.params.zipType;
+        const cityTypeHouses = this.props.Viewer.Houses.edges;
+        const city = _.startCase(this.props.params.city);
+        const type = this.props.params.type;
 
-        const typesList = this.props.Viewer.Types.edges;
         return (
             <div>
                 <br/>
                 <Breadcrumbs routes={routes} params={params}/>
 
-                <h1> {"Houses for Sale in " + cityName + ", " + zipType} </h1>
+                <h1>{`${type}s for Sale in ${city}`}</h1>
                 <hr/>
 
-                {typesList.length && !params.type &&
-                <ZipTypeList
-                    itemId="type"
-                    list={typesList}
-                    children="Houses"
-                    sectionTitle={`${cityName} Homes for Sale by Property Type`}
-                />
-                }
                 <hr/>
-                {!cityHouses &&
+                {!cityTypeHouses &&
                 <div style={{textAlign:"center"}}>
                     <Spinner size={1.5}/>
                 </div>
                 }
 
-                {cityHouses &&
+                {cityTypeHouses &&
                 <HousesList
-                    list={cityHouses}
-                    cityName={cityName}
+                    list={cityTypeHouses}
+                    cityName={city}
                     listType="inline"/>
                 }
                 <br/>
@@ -95,22 +86,12 @@ class HousesListPage extends React.Component {
     }
 }
 ;
-export default Relay.createContainer(HousesListPage, {
+export default Relay.createContainer(TypeHousesListPage, {
     initialVariables: {city: '', zip: '', type: ''},
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                User_IsAnonymous,
-                Types(city: $city, zip: $zip, first:100) {
-                    edges {
-                        node {
-                            type,
-                            Houses_Count(city:$city,zipType:$zip)
-                        }
-                    }
-                }
-
-                Houses(city:$city,zipType:$zip,type:$type, first:20){
+                Houses(city:$city,type:$type, first:20){
                     edges{
                         node{
                             id

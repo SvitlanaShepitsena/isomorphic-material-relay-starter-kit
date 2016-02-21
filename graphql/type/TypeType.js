@@ -2,7 +2,7 @@ import {globalIdField, connectionArgs, connectionFromArray} from "graphql-relay"
 import {GraphQLInt, GraphQLString, GraphQLObjectType, GraphQLNonNull, GraphQLID} from "graphql";
 
 import NodeInterface from "../interface/NodeInterface";
-import {Houses_by_city_type, Houses_by_city_zip_type} from '../../data/da_cassandra/House';
+import {Houses_with_args} from '../../data/da_cassandra/House';
 import HousesConnection from './HouseConnection';
 
 import Type from '../../data/model/Type';
@@ -22,25 +22,19 @@ export default new GraphQLObjectType({
         },
 
         Houses: {
-            type: GraphQLInt,
+            type: HousesConnection.connectionType,
             args: {
                 ...connectionArgs,
                 city: {
                     type: GraphQLString
                 },
-                zipType: {
+                zip: {
                     type: GraphQLString
                 }
 
             },
-            resolve: (obj, {...args}) => {
-                if (args.zipType) {
-
-                    return Houses_by_city_zip_type(args.city, args.zipType, obj.id).then((arr_House) => connectionFromArray(arr_House, args));
-                } else{
-                    return Houses_by_city_type(args.city, obj.id).then((arr_House) => connectionFromArray(arr_House, args));
-                }
-
+            resolve: (obj, args) => {
+                return Houses_with_args({...args,type: obj.id}).then((arr) => connectionFromArray(arr, args))
             }
 
         },
@@ -51,21 +45,14 @@ export default new GraphQLObjectType({
                 city: {
                     type: GraphQLString
                 },
-                zipType: {
+                zip: {
                     type: GraphQLString
                 }
 
             },
-            resolve: (obj, {...args}) => {
-                if (args.zipType) {
-
-                    return Houses_by_city_zip_type(args.city, args.zipType, obj.id).then((arr_House) => arr_House.length);
-                } else{
-                    return Houses_by_city_type(args.city, obj.id).then((arr_House) => arr_House.length);
-                }
-
+            resolve: (obj, args) => {
+                return Houses_with_args({...args, type: obj.id}).then((arr) => arr.length);
             }
-
         },
 
     })

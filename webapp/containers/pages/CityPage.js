@@ -84,7 +84,6 @@ export default Relay.createContainer(CityPage, {
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                User_IsAnonymous,
                 City(city:$city){
                     Houses_Count
                     Houses(first:2){
@@ -111,7 +110,7 @@ export default Relay.createContainer(CityPage, {
                         }
                     }
 
-                    Types(first:100,city:$city){
+                    Types(first:100){
                         edges{
                             node{
                                 type,

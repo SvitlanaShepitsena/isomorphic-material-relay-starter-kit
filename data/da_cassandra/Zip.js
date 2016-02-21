@@ -11,26 +11,30 @@ export function Zip_get(id) {
     return runQueryOneResult(Zip, cqlText, cqlParams);
 }
 
-export function Zips_all() {
-    let cqlText = 'SELECT * FROM zip';
-    let cqlParams = [];
-
-    return runQuery(Zip, cqlText, cqlParams);
-}
-export function Zips_by_city(city) {
-
-    let cqlText = 'SELECT * FROM zips_by_city where city_id = ?';
-    let cqlParams = [city];
-
-    return runQuery(Zip, cqlText, cqlParams);
-}
-
 export function Zip_by_house(zip_id) {
     let cqlText = 'SELECT * FROM zip WHERE id = ? ';
     let cqlParams = [zip_id];
 
     return runQueryOneResult(Zip, cqlText, cqlParams);
 }
+
+export function Zips_with_args(args) {
+    let cqlText;
+    let cqlParams = [];
+
+    if (!args.city) {
+        cqlText = 'SELECT * FROM zip';
+
+    }
+    if (args.city) {
+        cqlText = 'SELECT * FROM zips_by_city where city_id = ?;';
+        cqlParams.push(args.city);
+    }
+
+    return runQuery(Zip, cqlText, cqlParams);
+}
+
+
 
 
 

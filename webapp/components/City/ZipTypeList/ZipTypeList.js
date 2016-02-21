@@ -34,12 +34,12 @@ class ZipTypeList extends React.Component {
                                 const itemValue = item[itemId];
 
                                 const itemValueFormatted = urlToText(itemValue);
-
+                                // Temporary Solution for creating a new route for houses type
                                 return (
                                     <li key={itemValue}>
                                         <ButtonWithBadge
                                             btnLabel={itemValueFormatted}
-                                            btnUrl={itemValue}
+                                            btnUrl={itemId=='type'?`type/${itemValue}`:itemValue}
                                             badgeValue={item[`${children}_Count`]}
                                         />
                                     </li>
