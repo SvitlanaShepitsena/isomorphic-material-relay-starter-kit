@@ -7,7 +7,7 @@ import Breadcrumbs from 'react-breadcrumbs';
 import Spinner from 'material-ui/lib/circular-progress';
 
 /*Components*/
-import HousesByPropsList from '../../components/House/HousesByPropsList/HousesByPropsList.js';
+import ZipTypeList from '../../components/City/ZipTypeList/ZipTypeList.js';
 import HousesList from '../../components/House/HousesList/HousesList.js';
 
 class HousesListPage extends React.Component {
@@ -58,7 +58,7 @@ class HousesListPage extends React.Component {
                 <br/>
 
                 {typesList.length &&
-                <HousesByPropsList
+                <ZipTypeList
                     item="type"
                     list={typesList}
                     sectionTitle={`${cityName} Homes for Sale by Property Type`}

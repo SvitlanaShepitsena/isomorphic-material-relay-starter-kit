@@ -10,11 +10,11 @@ import SvLink from './SvLink';
 /*Inline Styles*/
 import style from '../../settings/AppMuiTheme.js';
 
-export default class HousesByPropsList extends React.Component {
+export default class ButtonWithBadge extends React.Component {
     static propTypes = {
-        btnLabel: PropTypes.object.isRequired,
-        btnUrl: PropTypes.object.isRequired,
-        badgeValue: PropTypes.object.isRequired
+        btnLabel: PropTypes.string.isRequired,
+        btnUrl: PropTypes.string.isRequired,
+        badgeValue: PropTypes.number.isRequired
     };
 
     render() {

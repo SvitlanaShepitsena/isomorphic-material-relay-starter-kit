@@ -22,8 +22,8 @@ export default class CitiesList extends React.Component {
                         const item = edge.node;
                         const itemId = this.props.itemId;
                         const children = this.props.children;
-
                         const itemValue = item[itemId];
+                    
                         return (
                             <div className="four columns" key={itemValue}>
                                 <SvLink url={itemValue}>
