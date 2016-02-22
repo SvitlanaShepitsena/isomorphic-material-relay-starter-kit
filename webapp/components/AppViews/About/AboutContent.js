@@ -1,13 +1,14 @@
 import React from 'react';
+import s from './AboutContent.css';
 
 class AboutContent extends React.Component {
 
     render() {
         return (
-            <div className="AboutContent">
+            <div className="AboutContent b-orange">
                 <h1>Why Re/Max 1st Class Realty is worth to work with: </h1>
                 <hr/>
-                <article>
+                <article className={s.orange}>
                     <p>
                         Re/Max 1st Class Realty offers one stop service for home selling or purchase. We have long term
                         partnerships with major banks and can negotiate the best possible deal. We can help you find the

@@ -4,6 +4,7 @@ import textToPrice from '../../../utils/textToPrice.js';
 
 import Card from 'material-ui/lib/card/card';
 import PhotoGallery from '../../PhotoGallery/PhotoGallery.js';
+import styles from './HouseInfo.css';
 
 class HouseInfo extends React.Component {
     static propTypes = {
@@ -58,7 +59,7 @@ class HouseInfo extends React.Component {
                 <article >
                     <h4>Key Facts:</h4>
                     <div className="row">
-                        <div className="six columns HouseInfo__key-facts">
+                        <div className="six columns HouseInfo__key-facts b-green">
                             {type && <p> {"Type: " + typeFormatted} </p> }
 
                             {/*                                {exteriorDetails && exteriorDetails['Lot Size'] &&

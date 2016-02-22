@@ -53,7 +53,7 @@
   },
   "betterScripts": {
     "start-dev": {
-      "command": "nodemon --exec babel-node -- ./server/server.js",
+      "command": "nodemon --exec babel-node -- ./server/main.js",
       "env": {
         "NODE_ENV": "development"
       }
@@ -68,6 +68,7 @@
     }
   },
   "dependencies": {
+    "autoprefixer-core": "^6.0.1",
     "babel-cli": "^6.3.17",
     "babel-core": "^6.3.26",
     "babel-loader": "^6.2.3",
@@ -121,7 +122,8 @@
     "seq-queue": "0.0.5",
     "squel": "^4.3.1",
     "style-loader": "^0.12.4",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "webpack-isomorphic-tools": "^2.2.29"
   },
   "devDependencies": {
     "babel-plugin-transform-runtime": "^6.3.13",

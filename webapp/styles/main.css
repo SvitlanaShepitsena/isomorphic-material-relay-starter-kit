@@ -1,15 +1,3 @@
-@import "AppLayout.css";
-@import "CityThumbPicture.css";
-@import "Footer.css";
-@import "HouseInfo.css";
-@import "ListingThumb.css";
-@import "ListingThumbInline.css";
-@import "PhotoGallery.css";
-@import "SearchForm.css";
-@import "skeleton.css";
-@import 'typography.css';
-@import '../components/Common/SelectMenu/SelectMenu.css';
-
 /* Insert any additional CSS you need here */
 
 .MenuItem__Link {

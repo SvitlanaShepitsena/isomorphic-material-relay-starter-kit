@@ -30,7 +30,6 @@ export default (req, res, next, assetsPath) => {
     const headers = {};
     if (req.cookies.auth_token)
         headers.Cookie = 'auth_token=' + req.cookies.auth_token;
-
     match({routes, location: req.originalUrl}, (error, redirectLocation, renderProps) => {
             queue.push(
                 queueTask => {
@@ -50,6 +49,9 @@ export default (req, res, next, assetsPath) => {
 
                     function render(data) {
                         try {
+                            webpack_isomorphic_tools.refresh();
+                            let assets = webpack_isomorphic_tools.assets();
+                            console.log(assets);
                             // Setting up static, global navigator object to pass user agent to material-ui. Again, not to
                             // fear, we are in a queue.
                             GLOBAL.navigator = {userAgent: req.headers['user-agent']};

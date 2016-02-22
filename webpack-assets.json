@@ -1,0 +1,7 @@
+{
+  "javascript": {
+    "app": "http://localhost:8080/0.7.7/app.js"
+  },
+  "styles": {},
+  "assets": {}
+}

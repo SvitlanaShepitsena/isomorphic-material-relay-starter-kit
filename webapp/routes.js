@@ -26,11 +26,15 @@ export default (()=> {
     return (
         <RelayRouter history={browserHistory}>
             <Route path="/" component={AppLayout} queries={ViewerQueries} name="Home">
-                <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries} name="Houses for Sale"/>
+                <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
+                       name="Houses for Sale"/>
                 <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
-                <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage} queries={ViewerQueries}/>
-                <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage} queries={ViewerQueries}/>
+                <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
+                       queries={ViewerQueries}/>
+                <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage}
+                       queries={ViewerQueries}/>
 
+                <Route path="/about" component={AboutPage} queries={ViewerQueries} name="Houses for Sale"/>
             </Route>
         </RelayRouter>
     )
