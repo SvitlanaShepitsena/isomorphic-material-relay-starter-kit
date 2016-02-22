@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import Breadcrumbs from 'react-breadcrumbs';
-import Spinner from 'material-ui/lib/circular-progress';
+import Spinner from '../../../../node_modules/material-ui/lib/circular-progress';
 
 /*Components*/
-import HouseInfo from '../../components/House/HouseInfo/HouseInfo.js';
+import HouseInfo from '../../../components/House/HouseInfo/HouseInfo.js';
 
 class HousePage extends React.Component {
     getChildContext() {

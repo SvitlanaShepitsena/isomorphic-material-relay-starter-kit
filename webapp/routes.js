@@ -1,3 +1,12 @@
+// REACT  & Relay
+import React from 'react';
+import {render} from 'react-dom';
+import Relay from 'react-relay';
+
+// Router
+import {RelayRouter} from 'react-router-relay';
+import {Route, browserHistory} from 'react-router';
+
 import AppLayout from './containers/layout/AppLayout.js';
 import ViewerQueries from './queries/ViewerQueries';
 
@@ -10,113 +19,22 @@ import PrivacyPage from './containers/pages/PrivacyPage';
 import TermsPage from './containers/pages/TermsPage';
 import CityPage from './containers/pages/CityPage';
 
-import ZipHousesListPage from './containers/pages/ZipHousesListPage';
-import ZipTypeHousesListPage from './containers/pages/ZipTypeHousesListPage';
-import TypeHousesListPage from './containers/pages/TypeHousesListPage';
-import HousePage from './containers/pages/HousePage';
+import ZipTypeHousesListPage from './containers/pages/houses/ZipTypeHousesListPage';
+import CityZipTypeHousesListPage from './containers/pages/houses/CityZipTypeHousesListPage';
+import HousePage from './containers/pages/houses/HousePage';
 
-export default [
-    {
-        path: '/',
-        name: 'Home',
-        component: AppLayout,
-        queries: ViewerQueries,
+export default (()=> {
+    return (
+        <RelayRouter history={browserHistory}>
+            <Route path="/" component={AppLayout} queries={ViewerQueries} name="Home">
+                <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries} name="Houses for Sale"/>
+                <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
+                <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage} queries={ViewerQueries}/>
+                <Route path="/houses-for-sale/:city/:zipType/:type/:street" component={HousePage} queries={ViewerQueries}/>
 
-        indexRoute: {
-            component: HomePage,
-            queries: ViewerQueries
-        },
-        childRoutes: [
-            {
-                path: 'houses-for-sale',
-                name: 'Houses for Sale',
-                indexRoute: {
-                    component: CitiesSalePage,
-                    queries: ViewerQueries
-                },
-                childRoutes: [
-                    {
-                        path: ":city",
-                        indexRoute: {
-                            component: CityPage,
-                            queries: ViewerQueries
-                        },
-                        childRoutes: [
-                            {
-                                path: ":zip",
-                                indexRoute: {
-                                    component: ZipHousesListPage,
-                                    queries: ViewerQueries
-                                },
+            </Route>
+        </RelayRouter>
+    )
+})();
 
-                                childRoutes: [
-                                    {
-                                        path: ":type",
-                                        indexRoute: {
-                                            component: ZipTypeHousesListPage,
-                                            queries: ViewerQueries
-                                        },
 
-                                        childRoutes: [
-                                            {
-                                                path: ":street",
-                                                indexRoute: {
-                                                    component: HousePage,
-                                                    queries: ViewerQueries
-                                                },
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                path: "type/:type",
-                                indexRoute: {
-                                    component: TypeHousesListPage,
-                                    queries: ViewerQueries
-                                }
-
-                            },
-
-                        ]
-                    }
-                ]
-            },
-            {
-                path: 'houses-for-rent',
-                indexRoute: {
-                    component: CitiesRentPage,
-                    queries: ViewerQueries
-                },
-            },
-            {
-                path: 'about',
-                indexRoute: {
-                    component: AboutPage,
-                    queries: ViewerQueries
-                },
-            },
-            {
-                path: 'terms',
-                indexRoute: {
-                    component: TermsPage,
-                    queries: ViewerQueries
-                },
-            },
-            {
-                path: 'privacy',
-                indexRoute: {
-                    component: PrivacyPage,
-                    queries: ViewerQueries
-                },
-            },
-            {
-                path: 'contact',
-                indexRoute: {
-                    component: ContactPage,
-                    queries: ViewerQueries
-                },
-            }
-        ]
-    },
-];

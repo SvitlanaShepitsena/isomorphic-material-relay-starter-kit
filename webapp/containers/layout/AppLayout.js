@@ -82,7 +82,6 @@ class AppLayout extends React.Component {
                 </AppBar>
                 <div className="AppLayout__content">
                     <div className="container">
-                        <SearchFormInline/>
                         <div className="row">
                             <div className="eight columns">
                                 <div >

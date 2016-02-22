@@ -1,16 +1,17 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import _ from 'lodash';
+import urlToText from '../../../utils/urlToText.js';
 import Breadcrumbs from 'react-breadcrumbs';
 
 /*MaterialUi*/
-import Spinner from 'material-ui/lib/circular-progress';
+import Spinner from '../../../../node_modules/material-ui/lib/circular-progress';
 
 /*Components*/
-import ZipTypeList from '../../components/City/ZipTypeList/ZipTypeList.js';
-import HousesList from '../../components/House/HousesList/HousesList.js';
+import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
+import HousesList from '../../../components/House/HousesList/HousesList.js';
 
-class TypeHousesListPage extends React.Component {
+class CityZipTypeHousesListPage extends React.Component {
     state = {compare: true};
 
     getChildContext() {
@@ -22,61 +23,47 @@ class TypeHousesListPage extends React.Component {
     };
 
     componentDidMount() {
+        let zipType = this.props.params.zipType;
+
+        this.zip = zipType;
+
         this.props.relay.setVariables({
-            city: this.props.params.city,
-            zip: this.props.params.zipType,
+            zip: this.zip,
             type: this.props.params.type
         })
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps.params);
-        console.log('ddddddddddddddddddddddd');
-        console.log(this.props.relay.variables);
-        console.log('ddddddddddddddddddddddd');
-
-        if (this.state.compare) {
-            this.setState({compare: false});
-            this.props.relay.setVariables({
-                city: this.props.params.city,
-                zip: this.props.params.zipType,
-                type: this.props.params.type
-
-            }, ()=> {
-                this.setState({compare: true});
-            });
-            console.log('run');
-
-        }
-
     }
 
     render() {
         const routes = this.props.routes;
         const params = this.props.params;
-        const cityTypeHouses = this.props.Viewer.Houses.edges;
-        const city = _.startCase(this.props.params.city);
+
+        const houses = this.props.Viewer.Houses.edges;
+
+        const city = this.props.params.city;
+        const zip = this.zip;
         const type = this.props.params.type;
+
+        const cityFormatted = urlToText(city);
+        const typeFormatted = urlToText(type);
 
         return (
             <div>
                 <br/>
                 <Breadcrumbs routes={routes} params={params}/>
 
-                <h1>{`${type}s for Sale in ${city}`}</h1>
+                 <h1>{`${typeFormatted}s for Sale in ${cityFormatted}, ${zip}`}</h1>
                 <hr/>
-
-                <hr/>
-                {!cityTypeHouses &&
+                {!houses &&
                 <div style={{textAlign:"center"}}>
                     <Spinner size={1.5}/>
                 </div>
                 }
 
-                {cityTypeHouses &&
+                <hr/>
+                {houses &&
                 <HousesList
-                    list={cityTypeHouses}
-                    cityName={city}
+                    list={houses}
+                    cityName={cityFormatted}
                     listType="inline"/>
                 }
                 <br/>
@@ -86,12 +73,12 @@ class TypeHousesListPage extends React.Component {
     }
 }
 ;
-export default Relay.createContainer(TypeHousesListPage, {
+export default Relay.createContainer(CityZipTypeHousesListPage, {
     initialVariables: {city: '', zip: '', type: ''},
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                Houses(city:$city,type:$type, first:20){
+                Houses(zip:$zip,type:$type, first:20){
                     edges{
                         node{
                             id
