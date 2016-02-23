@@ -5,13 +5,13 @@
   "styles": {},
   "assets": {
     "./webapp/containers/layout/AppLayout.css": {
-      "svStyle": "AppLayout__svStyle___2XcG2",
-      "svCenter": "AppLayout__svCenter___3PJK-",
-      "_style": ".AppLayout__svStyle___2XcG2 {\r\n    padding-top: 400px;\r\n    background-color: blue;\r\n    width: calc(99.99% * 1/2 - (30px - 30px * 1/2));\r\n}\r\n\r\n.AppLayout__svStyle___2XcG2:nth-child(1n) {\r\n    float: left;\r\n    margin-right: 30px;\r\n    clear: none;\r\n}\r\n\r\n.AppLayout__svStyle___2XcG2:last-child {\r\n    margin-right: 0;\r\n}\r\n\r\n.AppLayout__svStyle___2XcG2:nth-child(2n) {\r\n    margin-right: 0;\r\n    float: right;\r\n}\r\n\r\n.AppLayout__svStyle___2XcG2:nth-child(2n + 1) {\r\n    clear: left;\r\n}\r\n\r\n.AppLayout__svCenter___3PJK-{\r\n    position: relative\r\n}\r\n\r\n.AppLayout__svCenter___3PJK- > * {\r\n    position: absolute;\r\n    top: 50%;\r\n    right: auto;\r\n    bottom: auto;\r\n    left: 50%;\r\n    -webkit-transform: translate(-50%, -50%);\r\n            transform: translate(-50%, -50%);\r\n}\r\n"
+      "svStyle": "AppLayout__svStyle__2Xc",
+      "svCenter": "AppLayout__svCenter__3PJ",
+      "_style": ".AppLayout__svStyle__2Xc {\r\n    padding-top: 400px;\r\n    background-color: blue;\r\n    width: calc(99.99% * 1/2 - (30px - 30px * 1/2));\r\n}\r\n\r\n.AppLayout__svStyle__2Xc:nth-child(1n) {\r\n    float: left;\r\n    margin-right: 30px;\r\n    clear: none;\r\n}\r\n\r\n.AppLayout__svStyle__2Xc:last-child {\r\n    margin-right: 0;\r\n}\r\n\r\n.AppLayout__svStyle__2Xc:nth-child(2n) {\r\n    margin-right: 0;\r\n    float: right;\r\n}\r\n\r\n.AppLayout__svStyle__2Xc:nth-child(2n + 1) {\r\n    clear: left;\r\n}\r\n\r\n.AppLayout__svCenter__3PJ{\r\n    position: relative\r\n}\r\n\r\n.AppLayout__svCenter__3PJ > * {\r\n    position: absolute;\r\n    top: 50%;\r\n    right: auto;\r\n    bottom: auto;\r\n    left: 50%;\r\n    -webkit-transform: translate(-50%, -50%);\r\n            transform: translate(-50%, -50%);\r\n}\r\n"
     },
     "./webapp/components/AppViews/About/AboutContent.css": {
-      "orange": "AboutContent__orange___2eqNn",
-      "_style": ".AboutContent__orange___2eqNn {\r\n    color: green;\r\n}"
+      "orange": "AboutContent__orange__2eq",
+      "_style": ".AboutContent__orange__2eq {\r\n    color: green;\r\n}"
     }
   }
 }

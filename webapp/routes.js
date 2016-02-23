@@ -5,7 +5,7 @@ import Relay from 'react-relay';
 
 // Router
 import {RelayRouter} from 'react-router-relay';
-import {Route, browserHistory} from 'react-router';
+import {Route, browserHistory,Redirect,IndexRedirect} from 'react-router';
 
 import AppLayout from './containers/layout/AppLayout.js';
 import ViewerQueries from './queries/ViewerQueries';
@@ -28,6 +28,7 @@ export default (()=> {
             <Route path="/" component={AppLayout} queries={ViewerQueries} name="Home">
                 <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                        name="Houses for Sale"/>
+                <IndexRedirect  to="/houses-for-sale" />
                 <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
                 <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
                        queries={ViewerQueries}/>
