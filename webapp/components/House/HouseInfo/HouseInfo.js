@@ -4,7 +4,6 @@ import textToPrice from '../../../utils/textToPrice.js';
 
 import Card from 'material-ui/lib/card/card';
 import PhotoGallery from '../../PhotoGallery/PhotoGallery.js';
-import styles from './HouseInfo.css';
 
 class HouseInfo extends React.Component {
     static propTypes = {

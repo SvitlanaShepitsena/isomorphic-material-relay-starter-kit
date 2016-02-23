@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import {Link} from 'react-router';
 import settings from '../../settings/settings.js';
@@ -10,31 +10,8 @@ import IconButton from 'material-ui/lib/icon-button';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 import ContactForm from '../../components/AppViews/Contact/ContactForm.js';
-import SearchFormInline from '../../components/Search/SearchFormInline.js';
 
-/*Components*/
-import AppNav_Top from './AppNav_Top.js';
-import AppBar_Auth from './AppBar_Auth.js'
-import Footer from './AppFooterSmart.js';
-
-/*App Color Theme*/
-import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import MyRawTheme from '../../settings/AppMuiTheme.js';
-import style from './AppLayout.css';
-class AppLayout extends React.Component {
-
-    getChildContext() {
-        return {
-            muiTheme: ThemeManager.getMuiTheme(MyRawTheme),
-        };
-    }
-
-    state = {
-        open: false
-    };
-
-    handleToggle = () => this.setState({open: !this.state.open});
-    handleClose = () => this.setState({open: false});
+class MobileMenu extends React.Component {
 
     render() {
         return (
@@ -69,9 +46,9 @@ class AppLayout extends React.Component {
                         <Link to="/about">About Us</Link>
                     </MenuItem>
                 </LeftNav>
-                <AppBar
-                    onLeftIconButtonTouchTap={this.handleToggle}
-                    title={<Link className="AppBar__title"  to="/">
+                <AppBar className="AppBar_Container"
+                        onLeftIconButtonTouchTap={this.handleToggle}
+                        title={<Link className="AppBar__title"  to="/">
                         <ul className="AppBar__title-ul">
                         <li> <img className="AppBar__logo-img" src="http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png" alt={settings.companyName + " Logo"} /> </li>
                         <li className="AppBar__title-li-text"> {settings.companyName} </li> </ul>
@@ -83,25 +60,23 @@ class AppLayout extends React.Component {
                 <div className="AppLayout__content">
                     <div className="container">
                         <div className="row">
-                            <div className={style.svStyle}>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat</p>
-                            <div >
-                                {this.props.children}
-                                <br/>
+                            <div className="eight columns">
+                                <div >
+                                    {this.props.children}
+                                    <br/>
+                                </div>
                             </div>
-                        </div>
-                        <div className="four columns">
-                            <div className="AppLayout__aside">
-                                <ContactForm/>
+                            <div className="four columns">
+                                <div className="AppLayout__aside">
+                                    <ContactForm/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <Footer></Footer>
-    </AppCanvas>
-    )
-        ;
+                <Footer></Footer>
+            </AppCanvas>
+        );
     }
 }
 
@@ -113,12 +88,4 @@ AppLayout.childContextTypes = {
     muiTheme: React.PropTypes.object,
 };
 
-export default Relay.createContainer(AppLayout, {
-    fragments: {
-        Viewer: () => Relay.QL`
-            fragment on Viewer {
-                ${AppBar_Auth.getFragment('Viewer')},
-            }
-        `,
-    },
-});
+export default MobileMenu;

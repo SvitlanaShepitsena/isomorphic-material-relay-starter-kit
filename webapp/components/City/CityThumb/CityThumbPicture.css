@@ -1,38 +1,40 @@
-.main {
+/*=Desktop Footer*/
+
+.CityThumbPicture {
     margin: 12px 0;
     padding-bottom: 16px;
 }
 
-.cityName {
+.CityThumbPicture__city-name {
     padding: 0 0 5px 16px;
 }
 
-.cityName span {
+.CityThumbPicture__city-name span {
     font-size: 16px !important;
     color: whitesmoke !important;
 }
 
-.cardTitle {
+.CityThumbPicture__card-title {
     padding-bottom: 0 !important;
     font-size: 13px;
 }
 
-.cardText {
+.CityThumbPicture__card-text {
     padding: 5px 12px 0;
     font-size: 13px;
 }
 
 /*Mobile*/
 @media screen and (max-width: 600px) {
-    .cityName span {
+    .CityThumbPicture__city-name span {
         font-size: 22px !important;
     }
 
-    .cardTitle {
+    .CityThumbPicture__card-title {
         font-size: 14px;
     }
 
-    .cardText {
+    .CityThumbPicture__card-text {
         font-size: 14px;
     }
 }
