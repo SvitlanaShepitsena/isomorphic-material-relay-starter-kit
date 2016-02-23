@@ -1,11 +1,13 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
-/*=MaterialUi*/
+/*=materialUi*/
 import CityThumbPicture from '../CityThumb/CityThumbPicture.js';
 
-/*=Components*/
+/*=components*/
 import SvLink from '../../Common/SvLink.js';
+/*=styles*/
+import styles from './CitiesList.less';
 
 class CitiesList extends React.Component {
 
@@ -17,7 +19,7 @@ class CitiesList extends React.Component {
 
     render() {
         return (
-            <div className="row ColsList-4">
+            <div className={styles.container}>
                 {this.props.list.map(edge => {
                         const item = edge.node;
                         const itemId = this.props.itemId;
@@ -25,8 +27,8 @@ class CitiesList extends React.Component {
                         const itemValue = item[itemId];
 
                         return (
-                            <div className="four columns" key={itemValue}>
-                                <SvLink url={itemValue}>
+                            <div className={styles.item} key={itemValue}>
+                                <SvLink url={itemValue} style={{padding: 16}}>
                                     <CityThumbPicture
                                         housesLength={item[`${children}_Count`]}
                                         cityName={itemValue}/>

@@ -24,14 +24,13 @@ let config = {
             {test: /\.js(x)?$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/},
             {test: /\.json$/, loaders: ['json']},
             {
-                test: /\.css$/,
-                loader:  'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:3]!postcss',
+                test: /\.less$/,
+                loader:  'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:3]!postcss!less',
             },
         ]
     },
     postcss: [
         require('lost'),
-        require('precss'),
         require('rucksack-css'),
         require('autoprefixer'),
         require('postcss-color-rebeccapurple')

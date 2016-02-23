@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './AboutContent.css';
+import s from './AboutContent.less';
 
 class AboutContent extends React.Component {
 

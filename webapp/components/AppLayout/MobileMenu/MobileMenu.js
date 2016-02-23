@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import MenuItem from 'material-ui/lib/menus/menu-item';
-import styles from './MobileMenu.css';
+import styles from './MobileMenu.less';
 
 class MobileMenu extends React.Component {
     static propTypes = {

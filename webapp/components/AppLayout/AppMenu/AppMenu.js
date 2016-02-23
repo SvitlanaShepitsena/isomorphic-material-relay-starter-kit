@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 /*=materialUi*/
 import MenuItem from 'material-ui/lib/menus/menu-item';
 /*=styles*/
-import styles from './AppMenu.css';
+import styles from './AppMenu.less';
 
 class AppMenu extends React.Component {
 

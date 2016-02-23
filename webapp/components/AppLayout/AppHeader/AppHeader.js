@@ -9,7 +9,7 @@ import AppMenu from './../AppMenu/AppMenu.js';
 import settings from '../../../settings/settings.js';
 
 /*styles*/
-import styles from './AppHeader.css';
+import styles from './AppHeader.less'
 
 class AppHeader extends React.Component {
     static propTypes = {

@@ -19,7 +19,7 @@ import Footer from './AppFooterSmart.js';
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import MyRawTheme from '../../settings/AppMuiTheme.js';
-import styles from './AppLayout.css';
+import styles from './AppLayout.less';
 
 class AppLayout extends React.Component {
 
@@ -37,8 +37,9 @@ class AppLayout extends React.Component {
     handleClose = () => this.setState({open: false});
 
     render() {
+        console.log(styles);
         return (
-            <AppCanvas style={{position:"relative",height:"100%"}} className="AppLayout">
+            <AppCanvas style={{position:"relative",height:"100%"}}>
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
                     <MobileDrawerHeader onTouchTap={this.handleClose}/>
                     <MobileMenu onTouchTap={this.handleClose}/>

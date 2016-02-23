@@ -5,7 +5,7 @@ import AppBar from 'material-ui/lib/app-bar';
 import IconButton from 'material-ui/lib/icon-button';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 import settings from '../../../settings/settings.js';
-import styles from './MobileDrawerHeader.css';
+import styles from './MobileDrawerHeader.less';
 
 class MobileDrawerHeader extends React.Component {
     static propTypes = {
