@@ -1,4 +1,9 @@
-.svStyle{
+.svStyle {
     padding-top: 400px;
     background-color: blue;
+    lost-column:1/2;
+}
+
+.svCenter{
+    lost-align:center
 }

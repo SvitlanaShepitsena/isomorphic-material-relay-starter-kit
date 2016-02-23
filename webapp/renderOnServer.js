@@ -57,8 +57,7 @@ export default (req, res, next, assetsPath) => {
 
                                 var file = assets[key];
                                 var oneFile = Object.keys(file).map(css=> {
-                                    var oneStyle = `${css}:${file[css]}`;
-                                    return oneStyle;
+                                    return `${css}:${file[css]}`;
                                 }).join(',');
                                 return oneFile;
                             }).join('\r\n');

@@ -25,11 +25,14 @@ let config = {
             {test: /\.json$/, loaders: ['json']},
             {
                 test: /\.css$/,
-                loader:  'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]',
+                loader:  'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:3]!postcss',
             },
         ]
     },
     postcss: [
+        require('lost'),
+        require('precss'),
+        require('rucksack-css'),
         require('autoprefixer'),
         require('postcss-color-rebeccapurple')
     ],
