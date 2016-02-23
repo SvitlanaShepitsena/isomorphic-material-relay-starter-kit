@@ -39,7 +39,6 @@ module.exports = {
       extensions: ['css'],
       filter: function(module, regex, options, log) {
         if (options.development) {
-            console.log('dev');
           // in development mode there's webpack "style-loader",
           // so the module.name is not equal to module.name
           return WebpackIsomorphicToolsPlugin.style_loader_filter(module, regex, options, log);

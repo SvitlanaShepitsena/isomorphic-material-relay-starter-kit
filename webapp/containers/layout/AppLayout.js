@@ -20,6 +20,7 @@ import Footer from './AppFooterSmart.js';
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import MyRawTheme from '../../settings/AppMuiTheme.js';
+import st from './AppLayout.css';
 
 class AppLayout extends React.Component {
 
@@ -38,14 +39,14 @@ class AppLayout extends React.Component {
 
     render() {
         return (
-            <AppCanvas style={{position:"relative",height:"100%"}} className="AppLayout">
+            <AppCanvas style={{position:"relative",height:"100%"}} className={styles.layout}>
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
-                    <AppBar primary={true}
+                    <AppBar className={st.top} primary={true}
                             showMenuIconButton={false}
                             iconElementLeft={
                         <Link to="/" onTouchTap={this.handleClose}>
                             <img
-                                style={{padding:8,width:50}}
+                                style={{padding:8,width:50,height:50}}
                                 src="http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png"
                                 alt={settings.companyName + " Logo"}
                             />

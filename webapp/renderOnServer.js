@@ -27,6 +27,7 @@ const queue = seqqueue.createQueue(2000);
 const GRAPHQL_URL = ( isoVars.public_url == null ) ? `http://localhost:${process.env.PORT}/graphql` : isoVars.public_url + '/graphql';
 
 export default (req, res, next, assetsPath) => {
+    webpack_isomorphic_tools.refresh();
     const headers = {};
     if (req.cookies.auth_token)
         headers.Cookie = 'auth_token=' + req.cookies.auth_token;
@@ -49,9 +50,12 @@ export default (req, res, next, assetsPath) => {
 
                     function render(data) {
                         try {
-                            webpack_isomorphic_tools.refresh();
-                            let assets = webpack_isomorphic_tools.assets();
-                            console.log(assets);
+
+                            let styles = webpack_isomorphic_tools.assets().assets;
+                            styles = Object.keys(styles).map((style, key)=> {
+                                return style;
+
+                            });
                             // Setting up static, global navigator object to pass user agent to material-ui. Again, not to
                             // fear, we are in a queue.
                             GLOBAL.navigator = {userAgent: req.headers['user-agent']};
@@ -63,6 +67,7 @@ export default (req, res, next, assetsPath) => {
                             res.render(path.resolve(__dirname, '..', 'webapp/views', 'index.ejs'), {
                                 preloadedData: JSON.stringify(data),
                                 assetsPath: assetsPath,
+                                styles,
                                 helmet,
                                 reactOutput,
                                 isomorphicVars: isoVars

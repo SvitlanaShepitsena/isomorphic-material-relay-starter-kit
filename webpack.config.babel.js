@@ -25,12 +25,12 @@ let config = {
             {test: /\.json$/, loaders: ['json']},
             {
                 test: /\.css$/,
-                loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
+                loader:  'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!postcss',
             },
         ]
     },
     postcss: [
-        require('autoprefixer-core'),
+        require('autoprefixer'),
         require('postcss-color-rebeccapurple')
     ],
 
@@ -46,7 +46,7 @@ let config = {
                 }
             }
         }),
-        webpack_isomorphic_tools_plugin
+        webpack_isomorphic_tools_plugin.development()
     ],
     watchOptions: {
         aggregateTimeout: 5,

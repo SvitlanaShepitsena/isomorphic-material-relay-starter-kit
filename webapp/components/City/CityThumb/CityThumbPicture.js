@@ -1,5 +1,6 @@
 import React from 'react';
 import urlToText from '../../../utils/urlToText.js';
+import style from './CityThumbPicture.css';
 
 /*=MaterialUi*/
 import Card from 'material-ui/lib/card/card';
@@ -16,17 +17,17 @@ class CityThumbPicture extends React.Component {
         let cityFormatted = urlToText(city);
 
         return (
-            <Card className="CityThumbPicture" shadow={0}>
+            <Card className={style.main} shadow={0}>
                 <CardMedia
-                    overlay={<CardTitle className="CityThumbPicture__city-name"  subtitle={cityFormatted} />}>
+                    overlay={<CardTitle className={style.cityName}  subtitle={cityFormatted} />}>
                     <img src="http://www.datarecovery.net/i/Places/skokie-il-hard-drive-data-recovery.jpg"/>
                 </CardMedia>
-                <CardTitle className="CityThumbPicture__card-title"
+                <CardTitle className={style.cardTitle}
                            subtitle={ <span>
                             Listings for sale:
                            {housesLength && <span className="text-primary"> {housesLength} </span> } </span> }
                 />
-                {/*                <CardText className="CityThumbPicture__card-text ">
+                {/*                <CardText className="s.CityThumbPicture__card-text ">
                  Median price: {this.props.medianPrice && <span> { +this.props.medianPrice} </span> }
                  </CardText>*/}
             </Card >
