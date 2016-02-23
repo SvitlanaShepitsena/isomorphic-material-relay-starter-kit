@@ -51,11 +51,18 @@ export default (req, res, next, assetsPath) => {
                     function render(data) {
                         try {
 
-                            let styles = webpack_isomorphic_tools.assets().assets;
-                            styles = Object.keys(styles).map((style, key)=> {
-                                return style;
+                            var assets = webpack_isomorphic_tools.assets().assets;
 
-                            });
+                            var allStyles = Object.keys(assets).map((key)=> {
+
+                                var file = assets[key];
+                                var oneFile = Object.keys(file).map(css=> {
+                                    var oneStyle = `${css}:${file[css]}`;
+                                    return oneStyle;
+                                }).join(',');
+                                return oneFile;
+                            }).join('\r\n');
+                            console.log(allStyles);
                             // Setting up static, global navigator object to pass user agent to material-ui. Again, not to
                             // fear, we are in a queue.
                             GLOBAL.navigator = {userAgent: req.headers['user-agent']};
@@ -67,14 +74,13 @@ export default (req, res, next, assetsPath) => {
                             res.render(path.resolve(__dirname, '..', 'webapp/views', 'index.ejs'), {
                                 preloadedData: JSON.stringify(data),
                                 assetsPath: assetsPath,
-                                styles,
                                 helmet,
                                 reactOutput,
                                 isomorphicVars: isoVars
                             });
                         }
                         catch (err) {
-
+                            console.log(err);
                         }
 
                         queueTask.done();

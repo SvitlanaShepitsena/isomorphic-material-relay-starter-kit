@@ -25,7 +25,7 @@ let config = {
             {test: /\.json$/, loaders: ['json']},
             {
                 test: /\.css$/,
-                loader:  'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!postcss',
+                loader:  'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]',
             },
         ]
     },
