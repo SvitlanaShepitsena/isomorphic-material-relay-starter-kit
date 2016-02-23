@@ -1,0 +1,30 @@
+.container{
+    max-height: 65px;
+}
+.titleList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.titleList li {
+    display: inline-block;
+}
+
+.companyName {
+    padding-left: 5px;
+    vertical-align: top;
+    font-size: 20px;
+    color: white;
+}
+
+.companyLogoContainer {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.companyLogoContainer img {
+    display: block;
+    padding: 8px;
+    width: 50px;
+}
