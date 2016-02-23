@@ -20,13 +20,12 @@ class AppHeader extends React.Component {
         return (
             <AppBar className={styles.container}
                     onLeftIconButtonTouchTap={this.props.onTouchTap}
-                title={<Link to="/">
-                        <ul className={styles.titleList}>
-                        <li className={styles.companyLogoContainer}> <img src={settings.companyLogo} alt={settings.companyName + " Logo"} /> </li>
-                        <li className={styles.companyName} > {settings.companyName} </li>
-                        </ul>
-                        </Link>
-                        }>
+                    title={<Link to="/">
+                            <ul>
+                                <li className={styles.companyLogo}> <img src={settings.companyLogo} alt={settings.companyName + " Logo"} /> </li>
+                                <li className={styles.companyName} > {settings.companyName} </li>
+                            </ul>
+                        </Link>}>
                 <AppMenu></AppMenu>
             </AppBar>
         );

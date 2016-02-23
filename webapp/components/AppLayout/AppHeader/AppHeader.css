@@ -1,13 +1,14 @@
-.container{
+.container {
     max-height: 65px;
 }
-.titleList {
+
+.container ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.titleList li {
+.container ul li {
     display: inline-block;
 }
 
@@ -18,12 +19,12 @@
     color: white;
 }
 
-.companyLogoContainer {
+.companyLogo {
     display: inline-block;
     vertical-align: top;
 }
 
-.companyLogoContainer img {
+.companyLogo img {
     display: block;
     padding: 8px;
     width: 50px;

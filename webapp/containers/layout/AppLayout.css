@@ -1,9 +1,16 @@
-.svStyle {
-    padding-top: 400px;
-    background-color: blue;
-    lost-column: 1/2;
+.footer {
+    lost-column: 1;
 }
 
-.svCenter {
-    lost-align: center
+.contentWrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.mainContent {
+    lost-column: 2/3;
+}
+
+.asideContent {
+    lost-column: 1/3;
 }

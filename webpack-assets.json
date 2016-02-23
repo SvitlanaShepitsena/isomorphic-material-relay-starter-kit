@@ -9,10 +9,9 @@
     },
     "./webapp/components/AppLayout/AppHeader/AppHeader.css": {
       "container": "AppHeader__container__2rj",
-      "titleList": "AppHeader__titleList__iVt",
       "companyName": "AppHeader__companyName__1n8",
-      "companyLogoContainer": "AppHeader__companyLogoContainer__3bb",
-      "_style": ".AppHeader__container__2rj{\r\n    max-height: 65px;\r\n}\r\n.AppHeader__titleList__iVt {\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.AppHeader__titleList__iVt li {\r\n    display: inline-block;\r\n}\r\n\r\n.AppHeader__companyName__1n8 {\r\n    padding-left: 5px;\r\n    vertical-align: top;\r\n    font-size: 20px;\r\n    color: white;\r\n}\r\n\r\n.AppHeader__companyLogoContainer__3bb {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n}\r\n\r\n.AppHeader__companyLogoContainer__3bb img {\r\n    display: block;\r\n    padding: 8px;\r\n    width: 50px;\r\n}\r\n"
+      "companyLogo": "AppHeader__companyLogo__3bJ",
+      "_style": ".AppHeader__container__2rj {\r\n    max-height: 65px;\r\n}\r\n\r\n.AppHeader__container__2rj ul {\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n.AppHeader__container__2rj ul li {\r\n    display: inline-block;\r\n}\r\n\r\n.AppHeader__companyName__1n8 {\r\n    padding-left: 5px;\r\n    vertical-align: top;\r\n    font-size: 20px;\r\n    color: white;\r\n}\r\n\r\n.AppHeader__companyLogo__3bJ {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n}\r\n\r\n.AppHeader__companyLogo__3bJ img {\r\n    display: block;\r\n    padding: 8px;\r\n    width: 50px;\r\n}\r\n"
     },
     "./webapp/components/AppLayout/MobileMenu/MobileMenu.css": {
       "_style": ""
@@ -21,9 +20,11 @@
       "_style": ""
     },
     "./webapp/containers/layout/AppLayout.css": {
-      "svStyle": "AppLayout__svStyle__2Xc",
-      "svCenter": "AppLayout__svCenter__3PJ",
-      "_style": ".AppLayout__svStyle__2Xc {\r\n    padding-top: 400px;\r\n    background-color: blue;\r\n    width: calc(99.99% * 1/2 - (30px - 30px * 1/2));\r\n}\r\n\r\n.AppLayout__svStyle__2Xc:nth-child(1n) {\r\n    float: left;\r\n    margin-right: 30px;\r\n    clear: none;\r\n}\r\n\r\n.AppLayout__svStyle__2Xc:last-child {\r\n    margin-right: 0;\r\n}\r\n\r\n.AppLayout__svStyle__2Xc:nth-child(2n) {\r\n    margin-right: 0;\r\n    float: right;\r\n}\r\n\r\n.AppLayout__svStyle__2Xc:nth-child(2n + 1) {\r\n    clear: left;\r\n}\r\n\r\n.AppLayout__svCenter__3PJ {\r\n    position: relative\r\n}\r\n\r\n.AppLayout__svCenter__3PJ > * {\r\n    position: absolute;\r\n    top: 50%;\r\n    right: auto;\r\n    bottom: auto;\r\n    left: 50%;\r\n    -webkit-transform: translate(-50%, -50%);\r\n            transform: translate(-50%, -50%);\r\n}\r\n"
+      "footer": "AppLayout__footer__hCV",
+      "contentWrapper": "AppLayout__contentWrapper__1ur",
+      "mainContent": "AppLayout__mainContent__1WM",
+      "asideContent": "AppLayout__asideContent__2ES",
+      "_style": ".AppLayout__footer__hCV {\r\n    width: calc(99.99% * 1 - (30px - 30px * 1));\r\n}\r\n\r\n.AppLayout__footer__hCV:nth-child(1n) {\r\n    float: left;\r\n    margin-right: 30px;\r\n    clear: none;\r\n}\r\n\r\n.AppLayout__footer__hCV:last-child {\r\n    margin-right: 0;\r\n}\r\n\r\n.AppLayout__footer__hCV:nth-child(undefinedn) {\r\n    margin-right: 0;\r\n    float: right;\r\n}\r\n\r\n.AppLayout__footer__hCV:nth-child(undefinedn + 1) {\r\n    clear: left;\r\n}\r\n\r\n.AppLayout__contentWrapper__1ur {\r\n    width: 1200px;\r\n    margin: 0 auto;\r\n}\r\n\r\n.AppLayout__mainContent__1WM {\r\n    width: calc(99.99% * 2/3 - (30px - 30px * 2/3));\r\n}\r\n\r\n.AppLayout__mainContent__1WM:nth-child(1n) {\r\n    float: left;\r\n    margin-right: 30px;\r\n    clear: none;\r\n}\r\n\r\n.AppLayout__mainContent__1WM:last-child {\r\n    margin-right: 0;\r\n}\r\n\r\n.AppLayout__mainContent__1WM:nth-child(3n) {\r\n    margin-right: 0;\r\n    float: right;\r\n}\r\n\r\n.AppLayout__mainContent__1WM:nth-child(3n + 1) {\r\n    clear: left;\r\n}\r\n\r\n.AppLayout__asideContent__2ES {\r\n    width: calc(99.99% * 1/3 - (30px - 30px * 1/3));\r\n}\r\n\r\n.AppLayout__asideContent__2ES:nth-child(1n) {\r\n    float: left;\r\n    margin-right: 30px;\r\n    clear: none;\r\n}\r\n\r\n.AppLayout__asideContent__2ES:last-child {\r\n    margin-right: 0;\r\n}\r\n\r\n.AppLayout__asideContent__2ES:nth-child(3n) {\r\n    margin-right: 0;\r\n    float: right;\r\n}\r\n\r\n.AppLayout__asideContent__2ES:nth-child(3n + 1) {\r\n    clear: left;\r\n}\r\n"
     },
     "./webapp/components/AppViews/About/AboutContent.css": {
       "orange": "AboutContent__orange__2eq",

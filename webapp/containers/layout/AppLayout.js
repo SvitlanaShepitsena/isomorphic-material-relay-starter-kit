@@ -19,7 +19,7 @@ import Footer from './AppFooterSmart.js';
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import MyRawTheme from '../../settings/AppMuiTheme.js';
-import style from './AppLayout.css';
+import styles from './AppLayout.css';
 
 class AppLayout extends React.Component {
 
@@ -44,38 +44,22 @@ class AppLayout extends React.Component {
                     <MobileMenu onTouchTap={this.handleClose}/>
                 </LeftNav>
                 <AppHeader onTouchTap={this.handleToggle}/>
-                <div className="AppLayout__content">
-                    <div className="container">
-                        <div className={style.svCenter}>
-                            <div className={style.svStyle}>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                                    voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                                    occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
-                                    mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et
-                                    expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque
-                                    nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
-                                    assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis
-                                    debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-                                    molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut
-                                    reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus
-                                    asperiores repellat</p>
-                                <div >
-                                    {this.props.children}
-                                    <br/>
-                                </div>
-                            </div>
-                            <div className="four columns">
-                                <div className="AppLayout__aside">
-                                    <ContactForm/>
-                                </div>
-                            </div>
+                <div className={styles.contentWrapper}>
+                    <div className={styles.mainContent}>
+                        <div >
+                            {this.props.children}
+                            <br/>
                         </div>
                     </div>
+                    <div className={styles.asideContent}>
+                        <ContactForm/>
+                    </div>
                 </div>
-                <Footer></Footer>
+                <div className={styles.footer}>
+                    <Footer></Footer>
+                </div>
             </AppCanvas>
-        )
-            ;
+        );
     }
 }
 
