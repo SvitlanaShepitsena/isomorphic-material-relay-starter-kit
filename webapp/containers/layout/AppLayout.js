@@ -45,7 +45,7 @@ class AppLayout extends React.Component {
                     <MobileMenu onTouchTap={this.handleClose}/>
                 </LeftNav>
                 <AppHeader onTouchTap={this.handleToggle}/>
-                <div className={styles.contentWrapper}>
+                <section className={styles.contentWrapper}>
                     <div className={styles.mainContent}>
                         <div >
                             {this.props.children}
@@ -55,7 +55,7 @@ class AppLayout extends React.Component {
                     <div className={styles.asideContent}>
                         <ContactForm/>
                     </div>
-                </div>
+                </section>
                 <div className={styles.footer}>
                     <Footer></Footer>
                 </div>

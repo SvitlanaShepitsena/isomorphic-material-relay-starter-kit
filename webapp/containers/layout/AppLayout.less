@@ -1,20 +1,18 @@
-@import '../../settings/colors.less';
+@import '../../settings/palette.less';
+@import '../../settings/mixins.less';
 
 .contentWrapper {
-  width: 1200px;
+  max-width: 1200px;
   min-height: 1000px;
   margin: 0 auto;
+  lost-utility: cleafix;
 }
 
-.mainContent {
-  lost-column: 2/3 0;
-}
+@media (max-width: 749px) {
+  .contentWrapper {
+    width: 95%;
+  }
 
-.asideContent {
-  lost-column: 1/3 0;
-}
-
-@media (max-width: 700px) {
   .mainContent {
     lost-column: 1;
   }
@@ -24,6 +22,45 @@
   }
 }
 
-.footer {
-  lost-column: 1 0;
+@media screen and (min-width: 750px) {
+  .contentWrapper {
+    width: 98%;
+  }
+
+  .mainContent {
+    lost-column: 1/2 0;
+  }
+
+  .asideContent {
+    lost-column: 1/2 0;
+  }
+
+}
+
+@media screen and (min-width: 1300px) {
+  .contentWrapper {
+    width: 100%;
+  }
+
+  .mainContent {
+    lost-column: 2/3 0;
+  }
+
+  .asideContent {
+    lost-column: 1/3 0;
+  }
+
+  @media (max-width: 700px) {
+    .mainContent {
+      lost-column: 1;
+    }
+
+    .asideContent {
+      lost-column: 1;
+    }
+  }
+
+  .footer {
+    lost-column: 1 0;
+  }
 }
