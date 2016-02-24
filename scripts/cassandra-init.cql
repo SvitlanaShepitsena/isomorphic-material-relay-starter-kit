@@ -56,7 +56,7 @@ CREATE TABLE houses_by_city (
     city_id text,
     zip_id text,
     price bigint,
-  PRIMARY KEY ((city_id, id), since)
+  PRIMARY KEY ((city_id), since, id)
   )WITH CLUSTERING ORDER BY (since DESC);
 
 CREATE TABLE houses_by_zip (
@@ -73,7 +73,7 @@ CREATE TABLE houses_by_zip (
      city_id text,
      zip_id text,
      price bigint,
-  PRIMARY KEY ((zip_id, id), since)
+  PRIMARY KEY ((zip_id), since,id)
   )WITH CLUSTERING ORDER BY (since DESC);
 
 
