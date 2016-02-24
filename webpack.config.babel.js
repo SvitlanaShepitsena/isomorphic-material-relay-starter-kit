@@ -34,7 +34,6 @@ let config = {
         require('rucksack-css'),
         require('autoprefixer'),
         require('postcss-color-rebeccapurple')
-        
     ],
 
     plugins: [
