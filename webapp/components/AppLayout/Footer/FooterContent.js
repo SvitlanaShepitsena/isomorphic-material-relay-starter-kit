@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router';
-import st from '../../../settings/AppMuiTheme.js';
 import settings from '../../../settings/settings.js';
 
 import styles from './FooterContent.less';

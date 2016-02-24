@@ -8,9 +8,7 @@ class AppFooterSmart extends React.Component {
 
     render() {
         return (
-
             <FooterContent/>
-
         );
     }
 }

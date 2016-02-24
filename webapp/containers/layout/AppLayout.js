@@ -47,10 +47,7 @@ class AppLayout extends React.Component {
                 <AppHeader onTouchTap={this.handleToggle}/>
                 <section className={styles.contentWrapper}>
                     <div className={styles.mainContent}>
-                        <div >
-                            {this.props.children}
-                            <br/>
-                        </div>
+                        {this.props.children}
                     </div>
                     <div className={styles.asideContent}>
                         <ContactForm/>

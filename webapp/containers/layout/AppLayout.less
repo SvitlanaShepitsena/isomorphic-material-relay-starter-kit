@@ -2,16 +2,24 @@
 @import '../../settings/mixins.less';
 @import '../../settings/vars.less';
 
+/*global styles for app*/
+
 ul {
   .list-unstyled;
 }
 
+/*=layout*/
 .contentWrapper {
   min-height: 1000px;
   .appRow;
 }
 
-@media (max-width: @mobileHorizontal) {
+.mainContent,
+.asideContent {
+  padding-bottom: 16px;
+}
+
+@media (max-width: @tabletHorizontal) {
   .contentWrapper {
     width: 95%;
   }
@@ -23,21 +31,6 @@ ul {
   .asideContent {
     lost-column: 1;
   }
-}
-
-@media screen and (min-width: @tablet) {
-  .contentWrapper {
-    width: 98%;
-  }
-
-  .mainContent {
-    lost-column: 1/2 0;
-  }
-
-  .asideContent {
-    lost-column: 1/2 0;
-  }
-
 }
 
 @media screen and (min-width: @desktop) {
