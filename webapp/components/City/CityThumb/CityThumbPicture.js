@@ -19,7 +19,7 @@ class CityThumbPicture extends React.Component {
             <Card className="CityThumbPicture" shadow={0}>
                 <CardMedia
                     overlay={<CardTitle className="CityThumbPicture__city-name"  subtitle={cityFormatted} />}>
-                    <img src="http://www.datarecovery.net/i/Places/skokie-il-hard-drive-data-recovery.jpg"/>
+                    <img src="http://localhost:8080/public/img/skokie.jpg"/>
                 </CardMedia>
                 <CardTitle className="CityThumbPicture__card-title"
                            subtitle={ <span>

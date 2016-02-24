@@ -45,7 +45,6 @@ module.exports = {
         } else {
           // in production mode there's no webpack "style-loader",
           // so the module.name will be equal to the asset path
-            console.log('no');
           return regex.test(module.name);
         }
       },

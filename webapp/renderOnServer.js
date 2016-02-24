@@ -8,6 +8,7 @@ import RelayStoreData from 'react-relay/lib/RelayStoreData';
 import {match} from 'react-router';
 import seqqueue from 'seq-queue';
 import Helmet from "react-helmet";
+import fs from 'fs';
 
 import routes from './routes';
 import {isomorphicVars} from './scripts/isomorphicVars';
@@ -60,7 +61,9 @@ export default (req, res, next, assetsPath) => {
                                     return `${css}:${file[css]}`;
                                 }).join(',');
                                 return oneFile;
-                            }).join('\r\n');
+                            }).join('');
+
+                            fs.writeFileSync(path.resolve(__dirname, '..', 'public/assets/0.7.7', 'app.css'),allStyles);
                             // Setting up static, global navigator object to pass user agent to material-ui. Again, not to
                             // fear, we are in a queue.
                             GLOBAL.navigator = {userAgent: req.headers['user-agent']};
@@ -72,7 +75,6 @@ export default (req, res, next, assetsPath) => {
                             res.render(path.resolve(__dirname, '..', 'webapp/views', 'index.ejs'), {
                                 preloadedData: JSON.stringify(data),
                                 assetsPath: assetsPath,
-                                styles:allStyles,
                                 helmet,
                                 reactOutput,
                                 isomorphicVars: isoVars
