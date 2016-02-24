@@ -22,7 +22,7 @@ const styles = {
     },
 };
 
-class AppBar_Auth extends React.Component {
+class UserAuthSmart extends React.Component {
     constructor(props) {
         super(props);
 
@@ -254,18 +254,18 @@ class AppBar_Auth extends React.Component {
     }
 }
 
-AppBar_Auth.contextTypes = {
+UserAuthSmart.contextTypes = {
     router: React.PropTypes.object.isRequired
 };
 
-export default Relay.createContainer(AppBar_Auth, {
+export default Relay.createContainer(UserAuthSmart, {
     fragments: {
         Viewer: () => Relay.QL`
-      fragment on Viewer {
-        User_IsAnonymous,
-        User_DisplayName,
-        User_ProfilePhoto,
-      }
-    `,
+            fragment on Viewer {
+                User_IsAnonymous,
+                User_DisplayName,
+                User_ProfilePhoto,
+            }
+        `,
     },
 });

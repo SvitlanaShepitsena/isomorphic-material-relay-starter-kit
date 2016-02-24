@@ -1,10 +1,15 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
+/*=materialUi*/
 import AppBar from 'material-ui/lib/app-bar';
 import IconButton from 'material-ui/lib/icon-button';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+
+/*=components*/
 import settings from '../../../settings/settings.js';
+
+/*=styles*/
 import styles from './MobileDrawerHeader.less';
 
 class MobileDrawerHeader extends React.Component {
@@ -15,17 +20,15 @@ class MobileDrawerHeader extends React.Component {
     render() {
         return (
             <AppBar primary={true}
+                    title={<span className={styles.title}>
+                    {settings.companyName}
+                    </span>}
                     showMenuIconButton={false}
-                    iconElementLeft={
-                        <Link to="/" onTouchTap={this.props.onTouchTap}>
-                            <img src={settings.companyLogo} alt={settings.companyName + " Logo"} />
-                        </Link>
-                        }
                     iconElementRight={
                         <IconButton onTouchTap={this.props.onTouchTap}>
                         <NavigationClose/></IconButton>
                         }
-                    className="LeftNav__Header">
+            >
             </AppBar>
         );
     }
