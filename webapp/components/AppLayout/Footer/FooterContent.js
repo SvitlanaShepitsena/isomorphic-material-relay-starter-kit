@@ -30,9 +30,7 @@ class FooterContent extends React.Component {
                         <p><Link to="/privacy">Privacy Policy</Link></p>
                     </section>
                 </div>
-
             </footer>
-
         );
     }
 }

@@ -1,21 +1,19 @@
 import React from 'react';
 import Relay from 'react-relay';
 import {Link} from 'react-router';
-import settings from '../../settings/settings.js';
 
 import AppCanvas from 'material-ui/lib/app-canvas';
 import LeftNav from 'material-ui/lib/left-nav';
 
 /*=components*/
 import AppHeader from '../../components/AppLayout/AppHeader/AppHeader.js';
+import AppBar_Auth from '../auth/UserAuth_Smart.js';
 import MobileMenu from '../../components/AppLayout/MobileMenu/MobileMenu.js';
 import MobileDrawerHeader from '../../components/AppLayout/MobileDrawerHeader/MobileDrawerHeader.js';
 
 import ContactForm from '../../components/AppViews/Contact/ContactForm.js';
 
-import AppBar_Auth from './AppBar_Auth.js'
-import Footer from './AppFooterSmart.js';
-
+import Footer from '../../components/AppLayout/Footer/FooterContent.js';
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import MyRawTheme from '../../settings/AppMuiTheme.js';
@@ -29,9 +27,7 @@ class AppLayout extends React.Component {
         };
     }
 
-    state = {
-        open: false
-    };
+    state = {open: false};
 
     handleToggle = () => this.setState({open: !this.state.open});
     handleClose = () => this.setState({open: false});
