@@ -23,6 +23,7 @@ class HousePage extends React.Component {
 
     render() {
         var house = this.props.Viewer.House;
+        console.log(house);
 
         return (
             <div className="HousePage">
@@ -30,11 +31,7 @@ class HousePage extends React.Component {
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <br/>
 
-                {!house &&
-                <div style={{textAlign:"center"}}>
-                    <Spinner size={1.5}/>
-                </div>
-                }
+
 
                 {house &&
                 <HouseInfo house={house}/>
@@ -59,6 +56,7 @@ export default Relay.createContainer(HousePage, {
                     description,
                     price,
                     street,
+                    built
                     city{name }
                     zip{code},
                     image

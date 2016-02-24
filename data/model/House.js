@@ -11,6 +11,7 @@ export default class House {
         this.zip_id = fields.zip_id;
         this.street = fields.street;
         this.price = fields.price;
+        this.built = fields.built;
 
     }
 }

@@ -16,7 +16,7 @@ import ContactPage from './containers/pages/ContactPage';
 import PrivacyPage from './containers/pages/PrivacyPage';
 import TermsPage from './containers/pages/TermsPage';
 import CityPage from './containers/pages/CityPage';
-import HomePage from './containers/pages/HomePage.js';
+import HousePage from './containers/pages/houses/HousePage.js';
 
 import ZipTypeHousesListPage from './containers/pages/houses/ZipTypeHousesListPage';
 import CityZipTypeHousesListPage from './containers/pages/houses/CityZipTypeHousesListPage';
@@ -32,6 +32,9 @@ export default (()=> {
                 <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
                        queries={ViewerQueries}/>
                 <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage}
+                       queries={ViewerQueries}/>
+
+                <Route path="/houses-for-sale/:city/:zip/:type/:street" component={HousePage}
                        queries={ViewerQueries}/>
 
                 <Route path="/about" component={AboutPage} name="Houses for Sale"/>

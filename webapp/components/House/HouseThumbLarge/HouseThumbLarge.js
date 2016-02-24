@@ -23,12 +23,14 @@ class HouseThumbLarge extends React.Component {
         var baths = this.props.house.baths;
         var beds = this.props.house.beds;
         var city = this.props.house.city.name;
-        var image = this.props.house.image;
+
+        var image = 'http://res.cloudinary.com/remax1stclass/image/upload/v1456344191/'+this.props.house.id+'-photo-1.jpg';
+
         var mls = this.props.house.mls;
         var price = this.props.house.price;
         var street = this.props.house.street;
         var type = this.props.house.type.type;
-        var year = this.props.house.year;
+        var year = new Date(this.props.house.built).getFullYear().toString();
         var zip = this.props.house.zip.code;
         /*Formatter*/
         let cityFormatted = urlToText(city);

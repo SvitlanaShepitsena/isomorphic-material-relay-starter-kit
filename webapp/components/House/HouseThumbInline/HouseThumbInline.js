@@ -16,7 +16,8 @@ class HouseThumbInline extends React.Component {
         var baths = this.props.house.baths;
         var beds = this.props.house.beds;
         var city = this.props.house.city.name;
-        var image = this.props.house.image;
+        var image = 'http://res.cloudinary.com/remax1stclass/image/upload/v1456344191/'+this.props.house.id+'-photo-1.jpg';
+        console.log(image);
         var mls = this.props.house.mls;
         var price = this.props.house.price;
         var street = this.props.house.street;

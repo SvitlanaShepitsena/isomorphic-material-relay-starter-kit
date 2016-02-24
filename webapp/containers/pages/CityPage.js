@@ -94,6 +94,7 @@ export default Relay.createContainer(CityPage, {
                                 zip{code}
                                 type{type}
                                 price
+                                built
                                 street
                                 beds
                                 description
