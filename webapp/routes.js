@@ -12,12 +12,11 @@ import ViewerQueries from './queries/ViewerQueries';
 
 import AboutPage from './containers/pages/AboutPage';
 import CitiesSalePage from './containers/pages/CitiesSalePage';
-import CitiesRentPage from './containers/pages/CitiesRentPage';
 import ContactPage from './containers/pages/ContactPage';
-import HomePage from './containers/pages/HomePage.js';
 import PrivacyPage from './containers/pages/PrivacyPage';
 import TermsPage from './containers/pages/TermsPage';
 import CityPage from './containers/pages/CityPage';
+import HomePage from './containers/pages/HomePage.js';
 
 import ZipTypeHousesListPage from './containers/pages/houses/ZipTypeHousesListPage';
 import CityZipTypeHousesListPage from './containers/pages/houses/CityZipTypeHousesListPage';
@@ -35,7 +34,10 @@ export default (()=> {
                 <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage}
                        queries={ViewerQueries}/>
 
-                <Route path="/about" component={AboutPage} queries={ViewerQueries} name="Houses for Sale"/>
+                <Route path="/about" component={AboutPage} name="Houses for Sale"/>
+                <Route path="/privacy" component={PrivacyPage} name="Privacy"/>
+                <Route path="/terms" component={TermsPage} name="Terms"/>
+                <Route path="/contact" component={ContactPage} name="Contact"/>
             </Route>
         </RelayRouter>
     )

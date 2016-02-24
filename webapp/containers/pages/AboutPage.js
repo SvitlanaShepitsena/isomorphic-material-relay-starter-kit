@@ -13,12 +13,4 @@ class AboutPage extends React.Component {
 }
 ;
 
-export default Relay.createContainer(AboutPage, {
-    fragments: {
-        Viewer: () => Relay.QL`
-            fragment on Viewer {
-                User_IsAnonymous,
-
-            } `,
-    },
-});
+export default AboutPage;

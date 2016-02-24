@@ -166,7 +166,7 @@ class PrivacyContent extends React.Component {
                         <p className="ml mr">Please be aware that when you enter a third party web site, any information
                             you
                             provide, including
-                            financial information, is subject to the <span className="ml"><Link to="/terms-of-use">terms
+                            financial information, is subject to the <span className="ml"><Link to="/terms">terms
                                 of
                                 use</Link></span><span className="ml"> and privacy policy of that site.</span></p>
                     </section>
@@ -241,8 +241,10 @@ class PrivacyContent extends React.Component {
                             webmaster@remax1stclass.com.</p>
 
                         <p className="ml mr mb">To see the Terms of Use that apply to this Web Site, <span
-                            className="ml"><a
-                            href="/terms-of-use"> click here. </a></span><span className="ml">All trademarks, service marks, and other proprietary materials herein are the property of Re/Max 1st Class 2015. All rights reserved.</span>
+                            className="ml">
+                                                            <Link to="/terms"> click here. </Link>
+                            
+                        </span><span className="ml">All trademarks, service marks, and other proprietary materials herein are the property of Re/Max 1st Class 2015. All rights reserved.</span>
                         </p>
                     </section>
                 </article>

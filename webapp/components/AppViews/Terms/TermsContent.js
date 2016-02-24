@@ -1,5 +1,4 @@
 import React from 'react';
-import Relay from 'react-relay';
 import {Link} from 'react-router';
 
 class Terms extends React.Component {
@@ -34,7 +33,9 @@ class Terms extends React.Component {
                         <p className="ml mr">Information about you is subject to our Privacy Policy. For more
                             information,
                             please review our
-                            full <span> <Link to="/privacy-policy">Privacy Policy.</Link></span></p>
+                            full <span> 
+                                <Link to="/privacy">Privacy Policy.</Link>
+                            </span></p>
                         <h4>Links</h4>
 
                         <p className="ml mr">The Web Site contains links to third party web sites and may redirect you
