@@ -1,14 +1,14 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
-/*MaterialUi*/
+/*=materialUi*/
 import AppBar from 'material-ui/lib/app-bar';
 
-/*components*/
+/*=components*/
 import AppMenu from './../AppMenu/AppMenu.js';
 import settings from '../../../settings/settings.js';
 
-/*styles*/
+/*=styles*/
 import styles from './AppHeader.less'
 
 class AppHeader extends React.Component {
@@ -24,9 +24,12 @@ class AppHeader extends React.Component {
                             <ul>
                                 <li className={styles.companyLogo}> <img src={settings.companyLogo} alt={settings.companyName + " Logo"} /> </li>
                                 <li className={styles.companyName} > {settings.companyName} </li>
+                                <li className={styles.companyPhone} > {settings.companyPhone} </li>
                             </ul>
                         </Link>}>
-                <AppMenu></AppMenu>
+                <div className={styles.menuContainer}>
+                    <AppMenu></AppMenu>
+                </div>
             </AppBar>
         );
     }

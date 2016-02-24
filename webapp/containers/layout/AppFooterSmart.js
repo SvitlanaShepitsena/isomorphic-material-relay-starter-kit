@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-import FooterContent from '../../components/AppViews/Footer/FooterContent.js';
+import FooterContent from '../../components/AppLayout/Footer/FooterContent.js';
 
 class AppFooterSmart extends React.Component {
     // TODO add "smart" functionality to share website
@@ -9,8 +9,7 @@ class AppFooterSmart extends React.Component {
     render() {
         return (
 
-            <FooterContent>
-            </FooterContent>
+            <FooterContent/>
 
         );
     }

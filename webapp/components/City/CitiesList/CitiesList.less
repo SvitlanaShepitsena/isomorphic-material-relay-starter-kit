@@ -1,6 +1,9 @@
+@import '../../../settings/vars.less';
+@import '../../../settings/mixins.less';
 
 .container {
-  lost-utility: clearfix;
+  max-width: @appWidth;
+  .appRow;
 }
 
 .item {
@@ -10,7 +13,7 @@
 
 @media (max-width: 700px) {
   .item {
-    lost-column: 1 0;
+    lost-column: 1;
     margin-bottom: 16px;
   }
 }

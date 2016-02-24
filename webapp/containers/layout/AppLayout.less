@@ -1,20 +1,21 @@
-@import '../../settings/colors.less';
+@import '../../settings/palette.less';
+@import '../../settings/mixins.less';
+@import '../../settings/vars.less';
+
+ul {
+  .list-unstyled;
+}
 
 .contentWrapper {
-  width: 1200px;
   min-height: 1000px;
-  margin: 0 auto;
+  .appRow;
 }
 
-.mainContent {
-  lost-column: 2/3 0;
-}
+@media (max-width: @mobileHorizontal) {
+  .contentWrapper {
+    width: 95%;
+  }
 
-.asideContent {
-  lost-column: 1/3 0;
-}
-
-@media (max-width: 700px) {
   .mainContent {
     lost-column: 1;
   }
@@ -24,6 +25,39 @@
   }
 }
 
+@media screen and (min-width: @tablet) {
+  .contentWrapper {
+    width: 98%;
+  }
+
+  .mainContent {
+    lost-column: 1/2 0;
+  }
+
+  .asideContent {
+    lost-column: 1/2 0;
+  }
+
+}
+
+@media screen and (min-width: @desktop) {
+  .contentWrapper {
+    width: 100%;
+  }
+
+  .mainContent {
+    lost-column: 2/3 0;
+  }
+
+  .asideContent {
+    lost-column: 1/3 0;
+  }
+
+}
+
 .footer {
   lost-column: 1 0;
+  background-color: @footerColor;
+  width: 100%;
 }
+
