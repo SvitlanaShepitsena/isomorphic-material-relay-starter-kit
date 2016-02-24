@@ -32,9 +32,9 @@ export default new GraphQLObjectType({
         description: {type: GraphQLString, resolve: (obj) =>obj.description},
         image: {type: GraphQLString, resolve: (obj) =>obj.image},
         mls: {type: GraphQLString, resolve: (obj) =>obj.mls},
+        built: {type: GraphQLString, resolve: (obj) =>obj.built},
+        since: {type: GraphQLString, resolve: (obj) =>obj.since},
         street: {type: GraphQLString, resolve: (obj) =>obj.street}
-
-
 
     }),
 });

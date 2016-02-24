@@ -33,7 +33,6 @@ class AppLayout extends React.Component {
     handleClose = () => this.setState({open: false});
 
     render() {
-        console.log(styles);
         return (
             <AppCanvas style={{position:"relative",height:"100%"}}>
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>

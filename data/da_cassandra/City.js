@@ -24,8 +24,6 @@ export function City_by_zip(zip_id) {
 }
 
 export function Cities_with_args(args) {
-    console.log('City.js - line: 27');
-    console.log(args);
     let cqlText;
     let cqlParams = [];
 

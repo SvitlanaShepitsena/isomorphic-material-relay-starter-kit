@@ -27,6 +27,8 @@ values( 33171548-39d3-45d8-ab5c-5eedefe01dfc, 'jill', 'birthday', 'Jill McBear',
 
 CREATE TABLE house (
   id text,
+  since timestamp,
+  built timestamp,
   mls text,
   beds text,
   baths text,
@@ -37,13 +39,16 @@ CREATE TABLE house (
   city_id text,
   zip_id text,
   price bigint,
-  PRIMARY KEY (id));
+  PRIMARY KEY (id,since)
+  )WITH CLUSTERING ORDER BY (since DESC);
 
 CREATE TABLE houses_by_city (
    id text,
+    since timestamp,
+    built timestamp,
     mls text,
     beds text,
-     baths text,
+    baths text,
     type_id text,
     description text,
     image text,
@@ -51,40 +56,32 @@ CREATE TABLE houses_by_city (
     city_id text,
     zip_id text,
     price bigint,
-  PRIMARY KEY (city_id, id));
+  PRIMARY KEY ((city_id), since, id)
+  )WITH CLUSTERING ORDER BY (since DESC);
 
 CREATE TABLE houses_by_zip (
-   id text,
-    mls text,
-    beds text,
+     id text,
+     since timestamp,
+     built timestamp,
+     mls text,
+     beds text,
      baths text,
-    type_id text,
-    description text,
-    image text,
-    street text,
-    city_id text,
-    zip_id text,
-    price bigint,
-  PRIMARY KEY (zip_id, id));
+     type_id text,
+     description text,
+     image text,
+     street text,
+     city_id text,
+     zip_id text,
+     price bigint,
+  PRIMARY KEY ((zip_id), since,id)
+  )WITH CLUSTERING ORDER BY (since DESC);
 
 
 
 CREATE TABLE houses_by_city_type (
     id text,
-     mls text,
-     beds text,
-      baths text,
-     type_id text,
-     description text,
-     image text,
-     street text,
-     city_id text,
-     zip_id text,
-     price bigint,
-  PRIMARY KEY ((city_id, type_id),id));
-
-CREATE TABLE houses_by_zip_type (
-    id text,
+     since timestamp,
+     built timestamp,
      mls text,
      beds text,
      baths text,
@@ -95,7 +92,25 @@ CREATE TABLE houses_by_zip_type (
      city_id text,
      zip_id text,
      price bigint,
-  PRIMARY KEY ((zip_id, type_id),id));
+  PRIMARY KEY ((city_id, type_id),since, id)
+ )WITH CLUSTERING ORDER BY (since DESC);
+
+CREATE TABLE houses_by_zip_type (
+    id text,
+     since timestamp,
+     built timestamp,
+     mls text,
+     beds text,
+     baths text,
+     type_id text,
+     description text,
+     image text,
+     street text,
+     city_id text,
+     zip_id text,
+     price bigint,
+  PRIMARY KEY ((zip_id, type_id),since,id)
+ )WITH CLUSTERING ORDER BY (since DESC);
 
 CREATE TABLE  city ( id text, name text, PRIMARY KEY (id));
 
