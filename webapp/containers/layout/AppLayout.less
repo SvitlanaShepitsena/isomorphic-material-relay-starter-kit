@@ -1,14 +1,17 @@
 @import '../../settings/palette.less';
 @import '../../settings/mixins.less';
+@import '../../settings/vars.less';
 
-.contentWrapper {
-  max-width: 1200px;
-  min-height: 1000px;
-  margin: 0 auto;
-  lost-utility: cleafix;
+ul {
+  .list-unstyled;
 }
 
-@media (max-width: 749px) {
+.contentWrapper {
+  min-height: 1000px;
+  .appRow;
+}
+
+@media (max-width: @mobileHorizontal) {
   .contentWrapper {
     width: 95%;
   }
@@ -22,7 +25,7 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: @tablet) {
   .contentWrapper {
     width: 98%;
   }
@@ -37,7 +40,7 @@
 
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: @desktop) {
   .contentWrapper {
     width: 100%;
   }
@@ -50,17 +53,11 @@
     lost-column: 1/3 0;
   }
 
-  @media (max-width: 700px) {
-    .mainContent {
-      lost-column: 1;
-    }
-
-    .asideContent {
-      lost-column: 1;
-    }
-  }
-
-  .footer {
-    lost-column: 1 0;
-  }
 }
+
+.footer {
+  lost-column: 1 0;
+  background-color: @footerColor;
+  width: 100%;
+}
+

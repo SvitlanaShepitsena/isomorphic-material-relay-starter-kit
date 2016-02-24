@@ -1,14 +1,14 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
-/*MaterialUi*/
+/*=materialUi*/
 import AppBar from 'material-ui/lib/app-bar';
 
-/*components*/
+/*=components*/
 import AppMenu from './../AppMenu/AppMenu.js';
 import settings from '../../../settings/settings.js';
 
-/*styles*/
+/*=styles*/
 import styles from './AppHeader.less'
 
 class AppHeader extends React.Component {
