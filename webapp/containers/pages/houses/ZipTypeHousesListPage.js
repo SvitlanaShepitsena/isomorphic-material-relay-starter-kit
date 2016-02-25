@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import _ from 'lodash';
 import urlToText from '../../../utils/urlToText.js';
-import Breadcrumbs from 'react-breadcrumbs';
+import Breadcrumbs from '../../../components/Common/Breadcrumbs';
 
 /*MaterialUi*/
 import Spinner from '../../../../node_modules/material-ui/lib/circular-progress';
@@ -15,11 +15,18 @@ class ZipTypeHousesListPage extends React.Component {
     state = {compare: true};
 
     getChildContext() {
-        return {location: this.props.location};
+        return {
+            location: this.props.location,
+            route: this.props.route,
+            params: this.props.routeParams,
+
+        };
     };
 
     static childContextTypes = {
-        location: PropTypes.object.isRequired
+        location: PropTypes.object,
+        params: PropTypes.object,
+        route: PropTypes.object
     };
 
     componentDidMount() {

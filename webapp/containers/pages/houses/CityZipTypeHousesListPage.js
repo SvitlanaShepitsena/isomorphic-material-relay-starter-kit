@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import _ from 'lodash';
 import urlToText from '../../../utils/urlToText.js';
-import Breadcrumbs from 'react-breadcrumbs';
+import Breadcrumbs from '../../../components/Common/Breadcrumbs';
 
 /*MaterialUi*/
 import Spinner from '../../../../node_modules/material-ui/lib/circular-progress';

@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import Breadcrumbs from 'react-breadcrumbs';
+import Breadcrumbs from '../../../components/Common/Breadcrumbs';
 import Spinner from '../../../../node_modules/material-ui/lib/circular-progress';
 
 /*Components*/
@@ -8,11 +8,18 @@ import HouseInfo from '../../../components/House/HouseInfo/HouseInfo.js';
 
 class HousePage extends React.Component {
     getChildContext() {
-        return {location: this.props.location};
+        return {
+            location: this.props.location,
+            route: this.props.route,
+            params: this.props.routeParams,
+
+        };
     };
 
     static childContextTypes = {
-        location: PropTypes.object.isRequired
+        location: PropTypes.object,
+        params: PropTypes.object,
+        route: PropTypes.object
     };
 
     componentDidMount() {

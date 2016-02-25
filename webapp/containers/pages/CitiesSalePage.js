@@ -2,24 +2,31 @@ import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 /*=MaterialUi*/
 import Spinner from 'material-ui/lib/circular-progress';
-
+import Breadcrumbs from '../../components/Common/Breadcrumbs';
 /*=Components*/
 import CitiesList from '../../components/City/CitiesList/CitiesList.js';
 
 class CitiesSalePage extends React.Component {
     getChildContext() {
-        return {location: this.props.location};
+        return {
+            location: this.props.location,
+            route: this.props.route,
+            params: this.props.routeParams,
+
+        };
     };
 
     static childContextTypes = {
-        location: PropTypes.object.isRequired
+        location: PropTypes.object,
+        params: PropTypes.object,
+        route: PropTypes.object
     };
 
     render() {
         const cities = this.props.Viewer.Cities.edges;
-
         return (
             <div>
+                <Breadcrumbs/>
                 <br/>
                 <h1>
                     North Chicago Suburbs Houses for Sale
