@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
+import settings from '../../../settings/settings';
 
 /*=MaterialUi*/
 import Card from 'material-ui/lib/card/card';
@@ -25,7 +26,7 @@ class CityThumbPicture extends React.Component {
             <Card className={styles.container} shadow={0}>
                 <CardMedia
                     overlay={<CardTitle className={styles.cityName}  subtitle={cityFormatted} />}>
-                    <img src="http://localhost:8080/public/img/skokie.jpg"/>
+                    <img src={`${settings.cloudinaryPath}/${cityName}.jpg`}/>
                 </CardMedia>
                 <CardTitle className={styles.cardTitle}
                            subtitle={ <span>
