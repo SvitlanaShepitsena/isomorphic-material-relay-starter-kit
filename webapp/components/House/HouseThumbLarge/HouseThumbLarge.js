@@ -1,17 +1,18 @@
 import React, {PropTypes} from 'react';
-import _ from 'lodash';
 import urlToText from '../../../utils/urlToText.js';
 import textToPrice from '../../../utils/textToPrice.js';
+import getYear from '../../../utils/getYear';
 
-/*=MaterialUi*/
+/*=materialUi*/
 import Card from 'material-ui/lib/card/card';
 import CardHeader from 'material-ui/lib/card/card-header';
 import CardMedia from 'material-ui/lib/card/card-media';
 import CardTitle from 'material-ui/lib/card/card-title';
 
-/*Components*/
+/*=components*/
 import ImageBackground from '../../Common/ImageBackground/ImageBackground.js';
 import styles from './HouseThumbLarge.less';
+import settings from '../../../settings/settings.js';
 
 class HouseThumbLarge extends React.Component {
     static propTypes = {
@@ -20,18 +21,19 @@ class HouseThumbLarge extends React.Component {
     };
 
     render() {
+        var imgClassName = this.props.imgClassName;
 
         var baths = this.props.house.baths;
         var beds = this.props.house.beds;
         var city = this.props.house.city.name;
 
-        var image = 'http://res.cloudinary.com/remax1stclass/image/upload/v1456344191/' + this.props.house.id + '-photo-1.jpg';
+        var image = settings.cloudinaryPath + this.props.house.id + '-photo-1.jpg';
 
         var mls = this.props.house.mls;
         var price = this.props.house.price;
         var street = this.props.house.street;
         var type = this.props.house.type.type;
-        var year = new Date(this.props.house.built).getFullYear().toString();
+        var year = getYear(this.props.house.built);
         var zip = this.props.house.zip.code;
         /*Formatter*/
         let cityFormatted = urlToText(city);
@@ -39,7 +41,7 @@ class HouseThumbLarge extends React.Component {
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
 
-        var imgClassName = this.props.imgClassName;
+        const listingAlt = "House for sale: " + mls + " " + streetFormatted + ", " + cityFormatted + ", IL " + zip;
 
         return (
             <Card className={styles.container} shadow={0}>
@@ -58,16 +60,11 @@ class HouseThumbLarge extends React.Component {
                     }>
                     <div>
                         {image &&
-                        <ImageBackground style={{margin:'0 auto'}}
-                                         imgWidth="auto" imgHeight="220"
-                                         backgroundImage={image}/>
+                        <ImageBackground imgWidth="auto" imgHeight="220" backgroundImage={image}/>
                         }
-
                         {!image &&
-                        <img
-                            className={imgClassName ? imgClassName: styles.image}
-                            src='http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png'
-                            alt=""/>
+                        <img className={imgClassName ? imgClassName: styles.image} src={settings.houseDefault}
+                             alt={listingAlt}/>
                         }
                     </div>
                 </CardMedia>
@@ -75,7 +72,7 @@ class HouseThumbLarge extends React.Component {
                     title={
                    <h4 className={styles.address}>
                         {street &&
-                        <span style={{display:"block",paddingBottom:8}} > {streetFormatted} </span>
+                        <span className={styles.street}> {streetFormatted} </span>
                         }
                         {city &&
                         < span > {cityFormatted } </span>

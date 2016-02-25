@@ -92,8 +92,9 @@
     "./webapp/components/House/HouseThumbLarge/HouseThumbLarge.less": {
       "container": "HouseThumbLarge__container__3Bs",
       "address": "HouseThumbLarge__address__2zX",
+      "street": "HouseThumbLarge__street__x1K",
       "image": "HouseThumbLarge__image__387",
-      "_style": "/*=Desktop Footer*/\n.HouseThumbLarge__container__3Bs {\n  color: #797979;\n  margin-bottom: 12px;\n}\n.HouseThumbLarge__container__3Bs p {\n  font-size: 14px;\n  line-height: 22px;\n  margin: 0 10px;\n}\n.HouseThumbLarge__address__2zX {\n  font-weight: 500;\n  margin: 0;\n  line-height: 1;\n  padding-bottom: 5px;\n}\n.HouseThumbLarge__image__387 {\n  display: block;\n  width: 170px;\n  height: auto;\n  margin: 0 auto;\n}\n"
+      "_style": "/*=Desktop Footer*/\n.HouseThumbLarge__container__3Bs {\n  color: #797979;\n  margin-bottom: 12px;\n}\n.HouseThumbLarge__container__3Bs p {\n  font-size: 14px;\n  line-height: 22px;\n  margin: 0 10px;\n}\n.HouseThumbLarge__address__2zX {\n  font-weight: 500;\n  font-size: 18px;\n  margin: 0;\n  line-height: 1;\n  padding-bottom: 5px;\n}\n.HouseThumbLarge__street__x1K {\n  display: block;\n  padding-bottom: 8px;\n}\n.HouseThumbLarge__image__387 {\n  display: block;\n  width: 170px;\n  height: auto;\n  margin: 0 auto;\n}\n"
     },
     "./webapp/components/House/HousesList/HousesList.less": {
       "appRow": "HousesList__appRow__38j",

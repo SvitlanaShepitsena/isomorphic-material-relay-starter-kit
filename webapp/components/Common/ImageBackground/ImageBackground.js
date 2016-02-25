@@ -15,11 +15,8 @@ class ImageBackground extends React.Component {
                 width:this.props.imgWidth,
                  height:this.props.imgHeight
                    }}>
-                <i
-                    className={styles.item}
-                    style={{
-                    height: this.props.imgHeight,
-                     backgroundImage: "url(" +'"'+ this.props.backgroundImage +'"'+")"
+                <i className={styles.item}
+                   style={{height: this.props.imgHeight, backgroundImage: "url(" +'"'+ this.props.backgroundImage +'"'+")"
                 }}/>
             </div>
         );

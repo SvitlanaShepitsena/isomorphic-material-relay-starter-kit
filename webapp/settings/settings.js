@@ -10,6 +10,8 @@ export default {
     companyPhone: "(847) 674-9797",
     companyFax: "(847) 674-0411",
     cloudinaryPath:"http://res.cloudinary.com/remax1stclass/image/upload/v1456344190/",
+    houseDefault:"http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png",
+    
     links: {
         twitter: "https://twitter.com/remaxfirstclass",
         facebook: "https://www.facebook.com/ReMax-1st-Class-Realty-177448822432081",
