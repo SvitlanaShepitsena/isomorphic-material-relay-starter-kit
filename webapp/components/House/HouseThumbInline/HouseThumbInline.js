@@ -17,16 +17,13 @@ class HouseThumbInline extends React.Component {
     };
 
     render() {
+        var {houseDefault, cloudinaryPath} = settings;
+
         let {house} = this.props;
         var {baths, beds, mls, price, street} = house;
         var city = house.city.name;
         var zip = house.zip.code;
         var type = house.type.type;
-
-        var {houseDefault, cloudinaryPath} = settings;
-
-        var image = cloudinaryPath + house.id + '-photo-1.jpg';
-        var {inlineImgClass} = this.props;
 
         /*Formatter*/
         let cityFormatted = urlToText(city);
@@ -34,6 +31,8 @@ class HouseThumbInline extends React.Component {
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
 
+        var image = cloudinaryPath + house.id + '-photo-1.jpg';
+        var {inlineImgClass} = this.props;
         const listingAlt = "House for sale: " + mls + " " + streetFormatted + ", " + cityFormatted + ", IL " + zip;
 
         return (
