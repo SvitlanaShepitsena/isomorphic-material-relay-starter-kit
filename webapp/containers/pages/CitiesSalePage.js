@@ -26,7 +26,6 @@ class CitiesSalePage extends React.Component {
         const cities = this.props.Viewer.Cities.edges;
         return (
             <div>
-                <Breadcrumbs/>
                 <br/>
                 <h1>
                     North Chicago Suburbs Houses for Sale
