@@ -36,12 +36,12 @@ class HouseThumbInline extends React.Component {
         const listingAlt = "House for sale: " + mls + " " + streetFormatted + ", " + cityFormatted + ", IL " + zip;
 
         return (
-            <Card className={styles.container} shadow={0}>
-                <div className={styles.imageContainer}>
+            <Card className={styles.row} shadow={0}>
+                <div className={styles.col3}>
                     {image && <ImageBackground imgWidth="auto" imgHeight="120" backgroundImage={image}/> }
                     {!image &&
                     <img
-                        className={inlineImgClass ? inlineImgClass: styles.image}
+                        className={styles.image}
                         src={houseDefault}
                         alt={listingAlt}/>
                     }
