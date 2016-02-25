@@ -1,12 +1,12 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import _ from 'lodash';
 import Breadcrumbs from 'react-breadcrumbs';
-import Spinner from 'material-ui/lib/circular-progress';
+import urlToText from '../../utils/urlToText.js';
 
 /*=Components*/
 import HousesList from '../../components/House/HousesList/HousesList.js'
 import ZipTypeList from '../../components/City/ZipTypeList/ZipTypeList.js';
+import AppSpinner from '../../components/Common/Spinner/AppSpinner.js';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -30,19 +30,16 @@ class CityPage extends React.Component {
         const newHouses = this.props.Viewer.City.Houses.edges;
         const housesCount = this.props.Viewer.City.Houses_Count;
         /*Formatter*/
-        let cityFormatted = _.startCase(city.replace(/-+/g, ' '));
-        return (
+        let cityFormatted = urlToText(city);
 
+        return (
             <div>
                 <br/>
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
-
                 <h1> {"Houses for Sale in " + cityFormatted} </h1>
                 <br/>
                 {!(newHouses.length || zipsList.length || typesList.length) &&
-                <div style={{textAlign:"center"}}>
-                    <Spinner size={1.5}/>
-                </div>
+                <AppSpinner/>
                 }
 
                 {newHouses.length &&
