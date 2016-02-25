@@ -24,7 +24,7 @@ class CityPage extends React.Component {
     }
 
     render() {
-        const city = this.props.params.city;
+        const {city} = this.props.params;
         const zipsList = this.props.Viewer.City.Zips.edges;
         const typesList = this.props.Viewer.City.Types.edges;
         const newHouses = this.props.Viewer.City.Houses.edges;
@@ -37,7 +37,6 @@ class CityPage extends React.Component {
                 <br/>
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <h1> {"Houses for Sale in " + cityFormatted} </h1>
-                <br/>
                 {!(newHouses.length || zipsList.length || typesList.length) && <AppSpinner/> }
 
                 {newHouses.length &&

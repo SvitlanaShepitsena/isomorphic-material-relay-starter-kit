@@ -22,8 +22,8 @@ class CitiesList extends React.Component {
             <div className={styles.container}>
                 {this.props.list.map(edge => {
                         const item = edge.node;
-                        const itemId = this.props.itemId;
-                        const children = this.props.children;
+                        const {itemId} = this.props;
+                        const {children} = this.props;
                         const itemValue = item[itemId];
 
                         return (

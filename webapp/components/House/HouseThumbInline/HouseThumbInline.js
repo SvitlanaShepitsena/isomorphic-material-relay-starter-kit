@@ -1,30 +1,32 @@
 import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
 import textToPrice from '../../../utils/textToPrice.js';
+import settings from '../../../settings/settings.js';
 
-/*=MaterialUi*/
+/*=materialUi*/
 import Card from 'material-ui/lib/card/card';
 import ImageBackground from '../../Common/ImageBackground/ImageBackground.js';
+
+/*=styles*/
+import styles from './HouseThumbInline.less';
 
 class HouseThumbInline extends React.Component {
     static propTypes = {
         house: PropTypes.object.isRequired,
-        imgClassName: PropTypes.string
+        inlineImgClass: PropTypes.string
     };
 
     render() {
-        var baths = this.props.house.baths;
-        var beds = this.props.house.beds;
-        var city = this.props.house.city.name;
-        var image = 'http://res.cloudinary.com/remax1stclass/image/upload/v1456344191/'+this.props.house.id+'-photo-1.jpg';
-        console.log(image);
-        var mls = this.props.house.mls;
-        var price = this.props.house.price;
-        var street = this.props.house.street;
-        var type = this.props.house.type.type;
-        var zip = this.props.house.zip.code;
+        let {house} = this.props;
+        var {baths, beds, mls, price, street} = house;
+        var city = house.city.name;
+        var zip = house.zip.code;
+        var type = house.type.type;
 
-        var inlineImgClass = this.props.inlineImgClass;
+        var {houseDefault, cloudinaryPath} = settings;
+
+        var image = cloudinaryPath + house.id + '-photo-1.jpg';
+        var {inlineImgClass} = this.props;
 
         /*Formatter*/
         let cityFormatted = urlToText(city);
@@ -32,60 +34,37 @@ class HouseThumbInline extends React.Component {
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
 
-        return (
-            <Card className="ListingThumbInline row" shadow={0}>
-                <div className="four columns ListingThumbInline__image-container ">
-                    { image &&
-                    <ImageBackground style={{margin:'0 auto'}}
-                                     imgWidth="auto" imgHeight="120"
-                                     backgroundImage={image}/>
-                    }
+        const listingAlt = "House for sale: " + mls + " " + streetFormatted + ", " + cityFormatted + ", IL " + zip;
 
+        return (
+            <Card className={styles.container} shadow={0}>
+                <div className={styles.imageContainer}>
+                    {image && <ImageBackground imgWidth="auto" imgHeight="120" backgroundImage={image}/> }
                     {!image &&
                     <img
-                        className={inlineImgClass ? inlineImgClass: "ListingThumbInline__image"}
-                        src='http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png'
-                        alt=""/>
+                        className={inlineImgClass ? inlineImgClass: styles.image}
+                        src={houseDefault}
+                        alt={listingAlt}/>
                     }
                 </div>
-                <div className="six columns">
-                    <h4 className="text-primary ListingThumbInline__address">
-                        {street &&
-                        <span> {streetFormatted} </span>
-                        }
+                <div className={styles.info}>
+                    <h4 className={styles.address}>
+                        {street && <span> {streetFormatted} </span> }
                         <br/>
-                        {city &&
-                        < span > {cityFormatted} </span>
-                        }
+                        {city && < span > {cityFormatted} </span> }
                         <span> IL, </span>
-                        {zip &&
-                        <span> {zip} </span>
-                        }
+                        {zip && <span> {zip} </span> }
                     </h4>
-                    <h3 className="ListingThumbInline__price">
-                        {price &&
-                        <span> {priceFormatted} </span>
-                        }
+                    <h3 className={styles.price}>
+                        {price && <span> {priceFormatted} </span> }
                     </h3>
                     <p>
-                        {type &&
-                        <span > {typeFormatted}</span>
-                        }
-                        {mls &&
-                        <span>
-                            {" | MLS#: " + mls}
-                        </span>}
+                        {type && <span > {typeFormatted}</span> }
+                        {mls && <span> {" | MLS#: " + mls} </span>}
                     </p>
                     <p>
-                        {beds &&
-                        < span >
-                        {"Beds: " + beds}
-                            </span>}
-                        {baths &&
-                        <span>
-                            {" | Baths: " + baths}
-                        </span>
-                        }
+                        {beds && < span > {"Beds: " + beds} </span>}
+                        {baths && <span> {" | Baths: " + baths} </span> }
                     </p>
                 </div>
             </Card>

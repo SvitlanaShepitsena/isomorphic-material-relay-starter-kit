@@ -16,9 +16,9 @@ class HousesList extends React.Component {
     };
 
     render() {
-        var cityName = this.props.cityName;
-        var housesNumber = this.props.housesNumber;
+        const {cityName, housesNumber} = this.props;
         const btnLabel = "All " + cityName + " homes for sale" + " (" + housesNumber + ")";
+
         return (
             <div>
                 <div className={styles.container}>
