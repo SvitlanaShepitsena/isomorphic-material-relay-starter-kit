@@ -14,12 +14,10 @@ class Breadcrumbs extends React.Component {
         let paths = _.compact(this.context.route.path.split('/'));
         let lastIndex = paths.length - 1;
         let params = this.context.params;
-        console.log(params);
 
         let compoundUrl = '';
         let compoundAnchors = '';
 
-        console.log(paths);
         return (
             <div>
                 {paths.map((path, index)=> {
@@ -51,8 +49,7 @@ class Breadcrumbs extends React.Component {
                     } else {
 
                         url = path;
-                        const anchor = _.startCase(url);
-                        compoundAnchors += anchor;
+                        compoundAnchors += _.startCase(url);
 
                     }
                     compoundUrl += `/${url}`;
