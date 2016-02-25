@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import Breadcrumbs from 'react-breadcrumbs';
+import Breadcrumbs from '../../components/Common/Breadcrumbs';
 import urlToText from '../../utils/urlToText.js';
 
 /*=Components*/
@@ -10,11 +10,18 @@ import AppSpinner from '../../components/Common/Spinner/AppSpinner.js';
 
 class CityPage extends React.Component {
     getChildContext() {
-        return {location: this.props.location};
+        return {
+            location: this.props.location,
+            route: this.props.route,
+            params: this.props.routeParams,
+
+        };
     };
 
     static childContextTypes = {
-        location: PropTypes.object.isRequired
+        location: PropTypes.object,
+        params: PropTypes.object,
+        route: PropTypes.object
     };
 
     componentDidMount() {

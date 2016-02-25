@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 
 import Helmet from "react-helmet";
@@ -9,6 +9,20 @@ import SearchFormInline from '../../components/Search/SearchFormInline.js';
 import SortBy from '../../components/Common/SortBy/SortBy.js';
 
 class HomePage extends React.Component {
+    getChildContext() {
+        return {
+            location: this.props.location,
+            route: this.props.route,
+            params: this.props.routeParams,
+
+        };
+    };
+
+    static childContextTypes = {
+        location: PropTypes.object,
+        params: PropTypes.object,
+        route: PropTypes.object
+    };
     render() {
         var appType = "website";
         var appUrl = "http://www.remax1stclass.com/";
