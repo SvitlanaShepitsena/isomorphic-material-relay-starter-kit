@@ -16,40 +16,52 @@ class HousesList extends React.Component {
     };
 
     render() {
-        const {cityName, housesNumber} = this.props;
+        const {cityName, housesNumber, listType} = this.props;
         const btnLabel = "All " + cityName + " homes for sale" + " (" + housesNumber + ")";
 
         return (
             <div>
-                <div className={styles.container}>
-                    {this.props.list.map((edge, index)=> {
-                            const house = edge.node;
-                            const houseThumbUrl = `${house.zip.code}/${house.type.type}/${house.id}`;
-                            const houseInlineUrl = `${house.city.name}/${house.zip.code}/${house.type.type}/${house.id}`;
-                            return (
-                                <div className={styles.gridColsClass} key={index}>
-                                    {this.props.listType == "large" &&
-                                    <SvLink url={houseThumbUrl}>
-                                        <HouseThumbLarge house={house}/>
-                                    </SvLink>
-                                    }
-                                    {this.props.listType == "inline" &&
-                                    <Link to={`/houses-for-sale/${houseInlineUrl}`}>
-                                        <HouseThumbInline house={house}/>
-                                    </Link>
-                                    }
-                                </div>
-                            )
-                        }
-                    )}
+                <div className={styles.row}>
+                    <div className={styles.col1}>
+                        <div className={styles.row}>
+                            {this.props.list.map((edge, index)=> {
+                                    let house = edge.node;
+                                    let city = house.city.name;
+                                    let type = house.type.type;
+                                    let zip = house.zip.code;
+                                    let houseThumbUrl = `${zip}/${type}/${house.id}`;
+                                    let houseInlineUrl = `${city}/${zip}/${type}/${house.id}`;
+                                    return (
+                                        <div key={index}
+                                             className={(listType == "large") ? styles.col2 : styles.listInline}>
+                                            {listType == "large" &&
+                                            <SvLink url={houseThumbUrl}>
+                                                <HouseThumbLarge house={house}/>
+                                            </SvLink>
+                                            }
+                                            {listType == "inline" &&
+                                            <Link to={`/houses-for-sale/${houseInlineUrl}`}>
+                                                <HouseThumbInline house={house}/>
+                                            </Link>
+                                            }
+                                        </div>
+                                    )
+                                }
+                            )}
+                        </div>
+                    </div>
                 </div>
-                {this.props.listType == "large" &&
-                <div className={styles.btnContainer}>
-                    <SvLink url="all" className={styles.button}>
-                        <RaisedButton
-                            label={btnLabel}
-                            secondary={true}/>
-                    </SvLink>
+                {listType == "large" &&
+                <div className={styles.row}>
+                    <div className={styles.col1}>
+                        <div className={styles.btnContainer}>
+                            <SvLink url="all">
+                                <RaisedButton
+                                    label={btnLabel}
+                                    secondary={true}/>
+                            </SvLink>
+                        </div>
+                    </div>
                 </div>
                 }
             </div>

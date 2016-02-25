@@ -1,30 +1,32 @@
 @import '../../../settings/mixins.less';
 
-.btnContainer {
-  lost-column: 1 0;
-}
-
-.button {
-  display: block;
-}
-
-.container {
+.row {
+  min-width: 100%;
   .contentRow;
 }
 
-.column {
-  lost-column: 1 0;
+.col1 {
+  lost-column: 1;
 }
 
-.gridColsClass {
-  lost-column: 1/2 0;
+.col2 {
+  lost-column: 1/2;
+}
+
+.listInline {
+  lost-column: 1;
+  margin-bottom: 16px;
+}
+
+.btnContainer {
+  margin-bottom: 16px;
 }
 
 /*=desktop*/
 @media screen and (min-width: @tablet) {
   .btnContainer {
     text-align: right;
-    lost-column: 1 0;
+    lost-column: 1;
   }
 }
 
@@ -33,7 +35,7 @@
     text-align: center;
   }
 
-  .gridColsClass {
+  .col2 {
     lost-column: 1 0;
   }
 }
