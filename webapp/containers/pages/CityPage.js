@@ -38,8 +38,7 @@ class CityPage extends React.Component {
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
 
                 <h1> {"Houses for Sale in " + cityFormatted} </h1>
-                <hr/>
-
+                <br/>
                 {!(newHouses.length || zipsList.length || typesList.length) &&
                 <div style={{textAlign:"center"}}>
                     <Spinner size={1.5}/>

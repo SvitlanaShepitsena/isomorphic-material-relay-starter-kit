@@ -45,12 +45,9 @@ class HouseThumbLarge extends React.Component {
 
         return (
             <Card className={styles.container} shadow={0}>
-                <CardHeader title={priceFormatted}
-                            subtitle={typeFormatted}
-                />
+                <CardHeader title={<span className={styles.price}>{priceFormatted}</span>} subtitle={typeFormatted}/>
                 <CardMedia
-                    overlay={<CardTitle
-                    style={{padding:"0 0 5px 16px"}}
+                    overlay={<CardTitle className={styles.cardTitle}
                     subtitle={
                      <span>
                      { beds && <span> {"Beds: " + beds} </span> }
@@ -71,16 +68,10 @@ class HouseThumbLarge extends React.Component {
                 <CardTitle
                     title={
                    <h4 className={styles.address}>
-                        {street &&
-                        <span className={styles.street}> {streetFormatted} </span>
-                        }
-                        {city &&
-                        < span > {cityFormatted } </span>
-                        }
+                        {street && <span className={styles.street}> {streetFormatted} </span> }
+                        {city && < span > {cityFormatted } </span> }
                         <span> IL, </span>
-                        {zip &&
-                        <span> {zip} </span>
-                        }
+                        {zip && <span> {zip} </span> }
                      </h4>
                    }
                     subtitle={ <span> Year: {!year && <span> n/a</span> }  { year && <span> {year}</span> } </span> }

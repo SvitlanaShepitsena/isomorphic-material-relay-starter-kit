@@ -1,8 +1,11 @@
 @import '../../../settings/mixins.less';
 
-.wrapper {
-  width: 100%;
-  position: relative;
+.btnContainer {
+  lost-column: 1 0;
+}
+
+.button {
+  display: block;
 }
 
 .container {
@@ -17,20 +20,16 @@
   lost-column: 1/2 0;
 }
 
+/*=desktop*/
 @media screen and (min-width: @tablet) {
   .btnContainer {
-    position: relative;
     text-align: right;
+    lost-column: 1 0;
   }
-}
-
-.button {
-  display: block;
 }
 
 @media screen and (max-width: @mobileHorizontal) {
   .btnContainer {
-    position: relative;
     text-align: center;
   }
 

@@ -18,9 +18,9 @@ class HousesList extends React.Component {
     render() {
         var cityName = this.props.cityName;
         var housesNumber = this.props.housesNumber;
-        var gridColsClass = this.props.gridColsClass;
+        const btnLabel = "All " + cityName + " homes for sale" + " (" + housesNumber + ")";
         return (
-            <div className={styles.wrapper}>
+            <div>
                 <div className={styles.container}>
                     {this.props.list.map((edge, index)=> {
                             const house = edge.node;
@@ -44,11 +44,10 @@ class HousesList extends React.Component {
                     )}
                 </div>
                 {this.props.listType == "large" &&
-
                 <div className={styles.btnContainer}>
                     <SvLink url="all" className={styles.button}>
                         <RaisedButton
-                            label={"All " + cityName + " homes for sale" +  " (" + housesNumber + ")"}
+                            label={btnLabel}
                             secondary={true}/>
                     </SvLink>
                 </div>
