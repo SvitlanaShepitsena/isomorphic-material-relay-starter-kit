@@ -82,6 +82,8 @@ export default (req, res, next, assetsPath) => {
                         }
                         catch (err) {
                             console.log(err);
+                            console.log(err.message);
+                            console.log(err.stack);
                         }
 
                         queueTask.done();

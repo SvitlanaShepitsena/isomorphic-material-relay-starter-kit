@@ -7,15 +7,62 @@ class Breadcrumbs extends React.Component {
 
         route: PropTypes.object.isRequired,
         params: PropTypes.object.isRequired
-        
+
     };
 
     render() {
+        let paths = _.compact(this.context.route.path.split('/'));
+        let lastIndex = paths.length - 1;
+        let params = this.context.params;
 
-        console.log(this.context);
+        let compoundUrl = '';
+        let compoundAnchors = '';
+
         return (
             <div>
-                Breadcrumbs
+                {paths.map((path, index)=> {
+                    var url, paramName, pre;
+                    if (path.match('^:')) {
+                        paramName = path.substr(1);
+
+                        url = params[paramName];
+                        const anchor = _.startCase(url);
+
+                        switch (paramName) {
+                            case 'city':
+                                compoundAnchors += ` in ${anchor}`;
+
+                                break;
+
+                            case 'zipType':
+                                compoundAnchors += ` at ${anchor}`;
+
+                                break;
+                            case 'type':
+                                compoundAnchors = compoundAnchors.replace('Houses', anchor);
+
+                                break;
+                            default:
+                                pre = `,`;
+                        }
+
+                    } else {
+
+                        url = path;
+                        compoundAnchors += _.startCase(url);
+
+                    }
+                    compoundUrl += `/${url}`;
+
+                    return (
+                        <span key={path}>
+                            {index > 0 && <span> > </span>}
+                            {index < lastIndex ? <Link to={`${compoundUrl}`}>{compoundAnchors.replace(/Houses For Sale/i,'Chicago Suburbs')}</Link> :
+                                <span>{compoundAnchors}</span>
+                            }
+                        </span>
+                    );
+                })}
 
             </div>
         );
