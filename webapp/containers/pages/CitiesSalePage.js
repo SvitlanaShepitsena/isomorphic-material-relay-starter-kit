@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 /*=MaterialUi*/
-import Spinner from 'material-ui/lib/circular-progress';
 import Breadcrumbs from '../../components/Common/Breadcrumbs';
 /*=Components*/
 import CitiesList from '../../components/City/CitiesList/CitiesList.js';
+import Spinner from '../../components/Common/Spinner/AppSpinner.js';
 
 class CitiesSalePage extends React.Component {
     getChildContext() {
@@ -12,7 +12,6 @@ class CitiesSalePage extends React.Component {
             location: this.props.location,
             route: this.props.route,
             params: this.props.routeParams,
-
         };
     };
 
@@ -27,16 +26,10 @@ class CitiesSalePage extends React.Component {
         return (
             <div>
                 <br/>
-                <h1>
-                    North Chicago Suburbs Houses for Sale
-                </h1>
-                <hr/>
+                <h1> North Chicago Suburbs Houses for Sale </h1>
 
-                {!cities.length &&
-                <div style={{textAlign:"center"}}>
-                    <Spinner size={1.5}/>
-                </div>
-                }
+                {!cities.length && <Spinner /> }
+
                 {cities.length &&
                 <CitiesList list={cities} itemId="name" children="Houses"/>
                 }

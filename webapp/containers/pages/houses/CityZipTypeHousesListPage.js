@@ -1,15 +1,11 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import _ from 'lodash';
 import urlToText from '../../../utils/urlToText.js';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs';
 
-/*MaterialUi*/
-import Spinner from '../../../../node_modules/material-ui/lib/circular-progress';
-
 /*Components*/
-import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
+import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 class CityZipTypeHousesListPage extends React.Component {
     state = {compare: true};
@@ -30,10 +26,8 @@ class CityZipTypeHousesListPage extends React.Component {
     };
 
     componentDidMount() {
-        let zipType = this.props.params.zipType;
-
+        let {zipType} = this.props.params;
         this.zip = zipType;
-
         this.props.relay.setVariables({
             zip: this.zip,
             type: this.props.params.type
@@ -41,15 +35,11 @@ class CityZipTypeHousesListPage extends React.Component {
     }
 
     render() {
-        const routes = this.props.routes;
-        const params = this.props.params;
-
+        const {routes, params}= this.props;
         const houses = this.props.Viewer.Houses.edges;
-
-        const city = this.props.params.city;
+        const {city, type} = this.props.params;
         const zip = this.zip;
-        const type = this.props.params.type;
-
+        /*Formatter*/
         const cityFormatted = urlToText(city);
         const typeFormatted = urlToText(type);
 
@@ -58,15 +48,10 @@ class CityZipTypeHousesListPage extends React.Component {
                 <br/>
                 <Breadcrumbs routes={routes} params={params}/>
 
-                 <h1>{`${typeFormatted}s for Sale in ${cityFormatted}, ${zip}`}</h1>
-                <hr/>
-                {!houses &&
-                <div style={{textAlign:"center"}}>
-                    <Spinner size={1.5}/>
-                </div>
-                }
+                <h1>{`${typeFormatted}s for Sale in ${cityFormatted}, ${zip}`}</h1>
+               
+                {!houses && <Spinner/> }
 
-                <hr/>
                 {houses &&
                 <HousesList
                     list={houses}
