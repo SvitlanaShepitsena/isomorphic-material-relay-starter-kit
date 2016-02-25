@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 /*=MaterialUi*/
-import Breadcrumbs from '../../components/Common/Breadcrumbs';
 /*=Components*/
 import CitiesList from '../../components/City/CitiesList/CitiesList.js';
 import Spinner from '../../components/Common/Spinner/AppSpinner.js';
@@ -25,8 +24,6 @@ class CitiesSalePage extends React.Component {
         const cities = this.props.Viewer.Cities.edges;
         return (
             <div>
-                <Breadcrumbs/>
-                <br/>
                 <h1> North Chicago Suburbs Houses for Sale </h1>
 
                 {!cities.length && <Spinner /> }
