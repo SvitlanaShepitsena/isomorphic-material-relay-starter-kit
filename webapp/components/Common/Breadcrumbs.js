@@ -33,8 +33,8 @@ class Breadcrumbs extends React.Component {
                                 compoundAnchors += ` in ${anchor}`;
 
                                 break;
-
                             case 'zipType':
+
                                 if (url.match(/\d+/g)) {
 
                                     compoundAnchors += ` at ${anchor}`;
@@ -43,6 +43,12 @@ class Breadcrumbs extends React.Component {
 
                                 }
 
+                                break;
+                            case 'zip':
+                                if (url.match(/\d+/g)) {
+
+                                    compoundAnchors += ` at ${anchor}`;
+                                }
                                 break;
                             case 'type':
                                 compoundAnchors = compoundAnchors.replace('Houses', anchor);
