@@ -11,11 +11,18 @@ class CityZipTypeHousesListPage extends React.Component {
     state = {compare: true};
 
     getChildContext() {
-        return {location: this.props.location};
+        return {
+            location: this.props.location,
+            route: this.props.route,
+            params: this.props.routeParams,
+
+        };
     };
 
     static childContextTypes = {
-        location: PropTypes.object.isRequired
+        location: PropTypes.object,
+        params: PropTypes.object,
+        route: PropTypes.object
     };
 
     componentDidMount() {
