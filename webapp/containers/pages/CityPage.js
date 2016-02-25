@@ -38,9 +38,8 @@ class CityPage extends React.Component {
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <h1> {"Houses for Sale in " + cityFormatted} </h1>
                 <br/>
-                {!(newHouses.length || zipsList.length || typesList.length) &&
-                <AppSpinner/>
-                }
+                /*=spinner*/
+                {!(newHouses.length || zipsList.length || typesList.length) && <AppSpinner/> }
 
                 {newHouses.length &&
                 <HousesList
