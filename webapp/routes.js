@@ -28,13 +28,9 @@ export default (()=> {
                 <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                        name="Chicago North Suburbs Houses for Sale"/>
                 <IndexRedirect to="/houses-for-sale"/>
-
-                <Route path="/houses-for-sale/:city" component={CityPage}
-                       queries={ViewerQueries}/>
-
+                <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
                 <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
                        queries={ViewerQueries}/>
-
                 <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage}
                        queries={ViewerQueries}/>
 
