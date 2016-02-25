@@ -36,9 +36,6 @@ class HousePage extends React.Component {
                 <br/>
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <br/>
-
-
-
                 {house &&
                 <HouseInfo house={house}/>
                 }
