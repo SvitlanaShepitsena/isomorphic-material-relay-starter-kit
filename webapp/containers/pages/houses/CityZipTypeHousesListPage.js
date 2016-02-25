@@ -42,7 +42,7 @@ class CityZipTypeHousesListPage extends React.Component {
                 <Breadcrumbs routes={routes} params={params}/>
 
                 <h1>{`${typeFormatted}s for Sale in ${cityFormatted}, ${zip}`}</h1>
-               
+
                 {!houses && <Spinner/> }
 
                 {houses &&

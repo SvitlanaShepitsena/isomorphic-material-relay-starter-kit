@@ -65,13 +65,6 @@ class ZipTypeHousesListPage extends React.Component {
                 </div>
                 }
 
-                {!this.type && <ZipTypeList
-                    itemId="type"
-                    list={typesList}
-                    children="Houses"
-                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
-                />
-                }
                 {houses &&
                 <HousesList
                     list={houses}
@@ -79,6 +72,14 @@ class ZipTypeHousesListPage extends React.Component {
                     listType="inline"/>
                 }
                 <br/>
+
+                {!this.type && <ZipTypeList
+                    itemId="type"
+                    list={typesList}
+                    children="Houses"
+                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
+                />
+                }
 
             </div>
         );
