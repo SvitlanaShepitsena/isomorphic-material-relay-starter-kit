@@ -1,8 +1,5 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-
-
-
 /*=MaterialUi*/
 import Spinner from 'material-ui/lib/circular-progress';
 

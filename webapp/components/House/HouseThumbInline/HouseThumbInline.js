@@ -4,7 +4,7 @@ import textToPrice from '../../../utils/textToPrice.js';
 
 /*=MaterialUi*/
 import Card from 'material-ui/lib/card/card';
-import ImageBackground from '../../Common/ImageBackground.js';
+import ImageBackground from '../../Common/ImageBackground/ImageBackground.js';
 
 class HouseThumbInline extends React.Component {
     static propTypes = {

@@ -7,6 +7,8 @@ import HouseThumbInline from '../HouseThumbInline/HouseThumbInline';
 import HouseThumbLarge from '../HouseThumbLarge/HouseThumbLarge';
 import SvLink from './../../Common/SvLink';
 
+import styles from './HousesList.less';
+
 class HousesList extends React.Component {
     static propTypes = {
         list: PropTypes.array.isRequired,
@@ -18,14 +20,14 @@ class HousesList extends React.Component {
         var housesNumber = this.props.housesNumber;
         var gridColsClass = this.props.gridColsClass;
         return (
-            <div style={{width:"100%"}}>
-                <div className="row">
+            <div className={styles.wrapper}>
+                <div className={styles.container}>
                     {this.props.list.map((edge, index)=> {
                             const house = edge.node;
                             const houseThumbUrl = `${house.zip.code}/${house.type.type}/${house.id}`;
                             const houseInlineUrl = `${house.city.name}/${house.zip.code}/${house.type.type}/${house.id}`;
                             return (
-                                <div className={gridColsClass ? gridColsClass : "twelve columns"} key={index}>
+                                <div className={styles.gridColsClass} key={index}>
                                     {this.props.listType == "large" &&
                                     <SvLink url={houseThumbUrl}>
                                         <HouseThumbLarge house={house}/>
@@ -42,11 +44,14 @@ class HousesList extends React.Component {
                     )}
                 </div>
                 {this.props.listType == "large" &&
-                <SvLink url="all">
-                    <RaisedButton style={{display: "block", margin: "0px auto"}}
-                                  label={"All " + cityName + " homes for sale" +  " (" + housesNumber + ")"}
-                                  primary={true}/>
-                </SvLink>
+
+                <div className={styles.btnContainer}>
+                    <SvLink url="all" className={styles.button}>
+                        <RaisedButton
+                            label={"All " + cityName + " homes for sale" +  " (" + housesNumber + ")"}
+                            secondary={true}/>
+                    </SvLink>
+                </div>
                 }
             </div>
         );

@@ -1,0 +1,40 @@
+@import '../../../settings/mixins.less';
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  .contentRow;
+}
+
+.column {
+  lost-column: 1 0;
+}
+
+.gridColsClass {
+  lost-column: 1/2 0;
+}
+
+@media screen and (min-width: @tablet) {
+  .btnContainer {
+    position: relative;
+    text-align: right;
+  }
+}
+
+.button {
+  display: block;
+}
+
+@media screen and (max-width: @mobileHorizontal) {
+  .btnContainer {
+    position: relative;
+    text-align: center;
+  }
+
+  .gridColsClass {
+    lost-column: 1 0;
+  }
+}
