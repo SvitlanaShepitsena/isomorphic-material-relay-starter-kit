@@ -6,7 +6,7 @@ class AboutContent extends React.Component {
     render() {
         return (
             <div>
-                <h1>Why Re/Max 1st Class Realty is worth to work with: </h1>
+                <h1>Why Re/Max 1st Class Realty <br/> is worth to work with: </h1>
                 <hr/>
                 <article className={styles.article}>
                     <p>

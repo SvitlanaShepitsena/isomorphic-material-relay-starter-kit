@@ -23,7 +23,6 @@ class HousePage extends React.Component {
 
     render() {
         var house = this.props.Viewer.House;
-        console.log(house);
 
         return (
             <div className="HousePage">

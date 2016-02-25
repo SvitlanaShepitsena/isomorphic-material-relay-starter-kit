@@ -6,10 +6,12 @@ import Card from '../../../../node_modules/material-ui/lib/card/card';
 import CardActions from '../../../../node_modules/material-ui/lib/card/card-actions';
 import CardTitle from '../../../../node_modules/material-ui/lib/card/card-title';
 import Divider from '../../../../node_modules/material-ui/lib/divider';
+/*=styles*/
+import styles from './ZipTypeList.less';
 
 /*=Components*/
 import ButtonWithBadge from '../../Common/ButtonWithBadge.js';
-
+/*=*/
 class ZipTypeList extends React.Component {
     static propTypes = {
         list: PropTypes.array.isRequired,
@@ -25,18 +27,16 @@ class ZipTypeList extends React.Component {
                 <CardTitle title={sectionTitle}/>
                 <Divider />
                 <CardActions>
-                    <ul className="list-unstyled list-inline">
+                    <ul>
                         {this.props.list.map(edge=> {
-
                                 const item = edge.node;
                                 const itemId = this.props.itemId;
                                 const children = this.props.children;
                                 const itemValue = item[itemId];
-
                                 const itemValueFormatted = urlToText(itemValue);
                                 // Temporary Solution for creating a new route for houses type
                                 return (
-                                    <li key={itemValue}>
+                                    <li className={styles.item} key={itemValue}>
                                         <ButtonWithBadge
                                             btnLabel={itemValueFormatted}
                                             btnUrl={itemValue}
