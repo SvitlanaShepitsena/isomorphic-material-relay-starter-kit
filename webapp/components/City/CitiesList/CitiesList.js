@@ -28,7 +28,7 @@ class CitiesList extends React.Component {
 
                         return (
                             <div className={styles.item} key={itemValue}>
-                                <SvLink url={itemValue} style={{padding: 16}}>
+                                <SvLink url={itemValue}>
                                     <CityThumbPicture
                                         housesLength={item[`${children}_Count`]}
                                         cityName={itemValue}/>

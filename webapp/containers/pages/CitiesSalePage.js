@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-/*=MaterialUi*/
 /*=Components*/
 import CitiesList from '../../components/City/CitiesList/CitiesList.js';
 import Spinner from '../../components/Common/Spinner/AppSpinner.js';
@@ -25,12 +24,8 @@ class CitiesSalePage extends React.Component {
         return (
             <div>
                 <h1> North Chicago Suburbs Houses for Sale </h1>
-
                 {!cities.length && <Spinner /> }
-
-                {cities.length &&
-                <CitiesList list={cities} itemId="name" children="Houses"/>
-                }
+                {cities.length && <CitiesList list={cities} itemId="name" children="Houses"/> }
             </div>
         );
     }

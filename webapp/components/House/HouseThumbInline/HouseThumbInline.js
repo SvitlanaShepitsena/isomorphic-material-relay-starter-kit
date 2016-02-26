@@ -13,8 +13,7 @@ import styles from './HouseThumbInline.less';
 
 class HouseThumbInline extends React.Component {
     static propTypes = {
-        house: PropTypes.object.isRequired,
-        inlineImgClass: PropTypes.string
+        house: PropTypes.object.isRequired
     };
 
     render() {
@@ -34,7 +33,6 @@ class HouseThumbInline extends React.Component {
         let priceFormatted = textToPrice(price);
 
         var image = cloudinaryPath + house.id + '-photo-1.jpg';
-        var {inlineImgClass} = this.props;
         const listingAlt = "House for sale: " + mls + " " + streetFormatted + ", " + cityFormatted + ", IL " + zip;
 
         return (
@@ -43,11 +41,7 @@ class HouseThumbInline extends React.Component {
                     <div className={styles.imageContainer}>
                         {image && <ImageBackground imgWidth="auto" imgHeight="150" backgroundImage={image}/> }
                         {!image &&
-                        <img
-                            className={styles.image}
-                            src={houseDefault}
-                            alt={listingAlt}/>
-                        }
+                        <img className={styles.image} src={houseDefault} alt={listingAlt}/> }
                     </div>
                 </div>
                 <div className={styles.colInfo}>
