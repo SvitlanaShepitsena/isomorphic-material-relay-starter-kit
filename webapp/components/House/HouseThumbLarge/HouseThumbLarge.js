@@ -16,8 +16,7 @@ import settings from '../../../settings/settings.js';
 
 class HouseThumbLarge extends React.Component {
     static propTypes = {
-        house: PropTypes.object.isRequired,
-        imgClassName: PropTypes.string
+        house: PropTypes.object.isRequired
     };
 
     render() {
@@ -37,7 +36,6 @@ class HouseThumbLarge extends React.Component {
         let priceFormatted = textToPrice(price);
 
         var image = cloudinaryPath + house.id + '-photo-1.jpg';
-        var {imgClassName} = this.props;
         const listingAlt = "House for sale: " + mls + " " + streetFormatted + ", " + cityFormatted + ", IL " + zip;
 
         return (
@@ -53,13 +51,8 @@ class HouseThumbLarge extends React.Component {
                     />
                     }>
                     <div>
-                        {image &&
-                        <ImageBackground imgWidth="auto" imgHeight="220" backgroundImage={image}/>
-                        }
-                        {!image &&
-                        <img className={imgClassName ? imgClassName: styles.image} src={houseDefault}
-                             alt={listingAlt}/>
-                        }
+                        {image && <ImageBackground imgWidth="auto" imgHeight="220" backgroundImage={image}/> }
+                        {!image && <img className={styles.image} src={houseDefault} alt={listingAlt}/> }
                     </div>
                 </CardMedia>
                 <CardTitle
