@@ -61,16 +61,16 @@ class HouseThumbInline extends React.Component {
                     <h3 className={styles.price}>
                         {price && <span> {priceFormatted} </span> }
                     </h3>
-                    <p>
-                        {type && <span > {typeFormatted}</span> }
-                        {mls && <span> {" | MLS#: " + mls} </span>}
+                    <p >
+                        {type && <span className={styles.type}> {typeFormatted}</span> }
+                        {mls && <span className={styles.mls}> {" | MLS#: " + mls} </span>}
                     </p>
                     <p>
                         {beds && < span > {"Beds: " + beds} </span>}
                         {baths && <span> {" | Baths: " + baths} </span> }
                     </p>
                     <p>
-                        {built && < span > {"Year: " + yearFormatted} </span>}
+                        {built && < span className={styles.year}> {"Year: " + yearFormatted} </span>}
                     </p>
                 </div>
             </Card>
