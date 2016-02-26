@@ -1,0 +1,74 @@
+@import '../../../settings/palette.less';
+@import '../../../settings/mixins.less';
+
+.row {
+  min-width: 100%;
+  .contentRow;
+}
+
+.col1 {
+  lost-column: 1;
+}
+
+.col2 {
+  lost-column: 1/2;
+}
+
+.container {
+  padding: 16px;
+}
+
+.description {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.sectionHeader {
+  color: @primary-2-color;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.card article {
+  padding: 0 16px;
+}
+
+.address {
+  font-size: 22px;
+  line-height: 1.5;
+  margin: 0 0 5px;
+}
+
+.mls {
+  color: @secondary-text-color;
+  font-weight: 600;
+}
+
+.type {
+  font-weight: 600;
+}
+
+.price {
+  font-size: 18px;
+  color: @primary-2-color;
+  margin: 8px 0;
+}
+
+.year {
+  font-size: 14px;
+  font-style: italic;
+}
+
+@media (max-width: 599px) {
+  .cardAddress {
+    text-align: center;
+  }
+
+  .cardPrice {
+    text-align: center;
+  }
+
+}

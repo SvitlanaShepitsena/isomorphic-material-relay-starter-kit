@@ -1,9 +1,11 @@
 import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
 import textToPrice from '../../../utils/textToPrice.js';
+import getYear from '../../../utils/getYear';
 
 import Card from 'material-ui/lib/card/card';
 import PhotoGallery from '../../PhotoGallery/PhotoGallery.js';
+import styles from './HouseInfo.less';
 
 class HouseInfo extends React.Component {
     static propTypes = {
@@ -11,66 +13,62 @@ class HouseInfo extends React.Component {
     };
 
     render() {
-        var id = this.props.house.id;
-        var baths = this.props.house.baths;
-        var beds = this.props.house.beds;
-        var city = this.props.house.city.name;
-        var image = this.props.house.image;
-        var mls = this.props.house.mls;
-        var price = this.props.house.price;
-        var street = this.props.house.street;
-        var type = this.props.house.type.type;
-        var zip = this.props.house.zip.code;
-        var year = new Date(this.props.house.built).getFullYear().toString();
-        var description = this.props.house.description;
+        let {house} = this.props;
+        var {id} = house;
+        var {baths, beds, mls, price, street, built, description, image} = house;
+        var city = house.city.name;
+        var zip = house.zip.code;
+        var type = house.type.type;
 
         /*Formatter*/
+        var yearFormatted = getYear(built);
         let cityFormatted = urlToText(city);
         let streetFormatted = urlToText(street);
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
 
         return (
-            <Card className="HouseInfo">
-                <div className="row HouseInfo__card-header">
-                    <div className="six columns HouseInfo__card-address">
-                        <h1>
+            <Card className={styles.container}>
+                <div className={styles.row}>
+                    <div className={styles.col2}>
+                        <h1 className={styles.address}>
                             {street && <span>{streetFormatted}</span> }
                             <br/>
-                            {city && <span> {cityFormatted + ", "} </span> }
-                            {zip && <span> {zip + ", "} </span> }
+                            {city && <span> {cityFormatted + ", IL"} </span> }
+                            {zip && <span> {zip} </span> }
                         </h1>
 
                         {type && <p> {typeFormatted} </p> }
                     </div>
-                    <div className="six columns HouseInfo__card-price">
-                        {price && <h4> {priceFormatted} </h4> }
-                        {mls && <p> {"MLS#: " + mls} </p> }
-                        {year && <p> {"Year: " + year} </p> }
+                    <div className={styles.col2}>
+                        {price && <h4 className={styles.price}> {priceFormatted} </h4> }
+                        {mls && <p className={styles.mls}> {"MLS#: " + mls} </p> }
+                        {built && <p className={styles.year}> {"Year: " + yearFormatted} </p> }
                     </div>
                 </div>
-
                 {image && <PhotoGallery image={image} id={id}/> }
                 <hr/>
-
-                {description && <article><p> {description} </p></article> }
-
-                <hr/>
+                {description &&
+                <article>
+                    <h4 className={styles.sectionHeader}>Description:</h4>
+                    <p className={styles.description}> {description} </p>
+                </article> }
                 <article >
-                    <h4>Key Facts:</h4>
-                    <div className="row">
-                        <div className="six columns HouseInfo__key-facts b-green">
-                            {type && <p> {"Type: " + typeFormatted} </p> }
+                    <h4 className={styles.sectionHeader}>Key Facts:</h4>
+                    <div className={styles.row}>
+                        <div className={styles.col2}>
+                            <div className={styles.keyFacts}>
+                                {type && <p> {"Type: " + typeFormatted} </p> }
 
-                            {/*                                {exteriorDetails && exteriorDetails['Lot Size'] &&
-                             <p> {"Lot Size: " + exteriorDetails['Lot Size']} </p>
-                             }*/}
-                            {price && <p> Price: ${priceFormatted} </p> }
+                                {/*                                {exteriorDetails && exteriorDetails['Lot Size'] &&
+                                 <p> {"Lot Size: " + exteriorDetails['Lot Size']} </p>
+                                 }*/}
+                                {price && <p> Price: {priceFormatted} </p> }
 
-                            {year && <p> Year Built: {year} </p> }
+                                {built && <p> Year Built: {yearFormatted} </p> }
+                            </div>
                         </div>
                         <div className="six columns">
-
                             {beds && <p> {"Beds: " + beds} </p> }
                             {baths && <p> {"Baths: " + baths} </p> }
                             {/*                                {exteriorDetails && exteriorDetails['Parking'] &&
@@ -80,9 +78,8 @@ class HouseInfo extends React.Component {
 
                     </div>
                 </article>
-
             </Card>
-        );
+        )
     }
 }
 export default HouseInfo;

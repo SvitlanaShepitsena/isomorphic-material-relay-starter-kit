@@ -12,7 +12,6 @@ class HousePage extends React.Component {
             location: this.props.location,
             route: this.props.route,
             params: this.props.routeParams,
-
         };
     };
 
@@ -30,15 +29,12 @@ class HousePage extends React.Component {
 
     render() {
         var house = this.props.Viewer.House;
-
         return (
             <div className="HousePage">
                 <br/>
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <br/>
-                {house &&
-                <HouseInfo house={house}/>
-                }
+                {house && <HouseInfo house={house}/> }
                 <br/>
             </div>
         );
