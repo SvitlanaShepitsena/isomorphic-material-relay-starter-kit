@@ -2,10 +2,10 @@ import {fromGlobalId} from "graphql-relay";
 import {GraphQLID, GraphQLNonNull, GraphQLObjectType} from "graphql";
 
 import ViewerType from "./ViewerType";
+import HouseType from "./HouseType";
 import NodeInterface from "../interface/NodeInterface";
 
-import {House_list_get} from '../../data/da/House';
-import {City_get_house} from '../../data/da/City';
+import {House_get} from '../../data/da/House';
 import {DA_User_get} from '../../data/da/User';
 
 function resolveNodeField(source, args) {
@@ -19,6 +19,11 @@ function resolveNodeField(source, args) {
     switch (type) {
         case "Viewer":
             return DA_User_get(id);
+        break;
+        case "House":
+            return House_get(id);
+        break;
+
     }
 };
 
@@ -37,6 +42,10 @@ export default new GraphQLObjectType({
         Viewer: {
             type: ViewerType,
             resolve: (parent, args, {rootValue: {user_id}}) => DA_User_get(user_id)
+        },
+        House: {
+            type: HouseType,
+            resolve: (parent, args, {rootValue: {house_id}}) => House_get(house_id)
         }
     })
 });

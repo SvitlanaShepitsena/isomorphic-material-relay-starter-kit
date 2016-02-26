@@ -48,22 +48,21 @@ class HousePage extends React.Component {
 export default Relay.createContainer(HousePage, {
     initialVariables: {id: 'id'},
     fragments: {
-        Viewer: () => Relay.QL`
-            fragment on Viewer {
-                House(id:$id){
-                    id,
-                    mls,
-                    type {type}
-                    beds,
-                    baths,
-                    description,
-                    price,
-                    street,
-                    built
-                    city{name }
-                    zip{code},
-                    image
-                }
+        house: (id) => Relay.QL`
+            House {
+                id,
+                mls,
+                type {type}
+                beds,
+                baths,
+                description,
+                price,
+                street,
+                built
+                city{name }
+                zip{code},
+                image
+
             }
         `,
     },
