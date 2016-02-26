@@ -24,15 +24,16 @@ class HousesList extends React.Component {
                 <div className={styles.row}>
                     <div className={styles.col1}>
                         <div className={styles.row}>
-                            {this.props.list.map((edge, index)=> {
+                            {this.props.list.map((edge)=> {
                                     let house = edge.node;
+                                    let itemKey = house.id;
                                     let city = house.city.name;
                                     let type = house.type.type;
                                     let zip = house.zip.code;
                                     let houseThumbUrl = `${zip}/${type}/${house.id}`;
                                     let houseInlineUrl = `${city}/${zip}/${type}/${house.id}`;
                                     return (
-                                        <div key={index}
+                                        <div key={itemKey}
                                              className={(listType == "large") ? styles.col2 : styles.listInline}>
                                             {listType == "large" &&
                                             <SvLink url={houseThumbUrl}>

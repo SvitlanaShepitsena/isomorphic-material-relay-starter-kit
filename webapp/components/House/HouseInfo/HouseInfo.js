@@ -14,7 +14,7 @@ class HouseInfo extends React.Component {
 
     render() {
         let {house} = this.props;
-        var {id} = house;
+        var {id} = this.props.house;
         var {baths, beds, mls, price, street, built, description, image} = house;
         var city = house.city.name;
         var zip = house.zip.code;
@@ -31,17 +31,19 @@ class HouseInfo extends React.Component {
             <Card className={styles.container}>
                 <div className={styles.row}>
                     <div className={styles.col2}>
-                        <h1 className={styles.address}>
-                            {street && <span>{streetFormatted}</span> }
-                            <br/>
-                            {city && <span> {cityFormatted + ", IL"} </span> }
-                            {zip && <span> {zip} </span> }
-                        </h1>
+                        <div className={styles.headLeft}>
+                            <h1 className={styles.address}>
+                                {street && <span>{streetFormatted}</span> }
+                                <br/>
+                                {city && <span> {cityFormatted + ", IL"} </span> }
+                                {zip && <span> {zip} </span> }
+                            </h1>
 
-                        {type && <p className={styles.type}> {typeFormatted} </p> }
+                            {type && <p className={styles.type}> {typeFormatted} </p> }
+                        </div>
                     </div>
                     <div className={styles.col2}>
-                        <div className={styles.textRight}>
+                        <div className={styles.headRight}>
                             {price && <h4 className={styles.price}> {priceFormatted} </h4> }
                             {mls && <p className={styles.mls}> {"MLS#: " + mls} </p> }
                             {built && <p className={styles.year}> {"Year: " + yearFormatted} </p> }

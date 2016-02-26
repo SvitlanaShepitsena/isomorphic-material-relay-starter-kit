@@ -9,7 +9,6 @@ import {Route, browserHistory, Redirect, IndexRedirect} from 'react-router';
 
 import AppLayout from './containers/layout/AppLayout.js';
 import ViewerQueries from './queries/ViewerQueries';
-import {House} from './queries/Queries';
 
 import AboutPage from './containers/pages/AboutPage';
 import CitiesSalePage from './containers/pages/CitiesSalePage';
@@ -31,13 +30,11 @@ export default (()=> {
                 <IndexRedirect to="/houses-for-sale"/>
                 <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
                 <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
-                       queries={ViewerQueries} 
-
-                />
+                       queries={ViewerQueries}/>
                 <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage}
                        queries={ViewerQueries}/>
 
-                <Route path="/houses-for-sale/:city/:zip/:type/:street" component={HousePage}
+                <Route path="/houses-for-sale/:city/:zipType/:type/:street" component={HousePage}
                        queries={ViewerQueries}/>
 
                 <Route path="/about" component={AboutPage} name="Houses for Sale"/>

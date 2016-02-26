@@ -30,11 +30,13 @@ class HousePage extends React.Component {
     render() {
         var house = this.props.Viewer.House;
         return (
-            <div className="HousePage">
+            <div>
                 <br/>
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <br/>
-                {house && <HouseInfo house={house}/> }
+                <div style={{backgroundColor: "orange",width:"100%",height: 900}}>
+                    {house && <HouseInfo house={house}/> }
+                </div>
                 <br/>
             </div>
         );
@@ -46,7 +48,7 @@ export default Relay.createContainer(HousePage, {
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                 House(id:$id){
+                House(id:$id){
                     id,
                     mls,
                     type {type}
