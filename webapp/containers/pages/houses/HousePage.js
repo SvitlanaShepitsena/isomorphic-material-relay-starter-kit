@@ -46,7 +46,7 @@ export default Relay.createContainer(HousePage, {
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                House(id:$id){
+                 House(id:$id){
                     id,
                     mls,
                     type {type}

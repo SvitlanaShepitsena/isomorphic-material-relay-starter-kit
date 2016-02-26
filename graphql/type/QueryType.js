@@ -2,9 +2,10 @@ import {fromGlobalId} from "graphql-relay";
 import {GraphQLID, GraphQLNonNull, GraphQLObjectType} from "graphql";
 
 import ViewerType from "./ViewerType";
+import HouseType from "./HouseType";
 import NodeInterface from "../interface/NodeInterface";
 
-import {House_list_get} from '../../data/da/House';
+import {House_get} from '../../data/da/House';
 import {City_get_house} from '../../data/da/City';
 import {DA_User_get} from '../../data/da/User';
 
@@ -37,6 +38,15 @@ export default new GraphQLObjectType({
         Viewer: {
             type: ViewerType,
             resolve: (parent, args, {rootValue: {user_id}}) => DA_User_get(user_id)
+        },
+        House: {
+            type: HouseType,
+            args: {
+                id: {
+                    type: new GraphQLNonNull(GraphQLID)
+                }
+            },
+            resolve: (_,args) => House_get(args.id)
         }
     })
 });
