@@ -53,10 +53,11 @@ class HouseThumbInline extends React.Component {
                 <div className={styles.colInfo}>
                     <h4 className={styles.address}>
                         {street && <span> {streetFormatted} </span> }
-
+                        <span className={styles.address2}>
                         {city && < span > {cityFormatted} </span> }
-                        <span> IL, </span>
-                        {zip && <span> {zip} </span> }
+                            <span> IL, </span>
+                            {zip && <span> {zip} </span> }
+                        </span>
                     </h4>
                     <h3 className={styles.price}>
                         {price && <span> {priceFormatted} </span> }
