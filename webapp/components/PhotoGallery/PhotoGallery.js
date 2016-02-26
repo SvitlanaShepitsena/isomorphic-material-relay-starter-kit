@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
-import appSettings from '../../settings/settings';
+import appSettings from '../../settings/settings.js';
+import styles from './PhotoGallery.less';
 
 class PhotoGallery extends React.Component {
 
@@ -9,8 +10,9 @@ class PhotoGallery extends React.Component {
             dots: true,
             infinite: false,
             speed: 500,
-            slidesToShow: 5,
-            slidesToScroll: 5
+            slidesToShow: 1,
+            slidesToScroll: 1
+
         };
         var images = [];
         const maxImage = Number(this.props.image);
@@ -18,22 +20,31 @@ class PhotoGallery extends React.Component {
 
             var image = appSettings.cloudinaryPath + this.props.id + '-photo-' + i + '.jpg';
             images.push(image);
-
         }
 
         return (
-            <div className='PhotoGallery'>
-                {images.map(image=> {
-                    return (
-                        <div className="PhotoGallery__card" key={image}>
-                            <img className="PhotoGallery__card-image" src={image}
-                                 alt=""/></div>
-                    )
-                })
-                }
-
+            <div className={styles.row}>
+                <div className={styles.col1}>
+                    <div className={styles.container}>
+                        <Slider   {...settings}>
+                            {images.map(image=> {
+                                return (
+                                    <div key={image} className={styles.item}>
+                                        <img className={styles.itemImage}
+                                             src={image}
+                                             alt=""/>
+                                    </div>
+                                )
+                            })
+                            }
+                        </Slider>
+                    </div>
+                </div>
             </div>
-        );
+        )
     }
 }
-export default PhotoGallery;
+
+export
+default
+PhotoGallery;

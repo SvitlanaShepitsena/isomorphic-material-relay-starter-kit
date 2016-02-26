@@ -15,7 +15,15 @@
 }
 
 .container {
-  padding: 16px;
+  padding: 16px 0;
+  article {
+    p {
+      padding: 0 16px;
+    }
+    h4 {
+      padding: 0 16px;
+    }
+  }
 }
 
 .description {
@@ -47,6 +55,10 @@
   font-weight: 600;
 }
 
+.textRight {
+  text-align: right !important;
+}
+
 .type {
   font-weight: 600;
 }
@@ -62,13 +74,55 @@
   font-style: italic;
 }
 
+/*=mobile*/
 @media (max-width: 599px) {
-  .cardAddress {
+  .address {
     text-align: center;
   }
 
-  .cardPrice {
-    text-align: center;
+  .mls {
+    display: inline-block;
+    padding-right: 4px;
+    font-size: 18px;
   }
 
+  .sectionHeader {
+    font-size: 22px;
+  }
+
+  .container {
+    article {
+      p {
+        font-size: 16px;
+        line-height: 1.8;
+        padding: 0 16px;
+      }
+      h4 {
+        padding: 0 16px;
+      }
+    }
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
+  .type {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .textRight {
+    text-align: center !important;
+  }
+
+  .year {
+    display: inline-block;
+    font-size: 18px;
+    padding-left: 4px;
+  }
+
+  .col2 {
+    lost-column: 1 0;
+  }
 }

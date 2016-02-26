@@ -38,44 +38,50 @@ class HouseInfo extends React.Component {
                             {zip && <span> {zip} </span> }
                         </h1>
 
-                        {type && <p> {typeFormatted} </p> }
+                        {type && <p className={styles.type}> {typeFormatted} </p> }
                     </div>
                     <div className={styles.col2}>
-                        {price && <h4 className={styles.price}> {priceFormatted} </h4> }
-                        {mls && <p className={styles.mls}> {"MLS#: " + mls} </p> }
-                        {built && <p className={styles.year}> {"Year: " + yearFormatted} </p> }
+                        <div className={styles.textRight}>
+                            {price && <h4 className={styles.price}> {priceFormatted} </h4> }
+                            {mls && <p className={styles.mls}> {"MLS#: " + mls} </p> }
+                            {built && <p className={styles.year}> {"Year: " + yearFormatted} </p> }
+                        </div>
                     </div>
                 </div>
+
                 {image && <PhotoGallery image={image} id={id}/> }
-                <hr/>
+
                 {description &&
-                <article>
-                    <h4 className={styles.sectionHeader}>Description:</h4>
-                    <p className={styles.description}> {description} </p>
+                <article className={styles.row}>
+                    <div className={styles.col1}>
+                        <h4 className={styles.sectionHeader}>Description:</h4>
+                        <p className={styles.description}> {description} </p>
+                    </div>
                 </article> }
-                <article >
-                    <h4 className={styles.sectionHeader}>Key Facts:</h4>
-                    <div className={styles.row}>
-                        <div className={styles.col2}>
-                            <div className={styles.keyFacts}>
-                                {type && <p> {"Type: " + typeFormatted} </p> }
+                <article className={styles.row}>
+                    <div className={styles.col1}>
+                        <h4 className={styles.sectionHeader}>Key Facts:</h4>
+                        <div className={styles.row}>
+                            <div className={styles.col2}>
+                                <div className={styles.keyFacts}>
+                                    {type && <p> {"Type: " + typeFormatted} </p> }
 
-                                {/*                                {exteriorDetails && exteriorDetails['Lot Size'] &&
-                                 <p> {"Lot Size: " + exteriorDetails['Lot Size']} </p>
+                                    {/*                                {exteriorDetails && exteriorDetails['Lot Size'] &&
+                                     <p> {"Lot Size: " + exteriorDetails['Lot Size']} </p>
+                                     }*/}
+                                    {price && <p> Price: {priceFormatted} </p> }
+
+                                    {built && <p> Year Built: {yearFormatted} </p> }
+                                </div>
+                            </div>
+                            <div className="six columns">
+                                {beds && <p> {"Beds: " + beds} </p> }
+                                {baths && <p> {"Baths: " + baths} </p> }
+                                {/*                                {exteriorDetails && exteriorDetails['Parking'] &&
+                                 <p> {"Parking: " + exteriorDetails['Parking']} </p>
                                  }*/}
-                                {price && <p> Price: {priceFormatted} </p> }
-
-                                {built && <p> Year Built: {yearFormatted} </p> }
                             </div>
                         </div>
-                        <div className="six columns">
-                            {beds && <p> {"Beds: " + beds} </p> }
-                            {baths && <p> {"Baths: " + baths} </p> }
-                            {/*                                {exteriorDetails && exteriorDetails['Parking'] &&
-                             <p> {"Parking: " + exteriorDetails['Parking']} </p>
-                             }*/}
-                        </div>
-
                     </div>
                 </article>
             </Card>
