@@ -1,3 +1,4 @@
+/webpack.config.babel.js
 .env
 .idea/*
 .DS_Store
