@@ -71,7 +71,9 @@ export default Relay.createContainer(CityZipTypeHousesListPage, {
                             zip{ code }
                             type{ type }
                             price
+                            built
                             street
+                            mls
                             beds
                             description
                             image

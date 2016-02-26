@@ -24,13 +24,13 @@ class HouseThumbLarge extends React.Component {
         var {houseDefault, cloudinaryPath} = settings;
 
         let {house} = this.props;
-        var {baths, beds, mls, price, street} = house;
+        var {baths, beds, mls, price, street, built} = house;
         var city = house.city.name;
         var zip = house.zip.code;
         var type = house.type.type;
-       
+
         /*Formatter*/
-        var year = getYear(house.built);
+        var year = getYear(built);
         let cityFormatted = urlToText(city);
         let streetFormatted = urlToText(street);
         let typeFormatted = urlToText(type);

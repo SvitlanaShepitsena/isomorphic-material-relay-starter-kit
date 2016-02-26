@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
 import textToPrice from '../../../utils/textToPrice.js';
+import getYear from '../../../utils/getYear';
 import settings from '../../../settings/settings.js';
 
 /*=materialUi*/
@@ -20,12 +21,13 @@ class HouseThumbInline extends React.Component {
         var {houseDefault, cloudinaryPath} = settings;
 
         let {house} = this.props;
-        var {baths, beds, mls, price, street} = house;
+        var {baths, beds, mls, price, street, built} = house;
         var city = house.city.name;
         var zip = house.zip.code;
         var type = house.type.type;
 
         /*Formatter*/
+        let yearFormatted = getYear(house.built);
         let cityFormatted = urlToText(city);
         let streetFormatted = urlToText(street);
         let typeFormatted = urlToText(type);
@@ -37,19 +39,21 @@ class HouseThumbInline extends React.Component {
 
         return (
             <Card className={styles.row} shadow={0}>
-                <div className={styles.col3}>
-                    {image && <ImageBackground imgWidth="auto" imgHeight="120" backgroundImage={image}/> }
-                    {!image &&
-                    <img
-                        className={styles.image}
-                        src={houseDefault}
-                        alt={listingAlt}/>
-                    }
+                <div className={styles.colImage}>
+                    <div className={styles.imageContainer}>
+                        {image && <ImageBackground imgWidth="auto" imgHeight="150" backgroundImage={image}/> }
+                        {!image &&
+                        <img
+                            className={styles.image}
+                            src={houseDefault}
+                            alt={listingAlt}/>
+                        }
+                    </div>
                 </div>
-                <div className={styles.info}>
+                <div className={styles.colInfo}>
                     <h4 className={styles.address}>
                         {street && <span> {streetFormatted} </span> }
-                        <br/>
+
                         {city && < span > {cityFormatted} </span> }
                         <span> IL, </span>
                         {zip && <span> {zip} </span> }
@@ -64,6 +68,9 @@ class HouseThumbInline extends React.Component {
                     <p>
                         {beds && < span > {"Beds: " + beds} </span>}
                         {baths && <span> {" | Baths: " + baths} </span> }
+                    </p>
+                    <p>
+                        {built && < span > {"Year: " + yearFormatted} </span>}
                     </p>
                 </div>
             </Card>
