@@ -57,6 +57,13 @@ class ZipTypeHousesListPage extends React.Component {
                 <br/>
                 <Breadcrumbs routes={routes} params={params}/>
 
+                {!this.type && <ZipTypeList
+                    itemId="type"
+                    list={typesList}
+                    children="Houses"
+                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
+                />
+                }
                 {this.type && <h1>{`${typeFormatted}s for Sale in ${cityFormatted}`}</h1>}
                 {this.zip && <h1>{`Houses for Sale in ${cityFormatted}, ${this.zip}`}</h1>}
                 {!houses &&
@@ -73,13 +80,6 @@ class ZipTypeHousesListPage extends React.Component {
                 }
                 <br/>
 
-                {!this.type && <ZipTypeList
-                    itemId="type"
-                    list={typesList}
-                    children="Houses"
-                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
-                />
-                }
 
             </div>
         );

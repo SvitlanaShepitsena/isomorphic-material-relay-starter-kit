@@ -33,13 +33,29 @@ class Breadcrumbs extends React.Component {
                                 compoundAnchors += ` in ${anchor}`;
 
                                 break;
-
                             case 'zipType':
-                                compoundAnchors += ` at ${anchor}`;
 
+                                if (url.match(/\d+/g)) {
+
+                                    compoundAnchors += ` at ${anchor}`;
+                                } else {
+                                    compoundAnchors = compoundAnchors.replace('Houses', anchor);
+
+                                }
+
+                                break;
+                            case 'zip':
+                                if (url.match(/\d+/g)) {
+
+                                    compoundAnchors += ` at ${anchor}`;
+                                }
                                 break;
                             case 'type':
                                 compoundAnchors = compoundAnchors.replace('Houses', anchor);
+
+                                break;
+                            case 'street':
+                                compoundAnchors = ` ${anchor}`;
 
                                 break;
                             default:
@@ -57,7 +73,8 @@ class Breadcrumbs extends React.Component {
                     return (
                         <span key={path}>
                             {index > 0 && <span> > </span>}
-                            {index < lastIndex ? <Link to={`${compoundUrl}`}>{compoundAnchors.replace(/Houses For Sale/i,'Chicago Suburbs')}</Link> :
+                            {index < lastIndex ? <Link
+                                to={`${compoundUrl}`}>{compoundAnchors.replace(/Houses For Sale >/i, 'Chicago Suburbs >')}</Link> :
                                 <span>{compoundAnchors}</span>
                             }
                         </span>
