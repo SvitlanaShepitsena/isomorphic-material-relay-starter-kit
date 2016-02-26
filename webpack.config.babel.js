@@ -51,8 +51,8 @@ let config = {
         webpack_isomorphic_tools_plugin.development()
     ],
     watchOptions: {
-        aggregateTimeout: 5,
-        poll: 50
+        aggregateTimeout: 90,
+        poll: 250
     },
     devtool: 'source-map'
 };

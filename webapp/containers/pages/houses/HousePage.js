@@ -5,6 +5,7 @@ import Spinner from '../../../../node_modules/material-ui/lib/circular-progress'
 
 /*Components*/
 import HouseInfo from '../../../components/House/HouseInfo/HouseInfo.js';
+import PhotoGallery from '../../../components/PhotoGallery/PhotoGallery.js';
 
 class HousePage extends React.Component {
     getChildContext() {
@@ -44,7 +45,7 @@ class HousePage extends React.Component {
 }
 ;
 export default Relay.createContainer(HousePage, {
-    initialVariables: {id: 'id'},
+    initialVariables: {id: '5051-coyle-avenue'},
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
