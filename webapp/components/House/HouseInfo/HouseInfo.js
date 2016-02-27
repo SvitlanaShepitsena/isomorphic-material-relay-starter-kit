@@ -49,9 +49,7 @@ class HouseInfo extends React.Component {
                         </div>
                     </div>
                 </div>
-
-                {image && <PhotoGallery image={image} houseId={house.id}/> }
-
+                <PhotoGallery image={image} houseId={house.id}/>
                 {description &&
                 <article className={styles.row}>
                     <div className={styles.col1}>

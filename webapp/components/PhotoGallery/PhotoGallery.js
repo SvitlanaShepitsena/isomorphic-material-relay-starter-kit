@@ -8,7 +8,7 @@ class PhotoGallery extends React.Component {
     render() {
         var settings = {
             dots: true,
-            infinite: false,
+            infinite: true,
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1
@@ -29,7 +29,7 @@ class PhotoGallery extends React.Component {
                         <Slider   {...settings}>
                             {images.map(image=> {
                                 return (
-                                    <div key={image} className={styles.item}>
+                                    <div key={image} >
                                         { image &&
                                         <img className={styles.itemImage}
                                              src={image}

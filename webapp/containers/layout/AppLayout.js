@@ -3,7 +3,6 @@ import Relay from 'react-relay';
 
 import AppCanvas from 'material-ui/lib/app-canvas';
 import LeftNav from 'material-ui/lib/left-nav';
-import settings from '../../settings/settings.js';
 
 /*=components*/
 import AppHeader from '../../components/AppLayout/AppHeader/AppHeader.js';
