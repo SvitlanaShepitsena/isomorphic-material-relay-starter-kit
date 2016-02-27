@@ -25,7 +25,6 @@ export default (()=> {
     return (
         <Route component={AppLayout} name="Home">
             <Route path="/" component={HomeContent} queries={ViewerQueries} name="Home"/>
-
             <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                    name="Chicago North Suburbs Houses for Sale"/>
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
