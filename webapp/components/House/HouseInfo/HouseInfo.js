@@ -14,7 +14,6 @@ class HouseInfo extends React.Component {
 
     render() {
         let {house} = this.props;
-        var {id} = this.props.house;
         var {baths, beds, mls, price, street, built, description, image} = house;
         var city = house.city.name;
         var zip = house.zip.code;
@@ -51,7 +50,7 @@ class HouseInfo extends React.Component {
                     </div>
                 </div>
 
-                {image && <PhotoGallery image={image} id={id}/> }
+                {image && <PhotoGallery image={image} houseId={house.id}/> }
 
                 {description &&
                 <article className={styles.row}>
