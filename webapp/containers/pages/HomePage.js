@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
+import settings from '../../settings/settings.js';
 
 import Helmet from "react-helmet";
 
@@ -23,6 +24,7 @@ class HomePage extends React.Component {
         params: PropTypes.object,
         route: PropTypes.object
     };
+
     render() {
         var appType = "website";
         var appUrl = "http://www.remax1stclass.com/";
@@ -45,6 +47,7 @@ class HomePage extends React.Component {
                     {"property": "og:description", "content": `${homeDescription}`}
                 ]}
                 />
+                
             </div>
         );
     }

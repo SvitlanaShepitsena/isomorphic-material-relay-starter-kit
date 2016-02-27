@@ -23,28 +23,27 @@ import CityZipTypeHousesListPage from './containers/pages/houses/CityZipTypeHous
 
 export default (()=> {
     return (
-            <Route path="/" component={AppLayout} queries={ViewerQueries} name="Home">
-                <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
-                       name="Chicago North Suburbs Houses for Sale"/>
-                <IndexRedirect to="/houses-for-sale"/>
-                <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
-                <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
-                       queries={ViewerQueries}/>
-                <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage}
-                       queries={ViewerQueries}/>
+        <Route path="/" component={AppLayout} queries={ViewerQueries} name="Home">
+            <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
+                   name="Chicago North Suburbs Houses for Sale"/>
+            <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
+            <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
+                   queries={ViewerQueries}/>
+            <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage}
+                   queries={ViewerQueries}/>
 
-                <Route path="/houses-for-sale/:city/:zipType/:type/:id"
-                       component={HousePage}
-                       queries={ViewerQueries}
-                       preparedParams={(id)=>({id:'123'})}
+            <Route path="/houses-for-sale/:city/:zipType/:type/:id"
+                   component={HousePage}
+                   queries={ViewerQueries}
+                   preparedParams={(id)=>({id:'123'})}
 
-                />
+            />
 
-                <Route path="/about" component={AboutPage} name="Houses for Sale"/>
-                <Route path="/privacy" component={PrivacyPage} name="Privacy"/>
-                <Route path="/terms" component={TermsPage} name="Terms"/>
-                <Route path="/contact" component={ContactPage} name="Contact"/>
-            </Route>
+            <Route path="/about" component={AboutPage} name="Houses for Sale"/>
+            <Route path="/privacy" component={PrivacyPage} name="Privacy"/>
+            <Route path="/terms" component={TermsPage} name="Terms"/>
+            <Route path="/contact" component={ContactPage} name="Contact"/>
+        </Route>
     )
 })();
 

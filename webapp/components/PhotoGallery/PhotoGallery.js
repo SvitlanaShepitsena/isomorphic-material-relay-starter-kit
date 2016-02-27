@@ -30,9 +30,16 @@ class PhotoGallery extends React.Component {
                             {images.map(image=> {
                                 return (
                                     <div key={image} className={styles.item}>
+                                        { image &&
                                         <img className={styles.itemImage}
                                              src={image}
                                              alt=""/>
+                                        }
+                                        { !image &&
+                                        <img className={styles.defaultImage}
+                                             src={appSettings.houseDefault}
+                                             alt=""/>
+                                        }
                                     </div>
                                 )
                             })

@@ -53,13 +53,13 @@
   },
   "betterScripts": {
     "start-dev": {
-      "command": "nodemon --exec babel-node -- ./server/main.js",
+      "command": "nodemon -L --exec babel-node --delay 250ms -- ./server/main.js",
       "env": {
         "NODE_ENV": "development"
       }
     },
     "start-webpack": {
-      "command": "webpack-dev-server --hot --inline --colors --debug --host 127.0.0.1 --port 8050"
+      "command": "webpack-dev-server --hot --inline --colors --debug --host 127.0.0.1 --quiet --no-info --port 8050 "
     }
   },
   "metadata": {
