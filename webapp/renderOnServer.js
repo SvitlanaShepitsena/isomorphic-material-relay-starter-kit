@@ -49,7 +49,7 @@ export default (req, res, next, assetsPath) => {
                     else
                         res.status(404).send('Not Found');
 
-                    function render(data) { 
+                    function render(data) {
                         try {
 
                             var assets = webpack_isomorphic_tools.assets().assets;
