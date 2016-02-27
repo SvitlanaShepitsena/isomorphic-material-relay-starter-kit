@@ -17,7 +17,7 @@ let config = {
     output: {
         path: path.resolve(`public/assets/${version}`),
         filename: '[name].js',
-        publicPath: `http://localhost:8080/${version}/`
+        publicPath: `http://localhost:8050/${version}/`
     },
     module: {
         loaders: [

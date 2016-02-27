@@ -23,7 +23,6 @@ import CityZipTypeHousesListPage from './containers/pages/houses/CityZipTypeHous
 
 export default (()=> {
     return (
-        <RelayRouter history={browserHistory}>
             <Route path="/" component={AppLayout} queries={ViewerQueries} name="Home">
                 <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                        name="Chicago North Suburbs Houses for Sale"/>
@@ -34,15 +33,18 @@ export default (()=> {
                 <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage}
                        queries={ViewerQueries}/>
 
-                <Route path="/houses-for-sale/:city/:zipType/:type/:street" component={HousePage}
-                       queries={ViewerQueries}/>
+                <Route path="/houses-for-sale/:city/:zipType/:type/:id"
+                       component={HousePage}
+                       queries={ViewerQueries}
+                       preparedParams={(id)=>({id:'123'})}
+
+                />
 
                 <Route path="/about" component={AboutPage} name="Houses for Sale"/>
                 <Route path="/privacy" component={PrivacyPage} name="Privacy"/>
                 <Route path="/terms" component={TermsPage} name="Terms"/>
                 <Route path="/contact" component={ContactPage} name="Contact"/>
             </Route>
-        </RelayRouter>
     )
 })();
 

@@ -59,7 +59,7 @@
       }
     },
     "start-webpack": {
-      "command": "webpack-dev-server --hot --inline --colors --quiet --no-info"
+      "command": "webpack-dev-server --hot --inline --colors --debug --host 127.0.0.1 --port 8050"
     }
   },
   "metadata": {

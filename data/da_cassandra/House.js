@@ -3,6 +3,7 @@ import {runQuery, runQueryOneResult, runQueryNoResult, Uuid} from './_client.js'
 import House from '../model/House';
 
 export function House_get(id) {
+    console.log('id is :'+id);
 
     const cqlText = 'SELECT * FROM "house" WHERE id = ? ALLOW FILTERING;';
     const cqlParams = [id];

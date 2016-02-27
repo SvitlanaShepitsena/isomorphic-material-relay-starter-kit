@@ -22,12 +22,6 @@ class HousePage extends React.Component {
         route: PropTypes.object
     };
 
-    componentDidMount() {
-        this.props.relay.setVariables({
-            id: this.props.params.street
-        })
-    }
-
     render() {
         var house = this.props.Viewer.House;
         return (
@@ -35,7 +29,7 @@ class HousePage extends React.Component {
                 <br/>
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <br/>
-                <div style={{backgroundColor: "orange",width:"100%",height: 900}}>
+                <div>
                     {house && <HouseInfo house={house}/> }
                 </div>
                 <br/>
@@ -45,7 +39,17 @@ class HousePage extends React.Component {
 }
 ;
 export default Relay.createContainer(HousePage, {
-    initialVariables: {id: '5051-coyle-avenue'},
+    initialVariables: {id: null},
+    prepareVariables({id}) {
+        var houseId;
+        if (!id) {
+            houseId = 'izya';
+        } else {
+            houseId = id;
+        }
+
+        return {id: houseId};
+    },
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
