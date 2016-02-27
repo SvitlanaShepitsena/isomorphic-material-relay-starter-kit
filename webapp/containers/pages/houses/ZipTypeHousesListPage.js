@@ -91,14 +91,7 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                Types(zip: $zip, first:100) {
-                    edges {
-                        node {
-                            type,
-                            Houses_Count(zip:$zip)
-                        }
-                    }
-                }
+
                 Houses(city:$city,zip:$zip,type:$type, first:20){
                     edges{
                         node{

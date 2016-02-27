@@ -35,7 +35,7 @@ export default (()=> {
                        queries={ViewerQueries}/>
 
                 <Route path="/houses-for-sale/:city/:zipType/:type/:street" component={HousePage}
-                       queries={ViewerQueries}/>
+                       queries={ViewerQueries} />
 
                 <Route path="/about" component={AboutPage} name="Houses for Sale"/>
                 <Route path="/privacy" component={PrivacyPage} name="Privacy"/>
