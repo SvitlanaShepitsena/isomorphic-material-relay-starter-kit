@@ -27,7 +27,7 @@ class ZipTypeHousesListPage extends React.Component {
     };
 
     componentDidMount() {
-        let zipType = this.props.params.zipType;
+        let zipType = this.props.params.zip;
 
         if (zipType.match(/^\d+$/g)) {
             this.zip = zipType;
@@ -91,7 +91,14 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-
+                Types(zip: $zip, first:100) {
+                    edges {
+                        node {
+                            type,
+                            Houses_Count(zip:$zip)
+                        }
+                    }
+                }
                 Houses(city:$city,zip:$zip,type:$type, first:20){
                     edges{
                         node{
