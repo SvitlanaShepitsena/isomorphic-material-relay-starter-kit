@@ -47,7 +47,7 @@ class HomePage extends React.Component {
                     {"property": "og:description", "content": `${homeDescription}`}
                 ]}
                 />
-                
+
             </div>
         );
     }

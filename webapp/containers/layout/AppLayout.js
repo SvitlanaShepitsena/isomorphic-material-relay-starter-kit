@@ -43,9 +43,13 @@ class AppLayout extends React.Component {
                     <div className={styles.mainContent}>
                         {this.props.children}
                     </div>
-                    <div className={styles.asideContent}>
+
+                    { !(this.props.location.pathname == '/' ) &&
+                    < div className={styles.asideContent}>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
                         <ContactForm/>
                     </div>
+                    }
                 </section>
                 <div className={styles.footer}>
                     <Footer></Footer>
