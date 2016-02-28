@@ -8,6 +8,7 @@ import Helmet from "react-helmet";
 import SearchFormInline from '../../components/Search/SearchFormInline.js';
 import SortBy from '../../components/Common/SortBy/SortBy.js';
 import HomeHeader from '../../components/HomeHeader/HomeHeader.js';
+import HomeCities from '../../components/HomeCities/HomeCities.js'
 
 class HomePage extends React.Component {
     getChildContext() {
@@ -48,6 +49,7 @@ class HomePage extends React.Component {
                 ]}
                 />
                 <HomeHeader/>
+                <HomeCities cities={this.props.Viewer.Cities}/>
 
             </div>
         );
@@ -59,8 +61,14 @@ export default Relay.createContainer(HomePage, {
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                User_IsAnonymous,
-
+                Cities(first :6){
+                    edges{
+                        node{
+                            name
+                            Houses_Count
+                        }
+                    }
+                }
             }
         `,
     },

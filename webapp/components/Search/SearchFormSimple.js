@@ -2,20 +2,28 @@
 import React, {Component, PropTypes} from 'react';
 
 /*MaterialUI*/
-import Paper from '../../../node_modules/material-ui/lib/paper';
 import RaisedButton from '../../../node_modules/material-ui/lib/raised-button';
 import AutoComplete from '../../../node_modules/material-ui/lib/auto-complete';
 import styles from './SearchFormSimple.less';
 
+import {browserHistory} from 'react-router'
+
 class SearchFormSimple extends Component {
+
+    search = ()=> {
+        browserHistory.push({pathname: '/search/' + this.state.query});
+    };
 
     state = {
         dataSource: [],
+        query: ''
     };
 
     handleUpdateInput = (t) => {
+        console.log(t);
         this.setState({
-            dataSource: [t, t + t, t + t + t],
+            query: t,
+            dataSource: [t + t, t + t + t]
         });
     };
 
@@ -35,6 +43,7 @@ class SearchFormSimple extends Component {
                         </div>
                         <div className={styles.buttonContainer}>
                             <RaisedButton
+                                onClick={this.search}
                                 className={styles.button}
                                 fullWidth={true}
                                 label={<span> <i className="fa fa-search"/> <span className={styles.btnText}> Search </span> </span>}

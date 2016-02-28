@@ -26,7 +26,7 @@ class CityThumbPicture extends React.Component {
             <Card className={styles.container} shadow={0}>
                 <CardMedia
                     overlay={<CardTitle className={styles.cityName}  subtitle={cityFormatted} />}>
-                    <img src={`${settings.cloudinaryPath}${cityName}.jpg`}/>
+                    <img src={`${settings.cloudinaryPath}${cityName}1.jpg`}/>
                 </CardMedia>
                 <CardTitle className={styles.cardTitle}
                            subtitle={ <span>

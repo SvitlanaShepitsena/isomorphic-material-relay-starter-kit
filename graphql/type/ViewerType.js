@@ -47,6 +47,9 @@ export default new GraphQLObjectType({
                 },
                 type: {
                     type: GraphQLString
+                },
+                query: {
+                    type: GraphQLString
                 }
 
             },
@@ -68,6 +71,9 @@ export default new GraphQLObjectType({
                 type: {
                     type: GraphQLString
                 },
+                query: {
+                    type: GraphQLString
+                }
             },
             resolve: (obj, {...args}) => {
 
@@ -87,6 +93,11 @@ export default new GraphQLObjectType({
             resolve: (obj, {...args}, {rootValue: {user_id}}) => City_get(args.city)
         },
         Cities: {
+            type: CitiesConnection.connectionType,
+            args: {...connectionArgs},
+            resolve: (obj, {...args}, {rootValue: {user_id}}) => Cities_with_args(args).then((arr) => connectionFromArray(arr, args))
+        },
+        HomeCities: {
             type: CitiesConnection.connectionType,
             args: {...connectionArgs},
             resolve: (obj, {...args}, {rootValue: {user_id}}) => Cities_with_args(args).then((arr) => connectionFromArray(arr, args))

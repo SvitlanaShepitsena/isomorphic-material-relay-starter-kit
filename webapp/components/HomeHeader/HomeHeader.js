@@ -8,7 +8,6 @@ import Search from '../../components/Search/SearchFormSimple.js';
 import styles from './HomeHeader.less';
 
 class HomeHeader extends React.Component {
-    static propTypes = {};
 
     render() {
         return (

@@ -13,9 +13,15 @@ export function House_get(id) {
 }
 
 export function Houses_with_args(args) {
-
     let cqlText;
     let cqlParams = [];
+
+
+    if (args.search) {
+        cqlText = 'SELECT * FROM house';
+    }
+    
+
     if (!(args.city && args.zip && args.type)) {
         cqlText = 'SELECT * FROM "house"';
     }
