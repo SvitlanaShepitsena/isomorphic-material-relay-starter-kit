@@ -47,7 +47,7 @@ export default new GraphQLObjectType({
                 },
                 type: {
                     type: GraphQLString
-                },
+                }
 
             },
             resolve: (obj, {...args}) => {

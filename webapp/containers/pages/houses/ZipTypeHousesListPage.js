@@ -26,22 +26,6 @@ class ZipTypeHousesListPage extends React.Component {
         route: PropTypes.object
     };
 
-    componentDidMount() {
-        let zipType = this.props.params.zip;
-
-        if (zipType.match(/^\d+$/g)) {
-            this.zip = zipType;
-        } else {
-            this.type = zipType;
-        }
-
-        this.props.relay.setVariables({
-            city: this.props.params.city,
-            zip: this.zip,
-            type: this.type ? this.type : this.props.params.type
-        })
-    }
-
     render() {
         const {routes, params}= this.props.routes;
         const {city} = this.props.params;
@@ -88,19 +72,29 @@ class ZipTypeHousesListPage extends React.Component {
 }
 ;
 export default Relay.createContainer(ZipTypeHousesListPage, {
-    initialVariables: {city: '', zip: '', type: ''},
+    initialVariables: {city: null, zipType: null},
+    prepareVariables({city, zipType}) {
+
+        return {city: zipType.match(/^\d+$/) ? null : city,zipType: zipType};
+    },
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                Types(zip: $zip, first:100) {
+                Types(zip: $zipType, first:100) {
                     edges {
                         node {
                             type,
-                            Houses_Count(zip:$zip)
+                            Houses_Count(zip:$zipType)
                         }
                     }
                 }
-                Houses(city:$city,zip:$zip,type:$type, first:20){
+                Houses(city:$city,zip:$zipType, first:20){
+                    pageInfo{
+                        hasNextPage
+                        hasPreviousPage
+                        startCursor
+                        endCursor
+                    }
                     edges{
                         node{
                             id
