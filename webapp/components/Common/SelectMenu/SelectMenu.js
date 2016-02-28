@@ -4,9 +4,9 @@ import React, {PropTypes} from 'react';
 import SelectField from 'material-ui/lib/select-field';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 
-/*Inline Styles*/
-
-class SortBy extends React.Component {
+/*styles*/
+import styles from './SelectMenu.less';
+class SelectMenu extends React.Component {
     static propTypes = {
         labelText: PropTypes.string.isRequired,
         selectOptionText: PropTypes.string.isRequired
@@ -32,7 +32,7 @@ class SortBy extends React.Component {
                 value={this.state.value}
                 onChange={this.handleChange}>
                 <MenuItem
-                    className="MenuItem__Item"
+                    className={styles.menuItem}
                     innerDivStyle={innerDivStyle}
                     value={1}
                     primaryText={selectOptionText}/>
@@ -41,4 +41,4 @@ class SortBy extends React.Component {
     }
 }
 
-export default  SortBy;
+export default  SelectMenu;

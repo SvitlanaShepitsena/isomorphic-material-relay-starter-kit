@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
 
-/*=MaterialUi*/
+/*=materialUi*/
 import Card from '../../../../node_modules/material-ui/lib/card/card';
 import CardActions from '../../../../node_modules/material-ui/lib/card/card-actions';
 import CardTitle from '../../../../node_modules/material-ui/lib/card/card-title';
@@ -21,7 +21,7 @@ class ZipTypeList extends React.Component {
     };
 
     render() {
-        var sectionTitle = this.props.sectionTitle;
+        var {sectionTitle} = this.props;
         return (
             <div className={styles.row}>
                 <Card className={styles.col1}>

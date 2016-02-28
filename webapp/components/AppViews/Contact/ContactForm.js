@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router';
 
 /*=materialUI*/
 import Card from 'material-ui/lib/card/card';

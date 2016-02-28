@@ -1,6 +1,7 @@
 @import '../../../settings/palette.less';
 @import '../../../settings/mixins.less';
 
+/*=grid*/
 .row {
   min-width: 100%;
   .contentRow;
@@ -12,6 +13,10 @@
 
 .col2 {
   lost-column: 1/2;
+}
+
+.card article {
+  padding: 0 16px;
 }
 
 .container {
@@ -26,6 +31,22 @@
   }
 }
 
+.headLeft {
+  padding-left: 16px;
+}
+
+.headRight {
+  text-align: right;
+  padding-right: 16px;
+}
+
+/*=house*/
+.address {
+  font-size: 22px;
+  line-height: 1.5;
+  margin: 0 0 5px;
+}
+
 .description {
   font-weight: normal;
   font-size: 14px;
@@ -38,16 +59,6 @@
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 4px;
-}
-
-.card article {
-  padding: 0 16px;
-}
-
-.address {
-  font-size: 22px;
-  line-height: 1.5;
-  margin: 0 0 5px;
 }
 
 .mls {
@@ -103,12 +114,19 @@
     }
   }
 
+  .headLeft {
+    text-align: center;
+  }
+
+  .headRight {
+    text-align: center;
+  }
+
   .price {
     font-size: 24px;
   }
 
   .type {
-    text-align: center;
     font-size: 16px;
   }
 

@@ -1,10 +1,8 @@
 import React, {PropTypes} from 'react';
 
-/*=MaterialUi*/
+/*=materialUi*/
 import SelectField from '../../../../node_modules/material-ui/lib/select-field';
 import MenuItem from '../../../../node_modules/material-ui/lib/menus/menu-item';
-
-/*Inline Styles*/
 
 class SortBy extends React.Component {
     constructor(props) {

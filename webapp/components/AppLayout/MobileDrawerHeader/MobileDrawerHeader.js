@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import {Link} from 'react-router';
 
 /*=materialUi*/
 import AppBar from 'material-ui/lib/app-bar';

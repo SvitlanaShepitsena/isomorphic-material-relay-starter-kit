@@ -9,8 +9,8 @@ export default {
     companyZip: "60076",
     companyPhone: "(847) 674-9797",
     companyFax: "(847) 674-0411",
-    cloudinaryPath:"http://res.cloudinary.com/remax1stclass/image/upload/v1456344190/",
-    houseDefault:"http://res.cloudinary.com/svitlana/image/upload/v1453494429/house-picture-icon_og71rx.png",
+    cloudinaryPath: "http://res.cloudinary.com/remax1stclass/image/upload/",
+    houseDefault: "http://res.cloudinary.com/svitlana/image/upload/house-picture-icon_og71rx.png",
 
     links: {
         twitter: "https://twitter.com/remaxfirstclass",
