@@ -5,9 +5,9 @@ import settings from '../../settings/settings.js';
 import Helmet from "react-helmet";
 
 /*Components*/
-import Search from '../../components/Search/SearchFormSimple.js';
 import SearchFormInline from '../../components/Search/SearchFormInline.js';
 import SortBy from '../../components/Common/SortBy/SortBy.js';
+import HomeHeader from '../../components/HomeHeader/HomeHeader.js';
 
 class HomePage extends React.Component {
     getChildContext() {
@@ -47,6 +47,7 @@ class HomePage extends React.Component {
                     {"property": "og:description", "content": `${homeDescription}`}
                 ]}
                 />
+                <HomeHeader/>
 
             </div>
         );
