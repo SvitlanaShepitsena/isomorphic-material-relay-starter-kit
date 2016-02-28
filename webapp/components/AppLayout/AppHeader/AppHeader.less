@@ -4,19 +4,6 @@
   max-height: 65px;
 }
 
-/*=tablet and =desktop*/
-@media screen and (min-width: @tablet) {
-  .container {
-    button {
-      display: none !important;
-    }
-  }
-
-  .companyPhone {
-    display: none !important;
-  }
-}
-
 .container ul {
   list-style: none;
   margin: 0;
@@ -45,10 +32,24 @@
   width: 50px;
 }
 
-  .menuContainer{
-    padding-top: 8px;
+.menuContainer {
+  padding-top: 8px;
+}
+
+/*=tablet and =desktop*/
+@media screen and (min-width: @tablet) {
+  .container {
+    button {
+      display: none !important;
+    }
   }
-/*=tablet*/
+
+  .companyPhone {
+    display: none !important;
+  }
+}
+
+/*=mobile*/
 @media screen and (max-width: @tablet) {
   .companyPhone {
     padding-left: 18px;

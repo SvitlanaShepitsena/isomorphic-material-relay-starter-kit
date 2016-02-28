@@ -4,10 +4,8 @@ import _ from 'lodash';
 
 class Breadcrumbs extends React.Component {
     static contextTypes = {
-
         route: PropTypes.object.isRequired,
         params: PropTypes.object.isRequired
-
     };
 
     render() {

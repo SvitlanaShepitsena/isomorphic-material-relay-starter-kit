@@ -18,23 +18,18 @@ class ButtonWithBadge extends React.Component {
     };
 
     render() {
-        var defaultBadgeStyle = {
+        let defaultBadgeStyle = {
             backgroundColor: style.palette.default3Color,
             color: style.palette.textColor,
             top: 18,
             right: 18
         };
-        var defaultBtnLabelStyle = {
+        let defaultBtnLabelStyle = {
             color: style.palette.primary2Color,
             fontSize: 15,
             fontWeight: 500
         };
-        var btnLabelStyle = this.props.btnLabelStyle;
-        var badgeStyle = this.props.badgeStyle;
-
-        var btnLabel = this.props.btnLabel;
-        var btnUrl = this.props.btnUrl;
-        var badgeValue = this.props.badgeValue;
+        let {btnLabelStyle, badgeStyle, btnLabel, btnUrl, badgeValue} = this.props;
 
         return (
             <div>

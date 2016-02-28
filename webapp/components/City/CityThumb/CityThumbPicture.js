@@ -11,13 +11,13 @@ import styles from './CityThumbPicture.less';
 
 class CityThumbPicture extends React.Component {
     static propTypes = {
-        cityName: PropTypes.string,
-        housesLength: PropTypes.number
+        cityName: PropTypes.string.isRequired,
+        housesLength: PropTypes.number.isRequired
     };
 
     render() {
-        const cityName = this.props.cityName;
-        const housesLength = this.props.housesLength;
+        let {cityName} = this.props;
+        let {housesLength} = this.props;
 
         /*Formatter*/
         let cityFormatted = urlToText(cityName);
@@ -26,7 +26,7 @@ class CityThumbPicture extends React.Component {
             <Card className={styles.container} shadow={0}>
                 <CardMedia
                     overlay={<CardTitle className={styles.cityName}  subtitle={cityFormatted} />}>
-                    <img src={`${settings.cloudinaryPath}/${cityName}.jpg`}/>
+                    <img src={`${settings.cloudinaryPath}${cityName}.jpg`}/>
                 </CardMedia>
                 <CardTitle className={styles.cardTitle}
                            subtitle={ <span>

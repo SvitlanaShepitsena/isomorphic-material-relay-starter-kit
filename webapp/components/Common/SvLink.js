@@ -10,12 +10,13 @@ class SvLink extends React.Component {
         const href = this.props.url.trim().toLowerCase().replace(/\s+/g, '-');
         const fullUrl = `${this.context.location.pathname}/${href}`;
         const anchor = _.startCase(href);
+        let {children}= this.props;
         return (
             <div >
-                {this.props.children &&
-                <Link to={fullUrl}>{this.props.children}</Link>
+                {children &&
+                <Link to={fullUrl}>{children}</Link>
                 }
-                {!this.props.children &&
+                {!children &&
                 <Link to={fullUrl}>{anchor}</Link>
                 }
 

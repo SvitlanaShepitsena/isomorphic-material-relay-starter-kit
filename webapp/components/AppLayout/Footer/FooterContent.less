@@ -2,16 +2,16 @@
 @import '../../../settings/palette.less';
 @import '../../../settings/vars.less';
 
+.container {
+  .appRow;
+}
+
 .footer {
   color: @footerText;
   font-size: 14px;
   min-height: @footerHeight;
   padding-bottom: 8px;
   height: auto;
-}
-
-.container {
-  .appRow;
 }
 
 .section {
@@ -38,11 +38,6 @@
 }
 
 /*=mobile*/
-@media screen and (max-width: @tabletHorizontal) {
-  .container {
-    width: 96% !important;
-  }
-}
 
 @media screen and (max-width: @mobileHorizontal) {
 
@@ -62,5 +57,12 @@
     padding-top: 16px;
     padding-bottom: 16px;
     font-size: 18px;
+  }
+}
+
+/*=tablet*/
+@media screen and (max-width: @tabletHorizontal) {
+  .container {
+    width: 96% !important;
   }
 }
