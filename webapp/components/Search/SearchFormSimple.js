@@ -6,7 +6,6 @@ import Paper from '../../../node_modules/material-ui/lib/paper';
 import RaisedButton from '../../../node_modules/material-ui/lib/raised-button';
 import AutoComplete from '../../../node_modules/material-ui/lib/auto-complete';
 import styles from './SearchFormSimple.less';
-import cx from 'classnames';
 
 class SearchFormSimple extends Component {
 
@@ -22,14 +21,13 @@ class SearchFormSimple extends Component {
 
     render() {
         const {search, onSearch} = this.props;
-
         return (
             <div className={styles.container}>
                 <form className={styles.form} name="form" id="form" style={{padding:"4px 8px"}}>
                     <div className={styles.row}>
                         <div className={styles.inputContainer}>
                             <AutoComplete
-                                hintText={<span className={styles.hintText}><i  className="fa fa-search"/> <span>Address, City, Zip, #MLS</span> </span>}
+                                hintText={<span className={styles.hText}>Address, City, Zip, #MLS</span>}
                                 dataSource={this.state.dataSource}
                                 fullWidth={true}
                                 onUpdateInput={this.handleUpdateInput}

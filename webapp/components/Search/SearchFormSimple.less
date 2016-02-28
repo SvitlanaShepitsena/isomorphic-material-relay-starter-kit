@@ -22,8 +22,7 @@
 }
 
 .inputContainer {
-  lost-column: 3/4;
-
+  lost-column: 3/4 0;
 }
 
 .buttonContainer {
@@ -52,7 +51,7 @@
 }
 
 @media (max-width: @tabletHorizontal) {
-  .input {
+  .inputContainer {
     lost-column: 2/3;
   }
 
@@ -62,8 +61,8 @@
 }
 
 @media (max-width: @mobileHorizontal) {
-
-  .input {
+  .inputContainer {
+    width: 100%;
     lost-column: 1;
     padding-bottom: 16px;
   }
@@ -79,8 +78,8 @@
       color: @text-color;
       background-color: @blue-50 !important;
       box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12) !important;
+      width: 100% !important;
     }
-    display: block !important;
     box-sizing: border-box;
     background-color: @white-light !important;
     height: 45px;
@@ -93,11 +92,9 @@
   hr {
     display: none;
   }
-  .hintText {
+  .hText {
     color: @blue-100;
     font-weight: 300;
-    i {
-      margin-left: 8px;
-    }
+    margin-left: 10px;
   }
 }

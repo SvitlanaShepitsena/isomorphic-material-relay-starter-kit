@@ -11,7 +11,6 @@ class HomeHeader extends React.Component {
     static propTypes = {};
 
     render() {
-
         return (
             <div className={styles.wrapper}>
                 <div className={styles.rowLogo}>
