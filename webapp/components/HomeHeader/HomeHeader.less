@@ -1,0 +1,40 @@
+@import '../../settings/mixins.less';
+@import '../../settings/palette.less';
+
+.wrapper {
+  width: 100%;
+  background-color: @primary-1-color;
+}
+
+.row {
+  .appRow;
+}
+
+.col1 {
+  lost-column: 1;
+  text-align: center;
+}
+
+.col2 {
+  lost-column: 1/2;
+}
+
+.companyLogo {
+  display: block;
+  margin: 0 auto;
+  padding-top: 16px;
+}
+
+.searchContainer{
+  lost-column: 1/2;
+  lost-offset: -1/4;
+}
+.companySlogan {
+  font-family: Roboto, sans-serif !important;
+  text-transform: capitalize;
+  font-size: 44px;
+  font-weight: 300 !important;
+  line-height: 70px;
+  color: white;
+}
+

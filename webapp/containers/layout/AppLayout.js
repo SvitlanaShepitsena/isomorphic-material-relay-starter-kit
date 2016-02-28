@@ -9,10 +9,10 @@ import AppHeader from '../../components/AppLayout/AppHeader/AppHeader.js';
 import AppBar_Auth from '../auth/UserAuth_Smart.js';
 import MobileMenu from '../../components/AppLayout/MobileMenu/MobileMenu.js';
 import MobileDrawerHeader from '../../components/AppLayout/MobileDrawerHeader/MobileDrawerHeader.js';
-
+import Footer from '../../components/AppLayout/Footer/FooterContent.js';
 import ContactForm from '../../components/AppViews/Contact/ContactForm.js';
 
-import Footer from '../../components/AppLayout/Footer/FooterContent.js';
+
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import MyRawTheme from '../../settings/AppMuiTheme.js';
@@ -32,6 +32,9 @@ class AppLayout extends React.Component {
     handleClose = () => this.setState({open: false});
 
     render() {
+        let {pathname} = this.props.location;
+        let {children} = this.props;
+        let cityRoute = "/houses-for-sale";
         return (
             <AppCanvas style={{position:"relative",height:"100%"}}>
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
@@ -39,19 +42,25 @@ class AppLayout extends React.Component {
                     <MobileMenu onTouchTap={this.handleClose}/>
                 </LeftNav>
                 <AppHeader onTouchTap={this.handleToggle}/>
-                <section className={styles.contentWrapper}>
-                    <div className={styles.mainContent}>
-                        {this.props.children}
-                    </div>
-
-                    { !(this.props.location.pathname == '/' ) &&
-                    < div className={styles.asideContent}>
-                        { (this.props.location.pathname == "houses-for-sale/:city/:zipType/:type/:id") &&
-                        <ContactForm/>
-                        }
-                    </div>
+                <div className={styles.wrapper}>
+                    {(pathname == '/' ) &&
+                    <section>
+                        {children}
+                    </section>
                     }
-                </section>
+                    { !(pathname == '/' ) &&
+                    <section className={styles.contentWrapper}>
+                        <div className={styles.mainContent}>
+                            {children}
+                        </div>
+                        < div className={styles.asideContent}>
+                            { pathname == cityRoute &&
+                            <ContactForm/>
+                            }
+                        </div>
+                    </section>
+                    }
+                </div>
                 <div className={styles.footer}>
                     <Footer></Footer>
                 </div>

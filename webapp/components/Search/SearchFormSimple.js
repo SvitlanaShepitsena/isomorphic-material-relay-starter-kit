@@ -5,6 +5,7 @@ import React, {Component, PropTypes} from 'react';
 import Paper from '../../../node_modules/material-ui/lib/paper';
 import RaisedButton from '../../../node_modules/material-ui/lib/raised-button';
 import AutoComplete from '../../../node_modules/material-ui/lib/auto-complete';
+import styles from './SearchFormSimple.less';
 
 class SearchFormSimple extends Component {
 
@@ -20,10 +21,10 @@ class SearchFormSimple extends Component {
 
     render() {
         return (
-            <Paper style={{padding:16}}>
+            <div className={styles.container}>
                 <form name="form" id="form" style={{padding:"4px 8px"}}>
-                    <div className="row">
-                        <div className="eight columns">
+                    <div className={styles.row}>
+                        <div className={styles.input}>
                             <AutoComplete
                                 hintText={<span><i className="fa fa-search"/> <span>Address, City, Zip, #MLS</span> </span>}
                                 dataSource={this.state.dataSource}
@@ -31,14 +32,16 @@ class SearchFormSimple extends Component {
                                 onUpdateInput={this.handleUpdateInput}
                             />
                         </div>
-                        <div className="four columns SearchForm__button-container">
+                        <div className={styles.buttonContainer}>
                             <RaisedButton
-                                className="SearchForm__button"
-                                label="Search" primary={true}/>
+                                className={styles.button}
+                                fullWidth={true}
+                                label="Search"
+                                primary={true}/>
                         </div>
                     </div>
                 </form>
-            </Paper>
+            </div>
         );
     }
 }
