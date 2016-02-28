@@ -10,9 +10,12 @@
   .appRow;
 }
 
-.rowSearch,
-.rowLogo {
-  .contentRow;
+.rowSlogan {
+  .appRow;
+}
+.rowSearch {
+  .appRow;
+  width: 98%;
 }
 
 .col1 {
@@ -40,9 +43,17 @@
 }
 
 @media (max-width: @mobileHorizontal) {
+  .rowSlogan {
+    width: 90% !important;
+  }
+
   .companySlogan {
     font-size: 26px;
     line-height: 1.8;
+  }
+
+  .companyLogo {
+    display: none;
   }
 
 }
@@ -51,20 +62,17 @@
   .rowSearch {
     width: 90%;
   }
+
 }
 
 @media (max-width: @lgTablet) {
   .searchContainer {
     lost-column: 1;
   }
-
-  .rowSearch {
-    .contentRow;
-    width: 90%;
-  }
 }
 
 @media (min-width: @lgTablet) {
+
   .searchContainer {
     lost-column: 8/12;
     lost-offset: -2/12;
@@ -76,6 +84,6 @@
   .searchContainer {
     lost-column: 1/2;
     lost-offset: -1/4;
+    padding-bottom: 40px;
   }
-
 }

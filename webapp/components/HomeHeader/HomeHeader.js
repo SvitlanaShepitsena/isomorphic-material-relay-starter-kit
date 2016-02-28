@@ -13,7 +13,7 @@ class HomeHeader extends React.Component {
     render() {
         return (
             <div className={styles.wrapper}>
-                <div className={styles.rowLogo}>
+                <div className={styles.row}>
                     <div className={styles.col1}>
                         <img className={styles.companyLogo}
                              src={settings.companyLogoLarge}
@@ -29,7 +29,7 @@ class HomeHeader extends React.Component {
                         </h1>
                     </div>
                 </div>
-                <div className={styles.row} style={{width: "90%"}}>
+                <div className={styles.rowSearch}>
                     <div className={styles.searchContainer}>
                         <Search/>
                     </div>
