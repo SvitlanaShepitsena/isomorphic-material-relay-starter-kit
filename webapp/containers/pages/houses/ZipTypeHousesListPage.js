@@ -51,6 +51,7 @@ class ZipTypeHousesListPage extends React.Component {
 
         const cityFormatted = urlToText(city);
         const typeFormatted = urlToText(this.type);
+        console.log(typeFormatted);
 
         return (
             <div>
@@ -64,7 +65,7 @@ class ZipTypeHousesListPage extends React.Component {
                     sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
                 />
                 }
-                {this.type && <h1>{`${typeFormatted}s for Sale in ${cityFormatted}`}</h1>}
+                {this.type && <h1>{`${typeFormatted=='All'?'All House':typeFormatted}s for Sale in ${cityFormatted}`}</h1>}
                 {this.zip && <h1>{`Houses for Sale in ${cityFormatted}, ${this.zip}`}</h1>}
                 {!houses &&
                 <div style={{textAlign:"center"}}>

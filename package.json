@@ -91,7 +91,6 @@
     "cookie-parser": "^1.4.0",
     "css-loader": "^0.19.0",
     "dotenv": "^1.2.0",
-    "drecss": "^1.4.0",
     "ejs": "^2.3.4",
     "es5-shim": "^4.5.6",
     "express": "^4.13.3",

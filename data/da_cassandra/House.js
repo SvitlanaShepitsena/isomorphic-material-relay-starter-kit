@@ -3,7 +3,7 @@ import {runQuery, runQueryOneResult, runQueryNoResult, Uuid} from './_client.js'
 import House from '../model/House';
 
 export function House_get(id) {
-    console.log('id is :'+id);
+    console.log('id is :' + id);
 
     const cqlText = 'SELECT * FROM "house" WHERE id = ? ALLOW FILTERING;';
     const cqlParams = [id];
@@ -29,14 +29,20 @@ export function Houses_with_args(args) {
     }
 
     if (args.city && args.type) {
-        cqlText = 'SELECT * FROM houses_by_city_type where city_id = ? AND type_id = ?;';
-        cqlParams = [args.city, args.type];
+        if (args.type !== 'all') {
+            cqlText = 'SELECT * FROM houses_by_city_type where city_id = ? AND type_id = ?;';
+            cqlParams = [args.city, args.type];
+        } else {
+            cqlText = 'SELECT * FROM houses_by_city where city_id = ?;';
+            cqlParams = [args.city];
+
+        }
     }
 
     if (args.zip && args.type) {
 
         cqlText = 'SELECT * FROM houses_by_zip_type where zip_id = ? AND type_id = ?;';
-        cqlParams = [ args.zip, args.type];
+        cqlParams = [args.zip, args.type];
     }
 
     return runQuery(House, cqlText, cqlParams);
