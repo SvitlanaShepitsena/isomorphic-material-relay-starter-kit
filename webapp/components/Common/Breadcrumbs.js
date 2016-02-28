@@ -52,7 +52,7 @@ class Breadcrumbs extends React.Component {
                                 compoundAnchors = compoundAnchors.replace('Houses', anchor);
 
                                 break;
-                            case 'street':
+                            case 'id':
                                 compoundAnchors = ` ${anchor}`;
 
                                 break;
