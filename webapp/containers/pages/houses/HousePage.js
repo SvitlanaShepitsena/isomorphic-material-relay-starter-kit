@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs';
 import Spinner from '../../../../node_modules/material-ui/lib/circular-progress';
-
 /*Components*/
 import HouseInfo from '../../../components/House/HouseInfo/HouseInfo.js';
 import PhotoGallery from '../../../components/PhotoGallery/PhotoGallery.js';
