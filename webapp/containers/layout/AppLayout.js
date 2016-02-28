@@ -46,8 +46,9 @@ class AppLayout extends React.Component {
 
                     { !(this.props.location.pathname == '/' ) &&
                     < div className={styles.asideContent}>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+                        { (this.props.location.pathname == "houses-for-sale/:city/:zipType/:type/:id") &&
                         <ContactForm/>
+                        }
                     </div>
                     }
                 </section>

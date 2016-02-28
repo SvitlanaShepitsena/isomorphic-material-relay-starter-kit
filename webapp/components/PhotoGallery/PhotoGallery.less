@@ -1,4 +1,5 @@
 @import '../../settings/mixins.less';
+@import '../../settings/colors.less';
 @import '../../settings/palette.less';
 
 .row {
@@ -44,9 +45,11 @@
     height: 40px !important;
   }
   button:nth-child(2)::before {
+    color: @grey-500 !important;
     font-size: 40px;
   }
   button:nth-child(3)::before {
+    color: @grey-500 !important;
     font-size: 40px;
   }
 }
@@ -63,18 +66,28 @@
   }
 }
 
+@media (max-width: @mobile) {
+  .itemImage {
+    width: auto;
+    max-height: 262px !important;
+  }
+}
+
 @media screen and (min-width: @mobileHorizontal) {
   .defaultImage {
     width: auto;
     padding: 100px 0;
     margin: 0 auto;
   }
+
 }
 
 .itemImage {
   display: block;
-  min-width: 100%;
-  width: 100%;
+  margin: 0 auto;
+  max-width: 94% !important;
+  max-height: 560px;
+  height: auto;
 }
 
 .PhotoGallery__card__head {
