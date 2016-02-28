@@ -28,10 +28,23 @@
 
 .buttonContainer {
   lost-column: 1/4;
-}
-
-.button {
-  height: 45px !important;
+  min-height: 46px !important;
+  button {
+    height: 46px !important;
+    div {
+      height: 46px !important;
+      &:hover
+      &:active
+      &:focus {
+        height: 46px !important;
+      }
+      span:nth-child(1) {
+        display: block;
+        padding-top: 1px;
+        padding-bottom: 1px;
+      }
+    }
+  }
 }
 
 .btnText {
