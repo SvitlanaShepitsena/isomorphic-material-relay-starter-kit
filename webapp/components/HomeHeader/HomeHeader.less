@@ -10,6 +10,11 @@
   .appRow;
 }
 
+.rowSearch,
+.rowLogo {
+  .contentRow;
+}
+
 .col1 {
   lost-column: 1;
   text-align: center;
@@ -25,10 +30,6 @@
   padding-top: 16px;
 }
 
-.searchContainer{
-  lost-column: 1/2;
-  lost-offset: -1/4;
-}
 .companySlogan {
   font-family: Roboto, sans-serif !important;
   text-transform: capitalize;
@@ -38,3 +39,45 @@
   color: white;
 }
 
+@media (max-width: @mobileHorizontal) {
+  .rowSlogan {
+    display: none !important;
+  }
+
+  .rowLogo {
+    display: none !important;
+  }
+}
+
+@media (max-width: @lgTabletHorizontal) {
+  .rowSearch {
+    width: 90%;
+  }
+}
+
+@media (max-width: @lgTablet) {
+  .searchContainer {
+    lost-column: 1;
+  }
+
+  .rowSearch {
+    .contentRow;
+    width: 90%;
+  }
+}
+
+@media (min-width: @lgTablet) {
+  .searchContainer {
+    lost-column: 8/12;
+    lost-offset: -2/12;
+  }
+
+}
+
+@media (min-width: @lgTabletHorizontal) {
+  .searchContainer {
+    lost-column: 1/2;
+    lost-offset: -1/4;
+  }
+
+}

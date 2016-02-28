@@ -8,23 +8,20 @@ import Search from '../../components/Search/SearchFormSimple.js';
 import styles from './HomeHeader.less';
 
 class HomeHeader extends React.Component {
-    static propTypes = {
-        image: PropTypes.string.isRequired,
-        houseId: PropTypes.string.isRequired
-    };
+    static propTypes = {};
 
     render() {
 
         return (
             <div className={styles.wrapper}>
-                <div className={styles.row}>
+                <div className={styles.rowLogo}>
                     <div className={styles.col1}>
                         <img className={styles.companyLogo}
                              src={settings.companyLogoLarge}
                              alt={settings.companyName}/>
                     </div>
                 </div>
-                <div className={styles.row}>
+                <div className={styles.rowSlogan}>
                     <div className={styles.col1}>
                         <h1 className={styles.companySlogan}>
                             <span> You Need Only One Company </span>
@@ -33,7 +30,7 @@ class HomeHeader extends React.Component {
                         </h1>
                     </div>
                 </div>
-                <div className={styles.row}>
+                <div className={styles.row} style={{width: "90%"}}>
                     <div className={styles.searchContainer}>
                         <Search/>
                     </div>
