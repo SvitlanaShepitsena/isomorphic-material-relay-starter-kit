@@ -31,10 +31,10 @@ export default (()=> {
 
             <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries} preparedParams={(id)=>({id:'123'})}/>
 
-            <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage} queries={ViewerQueries}/>
 
             <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage} queries={ViewerQueries}/>
 
+            <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage} queries={ViewerQueries}/>
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
 
             <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries} name="Chicago North Suburbs Houses for Sale"/>
