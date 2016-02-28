@@ -47,6 +47,9 @@ export default new GraphQLObjectType({
                 },
                 type: {
                     type: GraphQLString
+                },
+                page:{
+                    type:GraphQLInt
                 }
 
             },

@@ -1,4 +1,4 @@
-import {runQuery, runQueryOneResult, runQueryNoResult, Uuid} from './_client.js';
+import {runQuery, runQueryOneResult} from './_client.js';
 
 import _ from 'lodash';
 import House from '../model/House';
