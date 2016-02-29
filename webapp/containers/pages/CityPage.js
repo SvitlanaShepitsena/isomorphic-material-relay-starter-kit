@@ -4,7 +4,7 @@ import Breadcrumbs from '../../components/Common/Breadcrumbs';
 import urlToText from '../../utils/urlToText.js';
 
 /*=Components*/
-import HousesList from '../../components/House/HousesList/HousesList.js'
+import ButtonAll from '../../components/House/ButtonAll/ButtonAll.js';
 import ZipTypeList from '../../components/City/ZipTypeList/ZipTypeList.js';
 import AppSpinner from '../../components/Common/Spinner/AppSpinner.js';
 
@@ -36,8 +36,11 @@ class CityPage extends React.Component {
         const typesList = this.props.Viewer.City.Types.edges;
         const newHouses = this.props.Viewer.City.Houses;
         const housesCount = this.props.Viewer.City.Houses_Count;
+
         /*Formatter*/
         let cityFormatted = urlToText(city);
+
+        let title = "All " + cityFormatted + " homes for sale" + " (" + housesCount + ")";
 
         return (
             <div>
@@ -47,6 +50,7 @@ class CityPage extends React.Component {
                 {!(newHouses.length || zipsList.length || typesList.length) && <AppSpinner/> }
 
 
+                <ButtonAll url="all" btnLabel={title}/>
 
                 {zipsList.length &&
                 <ZipTypeList

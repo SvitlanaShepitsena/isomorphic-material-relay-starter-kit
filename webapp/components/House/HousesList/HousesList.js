@@ -22,17 +22,13 @@ class HousesList extends React.Component {
     };
 
     render() {
-        const {list, count, listType,limit} = this.props;
-        const {pageInfo} = list;
-        const cityName = list[0] && list[0].city.name;
+        const {list, count, listType, limit} = this.props;
         const lastPage = Math.floor(count / limit) + ((count % limit > 0) ? 1 : 0);
-
-        const title = "All " + cityName + " homes for sale" + " (" + count + ")";
 
         return (
             <div>
                 <div lassName={styles.row}>
-                    <Pagination lastPage={lastPage} pageInfo={list.pageInfo} />
+                    <Pagination lastPage={lastPage} pageInfo={list.pageInfo}/>
                     <div className={styles.col1}>
                         <div className={styles.row}>
                             {this.props.list.edges.map((edge)=> {
@@ -63,19 +59,6 @@ class HousesList extends React.Component {
                         </div>
                     </div>
                 </div>
-                {listType == "large" &&
-                <div className={styles.row}>
-                    <div className={styles.col1}>
-                        <div className={styles.btnContainer}>
-                            <SvLink url="all">
-                                <RaisedButton
-                                    label={title}
-                                    secondary={true}/>
-                            </SvLink>
-                        </div>
-                    </div>
-                </div>
-                }
             </div>
         );
     }

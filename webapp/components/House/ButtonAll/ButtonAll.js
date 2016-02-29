@@ -9,7 +9,7 @@ import styles from './ButtonAll.less';
 class ButtonAll extends React.Component {
     static propTypes = {
         url: PropTypes.string.isRequired,
-        btnLabel: PropTypes.string.isRequired,
+        btnLabel: PropTypes.string.isRequired
     };
 
     render() {

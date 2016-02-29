@@ -3,10 +3,6 @@ import Relay from 'react-relay';
 import urlToText from '../../../utils/urlToText.js';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
-import {Link} from 'react-router'
-import SvLink from '../../../components/Common/SvLink'
-import _ from 'lodash';
-import ButtonAll from '../../../components/House/ButtonAll/ButtonAll.js';
 
 /*Components*/
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
@@ -85,7 +81,6 @@ class ZipTypeHousesListPage extends React.Component {
                     children="Houses"
                     sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
                 />
-
 
 
             </div>
