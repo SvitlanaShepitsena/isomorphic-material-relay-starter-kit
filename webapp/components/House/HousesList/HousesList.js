@@ -12,36 +12,30 @@ import styles from './HousesList.less';
 
 class HousesList extends React.Component {
     static propTypes = {
-        list: PropTypes.array.isRequired,
+        list: PropTypes.object.isRequired,
         count: PropTypes.number.isRequired,
-        listType: PropTypes.string.isRequired
+        listType: PropTypes.string.isRequired,
+        limit: PropTypes.number,
+    };
+    static defaultProps = {
+        limit: 3
     };
 
     render() {
-        const {list,count,listType} = this.props;
+        const {list, count, listType,limit} = this.props;
+        const {pageInfo} = list;
         const cityName = list[0] && list[0].city.name;
-
+        const lastPage = Math.floor(count / limit) + ((count % limit > 0) ? 1 : 0);
 
         const title = "All " + cityName + " homes for sale" + " (" + count + ")";
 
-        const lastHouse = _.last(houses);
-        const lastCursor = lastHouse && lastHouse.cursor;
-        console.log('lastCursor:' + lastCursor);
-
-        const firstHouse = _.first(houses);
-        const firstCursor = firstHouse && firstHouse.cursor;
-        console.log('firstCursor:' + firstCursor);
-
-        const lastPage = Math.floor(count / 3) + ((count % 3) ? 1 : 0);
-        console.log('Houses Count: ' + lastPage);
-
         return (
             <div>
-                <Pagination  />
-                <div className={styles.row}>
+                <div lassName={styles.row}>
+                    <Pagination lastPage={lastPage} pageInfo={list.pageInfo} />
                     <div className={styles.col1}>
                         <div className={styles.row}>
-                            {this.props.list.map((edge)=> {
+                            {this.props.list.edges.map((edge)=> {
                                     let house = edge.node;
                                     let itemKey = house.id;
                                     let city = house.city.name;

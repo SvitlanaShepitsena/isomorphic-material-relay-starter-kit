@@ -6,10 +6,12 @@ import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import {Link} from 'react-router'
 import SvLink from '../../../components/Common/SvLink'
 import _ from 'lodash';
+import ButtonAll from '../../../components/House/ButtonAll/ButtonAll.js';
 
 /*Components*/
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
+import HousesTitle from './HousesTitle.js';
 
 class ZipTypeHousesListPage extends React.Component {
     state = {
@@ -35,8 +37,6 @@ class ZipTypeHousesListPage extends React.Component {
         let {query} = this.props.location;
         this.currentPage = Number(query && query.page ? query.page : 1);
 
-
-
     }
 
     componentWillReceiveProps(nextProps) {
@@ -59,12 +59,12 @@ class ZipTypeHousesListPage extends React.Component {
         const {city} = this.props.params;
         const {zipType} = this.props.params;
 
-
-
         const typesList = this.props.Viewer.Types.edges;
 
         const cityFormatted = urlToText(city);
         const typeFormatted = urlToText(this.type);
+        const houses = this.props.Viewer.Houses;
+        const houseCount = this.props.Viewer.Houses_Count;
 
         let {query} = this.props.location;
         this.currentPage = Number(query && query.page ? query.page : 1);
@@ -74,27 +74,18 @@ class ZipTypeHousesListPage extends React.Component {
                 <br/>
                 <Breadcrumbs routes={routes} params={params}/>
 
-                {zipType.match(/^\d+$/g) && <h1>{`Houses for Sale in ${cityFormatted}, at ${zipType}`}</h1>}
-                {zipType.match(/all/) && <h1>{`All Houses for Sale in ${cityFormatted}`}</h1>}
-                {zipType.match(/^[^]+$/g) && <h1>{`${zipType} for sale in ${cityFormatted}`}</h1>}
+                <HousesTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
 
 
-                <HousesList
+                <HousesList list={houses} count={houseCount} cityName={cityFormatted} listType="inline"/>
 
-                    list={houses}
-                    total={count}
-                    cityName={cityFormatted}
-                    listType="inline"/>
-                }
-                <br/>
-
-                {<ZipTypeList
+                <ZipTypeList
                     itemId="type"
                     list={typesList}
                     children="Houses"
                     sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
                 />
-                }
+
 
 
             </div>

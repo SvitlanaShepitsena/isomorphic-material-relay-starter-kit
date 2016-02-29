@@ -34,7 +34,7 @@ class CityPage extends React.Component {
         const {city} = this.props.params;
         const zipsList = this.props.Viewer.City.Zips.edges;
         const typesList = this.props.Viewer.City.Types.edges;
-        const newHouses = this.props.Viewer.City.Houses.edges;
+        const newHouses = this.props.Viewer.City.Houses;
         const housesCount = this.props.Viewer.City.Houses_Count;
         /*Formatter*/
         let cityFormatted = urlToText(city);
@@ -46,15 +46,7 @@ class CityPage extends React.Component {
                 <h1> {"Houses for Sale in " + cityFormatted} </h1>
                 {!(newHouses.length || zipsList.length || typesList.length) && <AppSpinner/> }
 
-                {newHouses.length &&
-                <HousesList
-                    list={newHouses}
-                    gridColsClass="six columns"
-                    cityName={cityFormatted}
-                    housesNumber={housesCount}
-                    listType="large"/>
-                }
-                <br/>
+
 
                 {zipsList.length &&
                 <ZipTypeList
