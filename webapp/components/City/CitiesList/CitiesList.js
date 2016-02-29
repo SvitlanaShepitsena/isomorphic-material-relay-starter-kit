@@ -14,6 +14,7 @@ class CitiesList extends React.Component {
     static propTypes = {
         list: PropTypes.array.isRequired,
         itemId: PropTypes.string.isRequired,
+        fullUrl: PropTypes.string,
         children: PropTypes.string
     };
 
@@ -23,12 +24,13 @@ class CitiesList extends React.Component {
                 {this.props.list.map(edge => {
                         const item = edge.node;
                         const {itemId} = this.props;
+                        const {fullUrl} = this.props;
                         const {children} = this.props;
                         const itemValue = item[itemId];
-
+                        const url = (fullUrl || '') + itemValue;
                         return (
                             <div className={styles.item} key={itemValue}>
-                                <SvLink url={itemValue}>
+                                <SvLink url={url}>
                                     <CityThumbPicture
                                         housesLength={item[`${children}_Count`]}
                                         cityName={itemValue}/>

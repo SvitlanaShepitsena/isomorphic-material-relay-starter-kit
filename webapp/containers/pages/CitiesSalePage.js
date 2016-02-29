@@ -25,7 +25,8 @@ class CitiesSalePage extends React.Component {
             <div>
                 <h1> North Chicago Suburbs Houses for Sale </h1>
                 {!cities.length && <Spinner /> }
-                {cities.length && <CitiesList list={cities} itemId="name" children="Houses"/> }
+                {cities.length &&
+                <CitiesList list={cities} itemId="name" children="Houses"/> }
             </div>
         );
     }

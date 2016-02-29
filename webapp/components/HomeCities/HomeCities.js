@@ -19,7 +19,8 @@ class HomeCities extends React.Component {
             <div className={styles.wrapper}>
                 <div className={styles.row}>
                     <div className={styles.col1}>
-                        {cities.length && <CitiesList list={cities} itemId="name" children="Houses"/> }
+                        {cities.length &&
+                        <CitiesList list={cities} fullUrl="houses-for-sale/" itemId="name" children="Houses"/> }
                     </div>
                 </div>
 
