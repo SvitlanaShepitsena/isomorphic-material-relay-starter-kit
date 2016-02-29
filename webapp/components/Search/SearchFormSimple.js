@@ -13,7 +13,7 @@ class SearchFormSimple extends Component {
     search = ()=> {
         if (this.state.query.length) {
 
-        browserHistory.push({pathname: '/search/' + this.state.query});
+            browserHistory.push({pathname: '/search/' + this.state.query});
         }
     };
 
@@ -32,17 +32,19 @@ class SearchFormSimple extends Component {
 
     render() {
         const {search, onSearch} = this.props;
+        let skokieLocation = null;
+
+        if (process.env.BROWSER) {
+            console.log('browser');
+            skokieLocation = new google.maps.LatLng(42.0324, -87.7416);
+
+        }
         return (
             <div className={styles.container}>
                 <form className={styles.form} name="form" id="form">
                     <div className={styles.row}>
                         <div className={styles.inputContainer}>
-                            <AutoComplete
-                                hintText={<span className={styles.hText}>Address, City, Zip, #MLS</span>}
-                                dataSource={this.state.dataSource}
-                                fullWidth={true}
-                                onUpdateInput={this.handleUpdateInput}
-                            />
+
                         </div>
                         <div className={styles.buttonContainer}>
                             <RaisedButton

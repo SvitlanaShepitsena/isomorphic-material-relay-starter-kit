@@ -13,35 +13,53 @@ class Pagination extends React.Component {
 
     static propTypes = {
         lastPage: PropTypes.number.isRequired,
-        pageInfo: PropTypes.object.isRequired,
+        firstCursor: PropTypes.string.isRequired,
+        lastCursor: PropTypes.string.isRequired,
+    };
+    handleClick = (e, type)=> {
+        if (type == 'prev') {
+            if (this.currentPage === 1) {
+                e.preventDefault();
+            }
+
+        }
     };
 
     render() {
-        const {lastPage, pageInfo} = this.props;
-        const currentPage = Number(this.context.location.query.page || 1);
+        const {lastPage, firstCursor, lastCursor} = this.props;
+        this.currentPage = Number(this.context.location.query.page || 1);
+
         return (
             <div className={styles.container}>
-                {currentPage > 1 &&
+                <div>
+                    {`${this.currentPage} of ${lastPage}`}
+                </div>
+
                 <div>
                     <Link
-                        to={{ pathname: this.context.location.pathname, query: { page: currentPage-1,before:pageInfo.endCursor} }}>
-                        <RaisedButton className={styles.button} label="Previous"
-                                      labelPosition="after"
-                                      icon={<Previous />}
-                                      default={true}/>
+                        to={{ pathname: this.context.location.pathname, query: { page: this.currentPage-1,before:firstCursor} }}
+                        onClick={this.handleClick}>
+                        <RaisedButton
+                            className={styles.button}
+                            label="Previous"
+                            disabled={this.currentPage==1}
+                            labelPosition="after"
+                            icon={<Previous />}
+                            default={true}/>
                     </Link>
                 </div>
-                }
-                {lastPage !== currentPage &&
+
+
                 <div >
                     <Link
-                        to={{ pathname: this.context.location.pathname, query: { page: currentPage+1,after:pageInfo.startCursor} }}>
+                        to={{ pathname: this.context.location.pathname, query: { page: this.currentPage+1,after:lastCursor} }}>
                         <RaisedButton className={styles.button} label="Next"
+                                      disabled={this.currentPage==lastPage}
                                       icon={<Next />}
                                       default={true}/>
                     </Link>
                 </div>
-                }
+
             </div>
         );
     }

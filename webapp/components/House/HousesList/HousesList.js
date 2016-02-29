@@ -7,6 +7,7 @@ import HouseThumbInline from '../HouseThumbInline/HouseThumbInline';
 import HouseThumbLarge from '../HouseThumbLarge/HouseThumbLarge';
 import SvLink from './../../Common/SvLink';
 import Pagination from '../../Pagination/Pagination.js';
+import _ from 'lodash';
 
 import styles from './HousesList.less';
 
@@ -23,12 +24,18 @@ class HousesList extends React.Component {
 
     render() {
         const {list, count, listType, limit} = this.props;
+        const lastCursor = _.last(list.edges).cursor;
+        const firstCursor = _.first(list.edges).cursor;
+
         const lastPage = Math.floor(count / limit) + ((count % limit > 0) ? 1 : 0);
 
         return (
             <div>
-                <div lassName={styles.row}>
-                    <Pagination lastPage={lastPage} pageInfo={list.pageInfo}/>
+                <div className={styles.row}>
+                    <Pagination lastPage={lastPage}
+                                firstCursor={firstCursor}
+                                lastCursor={lastCursor}
+                    />
                     <div className={styles.col1}>
                         <div className={styles.row}>
                             {this.props.list.edges.map((edge)=> {

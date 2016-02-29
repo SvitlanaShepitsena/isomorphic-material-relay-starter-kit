@@ -48,6 +48,8 @@ let config = {
                 }
             }
         }),
+        new webpack.NormalModuleReplacementPlugin(/^google$/, 'node-noop'),
+
         webpack_isomorphic_tools_plugin.development()
     ],
     watchOptions: {
