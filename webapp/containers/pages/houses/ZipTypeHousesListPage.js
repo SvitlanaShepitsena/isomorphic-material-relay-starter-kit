@@ -35,12 +35,7 @@ class ZipTypeHousesListPage extends React.Component {
         let {query} = this.props.location;
         this.currentPage = Number(query && query.page ? query.page : 1);
 
-        const zipType = this.props.params.zipType;
-        console.log(zipType);
-        if (zipType.match(/^\d+$/g)) {
-            this.zip = zipType;
-            console.log(this.zip);
-        }
+
 
     }
 
@@ -62,6 +57,7 @@ class ZipTypeHousesListPage extends React.Component {
     render() {
         const {routes, params}= this.props.routes;
         const {city} = this.props.params;
+        const {zipType} = this.props.params;
 
         const pageInfo = this.props.Viewer.Houses.pageInfo;
         console.log(pageInfo);
@@ -92,7 +88,9 @@ class ZipTypeHousesListPage extends React.Component {
                 <br/>
                 <Breadcrumbs routes={routes} params={params}/>
 
-                {this.zip && <h1>{`Houses for Sale in ${cityFormatted}, ${this.zip}`}</h1>}
+                {zipType.match(/^\d+$/g) && <h1>{`Houses for Sale in ${cityFormatted}, at ${zipType}`}</h1>}
+                {zipType.match(/all/) && <h1>{`All Houses for Sale in ${cityFormatted}`}</h1>}
+                {zipType.match(/^[^]+$/g) && <h1>{`${zipType} for sale in ${cityFormatted}`}</h1>}
 
                 {lastPage !== this.currentPage &&
                 <Link
