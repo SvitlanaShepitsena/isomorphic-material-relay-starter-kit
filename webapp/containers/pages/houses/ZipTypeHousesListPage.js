@@ -35,6 +35,13 @@ class ZipTypeHousesListPage extends React.Component {
         let {query} = this.props.location;
         this.currentPage = Number(query && query.page ? query.page : 1);
 
+        const zipType = this.props.params.zipType;
+        console.log(zipType);
+        if (zipType.match(/^\d+$/g)) {
+            this.zip = zipType;
+            console.log(this.zip);
+        }
+
     }
 
     componentWillReceiveProps(nextProps) {
@@ -85,25 +92,15 @@ class ZipTypeHousesListPage extends React.Component {
                 <br/>
                 <Breadcrumbs routes={routes} params={params}/>
 
-                {<ZipTypeList
-                    itemId="type"
-                    list={typesList}
-                    children="Houses"
-                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
-                />
-                }
-                {this.type &&
-                <h1>{`${typeFormatted == 'All' ? 'All House' : typeFormatted}s for Sale in ${cityFormatted}`}</h1>}
                 {this.zip && <h1>{`Houses for Sale in ${cityFormatted}, ${this.zip}`}</h1>}
-                {lastPage!==this.currentPage &&
-                < Link
+
+                {lastPage !== this.currentPage &&
+                <Link
                     to={{ pathname: this.props.location.pathname, query: { page: this.currentPage+1,after:lastCursor} }}>Next</Link>
                 }
                 {this.currentPage > 1 &&
-                <div>
-
-                    <Link
-                        to={{ pathname: this.props.location.pathname, query: { page: this.currentPage-1,before:firstCursor} }}>Prev</Link>
+                <div><Link
+                    to={{ pathname: this.props.location.pathname, query: { page: this.currentPage-1,before:firstCursor} }}>Prev</Link>
                 </div>
                 }
                 {houses &&
@@ -115,12 +112,20 @@ class ZipTypeHousesListPage extends React.Component {
                 }
                 <br/>
 
+                {<ZipTypeList
+                    itemId="type"
+                    list={typesList}
+                    children="Houses"
+                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
+                />
+                }
+
 
             </div>
         );
     }
-}
-;
+};
+
 export default Relay.createContainer(ZipTypeHousesListPage, {
     initialVariables: {city: null, zipType: null, after: null, before: null, first: null, last: null},
     prepareVariables({city, zipType, after:after, before:before, first:first, last:last}) {
