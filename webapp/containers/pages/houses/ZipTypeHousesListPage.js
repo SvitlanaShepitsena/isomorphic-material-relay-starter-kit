@@ -12,7 +12,9 @@ import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 
 class ZipTypeHousesListPage extends React.Component {
-    state = {cursor: ''};
+    state = {
+        limit: 3,
+    };
 
     getChildContext() {
         return {
@@ -32,18 +34,19 @@ class ZipTypeHousesListPage extends React.Component {
     componentDidMount() {
         let {query} = this.props.location;
         this.currentPage = Number(query && query.page ? query.page : 1);
+
     }
-
-
 
     componentWillReceiveProps(nextProps) {
         let {query} = nextProps.location;
         this.nextPage = Number(query && query.page ? query.page : 1);
         let after = query && query.after ? query.after : null;
+        let before = query && query.before ? query.before : null;
 
         if (this.nextPage !== this.currentPage) {
             this.props.relay.setVariables({
-                after: after
+                after: after,
+                before: before
             });
         }
 
@@ -87,7 +90,7 @@ class ZipTypeHousesListPage extends React.Component {
                 <Link
                     to={{ pathname: this.props.location.pathname, query: { page: this.currentPage+1,after:lastCursor} }}>Next</Link>
                 }
-                {pageInfo.hasPreviousPage &&
+                {this.currentPage > 1 &&
                 <div>
 
                     <Link
@@ -110,11 +113,20 @@ class ZipTypeHousesListPage extends React.Component {
 }
 ;
 export default Relay.createContainer(ZipTypeHousesListPage, {
-    initialVariables: {city: null, zipType: null, after: null,before:null,first:null,last:null},
-    prepareVariables({city, zipType, after:after,before:before,first:first,last:last}) {
-        var values= {city: zipType.match(/^\d+$/) ? null : city, zipType: zipType};
+    initialVariables: {city: null, zipType: null, after: null, before: null, first: null, last: null},
+    prepareVariables({city, zipType, after:after, before:before, first:first, last:last}) {
+        var values = {city: zipType.match(/^\d+$/) ? null : city, zipType: zipType};
+        if (after || (!before && !after)) {
+            values.after = after;
+            values.first = 3;
+        }
+        if (before) {
+            values.before = before;
+            values.last = 3;
+        }
 
 
+        return values;
     },
     fragments: {
         Viewer: () => Relay.QL`
@@ -127,13 +139,13 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         }
                     }
                 }
-                Houses(city:$city,zip:$zipType,first:3){
+                Houses(city:$city,zip:$zipType,first:$first,after:$after,last:$last,before:$before){
                     pageInfo{
                         hasNextPage
                         hasPreviousPage
                         startCursor
                         endCursor
-                        
+
                     }
                     edges{
                         cursor
