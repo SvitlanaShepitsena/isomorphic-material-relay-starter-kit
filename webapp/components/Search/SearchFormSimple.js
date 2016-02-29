@@ -11,7 +11,10 @@ import {browserHistory} from 'react-router'
 class SearchFormSimple extends Component {
 
     search = ()=> {
+        if (this.state.query.length) {
+
         browserHistory.push({pathname: '/search/' + this.state.query});
+        }
     };
 
     state = {
@@ -31,7 +34,7 @@ class SearchFormSimple extends Component {
         const {search, onSearch} = this.props;
         return (
             <div className={styles.container}>
-                <form className={styles.form} name="form" id="form" style={{padding:"4px 8px"}}>
+                <form className={styles.form} name="form" id="form">
                     <div className={styles.row}>
                         <div className={styles.inputContainer}>
                             <AutoComplete
