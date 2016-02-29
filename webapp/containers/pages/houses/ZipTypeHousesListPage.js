@@ -62,6 +62,15 @@ class ZipTypeHousesListPage extends React.Component {
         const houses = this.props.Viewer.Houses.edges;
         const lastHouse = _.last(houses);
         const lastCursor = lastHouse && lastHouse.cursor;
+        console.log('lastCursor:' + lastCursor);
+
+        const firstHouse = _.first(houses);
+        const firstCursor = firstHouse && firstHouse.cursor;
+        console.log('firstCursor:' + firstCursor);
+
+        var count = this.props.Viewer.Houses_Count;
+        const lastPage = Math.floor(count / 3) + ((count % 3) ? 1 : 0);
+        console.log('Houses Count: ' + lastPage);
 
         const typesList = this.props.Viewer.Types.edges;
 
@@ -86,15 +95,15 @@ class ZipTypeHousesListPage extends React.Component {
                 {this.type &&
                 <h1>{`${typeFormatted == 'All' ? 'All House' : typeFormatted}s for Sale in ${cityFormatted}`}</h1>}
                 {this.zip && <h1>{`Houses for Sale in ${cityFormatted}, ${this.zip}`}</h1>}
-                {pageInfo.hasNextPage &&
-                <Link
+                {lastPage!==this.currentPage &&
+                < Link
                     to={{ pathname: this.props.location.pathname, query: { page: this.currentPage+1,after:lastCursor} }}>Next</Link>
                 }
                 {this.currentPage > 1 &&
                 <div>
 
                     <Link
-                        to={{ pathname: this.props.location.pathname, query: { page: this.currentPage-1,after:pageInfo.startCursor} }}>Prev</Link>
+                        to={{ pathname: this.props.location.pathname, query: { page: this.currentPage-1,before:firstCursor} }}>Prev</Link>
                 </div>
                 }
                 {houses &&
@@ -118,13 +127,14 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
         var values = {city: zipType.match(/^\d+$/) ? null : city, zipType: zipType};
         if (after || (!before && !after)) {
             values.after = after;
-            values.first = 3;
+            values.first = true;
+            values.last = false;
         }
         if (before) {
             values.before = before;
-            values.last = 3;
+            values.last = true;
+            values.first = false;
         }
-
 
         return values;
     },
@@ -139,7 +149,33 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         }
                     }
                 }
-                Houses(city:$city,zip:$zipType,first:$first,after:$after,last:$last,before:$before){
+                Houses_Count(city:$city,zip:$zipType)
+                Houses(city:$city,zip:$zipType,first:3,after:$after) @include(if:$first) {
+                    pageInfo{
+                        hasNextPage
+                        hasPreviousPage
+                        startCursor
+                        endCursor
+
+                    }
+                    edges{
+                        cursor
+                        node{
+                            id
+                            city{ name }
+                            zip{ code }
+                            type{ type }
+                            price
+                            built
+                            street
+                            beds
+                            description
+                            mls
+                            image
+                        }
+                    }
+                }
+                Houses(city:$city,zip:$zipType,last:3,before:$before) @skip(if:$first) {
                     pageInfo{
                         hasNextPage
                         hasPreviousPage
