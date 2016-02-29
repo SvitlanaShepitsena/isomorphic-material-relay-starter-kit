@@ -8,7 +8,6 @@ import Search from '../../components/Search/SearchFormSimple.js';
 import styles from './HomeHeader.less';
 
 class HomeHeader extends React.Component {
-
     render() {
         return (
             <div className={styles.wrapper}>
