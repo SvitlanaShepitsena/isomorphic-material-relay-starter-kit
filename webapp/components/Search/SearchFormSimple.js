@@ -35,7 +35,7 @@ class SearchFormSimple extends Component {
                     <div className={styles.row}>
                         <div className={styles.inputContainer}>
                             <AutoComplete
-                                hintText={<span className={styles.hText}>Address, City, Zip, #MLS</span>}
+                                hintText='Address, City, Zip, #MLS'
                                 dataSource={this.state.dataSource}
                                 fullWidth={true}
                                 onUpdateInput={this.handleUpdateInput}
