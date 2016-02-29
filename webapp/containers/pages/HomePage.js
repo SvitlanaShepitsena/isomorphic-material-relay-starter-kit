@@ -32,6 +32,7 @@ class HomePage extends React.Component {
         var homeDescription = "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston houses apartments for sale rent";
         var homeTitle = "Houses Apartments for Sale Rent Chicago North Suburbs";
         var fbImage = "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg";
+        let cities = this.props.Viewer.Cities;
         return (
             <div>
                 <Helmet
@@ -49,7 +50,7 @@ class HomePage extends React.Component {
                 ]}
                 />
                 <HomeHeader/>
-                <HomeCities cities={this.props.Viewer.Cities}/>
+                <HomeCities cities={cities}/>
 
             </div>
         );
