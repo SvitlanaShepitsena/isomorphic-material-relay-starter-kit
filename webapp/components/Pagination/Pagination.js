@@ -1,8 +1,10 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router'
 /*=materialUi*/
-import FlatButton from 'material-ui/lib/flat-button';
-
+import RaisedButton from 'material-ui/lib/raised-button';
+import FontIcon from 'material-ui/lib/font-icon';
+import Next from 'material-ui/lib/svg-icons/navigation/chevron-right';
+import Previous from 'material-ui/lib/svg-icons/navigation/chevron-left';
 /*=styles*/
 import styles from './Pagination.less';
 
@@ -23,16 +25,20 @@ class Pagination extends React.Component {
                 <div>
                     <Link
                         to={{ pathname: this.context.location.pathname, query: { page: currentPage-1,before:pageInfo.endCursor} }}>
-                        <FlatButton label="Previous"
-                                    secondary={true}/>
+                        <RaisedButton className={styles.button} label="Previous"
+                                      labelPosition="after"
+                                      icon={<Previous />}
+                                      default={true}/>
                     </Link>
                 </div>
                 }
                 {lastPage !== currentPage &&
-                <div>
+                <div >
                     <Link
                         to={{ pathname: this.context.location.pathname, query: { page: currentPage+1,after:pageInfo.startCursor} }}>
-                        <FlatButton label="Next" secondary={true}/>
+                        <RaisedButton className={styles.button} label="Next"
+                                      icon={<Next />}
+                                      default={true}/>
                     </Link>
                 </div>
                 }
