@@ -63,21 +63,7 @@ class ZipTypeHousesListPage extends React.Component {
         const {routes, params}= this.props.routes;
         const {city} = this.props.params;
 
-        const pageInfo = this.props.Viewer.Houses.pageInfo;
-        console.log(pageInfo);
 
-        const houses = this.props.Viewer.Houses.edges;
-        const lastHouse = _.last(houses);
-        const lastCursor = lastHouse && lastHouse.cursor;
-        console.log('lastCursor:' + lastCursor);
-
-        const firstHouse = _.first(houses);
-        const firstCursor = firstHouse && firstHouse.cursor;
-        console.log('firstCursor:' + firstCursor);
-
-        var count = this.props.Viewer.Houses_Count;
-        const lastPage = Math.floor(count / 3) + ((count % 3) ? 1 : 0);
-        console.log('Houses Count: ' + lastPage);
 
         const typesList = this.props.Viewer.Types.edges;
 
@@ -94,19 +80,11 @@ class ZipTypeHousesListPage extends React.Component {
 
                 {this.zip && <h1>{`Houses for Sale in ${cityFormatted}, ${this.zip}`}</h1>}
 
-                {lastPage !== this.currentPage &&
-                <Link
-                    to={{ pathname: this.props.location.pathname, query: { page: this.currentPage+1,after:lastCursor} }}>Next</Link>
-                }
-                {this.currentPage > 1 &&
-                <div><Link
-                    to={{ pathname: this.props.location.pathname, query: { page: this.currentPage-1,before:firstCursor} }}>Prev</Link>
-                </div>
-                }
-                {houses &&
+
                 <HousesList
 
                     list={houses}
+                    total={count}
                     cityName={cityFormatted}
                     listType="inline"/>
                 }

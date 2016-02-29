@@ -6,21 +6,38 @@ import {Link} from 'react-router';
 import HouseThumbInline from '../HouseThumbInline/HouseThumbInline';
 import HouseThumbLarge from '../HouseThumbLarge/HouseThumbLarge';
 import SvLink from './../../Common/SvLink';
+import Pagination from '../../Pagination/Pagination.js';
 
 import styles from './HousesList.less';
 
 class HousesList extends React.Component {
     static propTypes = {
         list: PropTypes.array.isRequired,
+        count: PropTypes.number.isRequired,
         listType: PropTypes.string.isRequired
     };
 
     render() {
-        const {cityName, housesNumber, listType} = this.props;
-        const btnLabel = "All " + cityName + " homes for sale" + " (" + housesNumber + ")";
+        const {list,count,listType} = this.props;
+        const cityName = list[0] && list[0].city.name;
+
+
+        const title = "All " + cityName + " homes for sale" + " (" + count + ")";
+
+        const lastHouse = _.last(houses);
+        const lastCursor = lastHouse && lastHouse.cursor;
+        console.log('lastCursor:' + lastCursor);
+
+        const firstHouse = _.first(houses);
+        const firstCursor = firstHouse && firstHouse.cursor;
+        console.log('firstCursor:' + firstCursor);
+
+        const lastPage = Math.floor(count / 3) + ((count % 3) ? 1 : 0);
+        console.log('Houses Count: ' + lastPage);
 
         return (
             <div>
+                <Pagination  />
                 <div className={styles.row}>
                     <div className={styles.col1}>
                         <div className={styles.row}>
@@ -58,7 +75,7 @@ class HousesList extends React.Component {
                         <div className={styles.btnContainer}>
                             <SvLink url="all">
                                 <RaisedButton
-                                    label={btnLabel}
+                                    label={title}
                                     secondary={true}/>
                             </SvLink>
                         </div>
