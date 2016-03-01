@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
-import styles from './HouseTitle.less';
+import styles from './HousesListTitle.less';
 import urlToText from '../../../utils/urlToText.js';
 
-class HousesTitle extends React.Component {
+class HousesListTitle extends React.Component {
     static propTypes = {
         zipType: PropTypes.string.isRequired,
         count: PropTypes.number.isRequired,
@@ -39,4 +39,4 @@ class HousesTitle extends React.Component {
 }
 ;
 
-export default HousesTitle;
+export default HousesListTitle;

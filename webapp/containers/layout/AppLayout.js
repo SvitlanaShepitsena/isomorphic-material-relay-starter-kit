@@ -35,10 +35,10 @@ class AppLayout extends React.Component {
         let {children} = this.props;
         let cityRoute = pathname == '/houses-for-sale';
         let homeRoute = pathname == '/';
-
+        let openMenu = this.state.open;
         return (
             <AppCanvas style={{position:"relative",height:"100%"}}>
-                <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
+                <LeftNav docked={false} open={openMenu} onRequestChange={open => this.setState({open})}>
                     <MobileDrawerHeader onTouchTap={this.handleClose}/>
                     <MobileMenu onTouchTap={this.handleClose}/>
                 </LeftNav>

@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import {Link} from 'react-router';
 
 /*=materialUi*/
 import CityThumbPicture from '../CityThumb/CityThumbPicture.js';
@@ -22,17 +21,16 @@ class CitiesList extends React.Component {
         return (
             <div className={styles.container}>
                 {this.props.list.map(edge => {
-                        const item = edge.node;
-                        const {itemId} = this.props;
-                        const {fullUrl} = this.props;
-                        const {children} = this.props;
-                        const itemValue = item[itemId];
-                        const url = (fullUrl || '') + itemValue;
+                        let item = edge.node;
+                        let {itemId, fullUrl, children} = this.props;
+                        let itemValue = item[itemId];
+                        let url = (fullUrl || '') + itemValue;
+                        let housesLength = item[`${children}_Count`];
                         return (
                             <div className={styles.item} key={itemValue}>
                                 <SvLink url={url}>
                                     <CityThumbPicture
-                                        housesLength={item[`${children}_Count`]}
+                                        housesLength={housesLength}
                                         cityName={itemValue}/>
                                 </SvLink>
                             </div>

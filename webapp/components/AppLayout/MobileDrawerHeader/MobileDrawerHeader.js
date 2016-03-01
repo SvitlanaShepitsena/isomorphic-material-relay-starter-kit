@@ -17,6 +17,7 @@ class MobileDrawerHeader extends React.Component {
     };
 
     render() {
+        const {onTouchTap} = this.props;
         return (
             <AppBar primary={true}
                     title={<span className={styles.title}>
@@ -24,7 +25,7 @@ class MobileDrawerHeader extends React.Component {
                     </span>}
                     showMenuIconButton={false}
                     iconElementRight={
-                        <IconButton onTouchTap={this.props.onTouchTap}>
+                        <IconButton onTouchTap={onTouchTap}>
                         <NavigationClose/></IconButton>
                         }
             >

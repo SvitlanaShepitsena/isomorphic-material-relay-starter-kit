@@ -25,6 +25,7 @@ class Breadcrumbs extends React.Component {
                         url = params[paramName];
                         const anchor = _.startCase(url);
                         const digits = url.match(/^\d+$/g);
+                        const replaceHouses = compoundAnchors.replace('Houses', anchor);
 
                         switch (paramName) {
                             case 'city':
@@ -34,7 +35,7 @@ class Breadcrumbs extends React.Component {
                                 if (digits) {
                                     compoundAnchors += ` at ${anchor}`;
                                 } else {
-                                    compoundAnchors = compoundAnchors.replace('Houses', anchor);
+                                    compoundAnchors = replaceHouses;
                                 }
                                 break;
                             case 'zip':
@@ -43,7 +44,7 @@ class Breadcrumbs extends React.Component {
                                 }
                                 break;
                             case 'type':
-                                compoundAnchors = compoundAnchors.replace('Houses', anchor);
+                                compoundAnchors = replaceHouses;
                                 break;
                             case 'id':
                                 compoundAnchors = ` ${anchor}`;
@@ -59,12 +60,15 @@ class Breadcrumbs extends React.Component {
                     }
                     compoundUrl += `/${url}`;
 
+                    const linkText = compoundAnchors.replace(/Houses For Sale >/i, 'Chicago Suburbs >');
+
                     return (
                         <span key={path}>
                             {index > 0 && <span> > </span>}
                             {index < lastIndex ? <Link
-                                to={`${compoundUrl}`}>{compoundAnchors.replace(/Houses For Sale >/i, 'Chicago Suburbs >')}</Link> :
-                                <span>{compoundAnchors}</span>
+                                to={`${compoundUrl}`}>
+                                {linkText}
+                            </Link> : <span>{compoundAnchors}</span>
                             }
                         </span>
                     );

@@ -6,7 +6,7 @@ import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 /*Components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
-import HousesTitle from './../../../components/House/HouseTitle/HousesTitle.js';
+import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 
 class ZipTypeHousesListPage extends React.Component {
@@ -68,7 +68,7 @@ class ZipTypeHousesListPage extends React.Component {
         return (
             <div>
                 <Breadcrumbs routes={routes} params={params}/>
-                <HousesTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
+                <HousesListTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
                 {!houses && <Spinner/>}
                 {houses && <HousesList list={houses} count={houseCount} cityName={cityFormatted} listType="inline"/>}
 

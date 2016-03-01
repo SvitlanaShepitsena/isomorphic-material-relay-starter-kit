@@ -10,9 +10,10 @@ class MobileMenu extends React.Component {
     };
 
     render() {
+        const {onTouchTap} = this.props;
         return (
             <div className={styles.container}>
-                <MenuItem onTouchTap={this.props.onTouchTap}>
+                <MenuItem onTouchTap={onTouchTap}>
                     <Link className={styles.link}
                           to="/houses-for-sale">Houses fo Sale</Link>
                 </MenuItem>

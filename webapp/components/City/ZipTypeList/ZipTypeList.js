@@ -16,8 +16,8 @@ class ZipTypeList extends React.Component {
     static propTypes = {
         list: PropTypes.array.isRequired,
         itemId: PropTypes.string.isRequired,
-        children: PropTypes.string,
-        sectionTitle: PropTypes.string
+        sectionTitle: PropTypes.string,
+        children: PropTypes.string
     };
 
     render() {
@@ -35,13 +35,14 @@ class ZipTypeList extends React.Component {
 
                                     const itemValue = item[itemId];
                                     const itemValueFormatted = urlToText(itemValue);
+                                    const badgeValue = item[`${children}_Count`];
                                     // Temporary Solution for creating a new route for houses type
                                     return (
                                         <li className={styles.item} key={itemValue}>
                                             <ButtonWithBadge
                                                 btnLabel={itemValueFormatted}
                                                 btnUrl={itemValue}
-                                                badgeValue={item[`${children}_Count`]}
+                                                badgeValue={badgeValue}
                                             />
                                         </li>
                                     )

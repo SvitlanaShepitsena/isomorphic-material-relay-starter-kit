@@ -17,9 +17,10 @@ class AppHeader extends React.Component {
     };
 
     render() {
+        const {onTouchTap} = this.props;
         return (
             <AppBar className={styles.container}
-                    onLeftIconButtonTouchTap={this.props.onTouchTap}
+                    onLeftIconButtonTouchTap={onTouchTap}
                     title={<Link to="/">
                             <ul>
                                 <li className={styles.companyLogo}> <img src={settings.companyLogo} alt={settings.companyName + " Logo"} /> </li>
