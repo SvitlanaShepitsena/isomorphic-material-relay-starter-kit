@@ -20,13 +20,16 @@ class CitiesSalePage extends React.Component {
     };
 
     render() {
-        const cities = this.props.Viewer.Cities.edges;
+        let allCities = this.props.Viewer.Cities.edges;
+        let cities = allCities.length;
+
         return (
             <div>
                 <h1> North Chicago Suburbs Houses for Sale </h1>
-                {!cities.length && <Spinner /> }
-                {cities.length &&
-                <CitiesList list={cities} itemId="name" children="Houses"/> }
+                {!cities && <Spinner /> }
+                {cities &&
+                <CitiesList list={allCities} itemId="name" children="Houses"/>
+                }
             </div>
         );
     }

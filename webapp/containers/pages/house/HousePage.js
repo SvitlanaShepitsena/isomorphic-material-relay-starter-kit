@@ -11,7 +11,7 @@ class HousePage extends React.Component {
         return {
             location: this.props.location,
             route: this.props.route,
-            params: this.props.routeParams,
+            params: this.props.routeParams
         };
     };
 

@@ -19,7 +19,6 @@ import MyRawTheme from '../../settings/AppMuiTheme.js';
 import styles from './AppLayout.less';
 
 class AppLayout extends React.Component {
-
     getChildContext() {
         return {
             muiTheme: ThemeManager.getMuiTheme(MyRawTheme),
@@ -34,7 +33,9 @@ class AppLayout extends React.Component {
     render() {
         let {pathname} = this.props.location;
         let {children} = this.props;
-        let cityRoute = "/houses-for-sale";
+        let cityRoute = pathname == '/houses-for-sale';
+        let homeRoute = pathname == '/';
+
         return (
             <AppCanvas style={{position:"relative",height:"100%"}}>
                 <LeftNav docked={false} open={this.state.open} onRequestChange={open => this.setState({open})}>
@@ -43,20 +44,14 @@ class AppLayout extends React.Component {
                 </LeftNav>
                 <AppHeader onTouchTap={this.handleToggle}/>
                 <div className={styles.wrapper}>
-                    {(pathname == '/' ) &&
-                    <section>
-                        {children}
-                    </section>
-                    }
-                    { !(pathname == '/' ) &&
+                    {homeRoute && <section> {children} </section> }
+                    {!homeRoute &&
                     <section className={styles.contentWrapper}>
                         <div className={styles.mainContent}>
                             {children}
                         </div>
-                        < div className={styles.asideContent}>
-                            { pathname == cityRoute &&
-                            <ContactForm/>
-                            }
+                        <div className={styles.asideContent}>
+                            {cityRoute && <ContactForm/>}
                         </div>
                     </section>
                     }
