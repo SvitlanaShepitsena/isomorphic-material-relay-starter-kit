@@ -40,7 +40,7 @@ export default new GraphQLObjectType({
                 },
 
             },
-            resolve: (obj, {...args}) => Houses_with_args(...args,{zip:obj.id}).then((arr) => connectionFromArray(arr, args))
+            resolve: (obj, {...args}) => Houses_with_args(...args, {zip: obj.id}).then((arr) => connectionFromArray(arr, args))
         },
         Houses_Count: {
             type: GraphQLInt,
@@ -50,14 +50,14 @@ export default new GraphQLObjectType({
                     type: GraphQLString
                 },
             },
-            resolve: (obj, {...args}) => Houses_with_args(...args,{zip:obj.id}).then((arr) => arr.length)
+            resolve: (obj, {...args}) => Houses_with_args(...args, {zip: obj.id}).then((arr) => arr.length)
         },
         Types: {
             type: TypesConnection.connectionType,
             args: {
                 ...connectionArgs,
             },
-            resolve: (obj, {...args}) => Types_with_args({zip:obj.id}).then((arr) => connectionFromArray(arr, args))
+            resolve: (obj, {...args}) => Types_with_args({zip: obj.id}).then((arr) => connectionFromArray(arr, args))
         },
 
     }),

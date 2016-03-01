@@ -2,22 +2,41 @@
 @import '../../settings/mixins.less';
 
 /*=grid*/
-.container {
-  float: right;
-  padding-bottom: 16px;
-  div {
-    display: inline-block;
-    margin: 0 4px !important;
-  }
+.row {
+  vertical-align: middle;
+  width: 100%;
+  .contentRow;
+}
+.col4 {
+  lost-column: 1/4 0;
+}
+
+.col2 {
+  lost-column: 1/2 0;
+}
+
+.linkContainer {
+  display: inline-block;
+  margin: 0 4px 16px;
+}
+
+.breadcrumbs {
+  text-align: right;
 }
 
 .button {
-  div{
-    margin:0 !important;
+  display: block;
+  padding: 4px;
+  width: 100% !important;
+  div {
+    margin: 0 !important;
   }
   span {
     vertical-align: middle;
   }
 }
 
-
+.pagesCounter {
+  font-size: 16px;
+  color: @primary-2-color;
+}
