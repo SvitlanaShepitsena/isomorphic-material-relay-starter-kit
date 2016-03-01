@@ -9,42 +9,38 @@ import styles from './Pagination.less';
 
 class Pagination extends React.Component {
     static contextTypes = {location: PropTypes.object.isRequired};
-
     static propTypes = {
-        lastPage: PropTypes.number.isRequired,
         firstCursor: PropTypes.string.isRequired,
         lastCursor: PropTypes.string.isRequired,
+        lastPage: PropTypes.number.isRequired,
     };
     handleClick = (e, type)=> {
         if (type == 'prev') {
             if (this.currentPage === 1) {
                 e.preventDefault();
             }
-
         }
     };
 
     render() {
-        var disabledLink = {
-            pointerEvents: "none",
-            cursor: "default"
-        };
         const {lastPage, firstCursor, lastCursor} = this.props;
         this.currentPage = Number(this.context.location.query.page || 1);
+        let pathname = this.context.location.pathname;
+        let currentPage = this.currentPage;
+        let previous = currentPage - 1;
+        let next = currentPage + 1;
 
         return (
             <div className={styles.row}>
                 <div className={styles.col2}>
-                    <span className={styles.pagesCounter}> {`Page ${this.currentPage} of ${lastPage}`} </span>
+                    <span className={styles.counter}> {`Page ${currentPage} of ${lastPage}`} </span>
                 </div>
-
                 <div className={styles.col2}>
                     <div className={styles.breadcrumbs}>
                         <div className={styles.linkContainer}>
 
-                            {this.currentPage == 1 &&
+                            {currentPage == 1 &&
                             <RaisedButton
-                                style={{width:"140px"}}
                                 className={styles.button}
                                 disabled={true}
                                 label="Previous"
@@ -52,15 +48,12 @@ class Pagination extends React.Component {
                                 icon={<Previous />}
                                 default={true}/>
                             }
-                            {this.currentPage > 1 &&
-                            <Link style={{width:"100%"}}
-                                  styles={this.currentPage==1 && disabledLink}
-                                  to={{ pathname: this.context.location.pathname, query: { page: this.currentPage-1,before:firstCursor} }}
+                            {currentPage > 1 &&
+                            <Link to={{ pathname: pathname, query: { page: previous, before:firstCursor} }}
                                   onClick={this.handleClick}>
                                 <RaisedButton
-                                    style={{width:"140px"}}
                                     className={styles.button}
-                                    disabled={this.currentPage==1}
+                                    disabled={currentPage==1}
                                     label="Previous"
                                     labelPosition="after"
                                     icon={<Previous />}
@@ -70,21 +63,18 @@ class Pagination extends React.Component {
 
                         </div>
                         <div className={styles.linkContainer}>
-                            {this.currentPage == lastPage &&
+                            {currentPage == lastPage &&
                             <RaisedButton className={styles.button} label="Next"
-                                          style={{width:"140px"}}
                                           disabled={true}
                                           icon={<Next />}
                                           default={true}/>
                             }
-                            {this.currentPage !== lastPage &&
-                            <Link
-                                to={{ pathname: this.context.location.pathname, query: { page: this.currentPage + 1,after:lastCursor} }}>
-                                <RaisedButton className={styles.button} label="Next"
-                                              style={{width:"140px"}}
+                            {currentPage !== lastPage &&
+                            <Link to={{ pathname: pathname, query: { page: next, after:lastCursor} }}>
+                                <RaisedButton className={styles.button}
+                                              label="Next"
                                               icon={<Next />}
                                               default={true}/>
-
                             </Link>
                             }
                         </div>
