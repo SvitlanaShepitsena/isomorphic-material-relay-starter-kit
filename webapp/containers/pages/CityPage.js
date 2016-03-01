@@ -39,7 +39,7 @@ class CityPage extends React.Component {
         let types = typesList.length;
         let houses = newHouses.length;
 
-        let {routes}= this.props;
+        let {routes, params}= this.props;
         /*Formatter*/
         let cityFormatted = urlToText(city);
 
@@ -47,7 +47,7 @@ class CityPage extends React.Component {
 
         return (
             <div>
-                <Breadcrumbs routes={routes} params={this.props.params}/>
+                <Breadcrumbs routes={routes} params={params}/>
                 <h1> {"Houses for Sale in " + cityFormatted} </h1>
                 {!(houses || zips || types) && <AppSpinner/> }
 
