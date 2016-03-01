@@ -1,14 +1,14 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import settings from '../../settings/settings.js';
+import settings from '../../../settings/settings.js';
 
 import Helmet from "react-helmet";
 
 /*Components*/
-import SearchFormInline from '../../components/Search/SearchFormInline.js';
-import SortBy from '../../components/Common/SortBy/SortBy.js';
-import HomeHeader from '../../components/HomeHeader/HomeHeader.js';
-import HomeCities from '../../components/HomeCities/HomeCities.js'
+import SearchFormInline from '../../../components/Search/SearchFormInline.js';
+import SortBy from '../../../components/Common/SortBy/SortBy.js';
+import HomeHeader from '../../../components/HomeHeader/HomeHeader.js';
+import HomeCities from '../../../components/HomeCities/HomeCities.js'
 
 class HomePage extends React.Component {
     getChildContext() {

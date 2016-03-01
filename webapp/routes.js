@@ -10,11 +10,11 @@ import {Route, browserHistory, Redirect, IndexRedirect} from 'react-router';
 import AppLayout from './containers/layout/AppLayout.js';
 import ViewerQueries from './queries/ViewerQueries';
 /*=common*/
-import HomePage from './containers/pages/HomePage';
-import AboutPage from './containers/pages/AboutPage';
-import ContactPage from './containers/pages/ContactPage';
-import PrivacyPage from './containers/pages/PrivacyPage';
-import TermsPage from './containers/pages/TermsPage';
+import HomePage from './containers/pages/common/HomePage';
+import AboutPage from './containers/pages/common/AboutPage';
+import ContactPage from './containers/pages/common/ContactPage';
+import PrivacyPage from './containers/pages/common/PrivacyPage';
+import TermsPage from './containers/pages/common/TermsPage';
 /*=house*/
 import HousePage from './containers/pages/house/HousePage.js';
 /*=city*/

@@ -25,7 +25,7 @@ class CityZipTypeHousesListPage extends React.Component {
     };
 
     componentDidMount() {
-        let {zipType} = this.props.params;
+        let zipType = this.props.params.zipType;
         this.zip = zipType;
         this.props.relay.setVariables({
             zip: this.zip,
