@@ -9,39 +9,41 @@ import {Route, browserHistory, Redirect, IndexRedirect} from 'react-router';
 
 import AppLayout from './containers/layout/AppLayout.js';
 import ViewerQueries from './queries/ViewerQueries';
-
+/*=common*/
 import HomePage from './containers/pages/HomePage';
 import AboutPage from './containers/pages/AboutPage';
-import CitiesSalePage from './containers/pages/CitiesSalePage';
 import ContactPage from './containers/pages/ContactPage';
 import PrivacyPage from './containers/pages/PrivacyPage';
 import TermsPage from './containers/pages/TermsPage';
-import CityPage from './containers/pages/CityPage';
-import HousePage from './containers/pages/houses/HousePage.js';
+/*=house*/
+import HousePage from './containers/pages/house/HousePage.js';
+/*=city*/
+import CitiesSalePage from './containers/pages/city/CitiesSalePage';
+import CityPage from './containers/pages/city/CityPage';
+import ZipTypeHousesListPage from './containers/pages/house/ZipTypeHousesListPage';
+import CityZipTypeHousesListPage from './containers/pages/house/CityZipTypeHousesListPage';
 
-import ZipTypeHousesListPage from './containers/pages/houses/ZipTypeHousesListPage';
-import CityZipTypeHousesListPage from './containers/pages/houses/CityZipTypeHousesListPage';
-
-import SearchPage from './containers/pages/SearchPage';
+import SearchPage from './containers/pages/search/SearchPage';
 
 export default (()=> {
     return (
         <Route component={AppLayout} queries={ViewerQueries} name="App">
             <Route path="/" component={HomePage} queries={ViewerQueries} name="Home"/>
 
-            <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries} preparedParams={(id)=>({id:'123'})}/>
+            <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries}
+                   preparedParams={(id)=>({id:'123'})}/>
 
 
             <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage} queries={ViewerQueries}/>
 
-            <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage} queries={ViewerQueries}/>
+            <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
+                   queries={ViewerQueries}/>
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
 
-            <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries} name="Chicago North Suburbs Houses for Sale"/>
+            <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
+                   name="Chicago North Suburbs Houses for Sale"/>
 
             <Route path="/search/:query" component={SearchPage} queries={ViewerQueries} name="Search"/>
-
-
 
 
             <Route path="/about" component={AboutPage} name="Houses for Sale"/>

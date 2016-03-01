@@ -1,9 +1,9 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import urlToText from '../../utils/urlToText.js';
+import urlToText from '../../../utils/urlToText.js';
 
 /*Components*/
-import HousesList from '../../components/House/HousesList/HousesList.js';
+import HousesList from '../../../components/House/HousesList/HousesList.js';
 
 class SearchPage extends React.Component {
     state = {compare: true};
@@ -23,21 +23,16 @@ class SearchPage extends React.Component {
     };
 
     render() {
-        const {routes, params}= this.props.routes;
-
         const houses = this.props.Viewer.Houses.edges;
 
         return (
             <div>
                 <h2>Search Results:</h2>
-
                 {houses && <HousesList list={houses} listType="inline"/> }
-                <br/>
             </div>
         );
     }
-}
-;
+};
 export default Relay.createContainer(SearchPage, {
     initialVariables: {query: null},
     prepareVariables({query}) {

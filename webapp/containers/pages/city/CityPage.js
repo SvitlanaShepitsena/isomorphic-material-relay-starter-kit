@@ -1,12 +1,12 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import Breadcrumbs from '../../components/Common/Breadcrumbs/Breadcrumbs';
-import urlToText from '../../utils/urlToText.js';
+import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
+import urlToText from '../../../utils/urlToText.js';
 
 /*=Components*/
-import ButtonAll from '../../components/House/ButtonAll/ButtonAll.js';
-import ZipTypeList from '../../components/City/ZipTypeList/ZipTypeList.js';
-import AppSpinner from '../../components/Common/Spinner/AppSpinner.js';
+import ButtonAll from '../../../components/House/ButtonAll/ButtonAll.js';
+import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
+import AppSpinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 class CityPage extends React.Component {
     getChildContext() {
