@@ -7,7 +7,7 @@ import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 /*Components*/
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
-import HousesTitle from './HousesTitle.js';
+import HousesTitle from './../../../components/House/HouseTitle/HousesTitle.js';
 
 class ZipTypeHousesListPage extends React.Component {
     state = {
@@ -55,7 +55,8 @@ class ZipTypeHousesListPage extends React.Component {
         const {city} = this.props.params;
         const {zipType} = this.props.params;
 
-        const typesList = this.props.Viewer.Types.edges;
+        let typesList = this.props.Viewer.Types.edges;
+        let showTypesList = zipType.match(/^\d+$/g);
 
         const cityFormatted = urlToText(city);
         const typeFormatted = urlToText(this.type);
@@ -72,16 +73,15 @@ class ZipTypeHousesListPage extends React.Component {
 
                 <HousesTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
 
-
                 <HousesList list={houses} count={houseCount} cityName={cityFormatted} listType="inline"/>
 
+                {showTypesList &&
                 <ZipTypeList
                     itemId="type"
                     list={typesList}
                     children="Houses"
                     sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
-                />
-
+                />}
 
             </div>
         );
