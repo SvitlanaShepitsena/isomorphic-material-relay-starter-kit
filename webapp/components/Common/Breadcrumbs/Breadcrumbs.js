@@ -35,7 +35,7 @@ class Breadcrumbs extends React.Component {
                                 if (digits) {
                                     compoundAnchors += ` at ${anchor}`;
                                 } else {
-                                    compoundAnchors = replaceHouses;
+                                    replaceHouses;
                                 }
                                 break;
                             case 'zip':
@@ -44,7 +44,7 @@ class Breadcrumbs extends React.Component {
                                 }
                                 break;
                             case 'type':
-                                compoundAnchors = replaceHouses;
+                                replaceHouses;
                                 break;
                             case 'id':
                                 compoundAnchors = ` ${anchor}`;
