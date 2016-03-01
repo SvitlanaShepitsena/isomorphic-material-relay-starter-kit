@@ -8,6 +8,7 @@ import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
+import { browserHistory } from 'react-router'
 
 class ZipTypeHousesListPage extends React.Component {
     state = {
@@ -31,7 +32,9 @@ class ZipTypeHousesListPage extends React.Component {
     componentDidMount() {
         let query = this.props.location.query;
         this.currentPage = Number(query && query.page ? query.page : 1);
-
+        if (this.currentPage > 1) {
+            browserHistory.replace(this.props.location.pathname);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -39,6 +42,10 @@ class ZipTypeHousesListPage extends React.Component {
         this.nextPage = Number(query && query.page ? query.page : 1);
         let after = query && query.after ? query.after : null;
         let before = query && query.before ? query.before : null;
+
+        if (this.nextPage === 1 && (after || before)) {
+            browserHistory.replace(nextProps.location.pathname);
+        }
 
         if (this.nextPage !== this.currentPage) {
             this.props.relay.setVariables({
@@ -69,6 +76,7 @@ class ZipTypeHousesListPage extends React.Component {
             <div>
                 <Breadcrumbs routes={routes} params={params}/>
                 <HousesListTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
+
                 {!houses && <Spinner/>}
                 {houses && <HousesList list={houses} count={houseCount} cityName={cityFormatted} listType="inline"/>}
 

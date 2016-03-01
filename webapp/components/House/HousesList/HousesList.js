@@ -22,6 +22,37 @@ class HousesList extends React.Component {
         limit: 3
     };
 
+    eachHouse = (edge)=> {
+
+        const {list, count, listType, limit} = this.props;
+        let house = edge.node;
+        let itemKey = house.id;
+        let city = house.city.name;
+        let type = house.type.type;
+        let zip = house.zip.code;
+        let houseThumbUrl = `${zip}/${type}/${house.id}`;
+        let houseInline = `${city}/${zip}/${type}/${house.id}`;
+        let houseInlineUrl = `/houses-for-sale/${houseInline}`;
+        let listLarge = (listType == "large");
+        let listInline = (listType == "inline");
+        let thumbClass = listLarge ? styles.col2 : styles.listInline;
+        return (
+            <div key={itemKey} className={thumbClass}>
+                {listLarge &&
+                <SvLink url={houseThumbUrl}>
+                    <HouseThumbLarge house={house}/>
+                </SvLink>
+                }
+                {listInline &&
+                <Link to={houseInlineUrl}>
+                    <HouseThumbInline house={house}/>
+                </Link>
+                }
+            </div>
+        )
+
+    };
+
     render() {
         const {list, count, listType, limit} = this.props;
         const lastCursor = _.last(list.edges).cursor;
@@ -34,34 +65,7 @@ class HousesList extends React.Component {
                 <Pagination lastPage={lastPage} firstCursor={firstCursor} lastCursor={lastCursor}/>
                 <div className={styles.col1}>
                     <div className={styles.row}>
-                        {this.props.list.edges.map((edge)=> {
-                                let house = edge.node;
-                                let itemKey = house.id;
-                                let city = house.city.name;
-                                let type = house.type.type;
-                                let zip = house.zip.code;
-                                let houseThumbUrl = `${zip}/${type}/${house.id}`;
-                                let houseInline = `${city}/${zip}/${type}/${house.id}`;
-                                let houseInlineUrl = `/houses-for-sale/${houseInline}`;
-                                let listLarge = (listType == "large");
-                                let listInline = (listType == "inline");
-                                let thumbClass = listLarge ? styles.col2 : styles.listInline;
-                                return (
-                                    <div key={itemKey} className={thumbClass}>
-                                        {listLarge &&
-                                        <SvLink url={houseThumbUrl}>
-                                            <HouseThumbLarge house={house}/>
-                                        </SvLink>
-                                        }
-                                        {listInline &&
-                                        <Link to={houseInlineUrl}>
-                                            <HouseThumbInline house={house}/>
-                                        </Link>
-                                        }
-                                    </div>
-                                )
-                            }
-                        )}
+                        {this.props.list.edges.map(this.eachHouse)}
                     </div>
                 </div>
             </div>
