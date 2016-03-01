@@ -41,14 +41,9 @@ class HousePage extends React.Component {
 export default Relay.createContainer(HousePage, {
     initialVariables: {id: null},
     prepareVariables({id}) {
-        var houseId;
-        if (!id) {
-            houseId = 'izya';
-        } else {
-            houseId = id;
-        }
 
-        return {id: houseId};
+
+        return {id: id};
     },
     fragments: {
         Viewer: () => Relay.QL`
