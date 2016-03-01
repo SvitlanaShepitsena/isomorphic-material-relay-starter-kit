@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import urlToText from '../../../utils/urlToText.js';
-import Breadcrumbs from '../../../components/Common/Breadcrumbs';
+import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 /*Components*/
@@ -47,7 +47,6 @@ class ZipTypeHousesListPage extends React.Component {
                 before: before
             });
         }
-
     }
 
     render() {
@@ -58,21 +57,19 @@ class ZipTypeHousesListPage extends React.Component {
         let typesList = this.props.Viewer.Types.edges;
         let showTypesList = zipType.match(/^\d+$/g);
 
-        const cityFormatted = urlToText(city);
-        const typeFormatted = urlToText(this.type);
         const houses = this.props.Viewer.Houses;
         const houseCount = this.props.Viewer.Houses_Count;
 
         let {query} = this.props.location;
         this.currentPage = Number(query && query.page ? query.page : 1);
 
+        /*Formatter*/
+        const cityFormatted = urlToText(city);
+
         return (
             <div>
-                <br/>
                 <Breadcrumbs routes={routes} params={params}/>
-
                 <HousesTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
-
                 <HousesList list={houses} count={houseCount} cityName={cityFormatted} listType="inline"/>
 
                 {showTypesList &&

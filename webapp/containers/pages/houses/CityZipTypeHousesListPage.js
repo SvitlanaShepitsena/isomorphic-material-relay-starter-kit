@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import urlToText from '../../../utils/urlToText.js';
-import Breadcrumbs from '../../../components/Common/Breadcrumbs';
+import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 
 /*Components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
@@ -44,7 +44,6 @@ class CityZipTypeHousesListPage extends React.Component {
 
         return (
             <div>
-                <br/>
                 <Breadcrumbs routes={routes} params={params}/>
                 <h1>{`${typeFormatted}s for Sale in ${cityFormatted}, ${zip}`}</h1>
                 {!houses && <Spinner/> }
