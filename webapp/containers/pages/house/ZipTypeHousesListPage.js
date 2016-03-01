@@ -1,13 +1,13 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import urlToText from '../../../utils/urlToText.js';
-import Breadcrumbs from '../../../components/Common/Breadcrumbs';
+import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 /*Components*/
-import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
-import HousesTitle from './HousesTitle.js';
+import HousesTitle from './../../../components/House/HouseTitle/HousesTitle.js';
+import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 
 class ZipTypeHousesListPage extends React.Component {
     state = {
@@ -19,7 +19,6 @@ class ZipTypeHousesListPage extends React.Component {
             location: this.props.location,
             route: this.props.route,
             params: this.props.routeParams,
-
         };
     };
 
@@ -30,13 +29,13 @@ class ZipTypeHousesListPage extends React.Component {
     };
 
     componentDidMount() {
-        let {query} = this.props.location;
+        let query = this.props.location.query;
         this.currentPage = Number(query && query.page ? query.page : 1);
 
     }
 
     componentWillReceiveProps(nextProps) {
-        let {query} = nextProps.location;
+        let query = nextProps.location.query;
         this.nextPage = Number(query && query.page ? query.page : 1);
         let after = query && query.after ? query.after : null;
         let before = query && query.before ? query.before : null;
@@ -47,42 +46,39 @@ class ZipTypeHousesListPage extends React.Component {
                 before: before
             });
         }
-
     }
 
     render() {
-        const {routes, params}= this.props.routes;
-        const {city} = this.props.params;
-        const {zipType} = this.props.params;
+        let {routes, params}= this.props;
+        let {city} = this.props.params;
+        let {zipType} = this.props.params;
 
-        const typesList = this.props.Viewer.Types.edges;
+        let typesList = this.props.Viewer.Types.edges;
+        let showTypesList = zipType.match(/^\d+$/g);
 
-        const cityFormatted = urlToText(city);
-        const typeFormatted = urlToText(this.type);
-        const houses = this.props.Viewer.Houses;
-        const houseCount = this.props.Viewer.Houses_Count;
+        let houses = this.props.Viewer.Houses;
+        let houseCount = this.props.Viewer.Houses_Count;
 
         let {query} = this.props.location;
         this.currentPage = Number(query && query.page ? query.page : 1);
 
+        /*Formatter*/
+        const cityFormatted = urlToText(city);
+
         return (
             <div>
-                <br/>
                 <Breadcrumbs routes={routes} params={params}/>
-
                 <HousesTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
+                {!houses && <Spinner/>}
+                {houses && <HousesList list={houses} count={houseCount} cityName={cityFormatted} listType="inline"/>}
 
-
-                <HousesList list={houses} count={houseCount} cityName={cityFormatted} listType="inline"/>
-
+                {showTypesList &&
                 <ZipTypeList
                     itemId="type"
                     list={typesList}
                     children="Houses"
                     sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
-                />
-
-
+                />}
             </div>
         );
     }

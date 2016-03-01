@@ -1,20 +1,19 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import Breadcrumbs from '../../components/Common/Breadcrumbs';
-import urlToText from '../../utils/urlToText.js';
+import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
+import urlToText from '../../../utils/urlToText.js';
 
 /*=Components*/
-import ButtonAll from '../../components/House/ButtonAll/ButtonAll.js';
-import ZipTypeList from '../../components/City/ZipTypeList/ZipTypeList.js';
-import AppSpinner from '../../components/Common/Spinner/AppSpinner.js';
+import ButtonAll from '../../../components/House/ButtonAll/ButtonAll.js';
+import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
+import AppSpinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 class CityPage extends React.Component {
     getChildContext() {
         return {
             location: this.props.location,
-            route: this.props.route,
             params: this.props.routeParams,
-
+            route: this.props.route
         };
     };
 
@@ -31,12 +30,16 @@ class CityPage extends React.Component {
     }
 
     render() {
-        const {city} = this.props.params;
-        const zipsList = this.props.Viewer.City.Zips.edges;
-        const typesList = this.props.Viewer.City.Types.edges;
-        const newHouses = this.props.Viewer.City.Houses;
-        const housesCount = this.props.Viewer.City.Houses_Count;
+        let {city} = this.props.params;
+        let zipsList = this.props.Viewer.City.Zips.edges;
+        let typesList = this.props.Viewer.City.Types.edges;
+        let newHouses = this.props.Viewer.City.Houses;
+        let housesCount = this.props.Viewer.City.Houses_Count;
+        let zips = zipsList.length;
+        let types = typesList.length;
+        let houses = newHouses.length;
 
+        let {routes, params}= this.props;
         /*Formatter*/
         let cityFormatted = urlToText(city);
 
@@ -44,30 +47,20 @@ class CityPage extends React.Component {
 
         return (
             <div>
-                <br/>
-                <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
+                <Breadcrumbs routes={routes} params={params}/>
                 <h1> {"Houses for Sale in " + cityFormatted} </h1>
-                {!(newHouses.length || zipsList.length || typesList.length) && <AppSpinner/> }
-
+                {!(houses || zips || types) && <AppSpinner/> }
 
                 <ButtonAll url="all" btnLabel={title}/>
 
-                {zipsList.length &&
-                <ZipTypeList
-                    itemId="code"
-                    list={zipsList}
-                    children="Houses"
-                    sectionTitle={`${cityFormatted} Homes for Sale by Zip`}
-                />
+                {zips &&
+                <ZipTypeList itemId="code" list={zipsList} children="Houses"
+                             sectionTitle={`${cityFormatted} Homes for Sale by Zip`}/>
                 }
-
                 <br/>
-                {typesList.length &&
-                <ZipTypeList
-                    itemId="type"
-                    list={typesList}
-                    children="Houses"
-                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
+                {types &&
+                <ZipTypeList itemId="type" list={typesList} children="Houses"
+                             sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
                 />
                 }
             </div>

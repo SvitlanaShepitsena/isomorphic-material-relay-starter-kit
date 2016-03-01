@@ -1,5 +1,5 @@
 import React from 'react';
-import TermsContent from '../../components/AppViews/Terms/TermsContent.js';
+import TermsContent from '../../../components/AppViews/Terms/TermsContent.js';
 
 class TermsPage extends React.Component {
     render() {

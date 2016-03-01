@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 /*=Components*/
-import CitiesList from '../../components/City/CitiesList/CitiesList.js';
-import Spinner from '../../components/Common/Spinner/AppSpinner.js';
+import CitiesList from '../../../components/City/CitiesList/CitiesList.js';
+import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 class CitiesSalePage extends React.Component {
     getChildContext() {

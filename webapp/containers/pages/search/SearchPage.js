@@ -1,13 +1,11 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import urlToText from '../../../utils/urlToText.js';
-import Breadcrumbs from '../../../components/Common/Breadcrumbs';
 
 /*Components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
-import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
-class CityZipTypeHousesListPage extends React.Component {
+class SearchPage extends React.Component {
     state = {compare: true};
 
     getChildContext() {
@@ -24,49 +22,32 @@ class CityZipTypeHousesListPage extends React.Component {
         route: PropTypes.object
     };
 
-    componentDidMount() {
-        let {zipType} = this.props.params;
-        this.zip = zipType;
-        this.props.relay.setVariables({
-            zip: this.zip,
-            type: this.props.params.type
-        })
-    }
-
     render() {
-        const {routes, params}= this.props;
         const houses = this.props.Viewer.Houses.edges;
-        const {city, type} = this.props.params;
-        const zip = this.zip;
-        /*Formatter*/
-        const cityFormatted = urlToText(city);
-        const typeFormatted = urlToText(type);
 
         return (
             <div>
-                <br/>
-                <Breadcrumbs routes={routes} params={params}/>
-                <h1>{`${typeFormatted}s for Sale in ${cityFormatted}, ${zip}`}</h1>
-                {!houses && <Spinner/> }
-                {houses &&
-                <HousesList
-                    list={houses}
-                    cityName={cityFormatted}
-                    listType="inline"/>
-                }
-                <br/>
-
+                <h2>Search Results:</h2>
+                {houses && <HousesList list={houses} listType="inline"/> }
             </div>
         );
     }
-}
-;
-export default Relay.createContainer(CityZipTypeHousesListPage, {
-    initialVariables: {city: '', zip: '', type: ''},
+};
+export default Relay.createContainer(SearchPage, {
+    initialVariables: {query: null},
+    prepareVariables({query}) {
+        return {query}
+    },
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                Houses(zip:$zip,type:$type, first:20){
+                Houses(query:$query, first:10){
+                    pageInfo{
+                        hasNextPage
+                        hasPreviousPage
+                        startCursor
+                        endCursor
+                    }
                     edges{
                         node{
                             id
@@ -76,9 +57,9 @@ export default Relay.createContainer(CityZipTypeHousesListPage, {
                             price
                             built
                             street
-                            mls
                             beds
                             description
+                            mls
                             image
                         }
                     }

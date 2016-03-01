@@ -11,50 +11,42 @@ class Breadcrumbs extends React.Component {
     render() {
         let paths = _.compact(this.context.route.path.split('/'));
         let lastIndex = paths.length - 1;
-        let params = this.context.params;
+        let {params} = this.context;
 
         let compoundUrl = '';
         let compoundAnchors = '';
 
         return (
-            <div>
+            <div style={{marginTop: 12}}>
                 {paths.map((path, index)=> {
                     var url, paramName, pre;
                     if (path.match('^:')) {
                         paramName = path.substr(1);
-
                         url = params[paramName];
                         const anchor = _.startCase(url);
+                        const digits = url.match(/^\d+$/g);
 
                         switch (paramName) {
                             case 'city':
                                 compoundAnchors += ` in ${anchor}`;
-
                                 break;
                             case 'zipType':
-
-                                if (url.match(/\d+/g)) {
-
+                                if (digits) {
                                     compoundAnchors += ` at ${anchor}`;
                                 } else {
                                     compoundAnchors = compoundAnchors.replace('Houses', anchor);
-
                                 }
-
                                 break;
                             case 'zip':
-                                if (url.match(/\d+/g)) {
-
+                                if (digits) {
                                     compoundAnchors += ` at ${anchor}`;
                                 }
                                 break;
                             case 'type':
                                 compoundAnchors = compoundAnchors.replace('Houses', anchor);
-
                                 break;
                             case 'id':
                                 compoundAnchors = ` ${anchor}`;
-
                                 break;
                             default:
                                 pre = `,`;
@@ -64,7 +56,6 @@ class Breadcrumbs extends React.Component {
 
                         url = path;
                         compoundAnchors += _.startCase(url);
-
                     }
                     compoundUrl += `/${url}`;
 
