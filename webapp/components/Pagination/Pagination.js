@@ -27,8 +27,14 @@ class Pagination extends React.Component {
         this.currentPage = Number(this.context.location.query.page || 1);
         let pathname = this.context.location.pathname;
         let currentPage = this.currentPage;
-        let previous = currentPage - 1;
-        let next = currentPage + 1;
+        let prevPage = currentPage - 1;
+        let nextPage = currentPage + 1;
+        
+        let enablePrev = currentPage > 1;
+        let enableNext = currentPage !== lastPage;
+
+        let disablePrev = currentPage == 1;
+        let disableNext = currentPage == lastPage;
 
         return (
             <div className={styles.row}>
@@ -38,44 +44,27 @@ class Pagination extends React.Component {
                 <div className={styles.col2}>
                     <div className={styles.breadcrumbs}>
                         <div className={styles.linkContainer}>
-
-                            {currentPage == 1 &&
-                            <RaisedButton
-                                className={styles.button}
-                                disabled={true}
-                                label="Previous"
-                                labelPosition="after"
-                                icon={<Previous />}
-                                default={true}/>
-                            }
-                            {currentPage > 1 &&
-                            <Link to={{ pathname: pathname, query: { page: previous, before:firstCursor} }}
+                            {enablePrev &&
+                            <Link to={{ pathname: pathname, query: { page: prevPage, before:firstCursor} }}
                                   onClick={this.handleClick}>
-                                <RaisedButton
-                                    className={styles.button}
-                                    disabled={currentPage==1}
-                                    label="Previous"
-                                    labelPosition="after"
-                                    icon={<Previous />}
-                                    default={true}/>
-                            </Link>}
-
-
+                                <RaisedButton className={styles.button} default={true} disabled={currentPage==1}
+                                              icon={<Previous />} label="Previous" labelPosition="after"/>
+                            </Link>
+                            }
+                            {disablePrev &&
+                            <RaisedButton className={styles.button} default={true} disabled={true} icon={<Previous />}
+                                          label="Previous" labelPosition="after"/>
+                            }
                         </div>
                         <div className={styles.linkContainer}>
-                            {currentPage == lastPage &&
-                            <RaisedButton className={styles.button} label="Next"
-                                          disabled={true}
-                                          icon={<Next />}
-                                          default={true}/>
-                            }
-                            {currentPage !== lastPage &&
-                            <Link to={{ pathname: pathname, query: { page: next, after:lastCursor} }}>
-                                <RaisedButton className={styles.button}
-                                              label="Next"
-                                              icon={<Next />}
-                                              default={true}/>
+                            {enableNext &&
+                            <Link to={{ pathname: pathname, query: { page: nextPage, after:lastCursor} }}>
+                                <RaisedButton className={styles.button} default={true} icon={<Next />} label="Next"/>
                             </Link>
+                            }
+                            {disableNext &&
+                            <RaisedButton className={styles.button} default={true} disabled={true} icon={<Next />}
+                                          label="Next"/>
                             }
                         </div>
                     </div>

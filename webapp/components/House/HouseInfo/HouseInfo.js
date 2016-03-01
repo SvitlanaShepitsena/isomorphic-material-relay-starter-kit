@@ -73,7 +73,7 @@ class HouseInfo extends React.Component {
                                     {built && <p> Year Built: {yearFormatted} </p> }
                                 </div>
                             </div>
-                            <div className="six columns">
+                            <div >
                                 {beds && <p> {"Beds: " + beds} </p> }
                                 {baths && <p> {"Baths: " + baths} </p> }
                                 {/*                                {exteriorDetails && exteriorDetails['Parking'] &&
