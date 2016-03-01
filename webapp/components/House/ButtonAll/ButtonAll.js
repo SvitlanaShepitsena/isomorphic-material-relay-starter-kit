@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import RaisedButton from 'material-ui/lib/raised-button';
 
 /*Components*/
-import SvLink from './../../Common/SvLink';
+import SvLink from './../../Common/SvLink/SvLink';
 
 import styles from './ButtonAll.less';
 

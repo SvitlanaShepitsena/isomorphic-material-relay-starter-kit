@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react';
 import CityThumbPicture from '../CityThumb/CityThumbPicture.js';
 
 /*=components*/
-import SvLink from '../../Common/SvLink.js';
+import SvLink from '../../Common/SvLink/SvLink.js';
 /*=styles*/
 import styles from './CitiesList.less';
 

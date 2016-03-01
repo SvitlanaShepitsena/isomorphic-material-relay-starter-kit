@@ -5,10 +5,10 @@ import FlatButton from 'material-ui/lib/flat-button';
 import Badge from 'material-ui/lib/badge';
 
 /*=Components*/
-import SvLink from './SvLink';
+import SvLink from './../SvLink/SvLink';
 
 /*Inline Styles*/
-import style from '../../settings/AppMuiTheme.js';
+import style from '../../../settings/AppMuiTheme.js';
 
 class ButtonWithBadge extends React.Component {
     static propTypes = {

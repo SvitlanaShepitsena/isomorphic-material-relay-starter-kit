@@ -6,16 +6,20 @@ import CitiesList from '../City/CitiesList/CitiesList.js';
 import styles from './HomeCities.less';
 
 class HomeCities extends React.Component {
-    static propTypes = {};
 
     render() {
-        const cities = this.props.cities.edges;
+        const citiesList = this.props.cities.edges;
+        const cities = citiesList.length;
+
+        const cityUrl = "houses-for-sale/";
+        const itemId = "name";
+        const cityChildren = "Houses";
         return (
             <div className={styles.wrapper}>
                 <div className={styles.row}>
                     <div className={styles.col1}>
-                        {cities.length &&
-                        <CitiesList list={cities} fullUrl="houses-for-sale/" itemId="name" children="Houses"/>
+                        {cities &&
+                        <CitiesList list={citiesList} fullUrl={cityUrl} itemId={itemId} children={cityChildren}/>
                         }
                     </div>
                 </div>

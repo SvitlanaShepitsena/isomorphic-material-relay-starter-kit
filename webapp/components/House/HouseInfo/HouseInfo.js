@@ -14,13 +14,13 @@ class HouseInfo extends React.Component {
 
     render() {
         let {house} = this.props;
-        var {baths, beds, mls, price, street, built, description, image} = house;
-        var city = house.city.name;
-        var zip = house.zip.code;
-        var type = house.type.type;
+        let {baths, beds, mls, price, street, built, description, image} = house;
+        let city = house.city.name;
+        let zip = house.zip.code;
+        let type = house.type.type;
 
         /*Formatter*/
-        var yearFormatted = getYear(built);
+        let yearFormatted = getYear(built);
         let cityFormatted = urlToText(city);
         let streetFormatted = urlToText(street);
         let typeFormatted = urlToText(type);

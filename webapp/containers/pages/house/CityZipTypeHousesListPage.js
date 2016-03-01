@@ -35,6 +35,7 @@ class CityZipTypeHousesListPage extends React.Component {
     render() {
         let {routes, params}= this.props;
         let houses = this.props.Viewer.Houses.edges;
+        let houseCount = this.props.Viewer.Houses_Count;
         let {city, type} = this.props.params;
         let zip = this.zip;
         /*Formatter*/
@@ -49,6 +50,7 @@ class CityZipTypeHousesListPage extends React.Component {
                 {houses &&
                 <HousesList
                     list={houses}
+                    count={houseCount}
                     cityName={cityFormatted}
                     listType="inline"/>
                 }

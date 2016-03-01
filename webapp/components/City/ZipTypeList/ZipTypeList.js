@@ -10,7 +10,7 @@ import Divider from '../../../../node_modules/material-ui/lib/divider';
 import styles from './ZipTypeList.less';
 
 /*=Components*/
-import ButtonWithBadge from '../../Common/ButtonWithBadge.js';
+import ButtonWithBadge from '../../Common/ButtonWithBadge/ButtonWithBadge.js';
 /*=*/
 class ZipTypeList extends React.Component {
     static propTypes = {
