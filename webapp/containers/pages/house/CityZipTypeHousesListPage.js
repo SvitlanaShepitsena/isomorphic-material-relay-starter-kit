@@ -25,8 +25,7 @@ class CityZipTypeHousesListPage extends React.Component {
     };
 
     componentDidMount() {
-        let zipType = this.props.params.zipType;
-        this.zip = zipType;
+        this.zip = this.props.params.zipType;
         this.props.relay.setVariables({
             zip: this.zip,
             type: this.props.params.type
@@ -34,10 +33,10 @@ class CityZipTypeHousesListPage extends React.Component {
     }
 
     render() {
-        const {routes, params}= this.props;
-        const houses = this.props.Viewer.Houses.edges;
-        const {city, type} = this.props.params;
-        const zip = this.zip;
+        let {routes, params}= this.props;
+        let houses = this.props.Viewer.Houses.edges;
+        let {city, type} = this.props.params;
+        let zip = this.zip;
         /*Formatter*/
         const cityFormatted = urlToText(city);
         const typeFormatted = urlToText(type);
