@@ -74,26 +74,31 @@ class HouseInfo extends React.Component {
         let yearFormatted = getYear(built);
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
+        /*String*/
+        const typeText = `Type: ${typeFormatted}`;
+        const priceText = `Price: ${priceFormatted}`;
+        const yearText = `Year Built: ${yearFormatted}`;
+        const bedsText = `Beds: ${beds}`;
+        const bathsText = `Baths: ${baths}`;
+
         return (
             <article className={styles.row}>
                 <div className={styles.col1}>
                     <h4 className={styles.sectionHeader}>Key Facts:</h4>
                     <div className={styles.row}>
                         <div className={styles.col2}>
-                            <div className={styles.keyFacts}>
-                                {type && <p> {"Type: " + typeFormatted} </p> }
+                            {type && <p> {typeText} </p> }
 
-                                {/*                                {exteriorDetails && exteriorDetails['Lot Size'] &&
-                                 <p> {"Lot Size: " + exteriorDetails['Lot Size']} </p>
-                                 }*/}
-                                {price && <p> Price: {priceFormatted} </p> }
+                            {/*                                {exteriorDetails && exteriorDetails['Lot Size'] &&
+                             <p> {"Lot Size: " + exteriorDetails['Lot Size']} </p>
+                             }*/}
+                            {price && <p> {priceText}</p> }
 
-                                {built && <p> Year Built: {yearFormatted} </p> }
-                            </div>
+                            {built && <p> {yearText} </p> }
                         </div>
                         <div >
-                            {beds && <p> {"Beds: " + beds} </p> }
-                            {baths && <p> {"Baths: " + baths} </p> }
+                            {beds && <p> {bedsText}</p> }
+                            {baths && <p> {bathsText} </p> }
                             {/*                                {exteriorDetails && exteriorDetails['Parking'] &&
                              <p> {"Parking: " + exteriorDetails['Parking']} </p>
                              }*/}
