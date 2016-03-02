@@ -32,7 +32,6 @@ class HomeHeader extends React.Component {
                     </h1>
                 </div>
             </div>
-
         );
     };
 
