@@ -18,14 +18,16 @@ class HouseInfo extends React.Component {
         let city = house.city.name;
         let type = house.type.type;
         let zip = house.zip.code;
-
         /*Formatter*/
         let cityFormatted = urlToText(city);
         let streetFormatted = urlToText(street);
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
         let yearFormatted = getYear(built);
-
+        /*String*/
+        const yearText = `Year: ${yearFormatted}`;
+        const mlsText = `MLS#: ${mls}`;
+        const cityText = `${cityFormatted}, IL`;
         return (
             <div className={styles.row}>
                 <div className={styles.col2}>
@@ -33,7 +35,7 @@ class HouseInfo extends React.Component {
                         <h1 className={styles.address}>
                             {street && <span>{streetFormatted}</span> }
                             <br/>
-                            {city && <span> {cityFormatted + ", IL"} </span> }
+                            {city && <span> {cityText} </span> }
                             {zip && <span> {zip} </span> }
                         </h1>
 
@@ -43,8 +45,8 @@ class HouseInfo extends React.Component {
                 <div className={styles.col2}>
                     <div className={styles.headRight}>
                         {price && <h4 className={styles.price}> {priceFormatted} </h4> }
-                        {mls && <p className={styles.mls}> {"MLS#: " + mls} </p> }
-                        {built && <p className={styles.year}> {"Year: " + yearFormatted} </p> }
+                        {mls && <p className={styles.mls}> {mlsText} </p> }
+                        {built && <p className={styles.year}> {yearText} </p> }
                     </div>
                 </div>
             </div>
@@ -88,20 +90,12 @@ class HouseInfo extends React.Component {
                     <div className={styles.row}>
                         <div className={styles.col2}>
                             {type && <p> {typeText} </p> }
-
-                            {/*                                {exteriorDetails && exteriorDetails['Lot Size'] &&
-                             <p> {"Lot Size: " + exteriorDetails['Lot Size']} </p>
-                             }*/}
                             {price && <p> {priceText}</p> }
-
                             {built && <p> {yearText} </p> }
                         </div>
                         <div >
                             {beds && <p> {bedsText}</p> }
                             {baths && <p> {bathsText} </p> }
-                            {/*                                {exteriorDetails && exteriorDetails['Parking'] &&
-                             <p> {"Parking: " + exteriorDetails['Parking']} </p>
-                             }*/}
                         </div>
                     </div>
                 </div>
