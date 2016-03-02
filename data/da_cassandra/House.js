@@ -1,4 +1,5 @@
 import {runQuery, runQueryOneResult} from './_client.js';
+import {runQuery, runQueryOneResult} from './_elastic.js';
 
 import _ from 'lodash';
 import House from '../model/House';
@@ -17,10 +18,11 @@ export function Houses_with_args(args) {
     let cqlParams = [];
 
 
-    if (args.search) {
-        cqlText = 'SELECT * FROM house';
+    if (args.query) {
+        console.log(args.query);
+         = 'SELECT * FROM house';
     }
-    
+
 
     if (!(args.city && args.zip && args.type)) {
         cqlText = 'SELECT * FROM "house"';

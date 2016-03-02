@@ -44,7 +44,12 @@ class SearchFormSimple extends Component {
                 <form className={styles.form} name="form" id="form">
                     <div className={styles.row}>
                         <div className={styles.inputContainer}>
-
+                            <AutoComplete
+                                hintText={<span className={styles.hText}>Address, City, Zip, #MLS</span>}
+                                dataSource={this.state.dataSource}
+                                fullWidth={true}
+                                onUpdateInput={this.handleUpdateInput}
+                            />
                         </div>
                         <div className={styles.buttonContainer}>
                             <RaisedButton
