@@ -27,9 +27,10 @@ class HousesListFiltered extends React.Component {
     };
 
     render() {
+        const housesList = this.props.list.edges;
         return (
             <div className={styles.row}>
-                {this.props.list.edges.map(this.oneHouse)}
+                {housesList.map(this.oneHouse)}
             </div>
         );
     }

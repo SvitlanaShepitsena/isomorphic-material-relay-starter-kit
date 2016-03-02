@@ -105,8 +105,7 @@
       "cardText": "CityThumbPicture__cardText__1L7",
       "cityName": "CityThumbPicture__cityName__3Hz",
       "container": "CityThumbPicture__container__hY5",
-      "number": "CityThumbPicture__number__3z5",
-      "_style": ".CityThumbPicture__cardTitle__3OC {\n  padding-bottom: 0 !important;\n  font-size: 13px;\n}\n.CityThumbPicture__cardText__1L7 {\n  padding: 5px 12px 0;\n  font-size: 13px;\n}\n.CityThumbPicture__cityName__3Hz {\n  padding: 0 0 5px 16px;\n}\n.CityThumbPicture__container__hY5 {\n  margin: 0;\n  padding-bottom: 16px;\n}\n.CityThumbPicture__cityName__3Hz span {\n  font-size: 16px !important;\n  color: whitesmoke !important;\n}\n.CityThumbPicture__number__3z5 {\n  color: #2196F3;\n}\n/*Mobile*/\n@media screen and (max-width: 600px) {\n  .CityThumbPicture__cityName__3Hz span {\n    font-size: 22px !important;\n  }\n  .CityThumbPicture__cardTitle__3OC {\n    font-size: 14px;\n  }\n  .CityThumbPicture__cardText__1L7 {\n    font-size: 14px;\n  }\n}\n"
+      "_style": ".CityThumbPicture__cardTitle__3OC {\n  padding-bottom: 0 !important;\n  font-size: 13px;\n}\n.CityThumbPicture__cardText__1L7 {\n  padding: 5px 12px 0;\n  font-size: 13px;\n}\n.CityThumbPicture__cityName__3Hz {\n  padding: 0 0 5px 16px;\n}\n.CityThumbPicture__container__hY5 {\n  margin: 0;\n  padding-bottom: 16px;\n}\n.CityThumbPicture__cityName__3Hz span {\n  font-size: 16px !important;\n  color: whitesmoke !important;\n}\n/*Mobile*/\n@media screen and (max-width: 600px) {\n  .CityThumbPicture__cityName__3Hz span {\n    font-size: 22px !important;\n  }\n  .CityThumbPicture__cardTitle__3OC {\n    font-size: 14px;\n  }\n  .CityThumbPicture__cardText__1L7 {\n    font-size: 14px;\n  }\n}\n"
     },
     "./webapp/components/City/CitiesList/CitiesList.less": {
       "appRow": "CitiesList__appRow__269",

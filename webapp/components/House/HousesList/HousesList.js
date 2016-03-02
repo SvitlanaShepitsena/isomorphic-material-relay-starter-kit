@@ -37,13 +37,14 @@ class HousesList extends React.Component {
         const lastCursor = _.last(list.edges).cursor;
         const firstCursor = _.first(list.edges).cursor;
         const lastPage = Math.floor(count / limit) + ((count % limit > 0) ? 1 : 0);
+        const housesList = this.props.list.edges;
 
         return (
             <div className={styles.row}>
                 <Pagination lastPage={lastPage} firstCursor={firstCursor} lastCursor={lastCursor}/>
                 <div className={styles.col1}>
                     <div className={styles.row}>
-                        {this.props.list.edges.map(this.oneHouse)}
+                        {housesList.map(this.oneHouse)}
                     </div>
                 </div>
             </div>

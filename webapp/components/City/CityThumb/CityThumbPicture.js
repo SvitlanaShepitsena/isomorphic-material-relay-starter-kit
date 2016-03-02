@@ -28,10 +28,10 @@ class CityThumbPicture extends React.Component {
 
     cityInfo() {
         let {housesLength} = this.props;
+        const listingsNum = `Listings for sale: ${housesLength}`;
         return (
             <CardTitle className={styles.cardTitle}
-                       subtitle={ <span> Listings for sale:
-                           {housesLength && <span className={styles.number}> {housesLength} </span> } </span> }
+                       subtitle={listingsNum}
             />
         );
     };

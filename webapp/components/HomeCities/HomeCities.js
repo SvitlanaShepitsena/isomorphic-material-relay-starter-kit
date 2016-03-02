@@ -19,8 +19,11 @@ class HomeCities extends React.Component {
                 <div className={styles.row}>
                     <div className={styles.col1}>
                         {cities &&
-                        <CitiesList list={citiesList} fullUrl={cityUrl} itemId={itemId} children={cityChildren}/>
-                        }
+                        <CitiesList list={citiesList}
+                                    fullUrl={cityUrl}
+                                    itemId={itemId}
+                                    children={cityChildren}
+                        />}
                     </div>
                 </div>
 

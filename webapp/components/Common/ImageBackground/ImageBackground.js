@@ -10,12 +10,12 @@ class ImageBackground extends React.Component {
 
     render() {
         let {imgWidth, imgHeight, backgroundImage} = this.props;
+        let img = `url("${backgroundImage}")`;
         return (
             <div className={styles.container}
-                 style={{ width:imgWidth, height:imgHeight }}>
+                 style={{width:imgWidth, height:imgHeight }}>
                 <i className={styles.item}
-                   style={{height: imgHeight, backgroundImage: "url(" +'"'+ backgroundImage +'"'+")"
-                }}/>
+                   style={{height: imgHeight, backgroundImage: img }}/>
             </div>
         );
     }
