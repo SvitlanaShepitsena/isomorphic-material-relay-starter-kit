@@ -19,9 +19,26 @@ class ZipTypeList extends React.Component {
         sectionTitle: PropTypes.string,
         children: PropTypes.string
     };
+    oneZip = (edge) => {
+        let item = edge.node;
+        let {itemId, children} = this.props;
+
+        let itemValue = item[itemId];
+        let itemValueFormatted = urlToText(itemValue);
+        let badgeValue = item[`${children}_Count`];
+        return (
+            <li className={styles.item} key={itemValue}>
+                <ButtonWithBadge
+                    btnLabel={itemValueFormatted}
+                    btnUrl={itemValue}
+                    badgeValue={badgeValue}
+                />
+            </li>
+        )
+    };
 
     render() {
-        var {sectionTitle} = this.props;
+        let {sectionTitle} = this.props;
         return (
             <div className={styles.row}>
                 <Card className={styles.col1}>
@@ -29,25 +46,7 @@ class ZipTypeList extends React.Component {
                     <Divider />
                     <CardActions>
                         <ul>
-                            {this.props.list.map(edge=> {
-                                    const item = edge.node;
-                                    const {itemId, children} = this.props;
-
-                                    const itemValue = item[itemId];
-                                    const itemValueFormatted = urlToText(itemValue);
-                                    const badgeValue = item[`${children}_Count`];
-                                    // Temporary Solution for creating a new route for houses type
-                                    return (
-                                        <li className={styles.item} key={itemValue}>
-                                            <ButtonWithBadge
-                                                btnLabel={itemValueFormatted}
-                                                btnUrl={itemValue}
-                                                badgeValue={badgeValue}
-                                            />
-                                        </li>
-                                    )
-                                }
-                            )}
+                            {this.props.list.map(this.oneZip)}
                         </ul>
                     </CardActions>
                 </Card>
