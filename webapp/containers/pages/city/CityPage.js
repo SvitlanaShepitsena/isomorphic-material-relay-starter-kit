@@ -5,6 +5,7 @@ import urlToText from '../../../utils/urlToText.js';
 
 /*=Components*/
 import ButtonAll from '../../../components/House/ButtonAll/ButtonAll.js';
+import HousesListFiltered from '../../../components/House/HousesListFiltered/HousesListFiltered.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 import AppSpinner from '../../../components/Common/Spinner/AppSpinner.js';
 
@@ -29,8 +30,31 @@ class CityPage extends React.Component {
         })
     };
 
-    render() {
+    showByZip() {
         let {city} = this.props.params;
+        let cityFormatted = urlToText(city);
+        let zipsList = this.props.Viewer.City.Zips.edges;
+        const zipsTitle = `${cityFormatted} Homes for Sale by Zip`
+        return (
+            <ZipTypeList itemId="code" list={zipsList} children="Houses"
+                         sectionTitle={zipsTitle}/>
+        );
+
+    }
+
+    showByType() {
+        const cityFormatted = urlToText(this.props.params.city);
+        let typesList = this.props.Viewer.City.Types.edges;
+        let typesTitle = `${cityFormatted} Homes for Sale by Property Type`;
+        return (
+            <ZipTypeList itemId="type" list={typesList} children="Houses"
+                         sectionTitle={typesTitle}
+            />
+        );
+
+    }
+
+    render() {
         let zipsList = this.props.Viewer.City.Zips.edges;
         let typesList = this.props.Viewer.City.Types.edges;
         let newHouses = this.props.Viewer.City.Houses;
@@ -38,31 +62,25 @@ class CityPage extends React.Component {
         let zips = zipsList.length;
         let types = typesList.length;
         let houses = newHouses.length;
+        const cityFormatted = urlToText(this.props.params.city);
 
-        let {routes, params}= this.props;
-        /*Formatter*/
-        let cityFormatted = urlToText(city);
-
-        let title = "All " + cityFormatted + " homes for sale" + " (" + housesCount + ")";
+        const pageTitle = "Houses for Sale in " + cityFormatted;
+        const allTitle = "All " + cityFormatted + " homes for sale" + " (" + housesCount + ")";
 
         return (
             <div>
-                <Breadcrumbs routes={routes} params={params}/>
-                <h1> {"Houses for Sale in " + cityFormatted} </h1>
+                <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
+                <h1> {pageTitle} </h1>
                 {!(houses || zips || types) && <AppSpinner/> }
-
-                <ButtonAll url="all" btnLabel={title}/>
-
-                {zips &&
-                <ZipTypeList itemId="code" list={zipsList} children="Houses"
-                             sectionTitle={`${cityFormatted} Homes for Sale by Zip`}/>
-                }
-                <br/>
-                {types &&
-                <ZipTypeList itemId="type" list={typesList} children="Houses"
-                             sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
+                <HousesListFiltered
+                    list={newHouses}
+                    cityName={cityFormatted}
+                    housesNumber={housesCount}
                 />
-                }
+                <ButtonAll url="all" btnLabel={allTitle}/>
+                {zips && this.showByZip()}
+                <br/>
+                { types && this.showByType()}
             </div>
         );
     }

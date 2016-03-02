@@ -1,0 +1,22 @@
+@import '../../../settings/mixins.less';
+
+.row {
+  min-width: 100%;
+  .contentRow;
+}
+
+.col1 {
+  lost-column: 1;
+}
+
+.col2 {
+  lost-column: 1/2;
+}
+
+/*=mobile*/
+@media screen and (max-width: @mobileHorizontal) {
+
+  .col2 {
+    lost-column: 1 0;
+  }
+}

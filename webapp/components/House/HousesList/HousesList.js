@@ -1,10 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
-
 /*Components*/
 import HouseThumbInline from '../HouseThumbInline/HouseThumbInline';
-import HouseThumbLarge from '../HouseThumbLarge/HouseThumbLarge';
-import SvLink from './../../Common/SvLink/SvLink';
 import Pagination from '../../Pagination/Pagination.js';
 import _ from 'lodash';
 
@@ -14,37 +11,23 @@ class HousesList extends React.Component {
     static propTypes = {
         list: PropTypes.object.isRequired,
         count: PropTypes.number.isRequired,
-        listType: PropTypes.string.isRequired,
         limit: PropTypes.number,
     };
     static defaultProps = {
         limit: 3
     };
     oneHouse = (edge)=> {
-        const {listType} = this.props;
         let house = edge.node;
         let itemKey = house.id;
         let city = house.city.name;
         let type = house.type.type;
         let zip = house.zip.code;
-        let houseThumbUrl = `${zip}/${type}/${house.id}`;
-        let houseInline = `${city}/${zip}/${type}/${house.id}`;
-        let houseInlineUrl = `/houses-for-sale/${houseInline}`;
-        let listLarge = (listType == "large");
-        let listInline = (listType == "inline");
-        let thumbClass = listLarge ? styles.col2 : styles.listInline;
+        let houseInlineUrl = `/houses-for-sale/${city}/${zip}/${type}/${house.id}`;
         return (
-            <div key={itemKey} className={thumbClass}>
-                {listLarge &&
-                <SvLink url={houseThumbUrl}>
-                    <HouseThumbLarge house={house}/>
-                </SvLink>
-                }
-                {listInline &&
+            <div key={itemKey} className={styles.listInline}>
                 <Link to={houseInlineUrl}>
                     <HouseThumbInline house={house}/>
                 </Link>
-                }
             </div>
         )
     };

@@ -51,8 +51,7 @@ class CityZipTypeHousesListPage extends React.Component {
                 <HousesList
                     list={houses}
                     count={houseCount}
-                    cityName={cityFormatted}
-                    listType="inline"/>
+                    cityName={cityFormatted}/>
                 }
                 <br/>
 

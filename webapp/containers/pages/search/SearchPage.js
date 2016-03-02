@@ -28,7 +28,7 @@ class SearchPage extends React.Component {
         return (
             <div>
                 <h2>Search Results:</h2>
-                {houses && <HousesList list={houses} listType="inline"/> }
+                {houses && <HousesList list={houses}/> }
             </div>
         );
     }
