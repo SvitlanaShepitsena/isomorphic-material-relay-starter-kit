@@ -15,25 +15,32 @@ class CityThumbPicture extends React.Component {
         housesLength: PropTypes.number.isRequired
     };
 
-    render() {
+    cityBackground() {
         let {cityName} = this.props;
-        let {housesLength} = this.props;
         const imgPath = `${settings.cloudinaryPath}${cityName}1.jpg`;
-
-        /*Formatter*/
         let cityFormatted = urlToText(cityName);
+        return (
+            <CardMedia overlay={<CardTitle className={styles.cityName}  subtitle={cityFormatted} />}>
+                <img src={imgPath}/>
+            </CardMedia>
+        );
+    }
 
+    cityInfo() {
+        let {housesLength} = this.props;
+        return (
+            <CardTitle className={styles.cardTitle}
+                       subtitle={ <span> Listings for sale:
+                           {housesLength && <span className={styles.number}> {housesLength} </span> } </span> }
+            />
+        );
+    };
+
+    render() {
         return (
             <Card className={styles.container} shadow={0}>
-                <CardMedia
-                    overlay={<CardTitle className={styles.cityName}  subtitle={cityFormatted} />}>
-                    <img src={imgPath}/>
-                </CardMedia>
-                <CardTitle className={styles.cardTitle}
-                           subtitle={ <span>
-                            Listings for sale:
-                           {housesLength && <span className={styles.number}> {housesLength} </span> } </span> }
-                />
+                {this.cityBackground()}
+                {this.cityInfo()}
             </Card >
 
         );
