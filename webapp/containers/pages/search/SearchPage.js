@@ -3,7 +3,6 @@ import Relay from 'react-relay';
 import urlToText from '../../../utils/urlToText.js';
 
 /*Components*/
-import HousesList from '../../../components/House/HousesList/HousesList.js';
 
 class SearchPage extends React.Component {
     state = {compare: true};
@@ -22,12 +21,25 @@ class SearchPage extends React.Component {
         route: PropTypes.object
     };
 
+
+
     render() {
         const houses = this.props.Viewer.Houses.edges;
+        console.log(houses);
 
         return (
             <div>
                 <h2>Search Results:</h2>
+
+                {houses.map((edge)=> {
+                    const house = edge.node;
+                    return (
+                        <div>
+                            {house.mls}
+                        </div>
+                    );
+                })}
+                <br/>
             </div>
         );
     }
@@ -40,26 +52,10 @@ export default Relay.createContainer(SearchPage, {
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                Houses(query:$query, first:10){
-                    pageInfo{
-                        hasNextPage
-                        hasPreviousPage
-                        startCursor
-                        endCursor
-                    }
+                Houses(query:$query,first:10){
                     edges{
                         node{
-                            id
-                            city{ name }
-                            zip{ code }
-                            type{ type }
-                            price
-                            built
-                            street
-                            beds
-                            description
                             mls
-                            image
                         }
                     }
                 }

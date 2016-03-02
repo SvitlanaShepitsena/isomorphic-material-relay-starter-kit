@@ -1,5 +1,5 @@
+import {runQueryElastic} from './_elastic';
 import {runQuery, runQueryOneResult} from './_client.js';
-import {runQuery, runQueryOneResult} from './_elastic.js';
 
 import _ from 'lodash';
 import House from '../model/House';
@@ -17,10 +17,9 @@ export function Houses_with_args(args) {
     let cqlText;
     let cqlParams = [];
 
-
     if (args.query) {
-        console.log(args.query);
-         = 'SELECT * FROM house';
+        console.log('ahhhhh');
+        return runQueryElastic(House, 'house', args.query);
     }
 
 
