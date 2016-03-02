@@ -27,7 +27,7 @@ class CityPage extends React.Component {
         this.props.relay.setVariables({
             city: this.props.params.city
         })
-    }
+    };
 
     render() {
         let {city} = this.props.params;

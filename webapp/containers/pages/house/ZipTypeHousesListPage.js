@@ -8,7 +8,7 @@ import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
-import { browserHistory } from 'react-router'
+import {browserHistory} from 'react-router'
 
 class ZipTypeHousesListPage extends React.Component {
     state = {

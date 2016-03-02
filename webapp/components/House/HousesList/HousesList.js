@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import RaisedButton from 'material-ui/lib/raised-button';
 import {Link} from 'react-router';
 
 /*Components*/
@@ -21,10 +20,8 @@ class HousesList extends React.Component {
     static defaultProps = {
         limit: 3
     };
-
-    eachHouse = (edge)=> {
-
-        const {list, count, listType, limit} = this.props;
+    oneHouse = (edge)=> {
+        const {listType} = this.props;
         let house = edge.node;
         let itemKey = house.id;
         let city = house.city.name;
@@ -50,14 +47,12 @@ class HousesList extends React.Component {
                 }
             </div>
         )
-
     };
 
     render() {
-        const {list, count, listType, limit} = this.props;
+        const {list, count, limit} = this.props;
         const lastCursor = _.last(list.edges).cursor;
         const firstCursor = _.first(list.edges).cursor;
-
         const lastPage = Math.floor(count / limit) + ((count % limit > 0) ? 1 : 0);
 
         return (
@@ -65,7 +60,7 @@ class HousesList extends React.Component {
                 <Pagination lastPage={lastPage} firstCursor={firstCursor} lastCursor={lastCursor}/>
                 <div className={styles.col1}>
                     <div className={styles.row}>
-                        {this.props.list.edges.map(this.eachHouse)}
+                        {this.props.list.edges.map(this.oneHouse)}
                     </div>
                 </div>
             </div>

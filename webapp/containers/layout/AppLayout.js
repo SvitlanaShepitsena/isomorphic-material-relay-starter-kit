@@ -12,7 +12,6 @@ import MobileDrawerHeader from '../../components/AppLayout/MobileDrawerHeader/Mo
 import Footer from '../../components/AppLayout/Footer/FooterContent.js';
 import ContactForm from '../../components/AppViews/Contact/ContactForm.js';
 
-
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import MyRawTheme from '../../settings/AppMuiTheme.js';
@@ -30,35 +29,47 @@ class AppLayout extends React.Component {
     handleToggle = () => this.setState({open: !this.state.open});
     handleClose = () => this.setState({open: false});
 
-    render() {
-        let {pathname} = this.props.location;
-        let {children} = this.props;
-        let cityRoute = pathname == '/houses-for-sale';
-        let homeRoute = pathname == '/';
+    mobileNav() {
         let openMenu = this.state.open;
         return (
+            <LeftNav docked={false} open={openMenu} onRequestChange={open => this.setState({open})}>
+                <MobileDrawerHeader onTouchTap={this.handleClose}/>
+                <MobileMenu onTouchTap={this.handleClose}/>
+            </LeftNav>
+        );
+    }
+
+    appContent() {
+        let {children} = this.props;
+        let {pathname} = this.props.location;
+        let homeRoute = pathname == '/';
+        let cityRoute = pathname == '/houses-for-sale';
+        return (
+            <div className={styles.wrapper}>
+                {homeRoute &&
+                <section> {children} </section>
+                }
+                {!homeRoute &&
+                <section className={styles.contentWrapper}>
+                    <div className={styles.mainContent}>
+                        {children}
+                    </div>
+                    <div className={styles.asideContent}>
+                        {cityRoute && <ContactForm/>}
+                    </div>
+                </section>
+                }
+            </div>
+        )
+   };
+
+    render() {
+        return (
             <AppCanvas style={{position:"relative",height:"100%"}}>
-                <LeftNav docked={false} open={openMenu} onRequestChange={open => this.setState({open})}>
-                    <MobileDrawerHeader onTouchTap={this.handleClose}/>
-                    <MobileMenu onTouchTap={this.handleClose}/>
-                </LeftNav>
                 <AppHeader onTouchTap={this.handleToggle}/>
-                <div className={styles.wrapper}>
-                    {homeRoute && <section> {children} </section> }
-                    {!homeRoute &&
-                    <section className={styles.contentWrapper}>
-                        <div className={styles.mainContent}>
-                            {children}
-                        </div>
-                        <div className={styles.asideContent}>
-                            {cityRoute && <ContactForm/>}
-                        </div>
-                    </section>
-                    }
-                </div>
-                <div className={styles.footer}>
-                    <Footer></Footer>
-                </div>
+                {this.mobileNav()}
+                {this.appContent()}
+                <Footer/>
             </AppCanvas>
         );
     }
