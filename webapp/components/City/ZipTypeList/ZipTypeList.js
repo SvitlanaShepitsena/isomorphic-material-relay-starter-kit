@@ -2,10 +2,10 @@ import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
 
 /*=materialUi*/
-import Card from '../../../../node_modules/material-ui/lib/card/card';
-import CardActions from '../../../../node_modules/material-ui/lib/card/card-actions';
-import CardTitle from '../../../../node_modules/material-ui/lib/card/card-title';
-import Divider from '../../../../node_modules/material-ui/lib/divider';
+import Card from 'material-ui/lib/card/card';
+import CardActions from 'material-ui/lib/card/card-actions';
+import CardTitle from 'material-ui/lib/card/card-title';
+import Divider from 'material-ui/lib/divider';
 /*=styles*/
 import styles from './ZipTypeList.less';
 
@@ -38,7 +38,7 @@ class ZipTypeList extends React.Component {
     };
 
     render() {
-        let {sectionTitle} = this.props;
+        let {list, sectionTitle} = this.props;
         return (
             <div className={styles.row}>
                 <Card className={styles.col1}>
@@ -46,7 +46,7 @@ class ZipTypeList extends React.Component {
                     <Divider />
                     <CardActions>
                         <ul>
-                            {this.props.list.map(this.oneZip)}
+                            {list.map(this.oneZip)}
                         </ul>
                     </CardActions>
                 </Card>

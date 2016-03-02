@@ -34,9 +34,10 @@ class CitiesList extends React.Component {
     };
 
     render() {
+        let {list} = this.props;
         return (
             <div className={styles.container}>
-                {this.props.list.map(this.oneCity)}
+                {list.map(this.oneCity)}
             </div>
         );
     }
