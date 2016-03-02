@@ -34,7 +34,7 @@ class SearchPage extends React.Component {
                 {houses.map((edge)=> {
                     const house = edge.node;
                     return (
-                        <div>
+                        <div key={house.mls}>
                             {house.mls}
                         </div>
                     );
