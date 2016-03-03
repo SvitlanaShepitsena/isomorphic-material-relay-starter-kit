@@ -24,9 +24,9 @@ class CitiesSalePage extends React.Component {
     pageHelmet() {
         let cities = settings.ogProps.cities;
         const citiesUrl = cities.url;
-        const citiesDescription = cities.description;
         const citiesTitle = cities.title;
-        const fbImage = cities.fbImage;
+        const citiesDescription = cities.description;
+        const fbImage = settings.ogProps.fbImage;
         return (
             <Helmet
                 title={citiesTitle}

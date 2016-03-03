@@ -1,9 +1,11 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
+import Helmet from "react-helmet";
+import settings from '../../../settings/settings.js';
 import urlToText from '../../../utils/urlToText.js';
 
 /*=Components*/
+import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import ButtonAll from '../../../components/House/ButtonAll/ButtonAll.js';
 import HousesListFiltered from '../../../components/House/HousesListFiltered/HousesListFiltered.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
@@ -54,6 +56,29 @@ class CityPage extends React.Component {
 
     }
 
+    pageHelmet() {
+        /*Formatter*/
+        const cityName = urlToText(this.props.params.city);
+
+        const cityTitle = (cityName + " houses for sale | North Illinois Realty");
+        const cityDescription = ('✔ Browse ' + cityName + ' homes for sale, sorted by zip code or property type. ☏  Call us for a free consultation and schedule a showing!');
+        const fbImage = settings.ogProps.fbImage;
+
+        return (
+            <Helmet
+                title={cityTitle}
+                meta={[
+                    {"name": "description", "content": `${cityDescription}`},
+                    {"name": "image", "content": `${fbImage}`},
+
+                    {"property": "og:title", "content": `${cityTitle}`},
+                    {"property": "og:description", "content": `${cityDescription}`},
+                    {"property": "og:image", "content": `${fbImage}`}
+                ]}
+            />
+        );
+    };
+
     render() {
         let zipsList = this.props.Viewer.City.Zips.edges;
         let typesList = this.props.Viewer.City.Types.edges;
@@ -69,6 +94,7 @@ class CityPage extends React.Component {
 
         return (
             <div>
+                {this.pageHelmet()}
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <h1> {pageTitle} </h1>
                 {!(houses || zips || types) && <AppSpinner/> }
@@ -84,8 +110,7 @@ class CityPage extends React.Component {
             </div>
         );
     }
-}
-;
+};
 export default Relay.createContainer(CityPage, {
     initialVariables: {city: ''},
     fragments: {
