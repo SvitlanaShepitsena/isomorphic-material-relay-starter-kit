@@ -36,7 +36,7 @@ export default {
             title: "About Re/Max 1st Class Realty, Illinois Real Estate",
             description: "We will help you find the right specialist to get the lowest mortgage rate and move you to your new home as fast as possible."
         },
-        contactsPage: {
+        contactPage: {
             url: "http://www.remax1stclass.com/contacts",
             title: "Contact Re/Max 1st Class Realty Skokie, IL.",
             description: "Want to buy or sell home, rent apartment or house in North Illinois or Chicago? Call to Re/Max first class agents for a free consultation!"
