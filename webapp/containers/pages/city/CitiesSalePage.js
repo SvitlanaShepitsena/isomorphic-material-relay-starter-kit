@@ -22,23 +22,23 @@ class CitiesSalePage extends React.Component {
     };
 
     pageHelmet() {
-        let cities = settings.ogProps.housesForSalePage;
-        const citiesUrl = cities.url;
-        const citiesTitle = cities.title;
-        const citiesDescription = cities.description;
-        const fbImage = settings.ogProps.fbImage;
+        let og = settings.ogProps.housesForSalePage;
+        const url = og.url;
+        const title = og.title;
+        const description = og.description;
+        const image = settings.ogProps.fbImage;
         return (
             <Helmet
-                title={citiesTitle}
+                title={title}
                 meta={[
-                    {"name": "url", "content": `${citiesUrl}`},
-                    {"name": "description", "content": `${citiesDescription}`},
-                    {"name": "image", "content": `${fbImage}`},
+                    {"name": "url", "content": `${url}`},
+                    {"name": "description", "content": `${description}`},
+                    {"name": "image", "content": `${image}`},
 
-                    {"property": "og:url", "content": `${citiesUrl}`},
-                    {"property": "og:title", "content": `${citiesTitle}`},
-                    {"property": "og:description", "content": `${citiesDescription}`},
-                    {"property": "og:image", "content": `${fbImage}`}
+                    {"property": "og:url", "content": `${url}`},
+                    {"property": "og:title", "content": `${title}`},
+                    {"property": "og:description", "content": `${description}`},
+                    {"property": "og:image", "content": `${image}`}
                 ]}
             />
         );
