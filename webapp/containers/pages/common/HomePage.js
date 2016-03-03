@@ -1,12 +1,11 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-
 import Helmet from "react-helmet";
+import settings from '../../../settings/settings.js';
 
 /*Components*/
 import HomeHeader from '../../../components/HomeHeader/HomeHeader.js';
 import HomeCities from '../../../components/HomeCities/HomeCities.js'
-import settings from '../../../settings/settings.js';
 
 class HomePage extends React.Component {
     getChildContext() {
@@ -24,7 +23,7 @@ class HomePage extends React.Component {
     };
 
     pageHelmet() {
-        let helmet = settings.helmet;
+        let helmet = settings.ogProps;
         const appType = settings.appType;
         const homeUrl = helmet.appUrl;
         const homeDescription = helmet.appDescription;

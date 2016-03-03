@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-/*=Components*/
+import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
+/*=Components*/
 import CitiesList from '../../../components/City/CitiesList/CitiesList.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
@@ -21,7 +22,7 @@ class CitiesSalePage extends React.Component {
     };
 
     pageHelmet() {
-        let cities = settings.helmet.cities;
+        let cities = settings.ogProps.cities;
         const citiesUrl = cities.url;
         const citiesDescription = cities.description;
         const citiesTitle = cities.title;
@@ -49,6 +50,7 @@ class CitiesSalePage extends React.Component {
 
         return (
             <div>
+                {this.pageHelmet()}
                 <h1> North Chicago Suburbs Houses for Sale </h1>
                 {!cities && <Spinner /> }
                 {cities &&
