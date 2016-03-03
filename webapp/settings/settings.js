@@ -29,12 +29,12 @@ export default {
         housesForSalePage: {
             url: "http://www.remax1stclass.com/houses-for-sale",
             title: "North Illinois apartments, homes, houses for sale",
-            description: "Browse Houses for sale at North and Northwest Chicago Suburbs. Detailed listing information with large photos. "
+            description: "Browse Houses for sale at North and Northwest Chicago Suburbs. Detailed listing information with large photos"
         },
         aboutPage: {
             url: "http://www.remax1stclass.com/about",
             title: "About Re/Max 1st Class Realty, Illinois Real Estate",
-            description: "We will help you find the right specialist to get the lowest mortgage rate and move you to your new home as fast as possible."
+            description: "We will help you find the right specialist to get the lowest mortgage rate and move you to your new home as fast as possible"
         },
         contactPage: {
             url: "http://www.remax1stclass.com/contacts",
@@ -42,9 +42,9 @@ export default {
             description: "Want to buy or sell home, rent apartment or house in North Illinois or Chicago? Call to Re/Max first class agents for a free consultation!"
         },
         privacyPolicyPage: {
-            url: "http://www.remax1stclass.com/contacts",
+            url: "http://www.remax1stclass.com/contact",
             title: "Your privacy is very important for Re/Max 1st Class",
-            description: "Description of the types of information we collect about you when you visit the Re/Max 1st Class Website, and how we use that information. "
+            description: "Description of the types of information we collect about you when you visit the Re/Max 1st Class Website, and how we use that information"
         },
         termsOfUsePage: {
             url: "http://www.remax1stclass.com/contacts",
