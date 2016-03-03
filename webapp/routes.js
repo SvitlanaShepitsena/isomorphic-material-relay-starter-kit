@@ -29,21 +29,14 @@ export default (()=> {
     return (
         <Route component={AppLayout} queries={ViewerQueries} name="App">
             <Route path="/" component={HomePage} queries={ViewerQueries} name="Home"/>
-            <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage} queries={ViewerQueries}/>
 
-            <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries}
-                   preparedParams={(id)=>({id:'123'})}/>
-
-
-            <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
-                   queries={ViewerQueries}/>
+            <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries} name="Chicago North Suburbs Houses for Sale"/>
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
-
-            <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
-                   name="Chicago North Suburbs Houses for Sale"/>
+            <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage} queries={ViewerQueries}/>
+            <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage} queries={ViewerQueries}/>
+            <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries} preparedParams={(id)=>({id:'123'})}/>
 
             <Route path="/search/:query" component={SearchPage} queries={ViewerQueries} name="Search"/>
-
 
             <Route path="/about" component={AboutPage} name="Houses for Sale"/>
             <Route path="/privacy" component={PrivacyPage} name="Privacy"/>
