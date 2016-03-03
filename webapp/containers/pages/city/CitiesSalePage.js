@@ -21,24 +21,23 @@ class CitiesSalePage extends React.Component {
     };
 
     pageHelmet() {
-        let helmet = settings.helmet;
-        const homeType = helmet.appType;
-        const homeUrl = helmet.appUrl;
-        const homeDescription = helmet.appDescription;
-        const homeTitle = helmet.appTitle;
-        const fbImage = helmet.fbImage;
+        let cities = settings.helmet.cities;
+        const citiesUrl = cities.url;
+        const citiesDescription = cities.description;
+        const citiesTitle = cities.title;
+        const fbImage = cities.fbImage;
         return (
             <Helmet
-                title={homeTitle}
+                title={citiesTitle}
                 meta={[
                     {"name": "url", "content": `${citiesUrl}`},
-                    {"name": "image", "content": `${fbImage}`},
                     {"name": "description", "content": `${citiesDescription}`},
-                    
+                    {"name": "image", "content": `${fbImage}`},
+
                     {"property": "og:url", "content": `${citiesUrl}`},
                     {"property": "og:title", "content": `${citiesTitle}`},
-                    {"property": "og:image", "content": `${fbImage}`},
-                    {"property": "og:description", "content": `${citiesDescription}`}
+                    {"property": "og:description", "content": `${citiesDescription}`},
+                    {"property": "og:image", "content": `${fbImage}`}
                 ]}
             />
         );
