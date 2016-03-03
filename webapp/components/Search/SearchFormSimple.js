@@ -18,16 +18,20 @@ class SearchFormSimple extends Component {
     };
 
     state = {
-        dataSource: [],
         query: ''
     };
 
-    handleUpdateInput = (t) => {
-        console.log(t);
+    handleUpdateInput = (event) => {
         this.setState({
-            query: t,
-            dataSource: [t + t, t + t + t]
+            query: event.target.value
         });
+    };
+
+    handleKeyDown = (evt) => {
+
+        if (evt.keyCode == 13) {
+            return this.search();
+        }
     };
 
     render() {
@@ -35,7 +39,6 @@ class SearchFormSimple extends Component {
         let skokieLocation = null;
 
         if (process.env.BROWSER) {
-            console.log('browser');
             skokieLocation = new google.maps.LatLng(42.0324, -87.7416);
 
         }
@@ -44,11 +47,9 @@ class SearchFormSimple extends Component {
                 <form className={styles.form} name="form" id="form">
                     <div className={styles.row}>
                         <div className={styles.inputContainer}>
-                            <AutoComplete
-                                hintText={<span className={styles.hText}>Address, City, Zip, #MLS</span>}
-                                dataSource={this.state.dataSource}
-                                fullWidth={true}
-                                onUpdateInput={this.handleUpdateInput}
+                            <input
+                                onKeyDown={this.handleKeyDown}
+                                onChange={this.handleUpdateInput}
                             />
                         </div>
                         <div className={styles.buttonContainer}>

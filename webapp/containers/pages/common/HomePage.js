@@ -47,7 +47,6 @@ class HomePage extends React.Component {
                 ]}
                 />
                 <HomeHeader/>
-                <HomeCities cities={cities}/>
 
             </div>
         );
@@ -63,7 +62,6 @@ export default Relay.createContainer(HomePage, {
                     edges{
                         node{
                             name
-                            Houses_Count
                         }
                     }
                 }
