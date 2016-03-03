@@ -61,7 +61,7 @@ class AppLayout extends React.Component {
                 }
             </div>
         )
-   };
+    };
 
     render() {
         return (

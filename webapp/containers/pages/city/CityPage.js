@@ -1,9 +1,11 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
+import Helmet from "react-helmet";
+import settings from '../../../settings/settings.js';
 import urlToText from '../../../utils/urlToText.js';
 
 /*=Components*/
+import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import ButtonAll from '../../../components/House/ButtonAll/ButtonAll.js';
 import HousesListFiltered from '../../../components/House/HousesListFiltered/HousesListFiltered.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
@@ -54,6 +56,29 @@ class CityPage extends React.Component {
 
     }
 
+    pageHelmet() {
+        /*Formatter*/
+        const cityName = urlToText(this.props.params.city);
+        const image = `${settings.cloudinaryPath}${cityName}1.jpg`;
+
+        const title = `${cityName} houses for sale | North Illinois Realty`;
+        const description = `✔ Browse ${cityName} homes for sale, sorted by zip code or property type. ☏  Call us for a free consultation and schedule a showing!`;
+
+        return (
+            <Helmet
+                title={title}
+                meta={[
+                    {"name": "description", "content": `${description}`},
+                    {"name": "image", "content": `${image}`},
+
+                    {"property": "og:title", "content": `${title}`},
+                    {"property": "og:description", "content": `${description}`},
+                    {"property": "og:image", "content": `${image}`}
+                ]}
+            />
+        );
+    };
+
     render() {
         let zipsList = this.props.Viewer.City.Zips.edges;
         let typesList = this.props.Viewer.City.Types.edges;
@@ -64,11 +89,17 @@ class CityPage extends React.Component {
         let houses = newHouses.length;
         const cityFormatted = urlToText(this.props.params.city);
 
-        const pageTitle = `Houses for Sale in ${cityFormatted}`;
-        const allTitle = `All ${cityFormatted} homes for sale (${housesCount})`;
+        const pageTitle = `
+        Houses
+        for Sale in ${cityFormatted}`;
+        const allTitle = `All
+        ${cityFormatted}
+        homes
+        for sale(${housesCount})`;
 
         return (
             <div>
+                {this.pageHelmet()}
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <h1> {pageTitle} </h1>
                 {!(houses || zips || types) && <AppSpinner/> }
@@ -84,22 +115,43 @@ class CityPage extends React.Component {
             </div>
         );
     }
-}
-;
+};
 export default Relay.createContainer(CityPage, {
     initialVariables: {city: ''},
     fragments: {
         Viewer: () => Relay.QL`
-            fragment on Viewer {
-                City(city:$city){
+            fragment
+            on
+            Viewer
+            {
+                City(city
+                :
+                $city
+                )
+                {
                     Houses_Count
-                    Houses(first:2){
-                        edges{
-                            node{
+                    Houses(first
+                    :
+                    2
+                    )
+                    {
+                        edges
+                        {
+                            node
+                            {
                                 id
-                                city{name}
-                                zip{code}
-                                type{type}
+                                city
+                                {
+                                    name
+                                }
+                                zip
+                                {
+                                    code
+                                }
+                                type
+                                {
+                                    type
+                                }
                                 price
                                 built
                                 street
@@ -109,20 +161,35 @@ export default Relay.createContainer(CityPage, {
                             }
                         }
                     }
-                    Zips(first:100){
-                        edges{
-                            node{
+                    Zips(first
+                    :
+                    100
+                    )
+                    {
+                        edges
+                        {
+                            node
+                            {
                                 code,
                                 Houses_Count
                             }
                         }
                     }
 
-                    Types(first:100){
-                        edges{
-                            node{
+                    Types(first
+                    :
+                    100
+                    )
+                    {
+                        edges
+                        {
+                            node
+                            {
                                 type,
-                                Houses_Count(city:$city)
+                                Houses_Count(city
+                                :
+                                $city
+                                )
                             }
                         }
                     }
