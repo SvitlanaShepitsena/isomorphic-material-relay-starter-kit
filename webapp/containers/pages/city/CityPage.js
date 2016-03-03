@@ -62,8 +62,8 @@ class CityPage extends React.Component {
         const image = `${settings.cloudinaryPath}${cityName}1.jpg`;
 
         const title = `${cityName} houses for sale | North Illinois Realty`;
-        const description = `✔ Browse ${cityName} homes for sale, sorted by zip code or property type. ☏  Call us for a free consultation and schedule a showing!'`;
-       
+        const description = `✔ Browse ${cityName} homes for sale, sorted by zip code or property type. ☏  Call us for a free consultation and schedule a showing!`;
+
         return (
             <Helmet
                 title={title}

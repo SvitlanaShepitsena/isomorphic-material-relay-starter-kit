@@ -38,13 +38,14 @@ class CityZipTypeHousesListPage extends React.Component {
         let houses = this.props.Viewer.Houses.edges;
         let housesCount = this.props.Viewer.Houses_Count;
         let {city, type} = this.props.params;
+        let zip = this.zip;
         /*Formatter*/
         const cityName = urlToText(city);
-        const typeFormatted = urlToText(type);
+        const housesType = urlToText(type);
 
-        const title = `${cityName} ${typeFormatted} properties for sale | North Illinois Realty`;
-        const description = `✔ Browse ${cityName} ${typeFormatted} houses for sale. ${housesCount} listings for today. ☏  Call us for a free consultation and schedule a showing!`;
-        const image = `${settings.cloudinaryPath}${cityName}1.jpg`;
+        let title = `${cityName}, ${zip} ${housesType} properties for sale | North Illinois Realty`;
+        let description = `✔ Browse ${cityName}, ${zip} ${housesType} houses for sale. ${housesCount} listings for today. ☏  Call us for a free consultation and schedule a showing!`;
+        let image = `${settings.cloudinaryPath}${cityName}1.jpg`;
 
         return (
             <Helmet
