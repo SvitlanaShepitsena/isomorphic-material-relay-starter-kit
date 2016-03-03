@@ -25,9 +25,9 @@ class HouseThumbInline extends React.Component {
         var zip = house.zip.code;
         var type = house.type.type;
         /*Formatter*/
-        let cityFormatted = urlToText(city);
-        let streetFormatted = urlToText(street);
-        let typeFormatted = urlToText(type);
+        const cityFormatted = urlToText(city);
+        const streetFormatted = urlToText(street);
+        const typeFormatted = urlToText(type);
 
         const listingAlt = `${typeFormatted} for sale: ${mls} ${streetFormatted} ${cityFormatted}, IL ${zip}`;
 
