@@ -59,21 +59,21 @@ class CityPage extends React.Component {
     pageHelmet() {
         /*Formatter*/
         const cityName = urlToText(this.props.params.city);
-        const cityImage = `${settings.cloudinaryPath}${cityName}1.jpg`;
+        const image = `${settings.cloudinaryPath}${cityName}1.jpg`;
 
-        const cityTitle = (cityName + " houses for sale | North Illinois Realty");
-        const cityDescription = ('✔ Browse ' + cityName + ' homes for sale, sorted by zip code or property type. ☏  Call us for a free consultation and schedule a showing!');
-
+        const title = `${cityName} houses for sale | North Illinois Realty`;
+        const description = `✔ Browse ${cityName} homes for sale, sorted by zip code or property type. ☏  Call us for a free consultation and schedule a showing!'`;
+       
         return (
             <Helmet
-                title={cityTitle}
+                title={title}
                 meta={[
-                    {"name": "description", "content": `${cityDescription}`},
-                    {"name": "image", "content": `${cityImage}`},
+                    {"name": "description", "content": `${description}`},
+                    {"name": "image", "content": `${image}`},
 
-                    {"property": "og:title", "content": `${cityTitle}`},
-                    {"property": "og:description", "content": `${cityDescription}`},
-                    {"property": "og:image", "content": `${cityImage}`}
+                    {"property": "og:title", "content": `${title}`},
+                    {"property": "og:description", "content": `${description}`},
+                    {"property": "og:image", "content": `${image}`}
                 ]}
             />
         );
@@ -89,8 +89,13 @@ class CityPage extends React.Component {
         let houses = newHouses.length;
         const cityFormatted = urlToText(this.props.params.city);
 
-        const pageTitle = `Houses for Sale in ${cityFormatted}`;
-        const allTitle = `All ${cityFormatted} homes for sale (${housesCount})`;
+        const pageTitle = `
+        Houses
+        for Sale in ${cityFormatted}`;
+        const allTitle = `All
+        ${cityFormatted}
+        homes
+        for sale(${housesCount})`;
 
         return (
             <div>
@@ -115,16 +120,38 @@ export default Relay.createContainer(CityPage, {
     initialVariables: {city: ''},
     fragments: {
         Viewer: () => Relay.QL`
-            fragment on Viewer {
-                City(city:$city){
+            fragment
+            on
+            Viewer
+            {
+                City(city
+                :
+                $city
+                )
+                {
                     Houses_Count
-                    Houses(first:2){
-                        edges{
-                            node{
+                    Houses(first
+                    :
+                    2
+                    )
+                    {
+                        edges
+                        {
+                            node
+                            {
                                 id
-                                city{name}
-                                zip{code}
-                                type{type}
+                                city
+                                {
+                                    name
+                                }
+                                zip
+                                {
+                                    code
+                                }
+                                type
+                                {
+                                    type
+                                }
                                 price
                                 built
                                 street
@@ -134,20 +161,35 @@ export default Relay.createContainer(CityPage, {
                             }
                         }
                     }
-                    Zips(first:100){
-                        edges{
-                            node{
+                    Zips(first
+                    :
+                    100
+                    )
+                    {
+                        edges
+                        {
+                            node
+                            {
                                 code,
                                 Houses_Count
                             }
                         }
                     }
 
-                    Types(first:100){
-                        edges{
-                            node{
+                    Types(first
+                    :
+                    100
+                    )
+                    {
+                        edges
+                        {
+                            node
+                            {
                                 type,
-                                Houses_Count(city:$city)
+                                Houses_Count(city
+                                :
+                                $city
+                                )
                             }
                         }
                     }
