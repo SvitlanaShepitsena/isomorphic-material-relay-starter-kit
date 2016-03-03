@@ -25,7 +25,7 @@ class HomePage extends React.Component {
 
     pageHelmet() {
         let helmet = settings.helmet;
-        const homeType = helmet.appType;
+        const appType = settings.appType;
         const homeUrl = helmet.appUrl;
         const homeDescription = helmet.appDescription;
         const homeTitle = helmet.appTitle;
@@ -35,11 +35,11 @@ class HomePage extends React.Component {
                 title={homeTitle}
                 meta={[
                     {"name": "url", "content": `${homeUrl}`},
-                    {"name": "type", "content": `${homeType}`},
+                    {"name": "type", "content": `${appType}`},
                     {"name": "image", "content": `${fbImage}`},
                     {"name": "description", "content": `${homeDescription}`},
                     {"property": "og:url", "content": `${homeUrl}`},
-                    {"property": "og:type", "content": `${homeType}`},
+                    {"property": "og:type", "content": `${appType}`},
                     {"property": "og:title", "content": `${homeTitle}`},
                     {"property": "og:image", "content": `${fbImage}`},
                     {"property": "og:description", "content": `${homeDescription}`}
