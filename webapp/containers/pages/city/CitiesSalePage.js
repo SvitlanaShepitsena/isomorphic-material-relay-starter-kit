@@ -22,7 +22,7 @@ class CitiesSalePage extends React.Component {
     };
 
     pageHelmet() {
-        let cities = settings.ogProps.cities;
+        let cities = settings.ogProps.housesForSalePage;
         const citiesUrl = cities.url;
         const citiesTitle = cities.title;
         const citiesDescription = cities.description;

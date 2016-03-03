@@ -26,26 +26,10 @@ export default {
         appDescription: "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston houses apartments for sale rent",
         appTitle: "Houses Apartments for Sale Rent Chicago North Suburbs",
         fbImage: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
-        cities: {
-            url: "http://www.remax1stclass.com/houses-for-sale",
-            description: "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston houses apartments for sale rent",
-            title: "Houses Apartments for Sale Rent Chicago North Suburbs"
-        },
-        housesForRentPage: {
-            url: "http://www.remax1stclass.com/apartments-for-rent",
-            title: "North Illinois apartments homes houses condos for rent",
-            description: "Find an Apartment for rent at North and Northwest Chicago Suburbs."
-        },
         housesForSalePage: {
             url: "http://www.remax1stclass.com/houses-for-sale",
             title: "North Illinois apartments, homes, houses for sale",
             description: "Browse Houses for sale at North and Northwest Chicago Suburbs. Detailed listing information with large photos. "
-        },
-        cityPage: {
-            url: "http://www.remax1stclass.com/houses-for-sale",
-            title: "North Chicago Suburbs Homes for sale by city",
-            image: "http://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
-            description: "Homes for sale sorted by zip code or property type in a Chicago North suburb city. "
         },
         propertyTypePage: {
             url: "http://www.remax1stclass.com/houses-for-sale",
