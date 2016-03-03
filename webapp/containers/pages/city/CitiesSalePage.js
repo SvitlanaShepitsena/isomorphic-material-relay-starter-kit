@@ -26,10 +26,7 @@ class CitiesSalePage extends React.Component {
         return (
             <div>
                 <h1> North Chicago Suburbs Houses for Sale </h1>
-                {!cities && <Spinner /> }
-                {cities &&
                 <CitiesList list={allCities} itemId="name" children="Houses"/>
-                }
             </div>
         );
     }
@@ -40,11 +37,11 @@ export default Relay.createContainer(CitiesSalePage, {
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                Cities(first :100){
+                Cities(first:100) {
                     edges{
                         node{
-                            name
-                            Houses_Count
+                            name,
+                            count
                         }
                     }
                 }

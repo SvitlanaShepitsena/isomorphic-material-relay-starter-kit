@@ -22,6 +22,13 @@ class SearchPage extends React.Component {
     };
 
 
+    componentDidMount() {
+
+        this.props.relay.setVariables({
+            query: this.props.params.query
+        })
+    }
+
 
     render() {
         const houses = this.props.Viewer.Houses.edges;
@@ -29,7 +36,7 @@ class SearchPage extends React.Component {
 
         return (
             <div>
-                <h2>Search Results:</h2>
+                <h2>Search Results2:</h2>
 
                 {houses.map((edge)=> {
                     const house = edge.node;

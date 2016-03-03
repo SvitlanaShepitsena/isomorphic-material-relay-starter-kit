@@ -28,6 +28,10 @@ export default new GraphQLObjectType({
             type: GraphQLString,
             resolve: (obj) => obj.name
         },
+        count: {
+            type: GraphQLString,
+            resolve: (obj) => obj.count
+        },
         Houses: {
             type: HousesConnection.connectionType,
             args: {

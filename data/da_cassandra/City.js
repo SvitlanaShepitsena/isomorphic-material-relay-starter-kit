@@ -1,4 +1,4 @@
-import {runQuery, runQueryOneResult} from './_client.js';
+import {runQuery, runQueryOneResult} from './_elastic.js';
 
 import City from '../model/City'
 
@@ -24,12 +24,34 @@ export function City_by_zip(zip_id) {
 }
 
 export function Cities_with_args(args) {
-    let cqlText;
-    let cqlParams = [];
 
-    cqlText = 'SELECT * FROM city';
+    var body = {
 
-    return runQuery(City, cqlText, cqlParams);
+        fields: ['city_id'],
+        aggregations: {
+            cities: {
+                terms: {
+                    field: 'city_id'
+                }
+            }
+        }
+
+    }
+
+    return runQuery(City, 'sale', body, res=> {
+        var citiesAggs = res.aggregations.cities;
+
+        var cities = citiesAggs.buckets.map(city=> {
+            let objCity = {
+                id: city.key,
+                name: city.key,
+                count:city.doc_count
+            }
+            console.log(objCity);
+            return objCity;
+        });
+        return cities;
+    });
 }
 
 

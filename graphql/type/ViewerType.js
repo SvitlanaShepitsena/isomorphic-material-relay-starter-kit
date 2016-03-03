@@ -1,5 +1,5 @@
 import {globalIdField} from "graphql-relay";
-import {GraphQLBoolean, GraphQLID, GraphQLInt, GraphQLString, GraphQLObjectType} from "graphql";
+import {GraphQLBoolean, GraphQLID, GraphQLInt, GraphQLString, GraphQLObjectType,GraphQLList} from "graphql";
 import {connectionArgs, connectionFromArray} from "graphql-relay";
 import _ from 'lodash';
 
@@ -60,7 +60,6 @@ export default new GraphQLObjectType({
             resolve: (obj, {...args}) => {
                 return Houses_with_args(args).then((arr) => {
 
-                    console.log(arr);
                     return connectionFromArray(arr, args)});
             }
         },

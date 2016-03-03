@@ -58,7 +58,7 @@ export default Relay.createContainer(HomePage, {
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                Cities(first :6){
+                Cities(first:10){
                     edges{
                         node{
                             name

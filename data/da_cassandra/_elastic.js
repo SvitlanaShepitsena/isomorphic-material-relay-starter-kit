@@ -17,37 +17,48 @@ function ensureNoErrorOrReport(qText, qVar, err, reject) {
         return true;
 }
 
-export function runQueryElastic(objectPrototype, index, query) {
+export function runQuery(objectPrototype, index, body, getResults) {
     return new Promise((resolve, reject) => {
-        axios.get('http://localhost:9200/house/_search?q='+query).then(res=> {
-            var hits = _.toArray(res.data.hits.hits);
-            console.log('run here _elastic.js');
-            resolve(hits.map(hit=>new objectPrototype(hit._source)));
-        }, (err)=> {
+        client.search({
+            index: index,
+            type: 'house',
+            body: body
+        }).then((res)=> {
+            var items;
+            if (getResults) {
+                items = getResults(res);
+            } else {
 
-            console.log('nnnnnnnnnnnnnn');
-            throw new Error(err);
+                items = res.hits.hits.map(item=> {
+                    return item._source;
+                });
+                console.log('items' + items);
 
-        });
+            }
+            resolve(items.map(item=>new objectPrototype(item)));
+        })
+
     })
 
 }
 
-export function runQueryOneResult(objectPrototype, qText, qVar) {
+export function runQueryOneResult(objectPrototype, index, query) {
     //
     return new Promise((resolve, reject) => {
-        client.execute(qText, qVar, {prepare: true}, (err, result) => {
-            if (ensureNoErrorOrReport(qText, qVar, err, reject)) {
-                //
-                if (result.rowLength > 0) {
-                    let row = result.rows[0];
-                    const retObj = new objectPrototype(row);
-                    resolve(retObj);
+        client.search({
+            index: index,
+            body: {
+                query: {
+                    match: {
+                        _all: query
+                    }
                 }
-                else
-                    resolve(null);
             }
-        });
+        }).then((res)=> {
+            var hit = _.toArray(res.hits.hits)[0];
+            resolve(new objectPrototype(hit._source));
+        })
+
     });
 }
 

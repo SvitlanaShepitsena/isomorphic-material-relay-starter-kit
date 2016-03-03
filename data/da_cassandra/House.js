@@ -1,5 +1,4 @@
-import {runQueryElastic} from './_elastic';
-import {runQuery, runQueryOneResult} from './_client.js';
+import {runQuery, runQueryOneResult} from './_elastic.js';
 
 import _ from 'lodash';
 import House from '../model/House';
@@ -16,12 +15,17 @@ export function House_get(id) {
 export function Houses_with_args(args) {
     let cqlText;
     let cqlParams = [];
+    var body = {
+        query: {
+            match: {
+                _all: args.query
+            }
+        }
 
+    };
     if (args.query) {
-        console.log('ahhhhh');
-        return runQueryElastic(House, 'house', args.query);
+        return runQuery(House, 'sale', body);
     }
-
 
     if (!(args.city && args.zip && args.type)) {
         cqlText = 'SELECT * FROM "house"';
@@ -43,9 +47,9 @@ export function Houses_with_args(args) {
 
                 cqlText = 'SELECT * FROM houses_by_city_type where city_id = ? AND type_id = ?;';
                 cqlParams = [args.city, args.zip];
-            } else{
-            cqlText = 'SELECT * FROM houses_by_zip where zip_id = ?;';
-            cqlParams = [args.zip];
+            } else {
+                cqlText = 'SELECT * FROM houses_by_zip where zip_id = ?;';
+                cqlParams = [args.zip];
 
             }
         } else {

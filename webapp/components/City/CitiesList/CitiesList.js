@@ -21,7 +21,7 @@ class CitiesList extends React.Component {
         let {itemId, fullUrl, children} = this.props;
         let itemValue = item[itemId];
         let url = (fullUrl || '') + itemValue;
-        let housesLength = item[`${children}_Count`];
+        let housesLength = Number(item.count);
         return (
             <div className={styles.item} key={itemValue}>
                 <SvLink url={url}>
