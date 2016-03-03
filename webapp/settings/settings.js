@@ -19,5 +19,12 @@ export default {
         google: "https://plus.google.com/b/101214026615607780081/+Remax1stclass",
         linkedin: "https://www.linkedin.com/in/re-max-first-class-realty-57707377",
         youtube: "https://www.youtube.com/channel/UCqlJzj01JS8U3ZUUAFjvxDg"
+    },
+    helmet: {
+        appType: "website",
+        appUrl: "http://www.remax1stclass.com/",
+        appDescription: "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston houses apartments for sale rent",
+        appTitle: "Houses Apartments for Sale Rent Chicago North Suburbs",
+        fbImage: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg"
     }
-};
+}

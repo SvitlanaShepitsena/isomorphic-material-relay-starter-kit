@@ -6,6 +6,7 @@ import Helmet from "react-helmet";
 /*Components*/
 import HomeHeader from '../../../components/HomeHeader/HomeHeader.js';
 import HomeCities from '../../../components/HomeCities/HomeCities.js'
+import settings from '../../../settings/settings.js';
 
 class HomePage extends React.Component {
     getChildContext() {
@@ -13,7 +14,6 @@ class HomePage extends React.Component {
             location: this.props.location,
             route: this.props.route,
             params: this.props.routeParams,
-
         };
     };
 
@@ -23,31 +23,36 @@ class HomePage extends React.Component {
         route: PropTypes.object
     };
 
-    render() {
-        var appType = "website";
-        var appUrl = "http://www.remax1stclass.com/";
-        var homeDescription = "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston houses apartments for sale rent";
-        var homeTitle = "Houses Apartments for Sale Rent Chicago North Suburbs";
-        var fbImage = "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg";
-        let cities = this.props.Viewer.Cities;
+    pageHelmet() {
+        let helmet = settings.helmet;
+        const homeType = helmet.appType;
+        const homeUrl = helmet.appUrl;
+        const homeDescription = helmet.appDescription;
+        const homeTitle = helmet.appTitle;
+        const fbImage = helmet.fbImage;
         return (
-            <div>
-                <Helmet
-                    title={homeTitle}
-                    meta={[
-                    {"name": "url", "content": `${appUrl}`},
-                    {"name": "type", "content": `${appType}`},
+            <Helmet
+                title={homeTitle}
+                meta={[
+                    {"name": "url", "content": `${homeUrl}`},
+                    {"name": "type", "content": `${homeType}`},
                     {"name": "image", "content": `${fbImage}`},
                     {"name": "description", "content": `${homeDescription}`},
-                    {"property": "og:url", "content": `${appUrl}`},
-                    {"property": "og:type", "content": `${appType}`},
+                    {"property": "og:url", "content": `${homeUrl}`},
+                    {"property": "og:type", "content": `${homeType}`},
                     {"property": "og:title", "content": `${homeTitle}`},
                     {"property": "og:image", "content": `${fbImage}`},
                     {"property": "og:description", "content": `${homeDescription}`}
                 ]}
-                />
-                <HomeHeader/>
+            />
+        );
+    };
 
+    render() {
+        return (
+            <div>
+                {this.pageHelmet()}
+                <HomeHeader/>
             </div>
         );
     }
