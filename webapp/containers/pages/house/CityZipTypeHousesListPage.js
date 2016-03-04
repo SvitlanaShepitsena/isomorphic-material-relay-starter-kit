@@ -85,7 +85,6 @@ class CityZipTypeHousesListPage extends React.Component {
                     cityName={cityFormatted}/>
                 }
                 <br/>
-
             </div>
         );
     }
