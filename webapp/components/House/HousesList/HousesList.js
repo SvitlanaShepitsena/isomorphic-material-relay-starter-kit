@@ -14,14 +14,14 @@ class HousesList extends React.Component {
         limit: PropTypes.number,
     };
     static defaultProps = {
-        limit: 3
+        limit: 10
     };
     oneHouse = (edge)=> {
         let house = edge.node;
         let itemKey = house.id;
-        let city = house.city.name;
-        let type = house.type.type;
-        let zip = house.zip.code;
+        let city = house.city;
+        let type = house.type;
+        let zip = house.zip;
         let houseInlineUrl = `/houses-for-sale/${city}/${zip}/${type}/${house.id}`;
         return (
             <div key={itemKey} className={styles.listInline}>
@@ -41,7 +41,7 @@ class HousesList extends React.Component {
 
         return (
             <div className={styles.row}>
-                <Pagination lastPage={lastPage} firstCursor={firstCursor} lastCursor={lastCursor}/>
+                <Pagination lastPage={lastPage}/>
                 <div className={styles.col1}>
                     <div className={styles.row}>
                         {housesList.map(this.oneHouse)}

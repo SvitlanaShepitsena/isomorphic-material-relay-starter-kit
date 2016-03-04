@@ -1,4 +1,4 @@
-import {runQuery, runQueryOneResult} from './_elastic.js';
+import {runQuery, runQueryOneResult, runCountQuery} from './_elastic.js';
 
 import _ from 'lodash';
 import House from '../model/House';
@@ -12,28 +12,59 @@ export function House_get(id) {
     return runQueryOneResult(House, cqlText, cqlParams);
 }
 
-export function Houses_with_args(args) {
-    let cqlText;
-    let cqlParams = [];
+export function Houses_with_args_count(args) {
     var body = {
         query: {
             match: {
                 _all: args.query
             }
-        }
+        },
 
     };
+
     if (args.query) {
-        return runQuery(House, 'sale', body);
+
+        return runCountQuery('sale', body);
+    }
+}
+
+export function Houses_with_args(args, getResults) {
+    let cqlText;
+    let cqlParams = [];
+
+    // query to elastic search
+    var body = {};
+    /* Pagination functionality */
+    if (args.page && args.page > 1) {
+        body.from = Number(args.page - 1) * 10;
+        body.size = 10;
+    }
+    /* Search case look over all fields*/
+    if (args.query) {
+        body.query =
+        {
+            match: {
+                _all: args.query
+            }
+        }
+
+    }
+    if (args.city && (!args.zip || args.zip == 'all') && !args.type) {
+        body.query =
+        {
+            filtered: {
+                query:{
+                    match_all:{}
+                },
+                filter: {
+                    term: {city_id: args.city}
+                }
+            }
+        }
     }
 
     if (!(args.city && args.zip && args.type)) {
         cqlText = 'SELECT * FROM "house"';
-    }
-
-    if (args.city && (!args.zip || args.zip == 'all') && !args.type) {
-        cqlText = 'SELECT * FROM houses_by_city where city_id = ?;';
-        cqlParams.push(args.city);
     }
 
     if (args.zip && !args.type) {
@@ -71,7 +102,7 @@ export function Houses_with_args(args) {
         cqlParams = [args.city, args.type];
     }
 
-    return runQuery(House, cqlText, cqlParams);
+    return runQuery(House, 'sale', body, getResults);
 }
 
 

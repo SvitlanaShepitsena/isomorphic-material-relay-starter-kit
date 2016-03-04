@@ -6,7 +6,7 @@ import NodeInterface from "../interface/NodeInterface";
 import City from '../../data/model/City';
 import ZipType from '../../data/model/Zip';
 
-import {Houses_with_args} from '../../data/da_cassandra/House';
+import {Houses_with_args,Houses_with_args_count} from '../../data/da_cassandra/House';
 import HousesConnection from './HouseConnection';
 
 import {Zips_with_args,Zip_get} from '../../data/da_cassandra/Zip';
@@ -50,7 +50,7 @@ export default new GraphQLObjectType({
                     type: GraphQLString
                 },
             },
-            resolve: (obj, {...args}) => Houses_with_args(...args,{city:obj.id}).then((arr) => arr.length)
+            resolve: (obj, {...args}) => Houses_with_args_count(...args,{city:obj.id}).then((arr) => arr.length)
         },
 
         Zips: {

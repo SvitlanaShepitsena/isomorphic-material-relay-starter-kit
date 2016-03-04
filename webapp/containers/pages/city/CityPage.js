@@ -120,38 +120,16 @@ export default Relay.createContainer(CityPage, {
     initialVariables: {city: ''},
     fragments: {
         Viewer: () => Relay.QL`
-            fragment
-            on
-            Viewer
-            {
-                City(city
-                :
-                $city
-                )
-                {
+            fragment on Viewer {
+                City(city:$city){
                     Houses_Count
-                    Houses(first
-                    :
-                    2
-                    )
-                    {
-                        edges
-                        {
-                            node
-                            {
+                    Houses(first:2){
+                        edges{
+                            node{
                                 id
                                 city
-                                {
-                                    name
-                                }
                                 zip
-                                {
-                                    code
-                                }
                                 type
-                                {
-                                    type
-                                }
                                 price
                                 built
                                 street
@@ -161,35 +139,20 @@ export default Relay.createContainer(CityPage, {
                             }
                         }
                     }
-                    Zips(first
-                    :
-                    100
-                    )
-                    {
-                        edges
-                        {
-                            node
-                            {
+                    Zips(first:100){
+                        edges{
+                            node{
                                 code,
                                 Houses_Count
                             }
                         }
                     }
 
-                    Types(first
-                    :
-                    100
-                    )
-                    {
-                        edges
-                        {
-                            node
-                            {
+                    Types(first:100){
+                        edges{
+                            node{
                                 type,
-                                Houses_Count(city
-                                :
-                                $city
-                                )
+                                Houses_Count(city:$city)
                             }
                         }
                     }

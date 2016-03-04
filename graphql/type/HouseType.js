@@ -23,9 +23,9 @@ export default new GraphQLObjectType({
             type: new GraphQLNonNull(GraphQLID),
             resolve: (obj) => obj.id
         },
-        city: {type: CityType, resolve: (obj) => City_by_house(obj.city_id)},
-        zip: {type: ZipType, resolve: (obj) =>Zip_by_house(obj.zip_id)},
-        type: {type: TypeType, resolve: (obj) =>Type_get(obj.type_id)},
+        city: {type: GraphQLString, resolve: (obj) => (obj.city_id)},
+        zip: {type: GraphQLString, resolve: (obj) =>(obj.zip_id)},
+        type: {type: GraphQLString, resolve: (obj) =>(obj.type_id)},
         price: {type: GraphQLString, resolve: (obj) =>obj.price},
         beds: {type: GraphQLString, resolve: (obj) =>obj.beds},
         baths: {type: GraphQLString, resolve: (obj) =>obj.baths},

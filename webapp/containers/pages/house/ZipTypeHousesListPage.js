@@ -160,9 +160,9 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         cursor
                         node{
                             id
-                            city{ name }
-                            zip{ code }
-                            type{ type }
+                            city
+                            zip
+                            type
                             price
                             built
                             street
@@ -185,9 +185,9 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         cursor
                         node{
                             id
-                            city{ name }
-                            zip{ code }
-                            type{ type }
+                            city
+                            zip
+                            type
                             price
                             built
                             street

@@ -9,11 +9,20 @@ export function City_get(city) {
     return runQueryOneResult(City, cqlText, cqlParams);
 }
 
-export function City_by_house(city_id) {
-    let cqlText = 'SELECT * FROM city WHERE id = ? ';
-    let cqlParams = [city_id];
+export function City_by_house(house_id) {
 
-    return runQueryOneResult(City, cqlText, cqlParams);
+    var body = {
+
+        fields: ['city_id'],
+        query:{
+            match:{
+                'id': house_id
+            }
+        }
+
+    };
+
+    return runQueryOneResult(City, 'sale', body);
 }
 
 export function City_by_zip(zip_id) {
@@ -36,7 +45,7 @@ export function Cities_with_args(args) {
             }
         }
 
-    }
+    };
 
     return runQuery(City, 'sale', body, res=> {
         var citiesAggs = res.aggregations.cities;

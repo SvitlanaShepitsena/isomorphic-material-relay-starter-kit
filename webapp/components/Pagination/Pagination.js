@@ -10,8 +10,6 @@ import styles from './Pagination.less';
 class Pagination extends React.Component {
     static contextTypes = {location: PropTypes.object.isRequired};
     static propTypes = {
-        firstCursor: PropTypes.string.isRequired,
-        lastCursor: PropTypes.string.isRequired,
         lastPage: PropTypes.number.isRequired,
     };
     handleClick = (e, type)=> {
@@ -23,13 +21,13 @@ class Pagination extends React.Component {
     };
 
     render() {
-        const {lastPage, firstCursor, lastCursor} = this.props;
+        const {lastPage} = this.props;
         this.currentPage = Number(this.context.location.query.page || 1);
         let pathname = this.context.location.pathname;
         let currentPage = this.currentPage;
         let prevPage = currentPage - 1;
         let nextPage = currentPage + 1;
-        
+
         let enablePrev = currentPage > 1;
         let enableNext = currentPage !== lastPage;
 
@@ -45,7 +43,7 @@ class Pagination extends React.Component {
                     <div className={styles.breadcrumbs}>
                         <div className={styles.linkContainer}>
                             {enablePrev &&
-                            <Link to={{ pathname: pathname, query: { page: prevPage, before:firstCursor} }}
+                            <Link to={{ pathname: pathname, query: { page: prevPage} }}
                                   onClick={this.handleClick}>
                                 <RaisedButton className={styles.button} default={true} disabled={currentPage==1}
                                               icon={<Previous />} label="Previous" labelPosition="after"/>
@@ -58,7 +56,7 @@ class Pagination extends React.Component {
                         </div>
                         <div className={styles.linkContainer}>
                             {enableNext &&
-                            <Link to={{ pathname: pathname, query: { page: nextPage, after:lastCursor} }}>
+                            <Link to={{ pathname: pathname, query: { page: nextPage} }}>
                                 <RaisedButton className={styles.button} default={true} icon={<Next />} label="Next"/>
                             </Link>
                             }

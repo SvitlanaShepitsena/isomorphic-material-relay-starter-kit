@@ -1,5 +1,6 @@
 'use strict';
 import React, {Component, PropTypes} from 'react';
+import ReactDOM from 'react-dom';
 
 /*MaterialUI*/
 import RaisedButton from '../../../node_modules/material-ui/lib/raised-button';
@@ -9,6 +10,10 @@ import styles from './SearchFormSimple.less';
 import {browserHistory} from 'react-router'
 
 class SearchFormSimple extends Component {
+    componentDidMount() {
+        ReactDOM.findDOMNode(this.refs.search).focus();
+    }
+
 
     search = ()=> {
         if (this.state.query.length) {
@@ -47,7 +52,8 @@ class SearchFormSimple extends Component {
                 <form className={styles.form} name="form" id="form">
                     <div className={styles.row}>
                         <div className={styles.inputContainer}>
-                            <input
+                            <input style={{width:380}}
+                                ref="search"
                                 onKeyDown={this.handleKeyDown}
                                 onChange={this.handleUpdateInput}
                             />

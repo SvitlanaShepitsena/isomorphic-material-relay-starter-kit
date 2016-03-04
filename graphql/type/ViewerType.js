@@ -3,7 +3,7 @@ import {GraphQLBoolean, GraphQLID, GraphQLInt, GraphQLString, GraphQLObjectType,
 import {connectionArgs, connectionFromArray} from "graphql-relay";
 import _ from 'lodash';
 
-import {Houses_with_args, House_get} from '../../data/da/House';
+import {Houses_with_args,Houses_with_args_count, House_get} from '../../data/da/House';
 import {Types_with_args} from '../../data/da/Type';
 import {Cities_with_args, City_get} from '../../data/da/City';
 
@@ -77,11 +77,16 @@ export default new GraphQLObjectType({
                 type: {
                     type: GraphQLString
                 },
+                query: {
+                    type: GraphQLString
+                },
+                page:{
+                    type:GraphQLInt
+                }
+
             },
             resolve: (obj, {...args}) => {
-
-                return Houses_with_args(args).then(arr => arr.length);
-
+                return Houses_with_args_count(args);
             }
         },
 
