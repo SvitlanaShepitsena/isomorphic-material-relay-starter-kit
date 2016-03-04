@@ -89,32 +89,19 @@ export default Relay.createContainer(HousePage, {
             on
             Viewer
             {
-                House(id
-                :
-                $id
-                )
+                House(id : $id )
                 {
                     id,
                     mls,
                     type
-                    {
-                        type
-                    }
                     beds,
                     baths,
                     description,
                     price,
                     street,
-                    built
-                    city
-                    {
-                        name
-                    }
-                    zip
-                    {
-                        code
-                    }
-                    ,
+                    built,
+                    city,
+                    zip,
                     image
                 }
             }
