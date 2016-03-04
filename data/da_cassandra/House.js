@@ -4,28 +4,54 @@ import _ from 'lodash';
 import House from '../model/House';
 
 export function House_get(id) {
-    console.log('id is :' + id);
+    var body = {};
 
-    const cqlText = 'SELECT * FROM "house" WHERE id = ? ALLOW FILTERING;';
-    const cqlParams = [id];
+    body.query =
+    {
+        "filtered": {
+            "query": {
+                "match_all": {}
+            },
+            "filter": {
+                "term": {
+                    "id": id
 
-    return runQueryOneResult(House, cqlText, cqlParams);
+                }
+            }
+        }
+    }
+
 }
 
 export function Houses_with_args_count(args) {
-    var body = {
-        query: {
-            match: {
-                _all: args.query
-            }
-        },
-
-    };
+    var body = {};
 
     if (args.query) {
 
-        return runCountQuery('sale', body);
+        body.query = {
+            match: {
+                _all: args.query
+            }
+        };
     }
+    if (args.city) {
+        body.query =
+        {
+            filtered: {
+                query: {
+                    match_all: {}
+                },
+                filter: {
+                    term: {
+                        city_id: args.city
+
+                    }
+                }
+            }
+        }
+
+    }
+
 }
 
 export function Houses_with_args(args, getResults) {
@@ -53,8 +79,8 @@ export function Houses_with_args(args, getResults) {
         body.query =
         {
             filtered: {
-                query:{
-                    match_all:{}
+                query: {
+                    match_all: {}
                 },
                 filter: {
                     term: {city_id: args.city}
@@ -64,42 +90,138 @@ export function Houses_with_args(args, getResults) {
     }
 
     if (!(args.city && args.zip && args.type)) {
-        cqlText = 'SELECT * FROM "house"';
+        body.query =
+        {
+            query: {
+                match_all: {}
+            }
+
+        }
     }
 
     if (args.zip && !args.type) {
-        cqlText = 'SELECT * FROM houses_by_zip where zip_id = ?;';
-        cqlParams = [args.zip];
+        body.query =
+        {
+            filtered: {
+                query: {
+                    match_all: {}
+                },
+                filter: {
+                    term: {zip_id: args.zip}
+                }
+            }
+        }
     }
 
     if (args.city && args.zip && !args.type) {
         if (args.zip !== 'all') {
             if (!args.zip.match(/^\d+$/)) {
 
-                cqlText = 'SELECT * FROM houses_by_city_type where city_id = ? AND type_id = ?;';
-                cqlParams = [args.city, args.zip];
+                body.query = {
+                    "filtered": {
+                        "query": {
+                            "match_all": {}
+                        },
+                        "filter": [
+                            {
+                                "term": {
+                                    "type_id": args.zip
+                                }
+                            },
+                            {
+                                "term": {
+                                    "city_id": args.city
+                                }
+                            }
+                        ]
+                    }
+                }
             } else {
-                cqlText = 'SELECT * FROM houses_by_zip where zip_id = ?;';
-                cqlParams = [args.zip];
+                body.query = {
+                    "filtered": {
+                        "query": {
+                            "match_all": {}
+                        },
+                        "filter": [
+                            {
+                                "term": {
+                                    "zip_id": args.zip
+                                }
+                            },
+                            {
+                                "term": {
+                                    "city_id": args.city
+                                }
+                            }
+                        ]
+                    }
+                }
 
             }
         } else {
-            cqlText = 'SELECT * FROM houses_by_city where city_id = ?;';
-            cqlParams = [args.city];
+            body.query = {
+                "filtered": {
+                    "query": {
+                        "match_all": {}
+                    },
+                    "filter": [
+
+                        {
+                            "term": {
+                                "city_id": args.city
+                            }
+                        }
+                    ]
+                }
+            }
 
         }
     }
 
     if (args.zip && args.type) {
 
-        cqlText = 'SELECT * FROM houses_by_zip_type where zip_id = ? AND type_id = ?;';
-        cqlParams = [args.zip, args.type];
+        body.query = {
+            "filtered": {
+                "query": {
+                    "match_all": {}
+                },
+                "filter": [
+                    {
+                        "term": {
+                            "zip_id": args.zip
+                        }
+                    },
+                    {
+                        "term": {
+                            "type_id": args.type
+                        }
+                    }
+                ]
+            }
+        }
     }
 
     if (args.city && args.type && !args.zip) {
 
-        cqlText = 'SELECT * FROM houses_by_city_type where city_id = ? AND type_id = ?;';
-        cqlParams = [args.city, args.type];
+        body.query = {
+            "filtered": {
+                "query": {
+                    "match_all": {}
+                },
+                "filter": [
+                    {
+                        "term": {
+                            "type_id": args.type
+                        }
+                    },
+                    {
+                        "term": {
+                            "city_id": args.city
+                        }
+                    }
+                ]
+            }
+        }
     }
 
     return runQuery(House, 'sale', body, getResults);

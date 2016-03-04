@@ -22,7 +22,7 @@ export default new GraphQLObjectType({
     fields: () => ({
         id: {
             type: new GraphQLNonNull(GraphQLID),
-            resolve: (obj) => obj.id
+            resolve: (obj) => obj.id[0]
         },
         name: {
             type: GraphQLString,
@@ -40,7 +40,7 @@ export default new GraphQLObjectType({
                     type: GraphQLString
                 },
             },
-            resolve: (obj, {...args}) => Houses_with_args(...args,{city:obj.id}).then((arr) => connectionFromArray(arr, args))
+            resolve: (obj, {...args}) => Houses_with_args({city:obj.id[0]}).then((arr) => connectionFromArray(arr, args))
         },
         Houses_Count: {
             type: GraphQLInt,
@@ -50,7 +50,7 @@ export default new GraphQLObjectType({
                     type: GraphQLString
                 },
             },
-            resolve: (obj, {...args}) => Houses_with_args_count(...args,{city:obj.id}).then((arr) => arr.length)
+            resolve: (obj, {...args}) => Houses_with_args_count({city:obj.id[0]})
         },
 
         Zips: {
@@ -59,28 +59,28 @@ export default new GraphQLObjectType({
                 ...connectionArgs,
 
             },
-            resolve: (obj, {...args}) => Zips_with_args({city:obj.id}).then((arr) => connectionFromArray(arr, args))
+            resolve: (obj, {...args}) => Zips_with_args({city:obj.id[0]}).then((arr) => connectionFromArray(arr, args))
         },
         Zips_Count: {
             type: GraphQLInt,
             args: {
                 ...connectionArgs,
             },
-            resolve: (obj, {...args}) => Zips_with_args({city:obj.id}).then((arr) => arr.length)
+            resolve: (obj, {...args}) => Zips_with_args({city:obj.id[0]}).then((arr) => arr.length)
         },
         Types: {
             type: TypeConnection.connectionType,
             args: {
                 ...connectionArgs,
             },
-            resolve: (obj, {...args}) => Types_with_args({city:obj.id}).then((arr) => connectionFromArray(arr, args))
+            resolve: (obj, {...args}) => Types_with_args({city:obj.id[0]}).then((arr) => connectionFromArray(arr, args))
         },
         Types_Count: {
             type: GraphQLInt,
             args: {
                 ...connectionArgs,
             },
-            resolve: (obj, {...args}) => Types_with_args({city:obj.id}).then((arr) => arr.length)
+            resolve: (obj, {...args}) => Types_with_args({city:obj.id[0]}).then((arr) => arr.length)
         },
     }),
 });

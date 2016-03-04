@@ -100,9 +100,9 @@ export default Relay.createContainer(CityZipTypeHousesListPage, {
                     edges{
                         node{
                             id
-                            city{ name }
-                            zip{ code }
-                            type{ type }
+                            city
+                            zip
+                            type
                             price
                             built
                             street

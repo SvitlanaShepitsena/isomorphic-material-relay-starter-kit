@@ -4,7 +4,6 @@ import _ from 'lodash';
 
 var client = new elasticsearch.Client({
     host: 'localhost:9200',
-    log: 'trace'
 
 });
 
@@ -32,7 +31,6 @@ export function runQuery(objectPrototype, index, body, getResults) {
                 items = res.hits.hits.map(item=> {
                     return item._source;
                 });
-                console.log('items' + items);
 
             }
             resolve(items.map(item=>new objectPrototype(item)));
@@ -41,7 +39,8 @@ export function runQuery(objectPrototype, index, body, getResults) {
     })
 
 }
-export function runCountQuery(index, body,getResults) {
+export function runCountQuery(index, body, getResults) {
+    console.log(body);
     return new Promise((resolve, reject) => {
         client.search({
             index: index,
@@ -58,6 +57,9 @@ export function runCountQuery(index, body,getResults) {
                 count = res.hits.total;
 
             }
+            console.log('run here _elastic.js');
+            console.log(count);
+            console.log('run here _elastic.js');
             resolve(count)
         })
 
@@ -65,24 +67,25 @@ export function runCountQuery(index, body,getResults) {
 
 }
 
-export function runQueryOneResult(objectPrototype, index, query) {
-    //
+export function runQueryOneResult(objectPrototype, index, body, getResults) {
     return new Promise((resolve, reject) => {
         client.search({
             index: index,
-            body: {
-                query: {
-                    match: {
-                        _all: query
-                    }
-                }
-            }
+            type: 'house',
+            body: body
         }).then((res)=> {
-            var hit = _.toArray(res.hits.hits)[0];
-            resolve(new objectPrototype(hit._source));
+
+            var item;
+            if (getResults) {
+                item = getResults(res);
+            }
+
+
+            resolve(new objectPrototype(item));
         })
 
-    });
+    })
+
 }
 
 export function runQueryNoResult(qText, qVar) {

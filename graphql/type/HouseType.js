@@ -5,13 +5,6 @@ import NodeInterface from "../interface/NodeInterface";
 
 import House from '../../data/model/House';
 
-import CityType from './CityType';
-import TypeType from './TypeType';
-
-import {City_by_house} from '../../data/da_cassandra/City';
-
-import ZipType from './ZipType';
-import {Zip_by_house} from '../../data/da_cassandra/Zip';
 import {Type_get} from '../../data/da_cassandra/Type';
 
 export default new GraphQLObjectType({
