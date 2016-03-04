@@ -47,12 +47,11 @@ class CitiesSalePage extends React.Component {
     render() {
         let allCities = this.props.Viewer.Cities.edges;
         let cities = allCities.length;
-
         return (
             <div>
                 {this.pageHelmet()}
                 <h1> North Chicago Suburbs Houses for Sale </h1>
-                <CitiesList list={allCities} itemId="name" children="Houses"/>
+                {cities && <CitiesList list={allCities} itemId="name" children="Houses"/>}
             </div>
         );
     }

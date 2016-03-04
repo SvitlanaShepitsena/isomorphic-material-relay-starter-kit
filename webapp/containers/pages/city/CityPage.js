@@ -38,7 +38,7 @@ class CityPage extends React.Component {
         let zipsList = this.props.Viewer.City.Zips.edges;
         const zipsTitle = `${cityFormatted} Homes for Sale by Zip`
         return (
-            <ZipTypeList itemId="code" list={zipsList} children="Houses"
+            <ZipTypeList itemId="__dataID__" list={zipsList} children="Houses"
                          sectionTitle={zipsTitle}/>
         );
 
@@ -49,7 +49,7 @@ class CityPage extends React.Component {
         let typesList = this.props.Viewer.City.Types.edges;
         let typesTitle = `${cityFormatted} Homes for Sale by Property Type`;
         return (
-            <ZipTypeList itemId="type" list={typesList} children="Houses"
+            <ZipTypeList itemId="__dataID__" list={typesList} children="Houses"
                          sectionTitle={typesTitle}
             />
         );
@@ -83,6 +83,7 @@ class CityPage extends React.Component {
         let zipsList = this.props.Viewer.City.Zips.edges;
         let typesList = this.props.Viewer.City.Types.edges;
         let newHouses = this.props.Viewer.City.Houses;
+        console.log(typesList);
         let housesCount = this.props.Viewer.City.Houses_Count;
         let zips = zipsList.length;
         let types = typesList.length;
@@ -99,6 +100,7 @@ class CityPage extends React.Component {
 
         return (
             <div>
+                <span>CIty Page</span>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <h1> {pageTitle} </h1>
@@ -117,11 +119,12 @@ class CityPage extends React.Component {
     }
 };
 export default Relay.createContainer(CityPage, {
-    initialVariables: {city: ''},
+    initialVariables: {city: null},
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
                 City(city:$city){
+                    name
                     Houses_Count
                     Houses(first:2){
                         edges{
