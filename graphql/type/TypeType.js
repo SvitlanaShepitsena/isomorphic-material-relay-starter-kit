@@ -2,7 +2,7 @@ import {globalIdField, connectionArgs, connectionFromArray} from "graphql-relay"
 import {GraphQLInt, GraphQLString, GraphQLObjectType, GraphQLNonNull, GraphQLID} from "graphql";
 
 import NodeInterface from "../interface/NodeInterface";
-import {Houses_with_args} from '../../data/da_cassandra/House';
+import {Houses_with_args, Houses_with_args_count} from '../../data/da_cassandra/House';
 import HousesConnection from './HouseConnection';
 
 import Type from '../../data/model/Type';
@@ -34,7 +34,7 @@ export default new GraphQLObjectType({
 
             },
             resolve: (obj, args) => {
-                return Houses_with_args({...args,type: obj.id}).then((arr) => connectionFromArray(arr, args))
+                return Houses_with_args({type: obj.id[0]}).then((arr) => connectionFromArray(arr, args))
             }
 
         },
@@ -51,7 +51,10 @@ export default new GraphQLObjectType({
 
             },
             resolve: (obj, args) => {
-                return Houses_with_args({...args, type: obj.id}).then((arr) => arr.length);
+                args.type = obj.id;
+                console.log(args);
+
+                return Houses_with_args_count(args);
             }
         },
 

@@ -26,15 +26,18 @@ class ZipTypeList extends React.Component {
         let itemValue = item[itemId];
         let itemValueFormatted = urlToText(itemValue);
         let badgeValue = item[`${children}_Count`];
-        return (
-            <li className={styles.item} key={itemValue}>
-                <ButtonWithBadge
-                    btnLabel={itemValueFormatted}
-                    btnUrl={itemValue}
-                    badgeValue={badgeValue}
-                />
-            </li>
-        )
+        if (badgeValue) {
+
+            return (
+                <li className={styles.item} key={itemValue}>
+                    <ButtonWithBadge
+                        btnLabel={itemValueFormatted}
+                        btnUrl={itemValue}
+                        badgeValue={badgeValue}
+                    />
+                </li>
+            )
+        }
     };
 
     render() {

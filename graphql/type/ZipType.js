@@ -8,7 +8,7 @@ import Zip from '../../data/model/Zip';
 import CityType from './CityType';
 import {City_by_zip} from '../../data/da_cassandra/City';
 
-import {Houses_with_args} from '../../data/da_cassandra/House';
+import {Houses_with_args,Houses_with_args_count} from '../../data/da_cassandra/House';
 import {Types_with_args} from '../../data/da_cassandra/Type';
 
 import HousesConnection from './HouseConnection';
@@ -50,7 +50,7 @@ export default new GraphQLObjectType({
                     type: GraphQLString
                 },
             },
-            resolve: (obj, {...args}) => Houses_with_args(...args, {zip: obj.id}).then((arr) => arr.length)
+            resolve: (obj, {...args}) => Houses_with_args_count(...args, {zip: obj.id})
         },
         Types: {
             type: TypesConnection.connectionType,

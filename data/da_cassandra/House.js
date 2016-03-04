@@ -34,7 +34,7 @@ export function Houses_with_args_count(args) {
             }
         };
     }
-    if (args.city) {
+    if (args.city && !args.type) {
         body.query =
         {
             filtered: {
@@ -51,7 +51,100 @@ export function Houses_with_args_count(args) {
         }
 
     }
+    if (args.type && !args.city) {
+        body.query =
+        {
+            filtered: {
+                query: {
+                    match_all: {}
+                },
+                filter: {
+                    term: {
+                        type_id: args.type
 
+                    }
+                }
+            }
+        }
+
+    }
+    if (args.zip && !args.type) {
+        body.query =
+        {
+            filtered: {
+                query: {
+                    match_all: {}
+                },
+                filter: {
+                    term: {
+                        zip_id: args.zip
+
+                    }
+                }
+            }
+        }
+
+    }
+    if (args.zip && args.type) {
+        body.query =
+        {
+            filtered: {
+                query: {
+                    match_all: {}
+                },
+                filter: {
+                    and: [
+                        {
+                            term: {
+                                args_zip: args.city
+
+                            }
+                        },
+                        {
+                            term: {
+                                type_id: args.type
+
+                            }
+                        }
+
+                    ]
+                }
+            }
+        }
+
+    }
+    if (args.city && args.type) {
+        console.log('run here House.js');
+        console.log(args);
+        console.log('run here House.js');
+        body.query =
+        {
+            filtered: {
+                query: {
+                    match_all: {}
+                },
+                filter: {
+                    and: [
+                        {
+                            term: {
+                                city_id: args.city
+
+                            }
+                        },
+                        {
+                            term: {
+                                type_id: args.type
+
+                            }
+                        }
+
+                    ]
+                }
+            }
+        }
+
+    }
+    return runCountQuery('sale', body);
 }
 
 export function Houses_with_args(args, getResults) {
