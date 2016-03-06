@@ -60,9 +60,9 @@ export function runCountQuery(index, body, getResults) {
 
 
         } catch (e) {
-            console.log('ERROR!!!');
-            console.log(e.trace);
-            console.log('ERROR!!!');
+            
+            
+            
 
         }
 

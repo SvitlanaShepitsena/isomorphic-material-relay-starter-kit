@@ -28,7 +28,7 @@ export function Zips_with_args(args) {
                         zip: item.key,
                         count: item.doc_count
                     }
-                    console.log(objZip);
+                    
                     return objZip;
                 });
             }
@@ -61,7 +61,7 @@ export function Zips_with_args(args) {
                         zip: item.key,
                         count: item.doc_count
                     }
-                    console.log(objZip);
+                    
                     return objZip;
                 });
             }

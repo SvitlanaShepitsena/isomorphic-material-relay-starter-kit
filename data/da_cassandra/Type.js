@@ -30,7 +30,7 @@ export function Types_with_args(args) {
                         type: item.key,
                         count: item.doc_count
                     }
-                    console.log(objType);
+                    
                     return objType;
                 });
             }
@@ -58,18 +58,18 @@ export function Types_with_args(args) {
                 var Aggs = res.aggregations.types;
 
                 return _.compact(Aggs.buckets.map(item=> {
-                    console.log(item);
+
                     let objType = {
                         id: item.key,
                         type: item.key,
                         count: item.doc_count
                     }
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log(objType.count);
+
+
+
+
+
+
 
                     return objType.count>0?objType:null;
                 }));
@@ -80,8 +80,8 @@ export function Types_with_args(args) {
 
 
     if (args.zip) {
-        console.log('I am here');
-        console.log('I am here');
+
+
         body = {
             "query": {
                 "match": {
@@ -107,17 +107,17 @@ export function Types_with_args(args) {
                         type: item.key,
                         count: item.doc_count
                     }
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log(objType);
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
-                    console.log('run here Type.js');
+
+
+
+
+
+
+
+
+
+
+
                     // return objType;
                 });
             }

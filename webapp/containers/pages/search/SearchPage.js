@@ -68,7 +68,6 @@ class SearchPage extends React.Component {
         const houses = this.props.Viewer.Houses;
         const count = Number(this.props.Viewer.Houses_Count);
         let pathname = this.props.location.pathname;
-        console.log(count);
 
         return (
             <div>
@@ -87,7 +86,6 @@ export default Relay.createContainer(SearchPage, {
         if (!page || isNaN(page)) {
             page = 1;
         }
-        console.log(page);
         return {query, page}
     },
     fragments: {

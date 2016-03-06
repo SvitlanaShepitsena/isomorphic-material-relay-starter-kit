@@ -22,10 +22,7 @@ export function House_get(id) {
     }
     return runQueryOneResult(House,'sale',body,res=>{
 
-        var item =  res.hits.hits[0]._source;
-        console.log("ITEM IS" + item);
-
-        return item;
+        return res.hits.hits[0]._source;
 
     });
 
