@@ -64,7 +64,7 @@ class CityZipTypeHousesListPage extends React.Component {
 
     render() {
         let {routes, params}= this.props;
-        let houses = this.props.Viewer.Houses.edges;
+        let houses = this.props.Viewer.Houses;
         let houseCount = this.props.Viewer.Houses_Count;
         let {city, type} = this.props.params;
         let zip = this.zip;
@@ -95,7 +95,8 @@ export default Relay.createContainer(CityZipTypeHousesListPage, {
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                Houses(zip:$zip,type:$type, first:20){
+                Houses_Count(zip:$zip,type:$type)
+                Houses(zip:$zip,type:$type, first:100){
                     edges{
                         node{
                             id

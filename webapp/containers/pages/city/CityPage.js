@@ -90,13 +90,8 @@ class CityPage extends React.Component {
         let houses = newHouses.length;
         const cityFormatted = urlToText(this.props.params.city);
 
-        const pageTitle = `
-        Houses
-        for Sale in ${cityFormatted}`;
-        const allTitle = `All
-        ${cityFormatted}
-        homes
-        for sale(${housesCount})`;
+        const pageTitle = ` Houses for Sale in ${cityFormatted}`;
+        const allTitle = `All ${cityFormatted} homes for sale(${housesCount})`;
 
         return (
             <div>

@@ -40,16 +40,13 @@ export function runQuery(objectPrototype, index, body, getResults) {
 
 }
 export function runCountQuery(index, body, getResults) {
-    console.log(body);
     return new Promise((resolve, reject) => {
         try {
-            console.log('START QUERY');
         client.search({
             index: index,
             type: 'house',
             body: body
         }).then((res)=> {
-            console.log(res);
 
             var count;
             if (getResults) {
@@ -58,13 +55,14 @@ export function runCountQuery(index, body, getResults) {
                 count = res.hits.total;
 
             }
-            console.log(count);
             resolve(count)
         })
 
 
         } catch (e) {
+            console.log('ERROR!!!');
             console.log(e.trace);
+            console.log('ERROR!!!');
 
         }
 

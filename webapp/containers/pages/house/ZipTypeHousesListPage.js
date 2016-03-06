@@ -40,22 +40,28 @@ class ZipTypeHousesListPage extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        let query = nextProps.location.query;
-        this.nextPage = Number(query && query.page ? query.page : 1);
-        let after = query && query.after ? query.after : null;
-        let before = query && query.before ? query.before : null;
-
-        if (this.nextPage === 1 && (after || before)) {
-            browserHistory.replace(nextProps.location.pathname);
+        const currentPage = nextProps.location.query.page ? Number(nextProps.location.query.page) : 1;
+        if (nextProps.location.query.page && currentPage === 1) {
+            browserHistory.replace(this.props.location.pathname);
         }
+        var page = nextProps.location.query.page;
+        const nextPage = page ? Number(page) : 1;
+        if (nextPage !== this.state.page) {
+            this.setState({loading: true, page: nextPage}, ()=> {
 
-        if (this.nextPage !== this.currentPage) {
-            this.props.relay.setVariables({
-                after: after,
-                before: before
+                this.props.relay.setVariables({
+                    page: nextPage
+                }, state=> {
+                    if (state.done) {
+                        this.setState({loading: false})
+                    }
+                })
             });
+
         }
+
     }
+
 
     pageHelmet() {
         let {city, zipType} = this.props.params;
@@ -120,25 +126,17 @@ class ZipTypeHousesListPage extends React.Component {
 };
 
 export default Relay.createContainer(ZipTypeHousesListPage, {
-    initialVariables: {city: null, zipType: null, after: null, before: null, first: null, last: null},
-    prepareVariables({city, zipType, after:after, before:before, first:first, last:last}) {
-        var values = {city: zipType.match(/^\d+$/) ? null : city, zipType: zipType};
-        if (after || (!before && !after)) {
-            values.after = after;
-            values.first = true;
-            values.last = false;
+    initialVariables: {city: null, zipType: null,page:null},
+    prepareVariables({city, zipType,page}) {
+        if (!page || isNaN(page)) {
+            page = 1;
         }
-        if (before) {
-            values.before = before;
-            values.last = true;
-            values.first = false;
-        }
-
-        return values;
+        return {city,zipType, page}
     },
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
+                Houses_Count(city:$city,zip:$zipType)
                 Types(zip: $zipType, first:100) {
                     edges {
                         node {
@@ -147,16 +145,8 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         }
                     }
                 }
-                Houses_Count(city:$city,zip:$zipType)
-                Houses(city:$city,zip:$zipType,first:3,after:$after) @include(if:$first) {
-                    pageInfo{
-                        hasNextPage
-                        hasPreviousPage
-                        startCursor
-                        endCursor
-
-                    }
-                    edges{
+                Houses(city:$city,zip:$zipType,first:100,page:$page) {
+                   edges{
                         cursor
                         node{
                             id
@@ -173,31 +163,7 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         }
                     }
                 }
-                Houses(city:$city,zip:$zipType,last:3,before:$before) @skip(if:$first) {
-                    pageInfo{
-                        hasNextPage
-                        hasPreviousPage
-                        startCursor
-                        endCursor
-
-                    }
-                    edges{
-                        cursor
-                        node{
-                            id
-                            city
-                            zip
-                            type
-                            price
-                            built
-                            street
-                            beds
-                            description
-                            mls
-                            image
-                        }
-                    }
-                }
+               
             }
         `,
     },

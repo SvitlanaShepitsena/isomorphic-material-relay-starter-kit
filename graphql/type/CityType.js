@@ -22,7 +22,7 @@ export default new GraphQLObjectType({
     fields: () => ({
         id: {
             type: new GraphQLNonNull(GraphQLID),
-            resolve: (obj) => obj.id[0]
+            resolve: (obj) => obj.id
         },
         name: {
             type: GraphQLString,

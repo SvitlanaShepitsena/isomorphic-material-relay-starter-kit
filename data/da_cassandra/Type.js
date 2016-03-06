@@ -4,6 +4,7 @@ import Type from '../model/Type'
 import _ from 'lodash';
 
 export function Types_with_args(args) {
+
     var body;
 
     if (!(args.city && args.zip)) {
@@ -36,7 +37,7 @@ export function Types_with_args(args) {
         );
     }
 
-    if (args.city) {
+    if (args.city && !args.zip) {
         body = {
             "query": {
                 "match": {
@@ -79,6 +80,8 @@ export function Types_with_args(args) {
 
 
     if (args.zip) {
+        console.log('I am here');
+        console.log('I am here');
         body = {
             "query": {
                 "match": {
@@ -104,8 +107,18 @@ export function Types_with_args(args) {
                         type: item.key,
                         count: item.doc_count
                     }
+                    console.log('run here Type.js');
+                    console.log('run here Type.js');
+                    console.log('run here Type.js');
+                    console.log('run here Type.js');
+                    console.log('run here Type.js');
                     console.log(objType);
-                    return objType;
+                    console.log('run here Type.js');
+                    console.log('run here Type.js');
+                    console.log('run here Type.js');
+                    console.log('run here Type.js');
+                    console.log('run here Type.js');
+                    // return objType;
                 });
             }
         );
