@@ -19,8 +19,8 @@ class CityThumbPicture extends React.Component {
         let {cityName} = this.props;
         var {houseDefault, cloudinaryPath} = settings;
         const imgPath = `${cloudinaryPath}${cityName}1.jpg `;
-        let cityFormatted = urlToText(cityName);
         const cityImage = cityName ? imgPath : houseDefault;
+        let cityFormatted = urlToText(cityName);
         return (
             <CardMedia overlay={<CardTitle className={styles.cityName}  subtitle={cityFormatted} />}>
                 <img src={cityImage}/>

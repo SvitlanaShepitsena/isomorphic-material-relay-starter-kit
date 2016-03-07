@@ -104,6 +104,11 @@
       "article": "AboutContent__article__DuU",
       "_style": ".AboutContent__article__DuU p {\n  font-size: 18px !important;\n  line-height: 28px;\n}\n"
     },
+    "./webapp/components/Common/ContactCard/ContactCard.less": {
+      "fb": "ContactCard__fb__3Uh",
+      "container": "ContactCard__container__3Fw",
+      "_style": ".ContactCard__fb__3Uh {\n  height: 30px;\n  width: 130px;\n  background-color: #bf616a;\n  font-family: FontAwesome;\n  content: '\\F030';\n  color: black;\n}\n.ContactCard__container__3Fw {\n  background-color: #0D47A1;\n}\n"
+    },
     "./webapp/components/PhotoGallery/PhotoGallery.less": {
       "appRow": "PhotoGallery__appRow__3Bj",
       "contentRow": "PhotoGallery__contentRow__1_c",

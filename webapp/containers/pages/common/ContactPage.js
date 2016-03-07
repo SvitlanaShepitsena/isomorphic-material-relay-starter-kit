@@ -4,6 +4,7 @@ import settings from '../../../settings/settings.js';
 /*=Components*/
 import ContactForm from '../../../components/AppViews/Contact/ContactForm.js';
 import ContactCard from '../../../components/Common/ContactCard/ContactCard.js';
+import ContactMap from '../../../components/ContactMap/ContactMap.js';
 
 class ContactPage extends React.Component {
     pageHelmet() {
@@ -34,6 +35,8 @@ class ContactPage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <ContactCard/>
+                <br/>
+                <ContactMap/>
 
                 {/*                <ContactForm/>*/}
             </div>
