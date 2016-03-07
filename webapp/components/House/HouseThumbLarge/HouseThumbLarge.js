@@ -24,9 +24,9 @@ class HouseThumbLarge extends React.Component {
 
         let {house} = this.props;
         var {baths, beds, mls, price, street, built} = house;
-        var city = house.city.name;
-        var zip = house.zip.code;
-        var type = house.type.type;
+        var city = house.city;
+        var zip = house.zip;
+        var type = house.type;
 
         /*Formatter*/
         var year = getYear(built);
