@@ -28,9 +28,9 @@ class HousePage extends React.Component {
         let house = this.props.Viewer.House;
         let {mls, street} = house;
         let houseDescription = house.description;
-        let city = house.city.name;
-        let zip = house.zip.code;
-        var type = house.type.type;
+        let city = house.city;
+        let zip = house.zip;
+        var type = house.type;
         /*Formatter*/
         const cityFormatted = urlToText(city);
         const streetFormatted = urlToText(street);

@@ -21,9 +21,9 @@ class HouseThumbInline extends React.Component {
         let {house} = this.props;
         var {mls, street} = house;
         var image = cloudinaryPath + house.id + '-photo-1.jpg';
-        var city = house.city.name;
-        var zip = house.zip.code;
-        var type = house.type.type;
+        var city = house.city;
+        var zip = house.zip;
+        var type = house.type;
         /*Formatter*/
         const cityFormatted = urlToText(city);
         const streetFormatted = urlToText(street);
@@ -45,9 +45,9 @@ class HouseThumbInline extends React.Component {
     showInfo() {
         let {house} = this.props;
         var {baths, beds, mls, price, street, built} = house;
-        var city = house.city.name;
-        var zip = house.zip.code;
-        var type = house.type.type;
+        var city = house.city;
+        var zip = house.zip;
+        var type = house.type;
         /*Formatter*/
         let cityFormatted = urlToText(city);
         let priceFormatted = textToPrice(price);
