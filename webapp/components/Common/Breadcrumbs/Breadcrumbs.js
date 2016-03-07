@@ -33,18 +33,19 @@ class Breadcrumbs extends React.Component {
                                 break;
                             case 'zipType':
                                 if (digits) {
-                                    compoundAnchors += ` at ${anchor}`;
+                                    if (!params.type) {
+                                        compoundAnchors += ` at ${anchor}`;
+                                    } else{
+                                        // debugger;
+                                        // compoundAnchors=compoundAnchors.replace('Houses', _.startCase(params.type));
+                                    }
                                 } else {
-                                    replaceHouses;
-                                }
-                                break;
-                            case 'zip':
-                                if (digits) {
-                                    compoundAnchors += ` at ${anchor}`;
+                                    compoundAnchors= replaceHouses;
                                 }
                                 break;
                             case 'type':
-                                replaceHouses;
+                                debugger;
+                                compoundAnchors= replaceHouses;
                                 break;
                             case 'id':
                                 compoundAnchors = ` ${anchor}`;
