@@ -7,10 +7,22 @@ import CitiesList from '../../../components/City/CitiesList/CitiesList.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 class CitiesSalePage extends React.Component {
+    state = {loaded: false};
+
     componentDidMount() {
+        this.props.relay.forceFetch();
+
         this.props.relay.setVariables({
             first: 100
+        }, (state)=> {
+            if (state.done) {
+                this.setState({loaded: true})
+            }
         });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
     }
 
     getChildContext() {
@@ -52,11 +64,13 @@ class CitiesSalePage extends React.Component {
 
     render() {
         let allCities = this.props.Viewer.Cities.edges;
+        let cities = allCities.length;
+        console.log(cities);
         return (
             <div>
                 {this.pageHelmet()}
                 <h1> North Chicago Suburbs Houses for Sale </h1>
-                {allCities && <CitiesList list={allCities} itemId="name" children="Houses"/>}
+                {this.state.loaded && <CitiesList list={allCities} itemId="name" children="Houses"/>}
             </div>
         );
     }
@@ -71,6 +85,7 @@ export default Relay.createContainer(CitiesSalePage, {
                 Cities(first:$first) {
                     edges{
                         node{
+                            id
                             name,
                             count
                         }
