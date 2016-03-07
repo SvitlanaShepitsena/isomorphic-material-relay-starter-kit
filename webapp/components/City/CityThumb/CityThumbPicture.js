@@ -7,8 +7,11 @@ import Card from 'material-ui/lib/card/card';
 import CardMedia from 'material-ui/lib/card/card-media';
 import CardTitle from 'material-ui/lib/card/card-title';
 /*=styles*/
-import styles from './CityThumbPicture.less';
+// import styles from './CityThumbPicture.less';
 
+if (process.env.BROWSER) {
+    require('./CityThumbPicture.less');
+}
 class CityThumbPicture extends React.Component {
     static propTypes = {
         cityName: PropTypes.string.isRequired,

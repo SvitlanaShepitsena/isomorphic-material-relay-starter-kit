@@ -21,7 +21,7 @@ const isoVars = JSON.stringify(isomorphicVars());
 
 // Create a queue for isomorphic loading of pasges, because the GrapQL network layer
 var prod = process.env.NODE_ENV === 'production';
-// is a static
+// // is a static
 const queue = seqqueue.createQueue(2000);
 
 // Render on server will assume always that it can use localhost to access the GraphQL server. It is
@@ -29,13 +29,18 @@ const queue = seqqueue.createQueue(2000);
 const GRAPHQL_URL = ( isoVars.public_url == null ) ? `http://localhost:${process.env.PORT}/graphql` : isoVars.public_url + '/graphql';
 
 export default (req, res, next, assetsPath) => {
+    var headers = {};
 
     if (prod) {
+        // webpack_isomorphic_tools.refresh();
+        console.log('yes production');
 
-        webpack_isomorphic_tools.refresh();
-        const headers = {};
         if (req.cookies.auth_token)
             headers.Cookie = 'auth_token=' + req.cookies.auth_token;
+    } else{
+        webpack_isomorphic_tools.refresh();
+        console.log('no production');
+
     }
     match({routes, location: req.originalUrl}, (error, redirectLocation, renderProps) => {
             if (prod) {

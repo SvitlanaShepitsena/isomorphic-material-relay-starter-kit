@@ -5,8 +5,10 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import Next from 'material-ui/lib/svg-icons/navigation/chevron-right';
 import Previous from 'material-ui/lib/svg-icons/navigation/chevron-left';
 /*=styles*/
-import styles from './Pagination.less';
-
+// import styles from './Pagination.less';
+if (process.env.BROWSER) {
+    require('./Pagination.less');
+}
 class Pagination extends React.Component {
     static contextTypes = {location: PropTypes.object.isRequired};
     static propTypes = {

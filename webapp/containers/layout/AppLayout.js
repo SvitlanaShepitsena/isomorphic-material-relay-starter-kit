@@ -15,7 +15,11 @@ import ContactForm from '../../components/AppViews/Contact/ContactForm.js';
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import MyRawTheme from '../../settings/AppMuiTheme.js';
-import styles from './AppLayout.less';
+/*=styles*/
+// import styles from './AppLayout.less';
+if (process.env.BROWSER) {
+    var styles = require('./AppLayout.less');
+}
 
 class AppLayout extends React.Component {
     getChildContext() {
@@ -40,6 +44,7 @@ class AppLayout extends React.Component {
     }
 
     appContent() {
+        var styles = require('./AppLayout.less');
         let {children} = this.props;
         let {pathname} = this.props.location;
         let homeRoute = pathname == '/';

@@ -6,8 +6,10 @@ import CityThumbPicture from '../CityThumb/CityThumbPicture.js';
 /*=components*/
 import SvLink from '../../Common/SvLink/SvLink.js';
 /*=styles*/
-import styles from './CitiesList.less';
-
+// import styles from './CitiesList.less';
+if (process.env.BROWSER) {
+    require('./CitiesList.less');
+}
 class CitiesList extends React.Component {
 
     static propTypes = {

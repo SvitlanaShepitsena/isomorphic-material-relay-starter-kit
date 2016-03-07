@@ -9,7 +9,9 @@ import AppMenu from './../AppMenu/AppMenu.js';
 import settings from '../../../settings/settings.js';
 
 /*=styles*/
-import styles from './AppHeader.less'
+// import styles from './AppHeader.less'
+
+
 
 class AppHeader extends React.Component {
     static propTypes = {
@@ -17,6 +19,7 @@ class AppHeader extends React.Component {
     };
 
     render() {
+        var styles = require('./AppHeader.less');
         const {onTouchTap} = this.props;
         return (
             <AppBar className={styles.container}

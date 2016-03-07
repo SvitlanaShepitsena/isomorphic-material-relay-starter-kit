@@ -2,7 +2,7 @@ import React from 'react'
 
 export default {
     companyName: "Re/Max 1st Class",
-    companyLogo: "http://localhost:8050/public/img/remax-logo.png",
+    companyLogo: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
     companyAddress: "4023 W. Church St.",
     companyCity: "Skokie",
     companyState: "IL",

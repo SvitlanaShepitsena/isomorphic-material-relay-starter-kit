@@ -5,8 +5,11 @@ import getYear from '../../../utils/getYear';
 
 import Card from 'material-ui/lib/card/card';
 import PhotoGallery from '../../PhotoGallery/PhotoGallery.js';
-import styles from './HouseInfo.less';
-
+/*=styles*/
+// import styles from './HouseInfo.less';
+if (process.env.BROWSER) {
+    require('./HouseInfo.less');
+}
 class HouseInfo extends React.Component {
     static propTypes = {
         house: PropTypes.object.isRequired

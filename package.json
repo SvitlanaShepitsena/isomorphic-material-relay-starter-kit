@@ -48,7 +48,7 @@
     "config-da-cassandra": "./node_modules/.bin/replace da_memory da_cassandra ./data/da/*",
     "start-webpack": "better-npm-run start-webpack",
     "start-dev": "better-npm-run start-dev",
-    "start": "set NODE_ENV=production&&babel-node ./server/server.js",
+    "start": "set NODE_ENV=production&&babel-node ./server/main.js",
     "dev": "concurrent --kill-others \"npm run start-webpack\" \"npm run start-dev\""
   },
   "betterScripts": {

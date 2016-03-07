@@ -3,8 +3,11 @@ import React, {PropTypes} from 'react';
 /*=components*/
 import CitiesList from '../City/CitiesList/CitiesList.js';
 /*=styles*/
-import styles from './HomeCities.less';
+// import styles from './HomeCities.less';
 
+if (process.env.BROWSER) {
+    require('./HomeCities.less');
+}
 class HomeCities extends React.Component {
 
     render() {

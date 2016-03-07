@@ -1,5 +1,8 @@
 import React, {PropTypes} from 'react';
-import styles from './ImageBackground.less';
+// import styles from './ImageBackground.less';
+if (process.env.BROWSER) {
+    require('./ImageBackground.less');
+}
 
 class ImageBackground extends React.Component {
     static propTypes = {

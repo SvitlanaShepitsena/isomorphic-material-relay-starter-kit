@@ -9,7 +9,10 @@ import Card from 'material-ui/lib/card/card';
 import ImageBackground from '../../Common/ImageBackground/ImageBackground.js';
 
 /*=styles*/
-import styles from './HouseThumbInline.less';
+// import styles from './HouseThumbInline.less';
+if (process.env.BROWSER) {
+    require('./HouseThumbInline.less');
+}
 
 class HouseThumbInline extends React.Component {
     static propTypes = {

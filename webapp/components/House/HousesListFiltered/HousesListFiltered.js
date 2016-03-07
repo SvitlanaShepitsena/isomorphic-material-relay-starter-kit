@@ -3,8 +3,11 @@ import React, {PropTypes} from 'react';
 /*Components*/
 import HouseThumbLarge from '../HouseThumbLarge/HouseThumbLarge';
 import SvLink from './../../Common/SvLink/SvLink';
-
-import styles from './HousesListFiltered.less';
+/*=styles*/
+// import styles from './HousesListFiltered.less';
+if (process.env.BROWSER) {
+    require('./HousesListFiltered.less');
+}
 
 class HousesListFiltered extends React.Component {
     static propTypes = {

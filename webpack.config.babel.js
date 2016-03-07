@@ -25,7 +25,7 @@ let config = {
             {test: /\.json$/, loaders: ['json']},
             {
                 test: /\.less$/,
-                loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:3]!postcss!less',
+                loader: ExtractTextPlugin.extract("style-loader", 'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:3]!postcss!less')
             },
         ]
     },
@@ -37,7 +37,7 @@ let config = {
     ],
 
     plugins: [
-        new ExtractTextPlugin('[name].css', {allChunks: true}),
+        new ExtractTextPlugin('[name].css'),
         new webpack.NoErrorsPlugin(),
         new webpack.EnvironmentPlugin(Object.keys(process.env)),
         new webpack.DefinePlugin({
@@ -56,7 +56,7 @@ let config = {
         aggregateTimeout: 90,
         poll: 250
     },
-    devtool: 'source-map'
+    devtool: process.env.NODE_ENV == 'development' ? 'source-map' : null
 };
 
 export default config;
