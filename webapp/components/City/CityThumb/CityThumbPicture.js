@@ -17,11 +17,13 @@ class CityThumbPicture extends React.Component {
 
     cityBackground() {
         let {cityName} = this.props;
-        const imgPath = `${settings.cloudinaryPath}${cityName}1.jpg`;
+        var {houseDefault, cloudinaryPath} = settings;
+        const imgPath = `${cloudinaryPath}${cityName}1.jpg `;
         let cityFormatted = urlToText(cityName);
+        const cityImage = cityName ? imgPath : houseDefault;
         return (
             <CardMedia overlay={<CardTitle className={styles.cityName}  subtitle={cityFormatted} />}>
-                <img src={imgPath}/>
+                <img src={cityImage}/>
             </CardMedia>
         );
     }
