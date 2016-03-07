@@ -17,9 +17,7 @@ import HouseType from './HouseType';
 import CityType from './CityType';
 
 import User from '../../data/model/User';
-import {Uuid} from '../../data/da_cassandra/_client.js';
 
-const Uuid_0 = Uuid.fromString('00000000-0000-0000-0000-000000000000');
 
 export default new GraphQLObjectType({
     name: 'Viewer',
@@ -30,11 +28,7 @@ export default new GraphQLObjectType({
 
         // ->->-> User properties
 
-        User_IsAnonymous: {type: GraphQLBoolean, resolve: (obj) => obj.id.equals(Uuid_0)},
-        User_DisplayName: {type: GraphQLString, resolve: (obj) => obj.User_DisplayName},
-        User_ProfilePhoto: {type: GraphQLString, resolve: (obj) => obj.User_ProfilePhoto},
-        User_Email: {type: GraphQLString, resolve: (obj) => obj.User_Email},
-        User_Locale: {type: GraphQLString, resolve: (obj) => obj.User_Locale},
+       
 
         Houses: {
             type: HousesConnection.connectionType,

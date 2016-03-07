@@ -10,43 +10,39 @@ import webapp from '../webapp/server'; // React server
 import schema from '../graphql/schema'; // Schema for GraphQL server
 
 // Read environment
-require( 'dotenv' ).load( );
+require('dotenv').load();
 
-console.log( chalk.blue( '----------------------------------------------------------------------------------------------------' ) );
-console.log( 'Application ' + chalk.bold.magenta( process.env.npm_package_name ) + ' version ' + chalk.bold.magenta( process.env.npm_package_version ) + ' running in ' + chalk.bold.magenta( process.env.NODE_ENV ) );
-console.log( 'Serving at ' + chalk.bold.magenta( process.env.HOST ) + ':' + chalk.bold.magenta( process.env.PORT ) + ', public url: ' + chalk.bold.magenta( process.env.PUBLIC_URL ) );
-console.log( 'Cassandra keyspace ' + chalk.bold.magenta( process.env.CASSANDRA_KEYSPACE ) + ', connection points ' + chalk.bold.magenta( JSON.stringify( process.env.CASSANDRA_CONNECTION_POINTS.split( ',' ) ) ) );
-console.log( chalk.blue( '----------------------------------------------------------------------------------------------------' ) );
+console.log(chalk.blue('----------------------------------------------------------------------------------------------------'));
+console.log('Application ' + chalk.bold.magenta(process.env.npm_package_name) + ' version ' + chalk.bold.magenta(process.env.npm_package_version) + ' running in ' + chalk.bold.magenta(process.env.NODE_ENV));
+console.log(chalk.blue('----------------------------------------------------------------------------------------------------'));
 
-let router = express( );
+let router = express();
 
-router.set( 'trust proxy', 'loopback' );
-router.set( 'x-powered-by', false );
+router.set('trust proxy', 'loopback');
+router.set('x-powered-by', false);
 
-router.use( compression( ) );
-router.use( cookieParser( ) );
+router.use(compression());
+router.use(cookieParser());
 
 // Graphql server
-router.use( '/graphql', graphQLHTTP( request => {
-  let user_id = '00000000-0000-0000-0000-000000000000'; // Anonymous
+router.use('/graphql', graphQLHTTP(request => {
+    let user_id = '00000000-0000-0000-0000-000000000000'; // Anonymous
 
-
-  return( {
-    schema: schema,
-    rootValue: { user_id: user_id },
-    pretty: true,
-    graphiql:true
-  } )
-} ) );
-
+    return ( {
+        schema: schema,
+        rootValue: {user_id: user_id},
+        pretty: true,
+        graphiql: true
+    } )
+}));
 
 // Static assets server
-let oneYear = 365*86400000;
-router.use( express.static( path.resolve( __dirname + '/../public/' ), { maxAge: oneYear } ) );
+let oneYear = 365 * 86400000;
+router.use(express.static(path.resolve(__dirname + '/../public/'), {maxAge: oneYear}));
 
 // Application with routes
-router.use( '/*', webapp );
+router.use('/*', webapp);
 
-let server = router.listen( process.env.PORT, process.env.HOST );
+let server = router.listen(process.env.NODE_ENV === 'production' ? 80 : 4444);
 
 export default server;
