@@ -5,7 +5,7 @@ import Relay from 'react-relay';
 
 // Router
 import {RelayRouter} from 'react-router-relay';
-import {Route, browserHistory, Redirect, IndexRedirect} from 'react-router';
+import {Route, IndexRoute, browserHistory, Redirect, IndexRedirect} from 'react-router';
 
 import AppLayout from './containers/layout/AppLayout.js';
 import ViewerQueries from './queries/ViewerQueries';
@@ -27,8 +27,8 @@ import SearchPage from './containers/pages/search/SearchPage';
 
 export default (()=> {
     return (
-        <Route component={AppLayout} queries={ViewerQueries} name="App">
-            <Route path="/" component={HomePage} queries={ViewerQueries} name="Home"/>
+        <Route path="/" component={AppLayout} queries={ViewerQueries} name="App">
+            <IndexRoute component={HomePage} queries={ViewerQueries} name="Home"/>
 
             <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries} name="Chicago North Suburbs Houses for Sale"/>
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
