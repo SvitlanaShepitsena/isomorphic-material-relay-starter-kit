@@ -37,7 +37,7 @@ export default (req, res, next, assetsPath) => {
 
         if (req.cookies.auth_token)
             headers.Cookie = 'auth_token=' + req.cookies.auth_token;
-    } else{
+    } else {
         webpack_isomorphic_tools.refresh();
         console.log('no production');
 
