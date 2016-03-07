@@ -2,7 +2,8 @@ import React from 'react'
 
 export default {
     companyName: "Re/Max 1st Class",
-    companyLogo: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
+    companyLogo: "http://res.cloudinary.com/svitlana/image/upload/v1457383877/remax-logo-md.png",
+    companyLogoLarge: "http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png",
     companyAddress: "4023 W. Church St.",
     companyCity: "Skokie",
     companyState: "IL",
@@ -11,7 +12,6 @@ export default {
     companyFax: "(847) 674-0411",
     cloudinaryPath: "http://res.cloudinary.com/remax1stclass/image/upload/",
     houseDefault: "http://res.cloudinary.com/svitlana/image/upload/house-picture-icon_og71rx.png",
-    companyLogoLarge: "http://res.cloudinary.com/svitlana/image/upload/v1453490978/remax-1st-class-logo_gjc14e.png",
     companySlogan: "You Need Only One Company For All Your Real Estate Needs",
     links: {
         twitter: "https://twitter.com/remaxfirstclass",
