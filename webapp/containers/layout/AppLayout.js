@@ -55,7 +55,7 @@ class AppLayout extends React.Component {
                         {children}
                     </div>
                     <div className={styles.asideContent}>
-                        {cityRoute && <ContactForm/>}
+                        {/*                        {cityRoute && <ContactForm/>}*/}
                     </div>
                 </section>
                 }
