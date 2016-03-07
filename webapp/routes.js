@@ -10,7 +10,7 @@ import {Route, IndexRoute, browserHistory, Redirect, IndexRedirect} from 'react-
 import AppLayout from './containers/layout/AppLayout.js';
 import ViewerQueries from './queries/ViewerQueries';
 /*=common*/
-import HomePage from './containers/pages/common/HomePage';
+import HomePage from './containers/pages/common/HomePage/HomePage';
 import AboutPage from './containers/pages/common/AboutPage';
 import ContactPage from './containers/pages/common/ContactPage';
 import PrivacyPage from './containers/pages/common/PrivacyPage';
