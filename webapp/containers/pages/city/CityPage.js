@@ -47,7 +47,7 @@ class CityPage extends React.Component {
     showByType() {
         const cityFormatted = urlToText(this.props.params.city);
         let typesList = this.props.Viewer.City.Types.edges;
-        console.log(typesList);
+        
         let typesTitle = `${cityFormatted} Homes for Sale by Property Type`;
         return (
             <ZipTypeList itemId="__dataID__" list={typesList} children="Houses"

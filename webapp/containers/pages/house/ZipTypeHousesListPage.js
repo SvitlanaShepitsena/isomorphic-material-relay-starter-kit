@@ -5,7 +5,7 @@ import settings from '../../../settings/settings.js';
 import urlToText from '../../../utils/urlToText.js';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
-
+import _ from "lodash";
 /*Components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
@@ -61,7 +61,6 @@ class ZipTypeHousesListPage extends React.Component {
         }
 
     }
-
 
     pageHelmet() {
         let {city, zipType} = this.props.params;
@@ -126,12 +125,20 @@ class ZipTypeHousesListPage extends React.Component {
 };
 
 export default Relay.createContainer(ZipTypeHousesListPage, {
-    initialVariables: {city: null, zipType: null,page:null},
-    prepareVariables({city, zipType,page}) {
+    initialVariables: {city: null, zipType: null, page: null},
+    prepareVariables({city, zipType, page}) {
         if (!page || isNaN(page)) {
             page = 1;
         }
-        return {city,zipType, page}
+
+        console.log(zipType);
+
+        if (_.last(zipType) === 's') {
+            zipType = zipType.substr(0, zipType.length-1);
+            console.log(zipType);
+        }
+
+        return {city, zipType, page}
     },
     fragments: {
         Viewer: () => Relay.QL`
@@ -146,7 +153,7 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                     }
                 }
                 Houses(city:$city,zip:$zipType,first:100,page:$page) {
-                   edges{
+                    edges{
                         cursor
                         node{
                             id
@@ -163,7 +170,7 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         }
                     }
                 }
-               
+
             }
         `,
     },

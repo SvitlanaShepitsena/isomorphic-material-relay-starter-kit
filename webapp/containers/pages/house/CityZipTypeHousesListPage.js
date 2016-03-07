@@ -8,6 +8,7 @@ import settings from '../../../settings/settings.js';
 /*Components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
+import _ from "lodash";
 
 class CityZipTypeHousesListPage extends React.Component {
     state = {compare: true};
@@ -92,6 +93,13 @@ class CityZipTypeHousesListPage extends React.Component {
 ;
 export default Relay.createContainer(CityZipTypeHousesListPage, {
     initialVariables: {city: '', zip: '', type: ''},
+    prepareVariables({city, zip, type}) {
+        if (_.last(type)==='s') {
+            type = type.substr(0, type.length-1);
+        }
+        console.log(type);
+        return {city, zip, type}
+    },
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {

@@ -23,7 +23,10 @@ class Breadcrumbs extends React.Component {
                     if (path.match('^:')) {
                         paramName = path.substr(1);
                         url = params[paramName];
-                        const anchor = _.startCase(url);
+                        let anchor = _.startCase(url);
+                        if (_.last(anchor !== 's')) {
+                            anchor+='s'
+                        }
                         const digits = url.match(/^\d+$/g);
                         const replaceHouses = compoundAnchors.replace('Houses', anchor);
 
@@ -33,12 +36,8 @@ class Breadcrumbs extends React.Component {
                                 break;
                             case 'zipType':
                                 if (digits) {
-                                    if (!params.type) {
-                                        compoundAnchors += ` at ${anchor}`;
-                                    } else {
-                                        // debugger;
-                                        // compoundAnchors=compoundAnchors.replace('Houses', _.startCase(params.type));
-                                    }
+                                    compoundAnchors += ` at ${anchor}`;
+
                                 } else {
                                     compoundAnchors = replaceHouses;
                                 }

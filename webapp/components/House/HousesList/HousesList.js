@@ -20,7 +20,7 @@ class HousesList extends React.Component {
         let house = edge.node;
         let itemKey = house.id;
         let city = house.city;
-        let type = house.type;
+        let type = house.type+'s';
         let zip = house.zip;
         let houseInlineUrl = `/houses-for-sale/${city}/${zip}/${type}/${house.id}`;
         return (
@@ -34,8 +34,6 @@ class HousesList extends React.Component {
 
     render() {
         const {list, count, limit} = this.props;
-        const lastCursor = _.last(list.edges).cursor;
-        const firstCursor = _.first(list.edges).cursor;
         const lastPage = Math.floor(count / limit) + ((count % limit > 0) ? 1 : 0);
         const housesList = this.props.list.edges;
 

@@ -32,14 +32,11 @@ export default (req, res, next, assetsPath) => {
     var headers = {};
 
     if (prod) {
-        // webpack_isomorphic_tools.refresh();
-        console.log('yes production');
 
         if (req.cookies.auth_token)
             headers.Cookie = 'auth_token=' + req.cookies.auth_token;
     } else {
         webpack_isomorphic_tools.refresh();
-        console.log('no production');
 
     }
     match({routes, location: req.originalUrl}, (error, redirectLocation, renderProps) => {
@@ -88,6 +85,19 @@ export default (req, res, next, assetsPath) => {
                         }
                     }, () => 2000);
             } else {
+
+                var assets = webpack_isomorphic_tools.assets().assets;
+
+                var allStyles = Object.keys(assets).map((key)=> {
+
+                    var file = assets[key];
+                    var oneFile = Object.keys(file).map(css=> {
+                        return `${css}:${file[css]}`;
+                    }).join(',');
+                    return oneFile;
+                }).join('');
+
+                fs.writeFileSync(path.resolve(__dirname, '..', 'public/assets/0.7.7', 'app.css'), allStyles);
                 res.render(path.resolve(__dirname, '..', 'webapp/views', 'index-dev.ejs'), {
                     // preloadedData: JSON.stringify(data),
                     assetsPath: assetsPath,
