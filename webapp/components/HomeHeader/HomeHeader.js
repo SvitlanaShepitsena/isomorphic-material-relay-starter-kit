@@ -5,10 +5,8 @@ import settings from '../../settings/settings.js';
 import Search from '../../components/Search/SearchFormSimple.js';
 
 /*=styles*/
-// import styles from './HomeHeader.less';
-if (process.env.BROWSER) {
-    require('./HomeHeader.less');
-}
+import styles from './HomeHeader.less';
+
 class HomeHeader extends React.Component {
     showLogo() {
         return (

@@ -5,11 +5,7 @@ import SelectField from 'material-ui/lib/select-field';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 
 /*styles*/
-// import styles from './SelectMenu.less';
-
-if (process.env.BROWSER) {
-    require('./SelectMenu.less');
-}
+import styles from './SelectMenu.less';
 class SelectMenu extends React.Component {
     static propTypes = {
         labelText: PropTypes.string.isRequired,

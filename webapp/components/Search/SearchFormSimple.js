@@ -5,11 +5,8 @@ import ReactDOM from 'react-dom';
 /*MaterialUI*/
 import RaisedButton from '../../../node_modules/material-ui/lib/raised-button';
 import AutoComplete from '../../../node_modules/material-ui/lib/auto-complete';
-/*=styles*/
-// import styles from './SearchFormSimple.less';
-if (process.env.BROWSER) {
-    require('./SearchFormSimple.less');
-}
+import styles from './SearchFormSimple.less';
+
 import {browserHistory} from 'react-router'
 
 class SearchFormSimple extends Component {

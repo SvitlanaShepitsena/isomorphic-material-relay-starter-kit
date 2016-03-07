@@ -3,11 +3,8 @@ import RaisedButton from 'material-ui/lib/raised-button';
 
 /*Components*/
 import SvLink from './../../Common/SvLink/SvLink';
-/*=styles*/
-// import styles from './ButtonAll.less';
-if (process.env.BROWSER) {
-    require('./ButtonAll.less');
-}
+
+import styles from './ButtonAll.less';
 
 class ButtonAll extends React.Component {
     static propTypes = {

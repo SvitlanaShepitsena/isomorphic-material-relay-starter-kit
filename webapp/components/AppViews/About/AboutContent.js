@@ -1,10 +1,5 @@
 import React from 'react';
-/*=styles*/
-// import styles from './AboutContent.less';
-if (process.env.BROWSER) {
-    require('./AboutContent.less');
-}
-
+import styles from './AboutContent.less';
 
 class AboutContent extends React.Component {
 

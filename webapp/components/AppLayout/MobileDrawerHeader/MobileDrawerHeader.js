@@ -9,10 +9,8 @@ import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 import settings from '../../../settings/settings.js';
 
 /*=styles*/
-// import styles from './MobileDrawerHeader.less';
-if (process.env.BROWSER) {
-    require('./MobileDrawerHeader.less');
-}
+import styles from './MobileDrawerHeader.less';
+
 class MobileDrawerHeader extends React.Component {
     static propTypes = {
         onTouchTap: PropTypes.func.isRequired

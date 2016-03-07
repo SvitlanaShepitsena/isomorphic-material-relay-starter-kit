@@ -4,11 +4,9 @@ import {Link} from 'react-router';
 import HouseThumbInline from '../HouseThumbInline/HouseThumbInline';
 import Pagination from '../../Pagination/Pagination.js';
 import _ from 'lodash';
-/*=styles*/
-// import styles from './HousesList.less';
-if (process.env.BROWSER) {
-    require('./HousesList.less');
-}
+
+import styles from './HousesList.less';
+
 class HousesList extends React.Component {
     static propTypes = {
         list: PropTypes.object.isRequired,

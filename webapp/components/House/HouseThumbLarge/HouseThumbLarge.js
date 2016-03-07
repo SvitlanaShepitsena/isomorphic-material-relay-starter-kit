@@ -11,12 +11,9 @@ import CardTitle from 'material-ui/lib/card/card-title';
 
 /*=components*/
 import ImageBackground from '../../Common/ImageBackground/ImageBackground.js';
+import styles from './HouseThumbLarge.less';
 import settings from '../../../settings/settings.js';
-/*=styles*/
-// import styles from './HouseThumbLarge.less';
-if (process.env.BROWSER) {
-    require('./HouseThumbLarge.less');
-}
+
 class HouseThumbLarge extends React.Component {
     static propTypes = {
         house: PropTypes.object.isRequired

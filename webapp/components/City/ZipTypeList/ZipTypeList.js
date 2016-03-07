@@ -7,10 +7,8 @@ import CardActions from 'material-ui/lib/card/card-actions';
 import CardTitle from 'material-ui/lib/card/card-title';
 import Divider from 'material-ui/lib/divider';
 /*=styles*/
-// import styles from './ZipTypeList.less';
-if (process.env.BROWSER) {
-    require('./ZipTypeList.less');
-}
+import styles from './ZipTypeList.less';
+
 /*=Components*/
 import ButtonWithBadge from '../../Common/ButtonWithBadge/ButtonWithBadge.js';
 /*=*/

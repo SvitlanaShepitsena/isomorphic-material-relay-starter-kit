@@ -1,11 +1,6 @@
 import React, {PropTypes} from 'react';
+import styles from './HousesListTitle.less';
 import urlToText from '../../../utils/urlToText.js';
-/*=styles*/
-// import styles from './HousesListTitle.less';
-if (process.env.BROWSER) {
-    require('./HousesListTitle.less');
-}
-
 
 class HousesListTitle extends React.Component {
     static propTypes = {

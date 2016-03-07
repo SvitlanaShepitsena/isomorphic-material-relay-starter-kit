@@ -2,10 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import settings from '../../../settings/settings.js';
 /*=styles*/
-// import styles from './FooterContent.less';
-if (process.env.BROWSER) {
-    require('./FooterContent.less');
-}
+import styles from './FooterContent.less';
 
 class FooterContent extends React.Component {
 

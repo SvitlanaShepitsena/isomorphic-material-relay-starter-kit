@@ -1,11 +1,7 @@
 import React, {PropTypes} from 'react';
 import Slider from 'react-slick';
 import appSettings from '../../settings/settings.js';
-/*=styles*/
-// import styles from './PhotoGallery.less';
-if (process.env.BROWSER) {
-    require('./PhotoGallery.less');
-}
+import styles from './PhotoGallery.less';
 
 class PhotoGallery extends React.Component {
     static propTypes = {
