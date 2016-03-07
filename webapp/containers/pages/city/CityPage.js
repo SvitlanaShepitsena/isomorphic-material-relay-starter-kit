@@ -80,11 +80,24 @@ class CityPage extends React.Component {
         );
     };
 
+    welcomeText() {
+        const cityFormatted = urlToText(this.props.params.city);
+        return (
+            <article style={{lostColumn:1}}>
+                <h4> { `Re/Max 1st Class Realty helps you to find your dream home by offering newest listings for sale in  ${cityFormatted}.` } </h4>
+                <p> { `For your best experience, we are filtering ${cityFormatted} listings for you by Home Type and City Zip.` } </p>
+                <h3 style={{color: "#D32F2F"}}> { `Let us guide you, call us for a free consultation about ${cityFormatted} properties for sale: (847) 674-9797.` }
+                </h3>
+            </article>
+        );
+
+    };
+
     render() {
         let zipsList = this.props.Viewer.City.Zips.edges;
         let typesList = this.props.Viewer.City.Types.edges;
         let newHouses = this.props.Viewer.City.Houses;
-        console.log(typesList);
+
         let housesCount = this.props.Viewer.City.Houses_Count;
         let zips = zipsList.length;
         let types = typesList.length;
@@ -97,15 +110,19 @@ class CityPage extends React.Component {
         return (
             <div>
                 {this.pageHelmet()}
+
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
+
                 <h1> {pageTitle} </h1>
+
                 {!(houses || zips || types) && <AppSpinner/> }
-                <HousesListFiltered
-                    list={newHouses}
-                    cityName={cityFormatted}
-                    housesNumber={housesCount}
-                />
+
+                <HousesListFiltered list={newHouses} cityName={cityFormatted} housesNumber={housesCount}/>
+
                 <ButtonAll url="all" btnLabel={allTitle}/>
+
+                {this.welcomeText()}
+
                 {zips && this.showByZip()}
                 <br/>
                 { types && this.showByType()}
@@ -138,7 +155,7 @@ export default Relay.createContainer(CityPage, {
                         }
                     }
                     Zips(first:100){
-                        
+
                         edges{
                             node{
                                 code,
