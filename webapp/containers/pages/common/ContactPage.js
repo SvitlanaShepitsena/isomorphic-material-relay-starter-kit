@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
 /*=Components*/
 import ContactForm from '../../../components/AppViews/Contact/ContactForm.js';
+import ContactCard from '../../../components/Common/ContactCard/ContactCard.js';
 
 class ContactPage extends React.Component {
     pageHelmet() {
@@ -32,7 +33,9 @@ class ContactPage extends React.Component {
         return (
             <div>
                 {this.pageHelmet()}
-                <ContactForm/>
+                <ContactCard/>
+
+                {/*                <ContactForm/>*/}
             </div>
         );
     }

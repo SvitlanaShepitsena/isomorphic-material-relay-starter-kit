@@ -8,9 +8,6 @@ import FlatButton from 'material-ui/lib/flat-button';
 import CardText from 'material-ui/lib/card/card-text';
 import TextField from 'material-ui/lib/text-field';
 
-/*=components*/
-import settings from '../../../settings/settings.js';
-
 class ContactForm extends React.Component {
 
     render() {
