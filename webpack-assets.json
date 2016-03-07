@@ -2,9 +2,7 @@
   "javascript": {
     "app": "http://localhost:8050/0.7.7/app.js"
   },
-  "styles": {
-    "app": "http://localhost:8050/0.7.7/app.css"
-  },
+  "styles": {},
   "assets": {
     "./webapp/components/AppLayout/AppMenu/AppMenu.less": {
       "container": "AppMenu__container__3kn",
