@@ -5,7 +5,6 @@ import settings from '../../../settings/settings.js';
 
 /*Components*/
 import HomeHeader from '../../../components/HomeHeader/HomeHeader.js';
-import HomeCities from '../../../components/HomeCities/HomeCities.js'
 
 class HomePage extends React.Component {
     getChildContext() {

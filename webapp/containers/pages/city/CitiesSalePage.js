@@ -52,12 +52,11 @@ class CitiesSalePage extends React.Component {
 
     render() {
         let allCities = this.props.Viewer.Cities.edges;
-        let cities = allCities.length;
         return (
             <div>
                 {this.pageHelmet()}
                 <h1> North Chicago Suburbs Houses for Sale </h1>
-                <CitiesList list={allCities} itemId="name" children="Houses"/>
+                {allCities && <CitiesList list={allCities} itemId="name" children="Houses"/>}
             </div>
         );
     }
@@ -65,7 +64,7 @@ class CitiesSalePage extends React.Component {
 ;
 
 export default Relay.createContainer(CitiesSalePage, {
-    initialVariables: {first: 1},
+    initialVariables: {first: 20},
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {

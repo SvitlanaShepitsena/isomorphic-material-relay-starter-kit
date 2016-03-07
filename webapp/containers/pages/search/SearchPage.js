@@ -51,13 +51,13 @@ class SearchPage extends React.Component {
         if (nextPage !== this.state.page) {
             this.setState({loading: true, page: nextPage}, ()=> {
 
-                    this.props.relay.setVariables({
-                        page: nextPage
-                    }, state=> {
-                        if (state.done) {
-                            this.setState({loading: false})
-                        }
-                    })
+                this.props.relay.setVariables({
+                    page: nextPage
+                }, state=> {
+                    if (state.done) {
+                        this.setState({loading: false})
+                    }
+                })
             });
 
         }
