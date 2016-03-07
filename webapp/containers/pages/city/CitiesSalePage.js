@@ -7,6 +7,12 @@ import CitiesList from '../../../components/City/CitiesList/CitiesList.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 class CitiesSalePage extends React.Component {
+    componentDidMount() {
+        this.props.relay.setVariables({
+            first: 100
+        });
+    }
+
     getChildContext() {
         return {
             location: this.props.location,
@@ -51,7 +57,7 @@ class CitiesSalePage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <h1> North Chicago Suburbs Houses for Sale </h1>
-                {cities && <CitiesList list={allCities} itemId="name" children="Houses"/>}
+                <CitiesList list={allCities} itemId="name" children="Houses"/>
             </div>
         );
     }
@@ -59,10 +65,11 @@ class CitiesSalePage extends React.Component {
 ;
 
 export default Relay.createContainer(CitiesSalePage, {
+    initialVariables: {first: 1},
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
-                Cities(first:100) {
+                Cities(first:$first) {
                     edges{
                         node{
                             name,

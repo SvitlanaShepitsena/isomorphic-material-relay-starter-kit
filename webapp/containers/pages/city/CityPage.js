@@ -95,7 +95,6 @@ class CityPage extends React.Component {
 
         return (
             <div>
-                <span>CIty Page</span>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
                 <h1> {pageTitle} </h1>

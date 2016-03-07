@@ -15,15 +15,9 @@ import ContactForm from '../../components/AppViews/Contact/ContactForm.js';
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import MyRawTheme from '../../settings/AppMuiTheme.js';
-/*=styles*/
-// import styles from './AppLayout.less';
+import styles from './AppLayout.less';
 
 class AppLayout extends React.Component {
-
-    componentWillMount() {
-        this.styles = require('./AppLayout.less');
-    }
-
     getChildContext() {
         return {
             muiTheme: ThemeManager.getMuiTheme(MyRawTheme),
@@ -51,16 +45,16 @@ class AppLayout extends React.Component {
         let homeRoute = pathname == '/';
         let cityRoute = pathname == '/houses-for-sale';
         return (
-            <div className={this.styles.wrapper}>
+            <div className={styles.wrapper}>
                 {homeRoute &&
                 <section> {children} </section>
                 }
                 {!homeRoute &&
-                <section className={this.styles.contentWrapper}>
-                    <div className={this.styles.mainContent}>
+                <section className={styles.contentWrapper}>
+                    <div className={styles.mainContent}>
                         {children}
                     </div>
-                    <div className={this.styles.asideContent}>
+                    <div className={styles.asideContent}>
                         {cityRoute && <ContactForm/>}
                     </div>
                 </section>
