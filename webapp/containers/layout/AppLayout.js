@@ -6,7 +6,6 @@ import LeftNav from 'material-ui/lib/left-nav';
 
 /*=components*/
 import AppHeader from '../../components/AppLayout/AppHeader/AppHeader.js';
-import AppBar_Auth from '../auth/UserAuth_Smart.js';
 import MobileMenu from '../../components/AppLayout/MobileMenu/MobileMenu.js';
 import MobileDrawerHeader from '../../components/AppLayout/MobileDrawerHeader/MobileDrawerHeader.js';
 import Footer from '../../components/AppLayout/Footer/FooterContent.js';
@@ -83,12 +82,4 @@ AppLayout.childContextTypes = {
     muiTheme: React.PropTypes.object,
 };
 
-export default Relay.createContainer(AppLayout, {
-    fragments: {
-        Viewer: () => Relay.QL`
-            fragment on Viewer {
-                ${AppBar_Auth.getFragment('Viewer')},
-            }
-        `,
-    },
-});
+export default AppLayout;
