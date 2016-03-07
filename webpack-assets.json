@@ -109,6 +109,10 @@
       "container": "ContactCard__container__3Fw",
       "_style": ".ContactCard__fb__3Uh {\n  height: 30px;\n  width: 130px;\n  background-color: #bf616a;\n  font-family: FontAwesome;\n  content: '\\F030';\n  color: black;\n}\n.ContactCard__container__3Fw {\n  background-color: #0D47A1;\n}\n"
     },
+    "./webapp/components/ContactMap/ContactMap.less": {
+      "iframeResponsive": "ContactMap__iframeResponsive__1TP",
+      "_style": ".ContactMap__iframeResponsive__1TP iframe,\n.ContactMap__iframeResponsive__1TP object,\n.ContactMap__iframeResponsive__1TP embed {\n  max-width: 100% !important;\n}\n.ContactMap__iframeResponsive__1TP iframe {\n  display: block;\n  margin: 0 auto;\n}\n"
+    },
     "./webapp/components/PhotoGallery/PhotoGallery.less": {
       "appRow": "PhotoGallery__appRow__3Bj",
       "contentRow": "PhotoGallery__contentRow__1_c",
