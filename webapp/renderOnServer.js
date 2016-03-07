@@ -64,23 +64,11 @@ export default (req, res, next, assetsPath) => {
                         function render(data) {
                             try {
 
-                                var assets = webpack_isomorphic_tools.assets().assets;
-
-                                var allStyles = Object.keys(assets).map((key)=> {
-
-                                    var file = assets[key];
-                                    var oneFile = Object.keys(file).map(css=> {
-                                        return `${css}:${file[css]}`;
-                                    }).join(',');
-                                    return oneFile;
-                                }).join('');
-
-                                fs.writeFileSync(path.resolve(__dirname, '..', 'public/assets/0.7.7', 'app.css'), allStyles);
                                 // Setting up static, global navigator object to pass user agent to material-ui. Again, not to
                                 // fear, we are in a queue.
                                 GLOBAL.navigator = {userAgent: req.headers['user-agent']};
 
-                                const reactOutput = ReactDOMServer.renderToString(
+                                const reactOutput = ReactDOMServer.renderToStaticMarkup(
                                     <IsomorphicRouter.RouterContext {...renderProps} />
                                 );
                                 let helmet = Helmet.rewind();
