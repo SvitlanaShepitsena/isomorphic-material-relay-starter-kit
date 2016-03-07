@@ -11,9 +11,8 @@ class CitiesSalePage extends React.Component {
 
     componentDidMount() {
         this.props.relay.forceFetch();
-
         this.props.relay.setVariables({
-            first: 100
+            first: 50
         }, (state)=> {
             if (state.done) {
                 this.setState({loaded: true})
@@ -78,7 +77,7 @@ class CitiesSalePage extends React.Component {
 ;
 
 export default Relay.createContainer(CitiesSalePage, {
-    initialVariables: {first: 20},
+    initialVariables: {first: 50},
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
