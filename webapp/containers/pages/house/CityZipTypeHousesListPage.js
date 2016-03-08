@@ -7,7 +7,6 @@ import settings from '../../../settings/settings.js';
 
 /*Components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
-import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
 
