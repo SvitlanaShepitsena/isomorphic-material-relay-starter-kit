@@ -67,13 +67,9 @@ class SearchPage extends React.Component {
     render() {
         const houses = this.props.Viewer.Houses;
         const count = Number(this.props.Viewer.Houses_Count);
-        let pathname = this.props.location.pathname;
 
         return (
             <div>
-                <div>
-                    Count:{count}
-                </div>
                 <h2>Search Results:</h2>
                 {houses && <HousesList list={houses} listType="inline" count={count}/>}
             </div>
