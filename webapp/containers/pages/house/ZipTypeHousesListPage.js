@@ -109,7 +109,7 @@ class ZipTypeHousesListPage extends React.Component {
                 <Breadcrumbs routes={routes} params={params}/>
                 <HousesListTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
                 {!houses && <Spinner/>}
-                {houses && <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>}
+                <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>
 
             </div>
         );
