@@ -70,7 +70,7 @@ class ZipTypeHousesListPage extends React.Component {
 
         const title = `${cityName}, ${zipTypeFormatted} properties for sale | North Illinois Realty`;
         const description = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!`;
-        const image = `${settings.cloudinaryPath}${cityName}1.jpg`;
+        const image = `${settings.citiesPath}${cityName}.jpg`;
 
         return (
             <Helmet
@@ -134,7 +134,7 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
         console.log(zipType);
 
         if (_.last(zipType) === 's') {
-            zipType = zipType.substr(0, zipType.length-1);
+            zipType = zipType.substr(0, zipType.length - 1);
             console.log(zipType);
         }
 

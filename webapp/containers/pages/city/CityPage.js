@@ -60,7 +60,7 @@ class CityPage extends React.Component {
     pageHelmet() {
         /*Formatter*/
         const cityName = urlToText(this.props.params.city);
-        const image = `${settings.cloudinaryPath}${cityName}1.jpg`;
+        const image = `${settings.citiesPath}${cityName}.jpg`;
 
         const title = `${cityName} houses for sale | North Illinois Realty`;
         const description = `✔ Browse ${cityName} homes for sale, sorted by zip code or property type. ☏  Call us for a free consultation and schedule a showing!`;

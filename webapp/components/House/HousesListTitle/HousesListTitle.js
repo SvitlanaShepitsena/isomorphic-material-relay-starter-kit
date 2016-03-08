@@ -22,12 +22,13 @@ class HousesListTitle extends React.Component {
                 <h1>{`All Houses for Sale in ${cityFormatted}`}
                     <span className={styles.counter}> {`(${count} listings)` }</span>
                 </h1>}
-
+                {/* City Type*/}
                 {filterType && zipType.length > 3 &&
-                <h1>{`${typeFormatted}s for Sale in ${cityFormatted}`}
+                <h1>{`${typeFormatted} for Sale in ${cityFormatted}`}
                     <span className={styles.counter}> {`(${count} listings)` }</span>
                 </h1>}
 
+                {/* City Zip*/}
                 {filterZip &&
                 <h1>{`Houses for Sale in ${cityFormatted}, ${zipType}`}
                     <span className={styles.counter}> {`(${count} listings)` }</span>

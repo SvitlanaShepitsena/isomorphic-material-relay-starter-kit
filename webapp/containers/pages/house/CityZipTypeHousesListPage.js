@@ -7,6 +7,7 @@ import settings from '../../../settings/settings.js';
 
 /*Components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
+import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
 
@@ -38,15 +39,14 @@ class CityZipTypeHousesListPage extends React.Component {
     pageHelmet() {
         let houses = this.props.Viewer.Houses.edges;
         let housesCount = this.props.Viewer.Houses_Count;
-        let {city, type} = this.props.params;
-        let zip = this.zip;
+        let {city, type, zip} = this.props.params;
         /*Formatter*/
         const cityName = urlToText(city);
         const housesType = urlToText(type);
 
         let title = `${cityName}, ${zip} ${housesType} properties for sale | North Illinois Realty`;
         let description = `✔ Browse ${cityName}, ${zip} ${housesType} houses for sale. ${housesCount} listings for today. ☏  Call us for a free consultation and schedule a showing!`;
-        let image = `${settings.cloudinaryPath}${cityName}1.jpg`;
+        let image = `${settings.citiesPath}${cityName}.jpg`;
 
         return (
             <Helmet
@@ -68,7 +68,7 @@ class CityZipTypeHousesListPage extends React.Component {
         let houses = this.props.Viewer.Houses;
         let houseCount = this.props.Viewer.Houses_Count;
         let {city, type} = this.props.params;
-        let zip = this.zip;
+        let zipType = this.props.params.zipType;
         /*Formatter*/
         const cityFormatted = urlToText(city);
         const typeFormatted = urlToText(type);
@@ -77,7 +77,7 @@ class CityZipTypeHousesListPage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
-                <h1>{`${typeFormatted}s for Sale in ${cityFormatted}, ${zip}`}</h1>
+                <h1>{`${typeFormatted} for Sale in ${cityFormatted}, ${zipType}`}</h1>
                 {!houses && <Spinner/> }
                 {houses &&
                 <HousesList
@@ -94,8 +94,8 @@ class CityZipTypeHousesListPage extends React.Component {
 export default Relay.createContainer(CityZipTypeHousesListPage, {
     initialVariables: {city: '', zip: '', type: ''},
     prepareVariables({city, zip, type}) {
-        if (_.last(type)==='s') {
-            type = type.substr(0, type.length-1);
+        if (_.last(type) === 's') {
+            type = type.substr(0, type.length - 1);
         }
         console.log(type);
         return {city, zip, type}

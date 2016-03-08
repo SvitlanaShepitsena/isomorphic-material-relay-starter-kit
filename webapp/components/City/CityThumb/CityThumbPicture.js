@@ -21,9 +21,10 @@ class CityThumbPicture extends React.Component {
         const imgPath = `${citiesPath}${cityName}.jpg `;
         const cityImage = cityName ? imgPath : houseDefault;
         let cityFormatted = urlToText(cityName);
+        const alt = `${cityFormatted}, IL homes for sale`;
         return (
             <CardMedia overlay={<CardTitle className={styles.cityName}  subtitle={cityFormatted} />}>
-                <img src={cityImage}/>
+                <img alt={alt} src={cityImage}/>
             </CardMedia>
         );
     }
