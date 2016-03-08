@@ -27,7 +27,7 @@ import SearchPage from './containers/pages/search/SearchPage';
 
 export default (()=> {
     return (
-        <Route path="/" component={AppLayout}  name="App">
+        <Route path="/" component={AppLayout} name="App">
             <IndexRoute component={HomePage} queries={ViewerQueries} name="Home"/>
 
             <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}

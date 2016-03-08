@@ -7,22 +7,6 @@ import CitiesList from '../../../components/City/CitiesList/CitiesList.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 class CitiesSalePage extends React.Component {
-    state = {loaded: false};
-
-    componentDidMount() {
-        this.props.relay.forceFetch();
-        this.props.relay.setVariables({
-            first: 50
-        }, (state)=> {
-            if (state.done) {
-                this.setState({loaded: true})
-            }
-        });
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-    }
 
     getChildContext() {
         return {
@@ -68,7 +52,7 @@ class CitiesSalePage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <h1> North Chicago Suburbs Houses for Sale </h1>
-                {this.state.loaded && <CitiesList list={allCities} itemId="name" children="Houses"/>}
+                <CitiesList list={allCities} itemId="name" children="Houses"/>
             </div>
         );
     }
