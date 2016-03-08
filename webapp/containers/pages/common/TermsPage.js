@@ -7,7 +7,7 @@ import TermsContent from '../../../components/AppViews/Terms/TermsContent.js';
 class TermsPage extends React.Component {
     pageHelmet() {
         let og = settings.ogProps.termsOfUsePage;
-        let appUrl = settings.appUrl;
+        let appUrl = settings.ogProps.appUrl;
         const url = `${appUrl}/terms`;
         const title = og.title;
         const description = og.description;

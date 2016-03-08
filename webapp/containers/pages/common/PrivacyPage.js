@@ -7,7 +7,7 @@ import PrivacyContent from '../../../components/AppViews/Privacy/PrivacyContent.
 class PrivacyPage extends React.Component {
     pageHelmet() {
         let og = settings.ogProps.privacyPolicyPage;
-        let appUrl = settings.appUrl;
+        let appUrl = settings.ogProps.appUrl;
         const url = `${appUrl}/privacy`;
         const title = og.title;
         const description = og.description;

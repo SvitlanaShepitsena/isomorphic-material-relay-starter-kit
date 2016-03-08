@@ -8,7 +8,7 @@ class AboutPage extends React.Component {
 
     pageHelmet() {
         let og = settings.ogProps.aboutPage;
-        let appUrl = settings.appUrl;
+        let appUrl = settings.ogProps.appUrl;
         const url = `${appUrl}/about`;
         const title = og.title;
         const description = og.description;

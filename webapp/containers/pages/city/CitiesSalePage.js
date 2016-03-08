@@ -40,7 +40,7 @@ class CitiesSalePage extends React.Component {
 
     pageHelmet() {
         let og = settings.ogProps.housesForSalePage;
-        let appUrl = settings.appUrl;
+        let appUrl = settings.ogProps.appUrl;
         const url = `${appUrl}/houses-for-sale`;
         const title = og.title;
         const description = og.description;
