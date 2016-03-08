@@ -23,7 +23,7 @@ export default {
     },
     ogProps: {
         appType: "website",
-        appUrl: "http://ec2-52-37-159-184.us-west-2.compute.amazonaws.com/",
+        appUrl: "http://ec2-52-37-159-184.us-west-2.compute.amazonaws.com",
         appDescription: "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston houses apartments for sale rent",
         appTitle: "Houses Apartments for Sale Rent Chicago North Suburbs",
         fbImage: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
