@@ -70,7 +70,7 @@ class ZipTypeHousesListPage extends React.Component {
 
         const title = `${cityName}, ${zipTypeFormatted} properties for sale | North Illinois Realty`;
         const description = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!`;
-        const image = `${settings.citiesPath}${cityName}2.jpg`; 
+        const image = `${settings.citiesPath}${cityName}2.jpg`;
         return (
             <Helmet
                 title={title}
@@ -111,13 +111,6 @@ class ZipTypeHousesListPage extends React.Component {
                 {!houses && <Spinner/>}
                 {houses && <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>}
 
-                {showTypesList &&
-                <ZipTypeList
-                    itemId="type"
-                    list={typesList}
-                    children="Houses"
-                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
-                />}
             </div>
         );
     }
