@@ -10,7 +10,6 @@ export default {
     companyZip: "60076",
     companyPhone: "(847) 674-9797",
     companyFax: "(847) 674-0411",
-    
     citiesPath: "http://res.cloudinary.com/svitlana/cities/",
     cloudinaryPath: "http://res.cloudinary.com/remax1stclass/image/upload/",
     houseDefault: "http://res.cloudinary.com/svitlana/image/upload/house-picture-icon_og71rx.png",
