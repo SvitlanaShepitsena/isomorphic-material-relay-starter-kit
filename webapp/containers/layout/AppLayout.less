@@ -173,45 +173,32 @@ a {
 .contentWrapper {
   lost-center: @appWidth;
   lost-utility: clearfix;
-  width: 100%;
+  width: 98%;
   height: 100%;
+  @media (max-width: @tabletHorizontal) {
+    width: 95%;
+  }
 }
 
 .mainContent {
   padding: 16px 0;
+  @media screen and (min-width: @desktop) {
+    lost-column: 2/3 0;
+  }
+  @media (max-width: @tabletHorizontal) {
+    lost-column: 1;
+  }
 }
 
 .asideContent {
   padding: 16px 0;
-}
-
-/*=mobile & =tablet*/
-@media (max-width: @tabletHorizontal) {
-  .contentWrapper {
-    width: 95%;
-  }
-
-  .mainContent {
+  @media (max-width: @tabletHorizontal) {
     lost-column: 1;
   }
+  @media screen and (min-width: @desktop) {
 
-  .asideContent {
-    lost-column: 1;
-  }
-}
-
-/*=desktop*/
-@media screen and (min-width: @desktop) {
-  .contentWrapper {
-    width: 100%;
-  }
-
-  .mainContent {
-    lost-column: 2/3 0;
-  }
-
-  .asideContent {
     lost-column: 1/3 0;
   }
 }
+
 

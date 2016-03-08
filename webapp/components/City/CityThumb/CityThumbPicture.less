@@ -1,40 +1,35 @@
 @import '../../../settings/palette.less';
 
-.cardTitle {
-  padding-bottom: 0 !important;
-  font-size: 13px;
-}
-
-.cardText {
-  padding: 5px 12px 0;
-  font-size: 13px;
-}
-
-.cityName {
-  padding: 0 0 5px 16px;
-}
-
 .container {
   margin: 0;
   padding-bottom: 16px;
 }
 
-.cityName span {
-  font-size: 16px !important;
-  color: whitesmoke !important;
-}
-
-/*Mobile*/
-@media screen and (max-width: 600px) {
-  .cityName span {
-    font-size: 22px !important;
-  }
-
-  .cardTitle {
-    font-size: 14px;
-  }
-
-  .cardText {
+.cardTitle {
+  padding-bottom: 0 !important;
+  font-size: 13px;
+  @media (max-width: 600px) {
     font-size: 14px;
   }
 }
+
+.cardText {
+  padding: 5px 12px 0;
+  font-size: 13px;
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
+}
+
+.cityName {
+  padding: 0 0 5px 16px;
+  span {
+    font-size: 16px !important;
+    color: whitesmoke !important;
+    @media (max-width: 600px) {
+      font-size: 22px !important;
+    }
+  }
+}
+
+
