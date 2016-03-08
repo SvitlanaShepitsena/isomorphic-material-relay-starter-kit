@@ -23,32 +23,27 @@ export default {
     },
     ogProps: {
         appType: "website",
-        appUrl: "http://www.remax1stclass.com/",
+        appUrl: "http://ec2-52-37-159-184.us-west-2.compute.amazonaws.com/",
         appDescription: "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston houses apartments for sale rent",
         appTitle: "Houses Apartments for Sale Rent Chicago North Suburbs",
         fbImage: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
         housesForSalePage: {
-            url: "http://www.remax1stclass.com/houses-for-sale",
             title: "North Illinois apartments, homes, houses for sale",
             description: "Browse Houses for sale at North and Northwest Chicago Suburbs. Detailed listing information with large photos"
         },
         aboutPage: {
-            url: "http://www.remax1stclass.com/about",
             title: "About Re/Max 1st Class Realty, Illinois Real Estate",
             description: "We will help you find the right specialist to get the lowest mortgage rate and move you to your new home as fast as possible"
         },
         contactPage: {
-            url: "http://www.remax1stclass.com/contacts",
             title: "Contact Re/Max 1st Class Realty Skokie, IL.",
             description: "Want to buy or sell home, rent apartment or house in North Illinois or Chicago? Call to Re/Max first class agents for a free consultation!"
         },
         privacyPolicyPage: {
-            url: "http://www.remax1stclass.com/contact",
             title: "Your privacy is very important for Re/Max 1st Class",
             description: "Description of the types of information we collect about you when you visit the Re/Max 1st Class Website, and how we use that information"
         },
         termsOfUsePage: {
-            url: "http://www.remax1stclass.com/contacts",
             title: "Please read carefully before using remax1stclass site",
             description: "To promote a safe, non-offensive environment for all visitors to our website, we have established these Terms of Use."
         },

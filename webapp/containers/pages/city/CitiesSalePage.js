@@ -40,7 +40,8 @@ class CitiesSalePage extends React.Component {
 
     pageHelmet() {
         let og = settings.ogProps.housesForSalePage;
-        const url = og.url;
+        let appUrl = settings.appUrl;
+        const url = `${appUrl}/houses-for-sale`;
         const title = og.title;
         const description = og.description;
         const image = settings.ogProps.fbImage;

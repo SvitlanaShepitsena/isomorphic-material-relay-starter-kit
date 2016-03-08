@@ -8,7 +8,8 @@ class AboutPage extends React.Component {
 
     pageHelmet() {
         let og = settings.ogProps.aboutPage;
-        const url = og.url;
+        let appUrl = settings.appUrl;
+        const url = `${appUrl}/about`;
         const title = og.title;
         const description = og.description;
         const image = settings.ogProps.fbImage;
