@@ -17,7 +17,8 @@ class CityThumbPicture extends React.Component {
 
     cityBackground() {
         let {cityName} = this.props;
-        var {houseDefault, citiesPath} = settings;
+        var citiesPath = settings.citiesPath;
+        var {houseDefault} = settings;
         const imgPath = `${citiesPath}${cityName}.jpg `;
         const cityImage = cityName ? imgPath : houseDefault;
         let cityFormatted = urlToText(cityName);
