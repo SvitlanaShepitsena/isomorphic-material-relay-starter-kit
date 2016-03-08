@@ -23,7 +23,7 @@ class HomeHeader extends React.Component {
 
     showSlogan() {
         return (
-            <div className={styles.rowSlogan}>
+            <div className={styles.row}>
                 <div className={styles.col1}>
                     <h1 className={styles.companySlogan}>
                         <span> You Need Only One Company </span>
@@ -37,7 +37,7 @@ class HomeHeader extends React.Component {
 
     showSearch() {
         return (
-            <div className={styles.rowSearch}>
+            <div className={styles.row}>
                 <div className={styles.searchContainer}>
                     <Search/>
                 </div>

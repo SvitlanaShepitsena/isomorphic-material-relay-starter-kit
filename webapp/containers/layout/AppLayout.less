@@ -152,7 +152,12 @@ address {
 }
 
 ul {
-  .list-unstyled;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    padding: 0;
+  }
 }
 
 a {
@@ -167,7 +172,10 @@ a {
 }
 
 .contentWrapper {
-  .appRow;
+  lost-center: @appWidth;
+  lost-utility: clearfix;
+  width: 100%;
+  height: 100%;
 }
 
 .mainContent {

@@ -18,7 +18,7 @@ class ContactCard extends React.Component {
                 <h3 style={{margin:0,padding:16,backgroundColor: mui.palette.default3Color,fontSize: 18,fontWeight:500}}>
                     {company}
                 </h3>
-                <div >
+                <div style={{paddingTop:8}}>
                     <p>{address}</p>
                     <p>Phone: {settings.companyPhone}</p>
                     <p>Fax: {settings.companyFax}</p>

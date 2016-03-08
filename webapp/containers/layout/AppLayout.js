@@ -9,7 +9,6 @@ import AppHeader from '../../components/AppLayout/AppHeader/AppHeader.js';
 import MobileMenu from '../../components/AppLayout/MobileMenu/MobileMenu.js';
 import MobileDrawerHeader from '../../components/AppLayout/MobileDrawerHeader/MobileDrawerHeader.js';
 import Footer from '../../components/AppLayout/Footer/FooterContent.js';
-import ContactForm from '../../components/AppViews/Contact/ContactForm.js';
 
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';

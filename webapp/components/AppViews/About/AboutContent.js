@@ -8,7 +8,7 @@ class AboutContent extends React.Component {
             <div>
                 <h1>Why Re/Max 1st Class Realty is worth to work with: </h1>
                 <hr/>
-                <article className={styles.article}>
+                <article className={styles.content}>
                     <p>
                         Re/Max 1st Class Realty offers one stop service for home selling or purchase. We have long term
                         partnerships with major banks and can negotiate the best possible deal. We can help you find the

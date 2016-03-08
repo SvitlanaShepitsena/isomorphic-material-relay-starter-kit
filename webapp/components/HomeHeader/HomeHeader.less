@@ -7,15 +7,10 @@
 }
 
 .row {
-  .appRow;
-}
-
-.rowSlogan {
-  .appRow;
-}
-.rowSearch {
-  .appRow;
+  lost-center: @appWidth;
+  lost-utility: clearfix;
   width: 98%;
+  height: 100%;
 }
 
 .col1 {
@@ -43,7 +38,7 @@
 }
 
 @media (max-width: @mobileHorizontal) {
-  .rowSlogan {
+  .row {
     width: 90% !important;
   }
 
@@ -59,10 +54,9 @@
 }
 
 @media (max-width: @lgTabletHorizontal) {
-  .rowSearch {
+  .row {
     width: 90%;
   }
-
 }
 
 @media (max-width: @lgTablet) {

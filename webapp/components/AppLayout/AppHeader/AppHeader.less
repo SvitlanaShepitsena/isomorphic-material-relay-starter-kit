@@ -2,16 +2,14 @@
 
 .container {
   max-height: 65px;
-}
-
-.container ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.container ul li {
-  display: inline-block;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+    }
+  }
 }
 
 .companyName {
@@ -24,12 +22,11 @@
 .companyLogo {
   display: inline-block;
   vertical-align: middle;
-}
-
-.companyLogo img {
-  display: block;
-  padding: 8px;
-  width: 50px;
+  img {
+    display: block;
+    padding: 8px;
+    width: 50px;
+  }
 }
 
 .menuContainer {
@@ -50,7 +47,7 @@
 }
 
 /*=mobile*/
-@media screen and (max-width: @tablet) {
+@media (max-width: @tablet) {
   .companyPhone {
     padding-left: 18px;
     color: white;
@@ -59,8 +56,10 @@
     font-weight: 500;
   }
 
-  .companyLogo img {
-    padding-left: 0;
+  .companyLogo {
+    img {
+      padding-left: 0;
+    }
   }
 
   .menuContainer,

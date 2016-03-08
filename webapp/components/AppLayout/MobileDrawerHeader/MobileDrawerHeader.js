@@ -8,9 +8,6 @@ import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 /*=components*/
 import settings from '../../../settings/settings.js';
 
-/*=styles*/
-import styles from './MobileDrawerHeader.less';
-
 class MobileDrawerHeader extends React.Component {
     static propTypes = {
         onTouchTap: PropTypes.func.isRequired
@@ -18,9 +15,13 @@ class MobileDrawerHeader extends React.Component {
 
     render() {
         const {onTouchTap} = this.props;
+        let title = {
+            fontSize: 18,
+            fontWeight: 500
+        };
         return (
             <AppBar primary={true}
-                    title={<span className={styles.title}>
+                    title={<span style={title} >
                     {settings.companyName}
                     </span>}
                     showMenuIconButton={false}
