@@ -7,11 +7,9 @@ class Terms extends React.Component {
         // Determine error text, since we already have the errors in state
         return (
             <div className="TermsContent">
-                <h1>Why Re/Max 1st Class Realty is worth to work with: </h1>
+                <h1>Re/Max 1st Class Terms of Use</h1>
                 <hr/>
                 <article>
-                    <h1>Re/Max 1st Class Terms of Use</h1>
-                    <hr/>
                     <h4 className="ml mr">Please Read Carefully before using remax1stclass.com</h4>
                     <section>
                         <p className="ml mr">Welcome to the remax1stclass.com web site (the "Web Site"). The goals of
@@ -33,7 +31,7 @@ class Terms extends React.Component {
                         <p className="ml mr">Information about you is subject to our Privacy Policy. For more
                             information,
                             please review our
-                            full <span> 
+                            full <span>
                                 <Link to="/privacy">Privacy Policy.</Link>
                             </span></p>
                         <h4>Links</h4>
