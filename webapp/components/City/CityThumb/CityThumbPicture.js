@@ -19,7 +19,7 @@ class CityThumbPicture extends React.Component {
         let {cityName} = this.props;
         var citiesPath = settings.citiesPath;
         var {houseDefault} = settings;
-        const imgPath = `${citiesPath}${cityName}.jpg `;
+        const imgPath = `${citiesPath}${cityName}2.jpg `;
         const cityImage = cityName ? imgPath : houseDefault;
         let cityFormatted = urlToText(cityName);
         const alt = `${cityFormatted}, IL homes for sale`;
