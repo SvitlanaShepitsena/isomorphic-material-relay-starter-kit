@@ -13,7 +13,6 @@ import Footer from '../../components/AppLayout/Footer/FooterContent.js';
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import muiPalette from '../../settings/MuiPalette.js';
-import styles from './AppLayout.less';
 
 class AppLayout extends React.Component {
     getChildContext() {
@@ -28,6 +27,7 @@ class AppLayout extends React.Component {
     handleClose = () => this.setState({open: false});
 
     mobileNav() {
+        var styles = require('./AppLayout.less');
         let openMenu = this.state.open;
         return (
             <LeftNav docked={false} open={openMenu} onRequestChange={open => this.setState({open})}>
@@ -38,6 +38,7 @@ class AppLayout extends React.Component {
     }
 
     appContent() {
+        var styles = require('./AppLayout.less');
         let {children} = this.props;
         let {pathname} = this.props.location;
         let homeRoute = pathname == '/';
@@ -62,8 +63,9 @@ class AppLayout extends React.Component {
     };
 
     render() {
+        var styles = require('./AppLayout.less');
         return (
-            <AppCanvas style={{position:"relative",height:"100%"}}>
+            <AppCanvas style={{position:"relative", height:"100%"}}>
                 <AppHeader onTouchTap={this.handleToggle}/>
                 {this.mobileNav()}
                 {this.appContent()}
