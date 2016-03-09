@@ -21,6 +21,7 @@ import HousePage from './containers/pages/house/HousePage.js';
 import CitiesSalePage from './containers/pages/city/CitiesSalePage';
 import CityPage from './containers/pages/city/CityPage';
 import ZipTypeHousesListPage from './containers/pages/house/ZipTypeHousesListPage';
+import CityZipTypeHousesListPage from './containers/pages/house/CityZipTypeHousesListPage';
 
 import SearchPage from './containers/pages/search/SearchPage';
 
@@ -33,6 +34,8 @@ export default (()=> {
                    name="Chicago North Suburbs Houses for Sale"/>
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
             <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage} queries={ViewerQueries}/>
+            <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
+                   queries={ViewerQueries}/>
             <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries}
                    preparedParams={(id)=>({id:'123'})}/>
 

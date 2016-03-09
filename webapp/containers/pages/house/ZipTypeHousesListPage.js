@@ -111,6 +111,13 @@ class ZipTypeHousesListPage extends React.Component {
                 {!houses && <Spinner/>}
                 <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>
 
+                {showTypesList &&
+                <ZipTypeList
+                    itemId="type"
+                    list={typesList}
+                    children="Houses"
+                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
+                />}
             </div>
         );
     }
