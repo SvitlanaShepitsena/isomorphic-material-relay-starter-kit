@@ -42,16 +42,28 @@
     "setup-local": "cp ./doc/Example.env ./.env",
     "init": "cqlsh -f ./scripts/cassandra-init.cql",
     "schema": "./node_modules/.bin/babel-node ./scripts/build-schema.js",
-    "build": "set NODE_ENV=production&&webpack -p --progress --output-filename app.js",
+    "build": "better-npm-run start-build",
     "build-mui-icon-list": "./node_modules/.bin/babel-node ./scripts/build-mui-icon-list.js",
     "config-da-memory": "./node_modules/.bin/replace da_cassandra da_memory ./data/da/*",
     "config-da-cassandra": "./node_modules/.bin/replace da_memory da_cassandra ./data/da/*",
     "start-webpack": "better-npm-run start-webpack",
     "start-dev": "better-npm-run start-dev",
-    "start": "set NODE_ENV=production&&babel-node ./server/main.js",
+    "start": "better-npm-run start-prod",
     "dev": "concurrent --kill-others \"npm run start-webpack\" \"npm run start-dev\""
   },
   "betterScripts": {
+    "start-prod": {
+      "command": "babel-node server/main.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "start-build": {
+      "command": "webpack -p --progress",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
     "start-dev": {
       "command": "babel-node --presets es2015,stage-0  --plugins transform-class-properties,babel-relay-plugin-loader,syntax-decorators --debug -- ./server/main.js --debug",
       "env": {
