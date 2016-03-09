@@ -43,7 +43,8 @@ class Pagination extends React.Component {
                     <div className={styles.breadcrumbs}>
                         <div className={styles.linkContainer}>
                             {enablePrev &&
-                            <Link to={{ pathname: pathname, query: { page: prevPage} }}
+                            <Link data-link='prev' to={{ pathname: pathname, query: { page: prevPage} }}
+
                                   onClick={this.handleClick}>
                                 <RaisedButton className={styles.button} default={true} disabled={currentPage==1}
                                               icon={<Previous />} label="Previous" labelPosition="after"/>
@@ -56,7 +57,7 @@ class Pagination extends React.Component {
                         </div>
                         <div className={styles.linkContainer}>
                             {enableNext &&
-                            <Link to={{ pathname: pathname, query: { page: nextPage} }}>
+                            <Link data-link='next' to={{ pathname: pathname, query: { page: nextPage} }}>
                                 <RaisedButton className={styles.button} default={true} icon={<Next />} label="Next"/>
                             </Link>
                             }
