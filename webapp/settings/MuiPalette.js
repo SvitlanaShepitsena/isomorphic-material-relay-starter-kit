@@ -16,21 +16,21 @@ export default {
         pickerHeaderColor: Colors.blue500,
 
         primary1Color: Colors.blue500,
-        primary2Color: Colors.blue800,
+        primary2Color: Colors.blue700,
         primary3Color: Colors.blue100,
+        primary4Color: Colors.blue50,
         accent1Color: Colors.red600,
         accent2Color: Colors.red500,
         accent3Color: Colors.redA100,
+
         success1Color: Colors.green500,
         success2Color: Colors.green700,
         success3Color: Colors.green100,
+
         default1Color: Colors.grey400,
         default2Color: Colors.grey700,
         default3Color: Colors.grey200,
 
-        footerColor: '#343434',
-        footerText: '#9a9a9a',
-        footerHeaderText: '#cdcdcd',
         textColor: 'rgba(0, 0, 0, 0.87)',
         additionalTextColor: "rgba(0, 0, 0, 0.67)",
         secondaryTextColor: "rgba(0, 0, 0, 0.54)",
@@ -38,6 +38,11 @@ export default {
         dividerColor: "rgba(0, 0, 0, 0.12)",
         backgroundColor: "#eaeaea",
         cardsColor: "#ffffff",
+
+        footerColor: '#343434',
+        footerText: '#9a9a9a',
+        footerHeaderText: '#cdcdcd',
+
         greenApp: Colors.green500,
         pinkApp: Colors.pink500,
         redApp: Colors.red500,
