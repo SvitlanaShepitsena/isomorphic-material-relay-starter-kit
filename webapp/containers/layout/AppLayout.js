@@ -43,7 +43,7 @@ class AppLayout extends React.Component {
         let homeRoute = pathname == '/';
         let cityRoute = pathname == '/houses-for-sale';
         return (
-            <div className={styles.wrapper}>
+            <div className={styles.layoutWrapper}>
                 {homeRoute &&
                 <section> {children} </section>
                 }
