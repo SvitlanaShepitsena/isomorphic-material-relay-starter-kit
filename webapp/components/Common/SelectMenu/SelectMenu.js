@@ -17,7 +17,7 @@ class SelectMenu extends React.Component {
 
     render() {
         var innerDivStyle = {
-            padding: "0px 10px",
+            padding: "0 10px",
             maxWidth: "50px",
             fontSize: 13
 
@@ -32,7 +32,6 @@ class SelectMenu extends React.Component {
                 value={this.state.value}
                 onChange={this.handleChange}>
                 <MenuItem
-                    className={styles.menuItem}
                     innerDivStyle={innerDivStyle}
                     value={1}
                     primaryText={selectOptionText}/>

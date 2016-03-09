@@ -12,13 +12,13 @@ import Footer from '../../components/AppLayout/Footer/FooterContent.js';
 
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import MyRawTheme from '../../settings/AppMuiTheme.js';
+import muiPalette from '../../settings/MuiPalette.js';
 import styles from './AppLayout.less';
 
 class AppLayout extends React.Component {
     getChildContext() {
         return {
-            muiTheme: ThemeManager.getMuiTheme(MyRawTheme),
+            muiTheme: ThemeManager.getMuiTheme(muiPalette),
         };
     }
 

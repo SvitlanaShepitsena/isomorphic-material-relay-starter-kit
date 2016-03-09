@@ -8,7 +8,7 @@ import Badge from 'material-ui/lib/badge';
 import SvLink from './../SvLink/SvLink';
 
 /*Inline Styles*/
-import style from '../../../settings/AppMuiTheme.js';
+import muiPalette from '../../../settings/MuiPalette.js';
 
 class ButtonWithBadge extends React.Component {
     static propTypes = {
@@ -19,13 +19,13 @@ class ButtonWithBadge extends React.Component {
 
     render() {
         let defaultBadgeStyle = {
-            backgroundColor: style.palette.default3Color,
-            color: style.palette.textColor,
-            top: 18,
-            right: 18
+            backgroundColor: muiPalette.palette.default3Color,
+            color: muiPalette.palette.textColor,
+            right: 18,
+            top: 18
         };
         let defaultBtnLabelStyle = {
-            color: style.palette.primary2Color,
+            color: muiPalette.palette.primary2Color,
             fontSize: 15,
             fontWeight: 500
         };

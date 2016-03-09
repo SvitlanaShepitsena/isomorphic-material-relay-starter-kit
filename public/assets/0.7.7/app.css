@@ -1191,17 +1191,6 @@ content:AboutContent__content__3zm,_style:.AboutContent__content__3zm p {
   font-size: 18px !important;
   line-height: 28px;
 }
-fb:ContactCard__fb__3Uh,container:ContactCard__container__3Fw,_style:.ContactCard__fb__3Uh {
-  height: 30px;
-  width: 130px;
-  background-color: #bf616a;
-  font-family: FontAwesome;
-  content: '\F030';
-  color: black;
-}
-.ContactCard__container__3Fw {
-  background-color: #0D47A1;
-}
 iframeResponsive:ContactMap__iframeResponsive__1TP,_style:.ContactMap__iframeResponsive__1TP iframe,
 .ContactMap__iframeResponsive__1TP object,
 .ContactMap__iframeResponsive__1TP embed {
@@ -1587,16 +1576,6 @@ row:ButtonAll__row__1kz,col1:ButtonAll__col1__3Ev,col2:ButtonAll__col2__3WX,btnC
   .ButtonAll__btnContainer__2Ei {
     text-align: center;
   }
-}
-container:ImageBackground__container__2Nj,item:ImageBackground__item__CXj,_style:.ImageBackground__container__2Nj {
-  overflow: hidden;
-  position: relative;
-}
-.ImageBackground__item__CXj {
-  background-size: cover;
-  background-position: center 30%;
-  display: block;
-  min-height: 100%;
 }
 address:HouseThumbLarge__address__2zX,cardTitle:HouseThumbLarge__cardTitle__WHc,container:HouseThumbLarge__container__3Bs,image:HouseThumbLarge__image__387,price:HouseThumbLarge__price__2Re,street:HouseThumbLarge__street__x1K,_style:.HouseThumbLarge__address__2zX {
   font-weight: 500;

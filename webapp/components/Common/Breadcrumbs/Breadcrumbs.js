@@ -25,7 +25,7 @@ class Breadcrumbs extends React.Component {
                         url = params[paramName];
                         let anchor = _.startCase(url);
                         if (_.last(anchor !== 's')) {
-                            anchor+='s'
+                            anchor += 's'
                         }
                         const digits = url.match(/^\d+$/g);
                         const replaceHouses = compoundAnchors.replace('Houses', anchor);
