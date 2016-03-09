@@ -14,10 +14,8 @@ class SearchFormSimple extends Component {
         ReactDOM.findDOMNode(this.refs.search).focus();
     }
 
-
     search = ()=> {
         if (this.state.query.length) {
-
             browserHistory.push({pathname: '/search/' + this.state.query});
         }
     };
@@ -40,22 +38,19 @@ class SearchFormSimple extends Component {
     };
 
     render() {
-        const {search, onSearch} = this.props;
         let skokieLocation = null;
-
         if (process.env.BROWSER) {
             skokieLocation = new google.maps.LatLng(42.0324, -87.7416);
-
         }
         return (
             <div className={styles.container}>
                 <form className={styles.form} name="form" id="form">
                     <div className={styles.row}>
                         <div className={styles.inputContainer}>
-                            <input style={{width:380}}
-                                ref="search"
-                                onKeyDown={this.handleKeyDown}
-                                onChange={this.handleUpdateInput}
+                            <input style={{width:"100%"}}
+                                   ref="search"
+                                   onKeyDown={this.handleKeyDown}
+                                   onChange={this.handleUpdateInput}
                             />
                         </div>
                         <div className={styles.buttonContainer}>
