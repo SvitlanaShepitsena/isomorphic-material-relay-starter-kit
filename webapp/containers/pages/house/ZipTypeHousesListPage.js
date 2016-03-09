@@ -108,9 +108,6 @@ class ZipTypeHousesListPage extends React.Component {
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
                 <HousesListTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
-                {!houses && <Spinner/>}
-                <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>
-
                 {showTypesList &&
                 <ZipTypeList
                     itemId="type"
@@ -118,6 +115,9 @@ class ZipTypeHousesListPage extends React.Component {
                     children="Houses"
                     sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
                 />}
+                {!houses && <Spinner/>}
+                <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>
+
             </div>
         );
     }
