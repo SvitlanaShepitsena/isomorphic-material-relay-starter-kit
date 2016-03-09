@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import styles from './ImageBackground.less';
 
 class ImageBackground extends React.Component {
     static propTypes = {
@@ -12,21 +13,15 @@ class ImageBackground extends React.Component {
         let img = `url("${backgroundImage}")`;
         let container = {
             height: imgHeight,
-            overflow: 'hidden',
-            position: 'relative',
             width: imgWidth
         };
         let item = {
             backgroundImage: img,
-            backgroundPosition: "center 30%",
-            backgroundSize: "cover",
-            display: "block",
             height: imgHeight,
-            minHeight: "100%"
         }
         return (
-            <div style={container}>
-                <i style={item}/>
+            <div className={styles.root} style={container}>
+                <i className={styles.item} style={item}/>
             </div>
         );
     }
