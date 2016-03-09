@@ -1,6 +1,7 @@
 import React from 'react';
 import Relay from 'react-relay';
 
+
 import AppCanvas from 'material-ui/lib/app-canvas';
 import LeftNav from 'material-ui/lib/left-nav';
 
@@ -23,7 +24,9 @@ class AppLayout extends React.Component {
 
     state = {open: false};
 
-    handleToggle = () => this.setState({open: !this.state.open});
+    handleToggle = () => {
+
+        this.setState({open: !this.state.open})};
     handleClose = () => this.setState({open: false});
 
     mobileNav() {
