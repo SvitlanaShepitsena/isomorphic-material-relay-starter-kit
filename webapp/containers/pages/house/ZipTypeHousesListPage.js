@@ -35,7 +35,7 @@ class ZipTypeHousesListPage extends React.Component {
         const zipTypeFormatted = urlToText(zipType);
 
         const title = `${cityName}, ${zipTypeFormatted} properties for sale | North Illinois Realty | Page ${currentPage}`;
-        const description = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${page})`;
+        const description = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${currentPage})`;
         const image = `${settings.citiesPath}${cityName}2.jpg`;
         return (
             <Helmet
@@ -109,7 +109,7 @@ class ZipTypeHousesListPage extends React.Component {
 
 export default Relay.createContainer(ZipTypeHousesListPage, {
     initialVariables: {city: null, zipType: null, page: 1},
-    prepareVariables({city, zipType, page}) {
+    prepareVariables({city, zipType, page, type}) {
         if (!page || isNaN(page)) {
             page = 1;
         }
@@ -134,7 +134,7 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         }
                     }
                 }
-                Houses(city:$city,zip:$zipType,first:10,page:$page) {
+                Houses(city:$city,zip:$zipType,first:100,page:$page) {
                     edges{
                         cursor
                         node{

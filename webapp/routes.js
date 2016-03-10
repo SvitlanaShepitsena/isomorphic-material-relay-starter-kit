@@ -53,14 +53,14 @@ export default (()=> {
                    name="Chicago North Suburbs Houses for Sale"/>
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
 
+            <Route path="/houses-for-sale/:city/:zipType/:type/(:page)" component={CityZipTypeHousesListPage}
+                    queries={ViewerQueries} onEnter={paginate}/>
 
             <Route path="/houses-for-sale/:city/:zipType(/:page)" component={ZipTypeHousesListPage}
                    queries={ViewerQueries}
                    onEnter={paginate}
             />
 
-            <Route path="/houses-for-sale/:city/:zipType/:type/(:page)" component={CityZipTypeHousesListPage}
-                    queries={ViewerQueries} onEnter={paginate}/>
 
 
              <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries}/>

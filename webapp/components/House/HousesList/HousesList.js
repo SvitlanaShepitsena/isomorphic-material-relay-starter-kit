@@ -34,7 +34,7 @@ class HousesList extends React.Component {
 
     render() {
         const {list, count, limit} = this.props;
-        const lastPage = Math.floor(count / limit) + ((count % limit > 0) ? 1 : 0);
+        const lastPage = Number(Math.ceil(count / 10));
         const housesList = list.edges;
 
         return (
