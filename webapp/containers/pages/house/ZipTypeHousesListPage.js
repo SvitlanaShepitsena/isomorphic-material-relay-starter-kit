@@ -29,13 +29,13 @@ class ZipTypeHousesListPage extends React.Component {
     };
 
     pageHelmet() {
-        let {city, zipType} = this.props.params;
+        let {city, zipType, page} = this.props.params;
         /*Formatter*/
         const cityName = urlToText(city);
         const zipTypeFormatted = urlToText(zipType);
 
-        const title = `${cityName}, ${zipTypeFormatted} properties for sale | North Illinois Realty`;
-        const description = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!`;
+        const title = `${cityName}, ${zipTypeFormatted} properties for sale | North Illinois Realty | Page ${page}`;
+        const description = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${page})`;
         const image = `${settings.citiesPath}${cityName}2.jpg`;
         return (
             <Helmet
@@ -55,7 +55,7 @@ class ZipTypeHousesListPage extends React.Component {
     noHouses = ()=> {
         return (
             <div>
-                Sorry, no items match your request.
+                <h4>Sorry, we did not find any homes that match your search.</h4>
             </div>
         );
     };
