@@ -28,19 +28,17 @@ import SearchPage from './containers/pages/search/SearchPage';
 
 function paginate(nextState, replace) {
 
-
     if (!nextState.params.page) {
         console.log(nextState);
         var params = nextState.params;
         params.page = 1;
         nextState.params.page = 1;
         replace({
-            pathname: nextState.location.pathname+'/1',
+            pathname: nextState.location.pathname + '/1',
 
         });
 
     }
-
 
 };
 
@@ -54,16 +52,14 @@ export default (()=> {
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
 
             <Route path="/houses-for-sale/:city/:zipType/:type/(:page)" component={CityZipTypeHousesListPage}
-                    queries={ViewerQueries} onEnter={paginate}/>
+                   queries={ViewerQueries} onEnter={paginate}/>
 
             <Route path="/houses-for-sale/:city/:zipType(/:page)" component={ZipTypeHousesListPage}
                    queries={ViewerQueries}
                    onEnter={paginate}
             />
 
-
-
-             <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries}/>
+            <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries}/>
 
             <Route path="/search/:query" component={SearchPage} queries={ViewerQueries} name="Search"/>
 
