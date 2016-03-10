@@ -36,7 +36,7 @@ class ButtonWithBadge extends React.Component {
                 <Badge badgeContent={badgeValue}
                        badgeStyle={badgeStyle ? badgeStyle : defaultBadgeStyle}
                 >
-                    <SvLink url={btnUrl}>
+                    <SvLink url={btnUrl} removePage={this.props.removePage} >
                         <FlatButton
                             labelStyle={btnLabelStyle ? btnLabelStyle: defaultBtnLabelStyle}
                             primary={true}

@@ -23,9 +23,12 @@ class Pagination extends React.Component {
 
     render() {
         const {lastPage} = this.props;
-        let pathnames = this.context.location.pathname.split('/');
+        var origPath = this.context.location.pathname;
+        let finish = origPath.lastIndexOf('/')+1;
+        let pathnames = origPath.split('/');
         this.currentPage = Number(_.last(pathnames));
-        let pathname = pathnames.slice(0, -1).join('/') + '/';
+
+        let pathname = origPath.substr(0, finish);
 
         let currentPage = this.currentPage;
         let prevPage = currentPage - 1;

@@ -73,6 +73,7 @@ class CityZipTypeHousesListPage extends React.Component {
         let {routes, params}= this.props;
         let houses = this.props.Viewer.Houses;
         let houseCount = this.props.Viewer.Houses_Count;
+        console.log(houseCount);
         let {city, type} = this.props.params;
         let zipType = this.props.params.zipType;
         /*Formatter*/
@@ -98,7 +99,7 @@ class CityZipTypeHousesListPage extends React.Component {
 }
 ;
 export default Relay.createContainer(CityZipTypeHousesListPage, {
-    initialVariables: {city: '', zip: '', type: '',page:null},
+    initialVariables: {city: '', zip: '', type: '', page: null},
     prepareVariables({city, zip, type, page}) {
 
         if (!page || isNaN(page)) {
@@ -108,8 +109,8 @@ export default Relay.createContainer(CityZipTypeHousesListPage, {
         if (_.last(type) === 's') {
             type = type.substr(0, type.length - 1);
         }
-        console.log(type);
-        return {city, zip, type,page}
+        page = Number(page);
+        return {city, zip, type, page}
     },
     fragments: {
         Viewer: () => Relay.QL`

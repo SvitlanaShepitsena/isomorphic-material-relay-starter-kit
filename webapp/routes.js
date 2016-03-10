@@ -52,15 +52,18 @@ export default (()=> {
             <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                    name="Chicago North Suburbs Houses for Sale"/>
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
+
+
             <Route path="/houses-for-sale/:city/:zipType(/:page)" component={ZipTypeHousesListPage}
                    queries={ViewerQueries}
                    onEnter={paginate}
-
             />
-            /* <Route path="/houses-for-sale/:city/:zipType/:type/:page" component={CityZipTypeHousesListPage}
-                    queries={ViewerQueries}/>
-             <Route path="/houses-for-sale/:city/:zipType/:type/:id/:page" component={HousePage} queries={ViewerQueries}
-             />*/
+
+            <Route path="/houses-for-sale/:city/:zipType/:type/(:page)" component={CityZipTypeHousesListPage}
+                    queries={ViewerQueries} onEnter={paginate}/>
+
+
+             <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries}/>
 
             <Route path="/search/:query" component={SearchPage} queries={ViewerQueries} name="Search"/>
 

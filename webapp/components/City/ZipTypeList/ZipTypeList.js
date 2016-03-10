@@ -25,11 +25,11 @@ class ZipTypeList extends React.Component {
 
         let itemValue = item[itemId];
         let itemValueFormatted = urlToText(itemValue)
-
         if (!itemValue.match(/^\d+$/g)) {
-        //    if it is type plularize it
+            //    if it is type plularize it
             itemValue += 's';
             itemValueFormatted += 's';
+            var removePage = true;
         }
 
         let badgeValue = item[`${children}_Count`];
@@ -41,6 +41,7 @@ class ZipTypeList extends React.Component {
                         btnLabel={itemValueFormatted}
                         btnUrl={itemValue}
                         badgeValue={badgeValue}
+                        removePage={removePage}
                     />
                 </li>
             )
