@@ -31,9 +31,6 @@ class ZipTypeHousesListPage extends React.Component {
         route: PropTypes.object
     };
 
-
-
-
     pageHelmet() {
         let {city, zipType} = this.props.params;
         /*Formatter*/
@@ -60,8 +57,7 @@ class ZipTypeHousesListPage extends React.Component {
 
     render() {
         let {routes, params}= this.props;
-        let {city} = this.props.params;
-        let {zipType} = this.props.params;
+        let {city, zipType} = this.props.params;
 
         let typesList = this.props.Viewer.Types.edges;
         let showTypesList = zipType.match(/^\d+$/g);
