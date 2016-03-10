@@ -61,11 +61,9 @@ export default (req, res, next, assetsPath) => {
                         function render(data) {
                             try {
 
-                                // Setting up static, global navigator object to pass user agent to material-ui. Again, not to
-                                // fear, we are in a queue.
                                 GLOBAL.navigator = {userAgent: req.headers['user-agent']};
 
-                                const reactOutput = ReactDOMServer.renderToStaticMarkup(
+                                const reactOutput = ReactDOMServer.renderToString(
                                     <IsomorphicRouter.RouterContext {...renderProps} />
                                 );
                                 let helmet = Helmet.rewind();
@@ -80,25 +78,23 @@ export default (req, res, next, assetsPath) => {
                             catch (err) {
                                 console.log(err.stack);
                             }
+
                             queueTask.done();
                         }
                     }, () => 2000);
             } else {
-                var assets = webpack_isomorphic_tools.assets().assets;
-                var allStyles = Object.keys(assets).map(key=> {
-                    var file = assets[key];
-                    var oneFile = Object.keys(file).map(css=> {
-                        console.log(css);
-                        return css == '_style' ? `${file[css]}` : '';
-                    });
-                    return oneFile;
-                }).join(' ').replace(/,/g, '');
 
-                fs.writeFileSync(path.resolve(__dirname, '..', 'public/assets/0.7.7', 'app.css'), allStyles);
+                let helmet = Helmet.rewind();
+
+                var assets = webpack_isomorphic_tools.assets().assets;
+
+                var inlineStyles = Object.keys(assets).map(key=> { var file = assets[key]; return Object.keys(file).map(css=> { return css == '_style' ? `${file[css]}` : ''; }); }).join(' ').replace(/,/g, '');
+
                 res.render(path.resolve(__dirname, '..', 'webapp/views', 'index-dev.ejs'), {
                     // preloadedData: JSON.stringify(data),
-                    assetsPath: assetsPath,
-                    // helmet,
+                    inlineStyles,
+                    assetsPath,
+                    helmet
                     // reactOutput,
                     // isomorphicVars: isoVars
                 });
