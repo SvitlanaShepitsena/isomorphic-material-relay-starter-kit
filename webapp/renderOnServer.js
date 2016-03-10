@@ -80,23 +80,19 @@ export default (req, res, next, assetsPath) => {
                             catch (err) {
                                 console.log(err.stack);
                             }
-
                             queueTask.done();
                         }
                     }, () => 2000);
             } else {
-
                 var assets = webpack_isomorphic_tools.assets().assets;
-
                 var allStyles = Object.keys(assets).map(key=> {
-
                     var file = assets[key];
                     var oneFile = Object.keys(file).map(css=> {
                         console.log(css);
-                        return css=='_style'?`${file[css]}`:'';
+                        return css == '_style' ? `${file[css]}` : '';
                     });
                     return oneFile;
-                }).join(' ').replace(/,/g,'');
+                }).join(' ').replace(/,/g, '');
 
                 fs.writeFileSync(path.resolve(__dirname, '..', 'public/assets/0.7.7', 'app.css'), allStyles);
                 res.render(path.resolve(__dirname, '..', 'webapp/views', 'index-dev.ejs'), {

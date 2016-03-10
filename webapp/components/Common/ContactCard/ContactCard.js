@@ -13,7 +13,7 @@ class ContactCard extends React.Component {
         const h1 = {
             backgroundColor: muiPalette.palette.default3Color,
             fontSize: 18,
-            fontWeight: 500,
+            fontWeight: '500',
             margin: 0,
             padding: 16
         }

@@ -22,6 +22,7 @@ import CitiesSalePage from './containers/pages/city/CitiesSalePage';
 import CityPage from './containers/pages/city/CityPage';
 import ZipTypeHousesListPage from './containers/pages/house/ZipTypeHousesListPage';
 import CityZipTypeHousesListPage from './containers/pages/house/CityZipTypeHousesListPage';
+import Error404 from './components/Error404/Error404.js';
 
 import SearchPage from './containers/pages/search/SearchPage';
 
@@ -45,6 +46,7 @@ export default (()=> {
             <Route path="/privacy" component={PrivacyPage} name="Privacy"/>
             <Route path="/terms" component={TermsPage} name="Terms"/>
             <Route path="/contact" component={ContactPage} name="Contact"/>
+            <Route path="*" component={Error404} name="Error404"/>
         </Route>
     )
 })();
