@@ -98,7 +98,7 @@ class CityZipTypeHousesListPage extends React.Component {
 }
 ;
 export default Relay.createContainer(CityZipTypeHousesListPage, {
-    initialVariables: {city: '', zip: '', type: '',page:null},
+    initialVariables: {city: '', zip: '', type: '', page: null},
     prepareVariables({city, zip, type, page}) {
 
         if (!page || isNaN(page)) {
@@ -109,7 +109,7 @@ export default Relay.createContainer(CityZipTypeHousesListPage, {
             type = type.substr(0, type.length - 1);
         }
         console.log(type);
-        return {city, zip, type,page}
+        return {city, zip, type, page}
     },
     fragments: {
         Viewer: () => Relay.QL`
