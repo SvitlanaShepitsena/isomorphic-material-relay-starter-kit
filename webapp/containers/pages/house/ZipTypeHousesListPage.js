@@ -13,9 +13,6 @@ import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 import {browserHistory} from 'react-router'
 
 class ZipTypeHousesListPage extends React.Component {
-    state = {
-        limit: 3,
-    };
 
     getChildContext() {
         return {
@@ -55,6 +52,14 @@ class ZipTypeHousesListPage extends React.Component {
         );
     };
 
+    noHouses = ()=> {
+        return (
+            <div>
+                Sorry, no items match your request.
+            </div>
+        );
+    };
+
     render() {
         let {routes, params}= this.props;
         let {city, zipType} = this.props.params;
@@ -65,27 +70,38 @@ class ZipTypeHousesListPage extends React.Component {
         let houses = this.props.Viewer.Houses;
         let houseCount = this.props.Viewer.Houses_Count;
 
-        let {query} = this.props.location;
-        this.currentPage = Number(query && query.page ? query.page : 1);
+        let currentPage = Number(_.last(this.props.location.pathname.split('/')));
+        let maxPage = Math.ceil(houseCount / 10);
+        let pageError = currentPage > maxPage;
 
         /*Formatter*/
         const cityFormatted = urlToText(city);
 
         return (
             <div>
-                {this.pageHelmet()}
-                <Breadcrumbs routes={routes} params={params}/>
-                <HousesListTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
-                {showTypesList &&
-                <ZipTypeList
-                    itemId="type"
-                    list={typesList}
-                    children="Houses"
-                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
-                />}
-                {!houses && <Spinner/>}
-                <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>
 
+                {pageError &&
+                <div>
+
+                    { this.noHouses()}
+                </div>
+                }
+                {!pageError &&
+                <div>
+                    {this.pageHelmet()}
+                    <Breadcrumbs routes={routes} params={params}/>
+                    <HousesListTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
+                    {showTypesList &&
+                    <ZipTypeList
+                        itemId="type"
+                        list={typesList}
+                        children="Houses"
+                        sectionTitle={`${cityFormatted}, ${zipType} Homes for Sale by Property Type`}
+                    />}
+                    {!houses && <Spinner/>}
+                    <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>
+                </div>
+                }
             </div>
         );
     }
