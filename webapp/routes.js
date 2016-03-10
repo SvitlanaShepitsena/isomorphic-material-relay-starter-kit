@@ -51,7 +51,7 @@ function check(nextState, replace) {
             nextState.params.page = null;
             nextState.params.id = holder;
             console.log(nextState);
-            replace(nextState.location.pathname);
+            replace({pathname:'/houses-for-sale',params:nextState.params});
 
         }
     }
@@ -74,9 +74,9 @@ export default (()=> {
             />
 
             <Route path="/houses-for-sale/:city/:zipType/:type/(:page)" component={CityZipTypeHousesListPage}
-                   queries={ViewerQueries} onEnter={check}/>
+                   queries={ViewerQueries} onEnter={paginate} />
 
-            <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries}/>
+            <Route path="/houses-for-sale/:city/:zipType/:type/:id/sale" component={HousePage} queries={ViewerQueries}/>
 
 
             <Route path="/search/:query" component={SearchPage} queries={ViewerQueries} name="Search"/>
