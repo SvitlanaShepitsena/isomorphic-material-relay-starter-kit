@@ -13,9 +13,6 @@ import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 import {browserHistory} from 'react-router'
 
 class ZipTypeHousesListPage extends React.Component {
-    state = {
-        limit: 3,
-    };
 
     getChildContext() {
         return {
@@ -31,17 +28,14 @@ class ZipTypeHousesListPage extends React.Component {
         route: PropTypes.object
     };
 
-
-
-
     pageHelmet() {
-        let {city, zipType} = this.props.params;
+        let {city, zipType, currentPage} = this.props.params;
         /*Formatter*/
         const cityName = urlToText(city);
         const zipTypeFormatted = urlToText(zipType);
 
-        const title = `${cityName}, ${zipTypeFormatted} properties for sale | North Illinois Realty`;
-        const description = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!`;
+        const title = `${cityName}, ${zipTypeFormatted} properties for sale | North Illinois Realty | Page ${currentPage}`;
+        const description = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${page})`;
         const image = `${settings.citiesPath}${cityName}2.jpg`;
         return (
             <Helmet
@@ -58,10 +52,17 @@ class ZipTypeHousesListPage extends React.Component {
         );
     };
 
+    noHouses = ()=> {
+        return (
+            <div>
+                <h4>Sorry, we did not find any homes that match your search.</h4>
+            </div>
+        );
+    };
+
     render() {
         let {routes, params}= this.props;
-        let {city} = this.props.params;
-        let {zipType} = this.props.params;
+        let {city, zipType} = this.props.params;
 
         let typesList = this.props.Viewer.Types.edges;
         let showTypesList = zipType.match(/^\d+$/g);
@@ -69,27 +70,38 @@ class ZipTypeHousesListPage extends React.Component {
         let houses = this.props.Viewer.Houses;
         let houseCount = this.props.Viewer.Houses_Count;
 
-        let {query} = this.props.location;
-        this.currentPage = Number(query && query.page ? query.page : 1);
+        let currentPage = Number(_.last(this.props.location.pathname.split('/')));
+        let maxPage = Math.ceil(houseCount / 10);
+        let pageError = currentPage > maxPage;
 
         /*Formatter*/
         const cityFormatted = urlToText(city);
 
         return (
             <div>
-                {this.pageHelmet()}
-                <Breadcrumbs routes={routes} params={params}/>
-                <HousesListTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
-                {showTypesList &&
-                <ZipTypeList
-                    itemId="type"
-                    list={typesList}
-                    children="Houses"
-                    sectionTitle={`${cityFormatted} Homes for Sale by Property Type`}
-                />}
-                {!houses && <Spinner/>}
-                <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>
 
+                {pageError &&
+                <div>
+
+                    { this.noHouses()}
+                </div>
+                }
+                {!pageError &&
+                <div>
+                    {this.pageHelmet()}
+                    <Breadcrumbs routes={routes} params={params}/>
+                    <HousesListTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
+                    {showTypesList &&
+                    <ZipTypeList
+                        itemId="type"
+                        list={typesList}
+                        children="Houses"
+                        sectionTitle={`${cityFormatted}, ${zipType} Homes for Sale by Property Type`}
+                    />}
+                    {!houses && <Spinner/>}
+                    <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>
+                </div>
+                }
             </div>
         );
     }
