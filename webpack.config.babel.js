@@ -25,7 +25,9 @@ let config = {
             {test: /\.json$/, loaders: ['json']},
             {
                 test: /\.less$/,
-                loader: process.env.NODE_ENV === 'production' ? ExtractTextPlugin.extract("style-loader", 'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:3]!postcss!less') : 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:3]!postcss!less'
+                loader: process.env.NODE_ENV === 'production' ?
+                    ExtractTextPlugin.extract("style-loader", 'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:3]!postcss!less')
+                    : 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:3]!postcss!less'
             },
         ]
     },

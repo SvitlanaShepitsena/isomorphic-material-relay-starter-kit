@@ -48,6 +48,7 @@
     "config-da-cassandra": "./node_modules/.bin/replace da_memory da_cassandra ./data/da/*",
     "start-webpack": "better-npm-run start-webpack",
     "start-dev": "better-npm-run start-dev",
+    "deb": "better-npm-run start-deb",
     "start": "better-npm-run start-prod",
     "dev": "concurrent --kill-others \"npm run start-webpack\" \"npm run start-dev\""
   },
@@ -66,6 +67,12 @@
     },
     "start-dev": {
       "command": "babel-node --presets es2015,stage-0  --plugins transform-class-properties,babel-relay-plugin-loader,syntax-decorators --debug -- ./server/main.js --debug",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "start-deb": {
+      "command": "babel-node-debug server/main.js",
       "env": {
         "NODE_ENV": "development"
       }

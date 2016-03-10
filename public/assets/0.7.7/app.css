@@ -1,4 +1,4 @@
-container:AppMenu__container__3kn,link:AppMenu__link__d7y,_style:.AppMenu__container__3kn {
+.AppMenu__container__3kn {
   margin: 8px;
   text-align: right;
 }
@@ -12,7 +12,7 @@ container:AppMenu__container__3kn,link:AppMenu__link__d7y,_style:.AppMenu__conta
   padding: 16px 8px;
   text-decoration: none;
 }
-container:AppHeader__container__1v5,companyName:AppHeader__companyName__1X-,companyLogo:AppHeader__companyLogo__QQB,menuContainer:AppHeader__menuContainer__1SM,companyPhone:AppHeader__companyPhone__3Iy,_style:.AppHeader__container__1v5 {
+ .AppHeader__container__1v5 {
   max-height: 65px;
 }
 .AppHeader__container__1v5 ul {
@@ -62,22 +62,22 @@ container:AppHeader__container__1v5,companyName:AppHeader__companyName__1X-,comp
   .AppHeader__companyLogo__QQB img {
     padding-left: 0;
   }
-  .AppHeader__menuContainer__1SM,
+  .AppHeader__menuContainer__1SM
   .AppHeader__companyName__1X- {
     display: none !important;
   }
 }
-container:MobileMenu__container__1p9,link:MobileMenu__link__3Ga,_style:.MobileMenu__container__1p9 {
+ .MobileMenu__container__1p9 {
   padding-top: 16px;
 }
 .MobileMenu__link__3Ga {
-  color: rgba(0, 0, 0, 0.67);
+  color: rgba(0 0 0 0.67);
   font-size: 18px;
   margin: 5px;
   padding: 18px 4px;
   text-decoration: none;
 }
-container:FooterContent__container__3Cp,footer:FooterContent__footer__3iZ,section:FooterContent__section__33k,sectionHeader:FooterContent__sectionHeader__2r7,_style:.FooterContent__container__3Cp {
+ .FooterContent__container__3Cp {
   *zoom: 1;
   max-width: 1200px;
   margin-left: auto;
@@ -205,10 +205,10 @@ container:FooterContent__container__3Cp,footer:FooterContent__footer__3iZ,sectio
     width: 96% !important;
   }
 }
-layoutWrapper:AppLayout__layoutWrapper__3Y0,contentWrapper:AppLayout__contentWrapper__3ek,mainContent:AppLayout__mainContent__1Wd,asideContent:AppLayout__asideContent__1zb,_style:/*global styles for app*/
-html,
+ /*global styles for app*/
+html
 body {
-  font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
+  font-family: Roboto sans-serif Helvetica Arial sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
@@ -216,23 +216,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+h1
+h2
+h3
+h4
+h5
+h6
 p {
   margin: 0;
   padding: 0;
 }
-h1 small,
-h2 small,
-h3 small,
-h4 small,
-h5 small,
+h1 small
+h2 small
+h3 small
+h4 small
+h5 small
 h6 small {
-  font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
+  font-family: Roboto sans-serif Helvetica Arial sans-serif;
   font-size: 50px;
   font-weight: 400;
   line-height: 1.35;
@@ -240,17 +240,17 @@ h6 small {
   opacity: 0.54;
 }
 @media (max-width: 749px) {
-  h1 small,
-  h2 small,
-  h3 small,
-  h4 small,
-  h5 small,
+  h1 small
+  h2 small
+  h3 small
+  h4 small
+  h5 small
   h6 small {
     font-size: 40px;
   }
 }
 h1 {
-  font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
+  font-family: Roboto sans-serif Helvetica Arial sans-serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 1.35;
@@ -264,7 +264,7 @@ h1 {
   }
 }
 h2 {
-  font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
+  font-family: Roboto sans-serif Helvetica Arial sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 48px;
@@ -277,7 +277,7 @@ h2 {
   }
 }
 h3 {
-  font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
+  font-family: Roboto sans-serif Helvetica Arial sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 40px;
@@ -290,7 +290,7 @@ h3 {
   }
 }
 h4 {
-  font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
+  font-family: Roboto sans-serif Helvetica Arial sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 32px;
@@ -304,7 +304,7 @@ h4 {
   }
 }
 h5 {
-  font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
+  font-family: Roboto sans-serif Helvetica Arial sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
@@ -313,7 +313,7 @@ h5 {
   margin-bottom: 16px;
 }
 h6 {
-  font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
+  font-family: Roboto sans-serif Helvetica Arial sans-serif;
   font-size: 15px;
   font-weight: 500;
   line-height: 24px;
@@ -333,7 +333,7 @@ a {
   font-weight: 500;
 }
 blockquote {
-  font-family: Roboto, sans-serif, Helvetica, Arial, sans-serif;
+  font-family: Roboto sans-serif Helvetica Arial sans-serif;
   position: relative;
   font-size: 24px;
   font-weight: 300;
@@ -497,7 +497,7 @@ a {
     clear: left;
   }
 }
-container:CityThumbPicture__container__hY5,cardTitle:CityThumbPicture__cardTitle__3OC,cardText:CityThumbPicture__cardText__1L7,cityName:CityThumbPicture__cityName__3Hz,_style:.CityThumbPicture__container__hY5 {
+ .CityThumbPicture__container__hY5 {
   margin: 0;
   padding-bottom: 16px;
 }
@@ -531,7 +531,7 @@ container:CityThumbPicture__container__hY5,cardTitle:CityThumbPicture__cardTitle
     font-size: 22px !important;
   }
 }
-container:CitiesList__container__msh,item:CitiesList__item__30G,_style:.CitiesList__container__msh {
+ .CitiesList__container__msh {
   height: 800px;
   width: 100%;
   margin: 0 auto;
@@ -652,7 +652,7 @@ container:CitiesList__container__msh,item:CitiesList__item__30G,_style:.CitiesLi
     clear: left;
   }
 }
-wrapper:HomeCities__wrapper__13W,row:HomeCities__row__326,col1:HomeCities__col1__3un,col2:HomeCities__col2__3wL,_style:.HomeCities__wrapper__13W {
+ .HomeCities__wrapper__13W {
   width: 100%;
 }
 .HomeCities__row__326 {
@@ -707,7 +707,7 @@ wrapper:HomeCities__wrapper__13W,row:HomeCities__row__326,col1:HomeCities__col1_
 .HomeCities__col2__3wL:nth-child(undefinedn + 1) {
   clear: left;
 }
-row:HomePage__row__25k,col1:HomePage__col1__2hY,col2:HomePage__col2__Aih,_style:.HomePage__row__25k {
+ .HomePage__row__25k {
   *zoom: 1;
   max-width: 1200px;
   margin-left: auto;
@@ -772,7 +772,7 @@ row:HomePage__row__25k,col1:HomePage__col1__2hY,col2:HomePage__col2__Aih,_style:
 .HomePage__col2__Aih:nth-child(undefinedn + 1) {
   clear: left;
 }
-wrapper:SearchFormSimple__wrapper__19F,container:SearchFormSimple__container__27V,row:SearchFormSimple__row__3WD,col1:SearchFormSimple__col1__21t,form:SearchFormSimple__form__M3r,buttonContainer:SearchFormSimple__buttonContainer__2om,btnText:SearchFormSimple__btnText__3FQ,inputContainer:SearchFormSimple__inputContainer__1jq,hText:SearchFormSimple__hText__2ZB,_style:/*=grid*/
+ /*=grid*/
 .SearchFormSimple__wrapper__19F {
   width: 100%;
   background-color: #2196F3;
@@ -893,12 +893,12 @@ wrapper:SearchFormSimple__wrapper__19F,container:SearchFormSimple__container__27
   -webkit-transition: .3s;
   transition: .3s;
   cursor: default;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0 0 0 0.54);
 }
 .SearchFormSimple__inputContainer__1jq input:focus {
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0 0 0 0.87);
   background-color: #E3F2FD !important;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 3px 4px 0 rgba(0 0 0 0.14) 0 3px 3px -2px rgba(0 0 0 0.2) 0 1px 8px 0 rgba(0 0 0 0.12) !important;
 }
 .SearchFormSimple__inputContainer__1jq hr {
   display: none;
@@ -1026,7 +1026,7 @@ wrapper:SearchFormSimple__wrapper__19F,container:SearchFormSimple__container__27
     clear: left;
   }
 }
-wrapper:HomeHeader__wrapper__2gd,row:HomeHeader__row__16N,col1:HomeHeader__col1__1Ug,col2:HomeHeader__col2__1Z5,companyLogo:HomeHeader__companyLogo__1jJ,companySlogan:HomeHeader__companySlogan__20u,searchContainer:HomeHeader__searchContainer__3Oe,_style:.HomeHeader__wrapper__2gd {
+ .HomeHeader__wrapper__2gd {
   width: 100%;
   background-color: #2196F3;
 }
@@ -1100,7 +1100,7 @@ wrapper:HomeHeader__wrapper__2gd,row:HomeHeader__row__16N,col1:HomeHeader__col1_
   padding-top: 16px;
 }
 .HomeHeader__companySlogan__20u {
-  font-family: Roboto, sans-serif !important;
+  font-family: Roboto sans-serif !important;
   text-transform: capitalize;
   font-size: 44px;
   font-weight: 300 !important;
@@ -1187,12 +1187,12 @@ wrapper:HomeHeader__wrapper__2gd,row:HomeHeader__row__16N,col1:HomeHeader__col1_
     clear: left;
   }
 }
-content:AboutContent__content__3zm,_style:.AboutContent__content__3zm p {
+ .AboutContent__content__3zm p {
   font-size: 18px !important;
   line-height: 28px;
 }
-iframeResponsive:ContactMap__iframeResponsive__1TP,_style:.ContactMap__iframeResponsive__1TP iframe,
-.ContactMap__iframeResponsive__1TP object,
+ .ContactMap__iframeResponsive__1TP iframe
+.ContactMap__iframeResponsive__1TP object
 .ContactMap__iframeResponsive__1TP embed {
   max-width: 100% !important;
 }
@@ -1200,7 +1200,7 @@ iframeResponsive:ContactMap__iframeResponsive__1TP,_style:.ContactMap__iframeRes
   display: block;
   margin: 0 auto;
 }
-row:PhotoGallery__row__3vI,col1:PhotoGallery__col1__lkF,col2:PhotoGallery__col2__2gY,container:PhotoGallery__container__3XE,itemImage:PhotoGallery__itemImage__1Ki,defaultImage:PhotoGallery__defaultImage__2yo,_style:.PhotoGallery__row__3vI {
+ .PhotoGallery__row__3vI {
   min-width: 100%;
   width: 100%;
   height: 100%;
@@ -1322,7 +1322,7 @@ row:PhotoGallery__row__3vI,col1:PhotoGallery__col1__lkF,col2:PhotoGallery__col2_
     margin: 0 auto;
   }
 }
-row:HouseInfo__row__-rh,col1:HouseInfo__col1__Zn0,col2:HouseInfo__col2__EIf,card:HouseInfo__card__tN7,container:HouseInfo__container__2Ln,headLeft:HouseInfo__headLeft__cBp,headRight:HouseInfo__headRight__1fW,address:HouseInfo__address__3qk,description:HouseInfo__description__1XV,sectionHeader:HouseInfo__sectionHeader__31I,mls:HouseInfo__mls__1GH,textRight:HouseInfo__textRight__3sQ,type:HouseInfo__type__20B,price:HouseInfo__price__3l0,year:HouseInfo__year__2TV,_style:/*=grid*/
+ /*=grid*/
 .HouseInfo__row__-rh {
   min-width: 100%;
   width: 100%;
@@ -1414,7 +1414,7 @@ row:HouseInfo__row__-rh,col1:HouseInfo__col1__Zn0,col2:HouseInfo__col2__EIf,card
   margin-bottom: 4px;
 }
 .HouseInfo__mls__1GH {
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0 0 0 0.54);
   font-weight: 600;
 }
 .HouseInfo__textRight__3sQ {
@@ -1422,7 +1422,7 @@ row:HouseInfo__row__-rh,col1:HouseInfo__col1__Zn0,col2:HouseInfo__col2__EIf,card
 }
 .HouseInfo__type__20B {
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.67);
+  color: rgba(0 0 0 0.67);
 }
 .HouseInfo__price__3l0 {
   font-size: 18px;
@@ -1493,7 +1493,7 @@ row:HouseInfo__row__-rh,col1:HouseInfo__col1__Zn0,col2:HouseInfo__col2__EIf,card
     clear: left;
   }
 }
-row:ButtonAll__row__1kz,col1:ButtonAll__col1__3Ev,col2:ButtonAll__col2__3WX,btnContainer:ButtonAll__btnContainer__2Ei,_style:/*=grid*/
+ /*=grid*/
 .ButtonAll__row__1kz {
   min-width: 100%;
   width: 100%;
@@ -1577,7 +1577,7 @@ row:ButtonAll__row__1kz,col1:ButtonAll__col1__3Ev,col2:ButtonAll__col2__3WX,btnC
     text-align: center;
   }
 }
-address:HouseThumbLarge__address__2zX,cardTitle:HouseThumbLarge__cardTitle__WHc,container:HouseThumbLarge__container__3Bs,image:HouseThumbLarge__image__387,price:HouseThumbLarge__price__2Re,street:HouseThumbLarge__street__x1K,_style:.HouseThumbLarge__address__2zX {
+ .HouseThumbLarge__address__2zX {
   font-weight: 500;
   font-size: 18px;
   margin: 0;
@@ -1613,7 +1613,7 @@ address:HouseThumbLarge__address__2zX,cardTitle:HouseThumbLarge__cardTitle__WHc,
   display: block;
   padding-bottom: 8px;
 }
-row:HousesListFiltered__row__zgG,col1:HousesListFiltered__col1__YP8,col2:HousesListFiltered__col2__1ce,_style:.HousesListFiltered__row__zgG {
+ .HousesListFiltered__row__zgG {
   min-width: 100%;
   width: 100%;
   height: 100%;
@@ -1686,7 +1686,7 @@ row:HousesListFiltered__row__zgG,col1:HousesListFiltered__col1__YP8,col2:HousesL
     clear: left;
   }
 }
-row:ZipTypeList__row__3sJ,col1:ZipTypeList__col1__3TH,item:ZipTypeList__item__32Z,_style:.ZipTypeList__row__3sJ {
+ .ZipTypeList__row__3sJ {
   min-width: 100%;
   width: 100%;
   height: 100%;
@@ -1724,7 +1724,7 @@ row:ZipTypeList__row__3sJ,col1:ZipTypeList__col1__3TH,item:ZipTypeList__item__32
 .ZipTypeList__item__32Z {
   display: inline-block;
 }
-row:HouseThumbInline__row__1Sz,col1:HouseThumbInline__col1__v6K,colImage:HouseThumbInline__colImage__-Zv,colInfo:HouseThumbInline__colInfo__3o_,image:HouseThumbInline__image__3lX,address:HouseThumbInline__address__1Kh,mls:HouseThumbInline__mls__2ma,type:HouseThumbInline__type__2Rq,price:HouseThumbInline__price__121,year:HouseThumbInline__year__2UW,imageContainer:HouseThumbInline__imageContainer__25Y,address2:HouseThumbInline__address2__3tb,_style:/*=grid*/
+ /*=grid*/
 .HouseThumbInline__row__1Sz {
   min-width: 100%;
   width: 100%;
@@ -1778,7 +1778,7 @@ row:HouseThumbInline__row__1Sz,col1:HouseThumbInline__col1__v6K,colImage:HouseTh
   clear: left;
 }
 .HouseThumbInline__colInfo__3o_ {
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0 0 0 0.87);
   line-height: 1.5;
   width: calc(99.99% * 0.66666667 - (30px - 30px * 0.66666667));
 }
@@ -1810,14 +1810,14 @@ row:HouseThumbInline__row__1Sz,col1:HouseThumbInline__col1__v6K,colImage:HouseTh
 /*=house props*/
 .HouseThumbInline__address__1Kh {
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0 0 0 0.87);
   font-size: 18px;
   margin: 16px 0 0;
   line-height: 1;
   padding-bottom: 5px;
 }
 .HouseThumbInline__mls__2ma {
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0 0 0 0.54);
   font-weight: 600;
 }
 .HouseThumbInline__type__2Rq {
@@ -1882,7 +1882,7 @@ row:HouseThumbInline__row__1Sz,col1:HouseThumbInline__col1__v6K,colImage:HouseTh
     clear: left !important;
   }
 }
-row:Pagination__row__1EE,col4:Pagination__col4__28e,col2:Pagination__col2__S0Z,linkContainer:Pagination__linkContainer__2fJ,breadcrumbs:Pagination__breadcrumbs__2He,button:Pagination__button__tJF,counter:Pagination__counter__1zG,_style:/*=grid*/
+ /*=grid*/
 .Pagination__row__1EE {
   vertical-align: middle;
   width: 100%;
@@ -1957,7 +1957,7 @@ row:Pagination__row__1EE,col4:Pagination__col4__28e,col2:Pagination__col2__S0Z,l
   font-size: 16px;
   color: #1976D2;
 }
-row:HousesList__row__3Bj,col1:HousesList__col1__ado,listInline:HousesList__listInline__2Fm,_style:.HousesList__row__3Bj {
+ .HousesList__row__3Bj {
   min-width: 100%;
   width: 100%;
   height: 100%;
@@ -2010,7 +2010,7 @@ row:HousesList__row__3Bj,col1:HousesList__col1__ado,listInline:HousesList__listI
 .HousesList__listInline__2Fm:nth-child(undefinedn + 1) {
   clear: left;
 }
-counter:HousesListTitle__counter__19U,_style:.HousesListTitle__counter__19U {
+ .HousesListTitle__counter__19U {
   color: #1976D2;
   font-size: 16px;
 }
