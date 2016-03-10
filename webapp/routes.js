@@ -26,6 +26,24 @@ import Error404 from './components/Error404/Error404.js';
 
 import SearchPage from './containers/pages/search/SearchPage';
 
+function paginate(nextState, replace) {
+
+
+    if (!nextState.params.page) {
+        console.log(nextState);
+        var params = nextState.params;
+        params.page = 1;
+        nextState.params.page = 1;
+        replace({
+            pathname: nextState.location.pathname+'/1',
+
+        });
+
+    }
+
+
+};
+
 export default (()=> {
     return (
         <Route path="/" component={AppLayout} name="App">
@@ -34,11 +52,15 @@ export default (()=> {
             <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                    name="Chicago North Suburbs Houses for Sale"/>
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
-            <Route path="/houses-for-sale/:city/:zipType" component={ZipTypeHousesListPage} queries={ViewerQueries}/>
-            <Route path="/houses-for-sale/:city/:zipType/:type" component={CityZipTypeHousesListPage}
-                   queries={ViewerQueries}/>
-            <Route path="/houses-for-sale/:city/:zipType/:type/:id" component={HousePage} queries={ViewerQueries}
-                   preparedParams={(id)=>({id:'123'})}/>
+            <Route path="/houses-for-sale/:city/:zipType(/:page)" component={ZipTypeHousesListPage}
+                   queries={ViewerQueries}
+                   onEnter={paginate}
+
+            />
+            /* <Route path="/houses-for-sale/:city/:zipType/:type/:page" component={CityZipTypeHousesListPage}
+                    queries={ViewerQueries}/>
+             <Route path="/houses-for-sale/:city/:zipType/:type/:id/:page" component={HousePage} queries={ViewerQueries}
+             />*/
 
             <Route path="/search/:query" component={SearchPage} queries={ViewerQueries} name="Search"/>
 

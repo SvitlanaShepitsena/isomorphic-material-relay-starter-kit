@@ -9,7 +9,8 @@ class Breadcrumbs extends React.Component {
     };
 
     render() {
-        let paths = _.compact(this.context.route.path.split('/'));
+        let paths = _.compact(this.context.route.path.split('/')).map(route=>route.replace(/[\(\)]/g,''));
+
         let lastIndex = paths.length - 1;
         let {params} = this.context;
 

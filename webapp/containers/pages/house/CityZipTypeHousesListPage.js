@@ -9,6 +9,7 @@ import settings from '../../../settings/settings.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
+import {browserHistory} from 'react-router'
 
 class CityZipTypeHousesListPage extends React.Component {
     state = {compare: true};
@@ -33,6 +34,11 @@ class CityZipTypeHousesListPage extends React.Component {
             zip: this.zip,
             type: this.props.params.type
         })
+        let query = this.props.location.query;
+        this.currentPage = Number(query && query.page ? query.page : 1);
+        if (this.currentPage > 1) {
+            browserHistory.replace(this.props.location.pathname);
+        }
     }
 
     pageHelmet() {
@@ -92,19 +98,24 @@ class CityZipTypeHousesListPage extends React.Component {
 }
 ;
 export default Relay.createContainer(CityZipTypeHousesListPage, {
-    initialVariables: {city: '', zip: '', type: ''},
-    prepareVariables({city, zip, type}) {
+    initialVariables: {city: '', zip: '', type: '',page:null},
+    prepareVariables({city, zip, type, page}) {
+
+        if (!page || isNaN(page)) {
+            page = 1;
+        }
+
         if (_.last(type) === 's') {
             type = type.substr(0, type.length - 1);
         }
         console.log(type);
-        return {city, zip, type}
+        return {city, zip, type,page}
     },
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {
                 Houses_Count(zip:$zip,type:$type)
-                Houses(zip:$zip,type:$type, first:100){
+                Houses(zip:$zip,type:$type, first:100,page:$page){
                     edges{
                         node{
                             id

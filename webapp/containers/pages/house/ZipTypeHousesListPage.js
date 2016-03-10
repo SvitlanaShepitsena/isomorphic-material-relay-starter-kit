@@ -31,36 +31,8 @@ class ZipTypeHousesListPage extends React.Component {
         route: PropTypes.object
     };
 
-    componentDidMount() {
-        let query = this.props.location.query;
-        this.currentPage = Number(query && query.page ? query.page : 1);
-        if (this.currentPage > 1) {
-            browserHistory.replace(this.props.location.pathname);
-        }
-    }
 
-    componentWillReceiveProps(nextProps) {
-        const currentPage = nextProps.location.query.page ? Number(nextProps.location.query.page) : 1;
-        if (nextProps.location.query.page && currentPage === 1) {
-            browserHistory.replace(this.props.location.pathname);
-        }
-        var page = nextProps.location.query.page;
-        const nextPage = page ? Number(page) : 1;
-        if (nextPage !== this.state.page) {
-            this.setState({loading: true, page: nextPage}, ()=> {
 
-                this.props.relay.setVariables({
-                    page: nextPage
-                }, state=> {
-                    if (state.done) {
-                        this.setState({loading: false})
-                    }
-                })
-            });
-
-        }
-
-    }
 
     pageHelmet() {
         let {city, zipType} = this.props.params;
@@ -124,19 +96,18 @@ class ZipTypeHousesListPage extends React.Component {
 };
 
 export default Relay.createContainer(ZipTypeHousesListPage, {
-    initialVariables: {city: null, zipType: null, page: null},
+    initialVariables: {city: null, zipType: null, page: 1},
     prepareVariables({city, zipType, page}) {
         if (!page || isNaN(page)) {
             page = 1;
         }
-
-        console.log(zipType);
+        console.log(page);
 
         if (_.last(zipType) === 's') {
             zipType = zipType.substr(0, zipType.length - 1);
             console.log(zipType);
         }
-
+        page = Number(page);
         return {city, zipType, page}
     },
     fragments: {
@@ -151,7 +122,7 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         }
                     }
                 }
-                Houses(city:$city,zip:$zipType,first:100,page:$page) {
+                Houses(city:$city,zip:$zipType,first:10,page:$page) {
                     edges{
                         cursor
                         node{

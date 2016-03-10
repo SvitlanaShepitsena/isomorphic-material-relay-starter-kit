@@ -83,7 +83,7 @@ class HomePage extends React.Component {
 ;
 
 export default Relay.createContainer(HomePage, {
-    initialVariables: {first: 9},
+    initialVariables: {first: 6},
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {

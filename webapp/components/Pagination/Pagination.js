@@ -6,6 +6,7 @@ import Next from 'material-ui/lib/svg-icons/navigation/chevron-right';
 import Previous from 'material-ui/lib/svg-icons/navigation/chevron-left';
 /*=styles*/
 import styles from './Pagination.less';
+import _ from 'lodash';
 
 class Pagination extends React.Component {
     static contextTypes = {location: PropTypes.object.isRequired};
@@ -22,8 +23,10 @@ class Pagination extends React.Component {
 
     render() {
         const {lastPage} = this.props;
-        this.currentPage = Number(this.context.location.query.page || 1);
-        let pathname = this.context.location.pathname;
+        let pathnames = this.context.location.pathname.split('/');
+        this.currentPage = Number(_.last(pathnames));
+        let pathname = pathnames.slice(0, -1).join('/') + '/';
+
         let currentPage = this.currentPage;
         let prevPage = currentPage - 1;
         let nextPage = currentPage + 1;
@@ -43,7 +46,7 @@ class Pagination extends React.Component {
                     <div className={styles.breadcrumbs}>
                         <div className={styles.linkContainer}>
                             {enablePrev &&
-                            <Link data-link='prev' to={{ pathname: pathname, query: { page: prevPage} }}
+                            <Link data-link='prev' to={{ pathname: pathname+prevPage}}
 
                                   onClick={this.handleClick}>
                                 <RaisedButton className={styles.button} default={true} disabled={currentPage==1}
@@ -57,7 +60,7 @@ class Pagination extends React.Component {
                         </div>
                         <div className={styles.linkContainer}>
                             {enableNext &&
-                            <Link data-link='next' to={{ pathname: pathname, query: { page: nextPage} }}>
+                            <Link data-link='next' to={{ pathname: pathname+nextPage}}>
                                 <RaisedButton className={styles.button} default={true} icon={<Next />} label="Next"/>
                             </Link>
                             }
