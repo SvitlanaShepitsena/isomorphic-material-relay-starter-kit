@@ -22,7 +22,7 @@ class HousesList extends React.Component {
         let city = house.city;
         let type = house.type + 's';
         let zip = house.zip;
-        let houseInlineUrl = `/houses-for-sale/${city}/${zip}/${type}/${house.id}`;
+        let houseInlineUrl = `/houses-for-sale/${city}/${zip}/${type}/${house.id}/residential`;
         return (
             <div key={itemKey} className={styles.listInline}>
                 <Link to={houseInlineUrl}>
