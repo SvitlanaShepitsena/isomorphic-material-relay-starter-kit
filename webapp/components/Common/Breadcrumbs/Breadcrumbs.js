@@ -9,13 +9,19 @@ class Breadcrumbs extends React.Component {
     };
 
     render() {
-        let paths = _.compact(this.context.route.path.split('/')).map(route=>route.replace(/[\(\)]/g,''));
+        var basicPath = this.context.route.path.replace('/residential', '');
 
-        let lastIndex = paths.length - 1;
+        let paths = _.compact(basicPath.split('/')).map(route=>route.replace(/[\(\)]/g, ''));
+
         let {params} = this.context;
 
         let compoundUrl = '';
         let compoundAnchors = '';
+        var last = _.last(paths);
+        if (last.indexOf('realty') > -1 || last.indexOf('page') > -1) {
+            paths = _.initial(paths);
+        }
+        let lastIndex = paths.length - 1;
 
         return (
             <div style={{marginTop: 12}}>
@@ -49,8 +55,9 @@ class Breadcrumbs extends React.Component {
                             case 'id':
                                 compoundAnchors = ` ${anchor}`;
                                 break;
-                            default:
-                                pre = `,`;
+                            case 'realty':
+                                break;
+
                         }
 
                     } else {
@@ -58,10 +65,11 @@ class Breadcrumbs extends React.Component {
                         url = path;
                         compoundAnchors += _.startCase(url);
                     }
+
                     compoundUrl += `/${url}`;
 
                     const linkText = compoundAnchors.replace(/Houses For Sale >/i, 'Chicago Suburbs >');
-
+                    
                     return (
                         <span key={path}>
                             {index > 0 && <span> > </span>}

@@ -28,7 +28,10 @@ import SearchPage from './containers/pages/search/SearchPage';
 
 function paginate(nextState, replace) {
 
-    if (!nextState.params.page) {
+
+    var page = nextState.params.page;
+
+    if (!page) {
         console.log(nextState);
         var params = nextState.params;
         params.page = 1;
@@ -38,6 +41,14 @@ function paginate(nextState, replace) {
 
         });
 
+    } else{
+        if (!page.match(/^\d+$/)) {
+            replace({
+                pathname: nextState.location.pathname + '/1',
+
+            });
+
+        }
     }
 
 };
@@ -59,19 +70,19 @@ export default (()=> {
     return (
         <Route path="/" component={AppLayout} name="App">
             <IndexRoute component={HomePage} queries={ViewerQueries} name="Home"/>
-            
+
             <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                    name="Chicago North Suburbs Houses for Sale"/>
-            
+
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
-            
+
             <Route path="/houses-for-sale/:city/:zipType(/:page)" component={ZipTypeHousesListPage}
                    queries={ViewerQueries}
                    onEnter={paginate}
             />
-            <Route path="/houses-for-sale/:city/:zipType/:type/(:page)" component={CityZipTypeHousesListPage}
+            <Route path="/houses-for-sale/:city/:zipType/:type(/:page)" component={CityZipTypeHousesListPage}
                    queries={ViewerQueries} onEnter={paginate}/>
-            
+
             <Route path="/houses-for-sale/:city/:zipType/:type/:id/:realty" component={HousePage}
                    queries={ViewerQueries}/>
 
