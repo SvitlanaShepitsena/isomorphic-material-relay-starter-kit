@@ -21,7 +21,6 @@ const isoVars = JSON.stringify(isomorphicVars());
 var prod = process.env.NODE_ENV === 'production';
 // // is a static
 const queue = seqqueue.createQueue(2000);
-
 // Render on server will assume always that it can use localhost to access the GraphQL server. It is
 // not considered necessary to use the public URL.
 const GRAPHQL_URL = ( isoVars.public_url == null ) ? `http://localhost:${process.env.PORT}/graphql` : isoVars.public_url + '/graphql';
