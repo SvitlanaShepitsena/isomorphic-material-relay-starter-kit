@@ -3,7 +3,6 @@ import Relay from 'react-relay';
 import Helmet from "react-helmet";
 import settings from '../../../../settings/settings.js';
 import CitiesList from '../../../../components/City/CitiesList/CitiesList.js';
-import HomeCities from '../../../../components/HomeCities/HomeCities.js';
 import styles from './HomePage.less';
 
 /*Components*/

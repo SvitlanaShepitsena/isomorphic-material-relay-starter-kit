@@ -1,17 +1,15 @@
-import chalk from 'chalk';
+import Helmet from "react-helmet";
 import IsomorphicRouter from 'isomorphic-relay-router';
+import {isomorphicVars} from './scripts/isomorphicVars';
+import {match} from 'react-router';
 import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import Relay from 'react-relay';
 import RelayStoreData from 'react-relay/lib/RelayStoreData';
-import {match} from 'react-router';
-import seqqueue from 'seq-queue';
-import Helmet from "react-helmet";
-import fs from 'fs';
-
 import routes from './routes';
-import {isomorphicVars} from './scripts/isomorphicVars';
+/*Seq-queue is simple tool to keep requests to be executed in order*/
+import seqqueue from 'seq-queue';
 
 // Read environment
 require('dotenv').load();
@@ -32,16 +30,13 @@ export default (req, res, next, assetsPath) => {
     var headers = {};
 
     if (prod) {
-
         if (req.cookies.auth_token)
             headers.Cookie = 'auth_token=' + req.cookies.auth_token;
     } else {
         webpack_isomorphic_tools.refresh();
-
     }
     match({routes, location: req.originalUrl}, (error, redirectLocation, renderProps) => {
             if (prod) {
-
                 queue.push(
                     queueTask => {
                         // Setting the STATIC network layer. No fear about it being static - we are in a queue!
@@ -60,7 +55,6 @@ export default (req, res, next, assetsPath) => {
 
                         function render(data) {
                             try {
-
                                 GLOBAL.navigator = {userAgent: req.headers['user-agent']};
 
                                 const reactOutput = ReactDOMServer.renderToString(
@@ -78,18 +72,20 @@ export default (req, res, next, assetsPath) => {
                             catch (err) {
                                 console.log(err.stack);
                             }
-
                             queueTask.done();
                         }
                     }, () => 2000);
             } else {
-
-                let helmet = Helmet.rewind();
-
                 var assets = webpack_isomorphic_tools.assets().assets;
 
-                var inlineStyles = Object.keys(assets).map(key=> { var file = assets[key]; return Object.keys(file).map(css=> { return css == '_style' ? `${file[css]}` : ''; }); }).join(' ').replace(/,/g, '');
+                var inlineStyles = Object.keys(assets).map(key=> {
+                    var file = assets[key];
+                    return Object.keys(file).map(css=> {
+                        return css == '_style' ? `${file[css]}` : '';
+                    });
+                }).join(' ').replace(/,/g, '');
 
+                let helmet = Helmet.rewind();
                 res.render(path.resolve(__dirname, '..', 'webapp/views', 'index-dev.ejs'), {
                     // preloadedData: JSON.stringify(data),
                     inlineStyles,
