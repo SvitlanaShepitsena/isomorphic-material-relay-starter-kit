@@ -16,7 +16,7 @@ class HousesListFiltered extends React.Component {
         let itemKey = house.id;
         let type = house.type + 's';
         let zip = house.zip;
-        let houseThumbUrl = `${zip}/${type}/${house.id}`;
+        let houseThumbUrl = `${zip}/${type}/${house.id}/residential`;
         return (
             <div key={itemKey} className={styles.col2}>
                 <SvLink url={houseThumbUrl}>

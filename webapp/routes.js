@@ -42,7 +42,6 @@ function paginate(nextState, replace) {
 
 };
 function check(nextState, replace) {
-
     var page = nextState.params.page;
     debugger;
     if (page) {
@@ -52,32 +51,25 @@ function check(nextState, replace) {
             nextState.params.id = holder;
             console.log(nextState);
             replace({pathname: '/houses-for-sale', params: nextState.params});
-
         }
     }
-
 };
 
 export default (()=> {
     return (
         <Route path="/" component={AppLayout} name="App">
             <IndexRoute component={HomePage} queries={ViewerQueries} name="Home"/>
-
             <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                    name="Chicago North Suburbs Houses for Sale"/>
             <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
-
-
             <Route path="/houses-for-sale/:city/:zipType(/:page)" component={ZipTypeHousesListPage}
                    queries={ViewerQueries}
                    onEnter={paginate}
             />
-
             <Route path="/houses-for-sale/:city/:zipType/:type/(:page)" component={CityZipTypeHousesListPage}
                    queries={ViewerQueries} onEnter={paginate}/>
-
-            <Route path="/houses-for-sale/:city/:zipType/:type/:id/sale" component={HousePage} queries={ViewerQueries}/>
-
+            <Route path="/houses-for-sale/:city/:zipType/:type/:id/:realty" component={HousePage}
+                   queries={ViewerQueries}/>
 
             <Route path="/search/:query" component={SearchPage} queries={ViewerQueries} name="Search"/>
 
