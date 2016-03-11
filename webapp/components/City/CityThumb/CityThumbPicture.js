@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import axios from 'axios';
 import urlToText from '../../../utils/urlToText.js';
 import settings from '../../../settings/settings';
 
@@ -8,7 +9,6 @@ import CardMedia from 'material-ui/lib/card/card-media';
 import CardTitle from 'material-ui/lib/card/card-title';
 /*=styles*/
 import styles from './CityThumbPicture.less';
-import axios from 'axios';
 
 class CityThumbPicture extends React.Component {
     state = {

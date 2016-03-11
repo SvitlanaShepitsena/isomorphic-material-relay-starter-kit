@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import axios from 'axios';
 import urlToText from '../../../utils/urlToText.js';
 import textToPrice from '../../../utils/textToPrice.js';
 import getYear from '../../../utils/getYear';
@@ -12,31 +13,33 @@ import ImageBackground from '../../Common/ImageBackground/ImageBackground.js';
 import styles from './HouseThumbInline.less';
 
 class HouseThumbInline extends React.Component {
+    state = {
+        img: ''
+    };
     static propTypes = {
         house: PropTypes.object.isRequired
     };
 
-    showImg() {
-        var {houseDefault, cloudinaryPath} = settings;
+    componentWillMount() {
         let {house} = this.props;
-        var {mls, street} = house;
-        var image = cloudinaryPath + house.id + '-photo-1.jpg';
-        var city = house.city;
-        var zip = house.zip;
-        var type = house.type;
-        /*Formatter*/
-        const cityFormatted = urlToText(city);
-        const streetFormatted = urlToText(street);
-        const typeFormatted = urlToText(type);
+        let {houseDefault, cloudinaryPath} = settings;
+        var imgUrl = `${cloudinaryPath}${house.id}-photo-1.jpg`;
 
-        const listingAlt = `${typeFormatted} for sale: ${mls} ${streetFormatted} ${cityFormatted}, IL ${zip}`;
+        axios.get(imgUrl).then(response=> {
+            if (response.status < 400) {
+                this.setState({img: imgUrl})
+            }
+        }).catch(()=> {
+            this.setState({img: houseDefault});
+        })
+    }
 
+    showImg() {
+        let {img} = this.state;
         return (
             <div className={styles.colImage}>
                 <div className={styles.imageContainer}>
-                    {image && <ImageBackground imgWidth="auto" imgHeight="150" backgroundImage={image}/> }
-                    {!image &&
-                    <img className={styles.image} src={houseDefault} alt={listingAlt}/> }
+                    <ImageBackground imgWidth="auto" imgHeight="150" backgroundImage={img}/>
                 </div>
             </div>
         );
@@ -44,10 +47,7 @@ class HouseThumbInline extends React.Component {
 
     showInfo() {
         let {house} = this.props;
-        var {baths, beds, mls, price, street, built} = house;
-        var city = house.city;
-        var zip = house.zip;
-        var type = house.type;
+        var {baths, beds, built, city, mls, price, street, type, zip} = house;
         /*Formatter*/
         let cityFormatted = urlToText(city);
         let priceFormatted = textToPrice(price);
