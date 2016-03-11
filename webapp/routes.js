@@ -84,9 +84,13 @@ export default (()=> {
                    queries={ViewerQueries} onEnter={paginate}/>
 
             <Route path="/houses-for-sale/:city/:zipType/:type/:id/:realty" component={HousePage}
-                   queries={ViewerQueries}/>
+                   queries={ViewerQueries}
 
-            <Route path="/search/:query" component={SearchPage} queries={ViewerQueries} name="Search"/>
+            />
+
+            <Route path="/search/:query(/:page)" component={SearchPage} queries={ViewerQueries} name="Search"
+                   onEnter={paginate}
+            />
 
             <Route path="/about" component={AboutPage} name="Houses for Sale"/>
             <Route path="/privacy" component={PrivacyPage} name="Privacy"/>
