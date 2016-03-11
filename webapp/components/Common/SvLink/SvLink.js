@@ -14,7 +14,13 @@ class SvLink extends React.Component {
         var pathname = this.context.location.pathname;
         if (this.props.removePage) {
             let start = pathname.lastIndexOf('/');
-            pathname = pathname.substring(0, start);
+            // we need to check that the part we drop is page. 
+            
+            const lastParam = pathname.substring(start + 1);
+            if (lastParam.match(/^\d+$/g)) {
+                pathname = pathname.substring(0, start);
+            }
+
         }
         let fullUrl = (`${pathname}/${href}`).replace(/\/+/g, '/');
         if (this.props.removePage) {
