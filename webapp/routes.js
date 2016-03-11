@@ -1,10 +1,6 @@
 // REACT  & Relay
 import React from 'react';
-import {render} from 'react-dom';
-import Relay from 'react-relay';
-
 // Router
-import {RelayRouter} from 'react-router-relay';
 import {Route, IndexRoute, browserHistory, Redirect, IndexRedirect} from 'react-router';
 
 import AppLayout from './containers/layout/AppLayout.js';
@@ -40,19 +36,6 @@ function paginate(nextState, replace) {
 
     }
 
-};
-function check(nextState, replace) {
-    var page = nextState.params.page;
-    debugger;
-    if (page) {
-        if (page.match(/\w+/g)) {
-            var holder = page;
-            nextState.params.page = null;
-            nextState.params.id = holder;
-            console.log(nextState);
-            replace({pathname: '/houses-for-sale', params: nextState.params});
-        }
-    }
 };
 
 export default (()=> {

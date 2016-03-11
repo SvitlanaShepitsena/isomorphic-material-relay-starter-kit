@@ -163,6 +163,7 @@
     "react-tap-event-plugin": "^0.2.1",
     "replace": "^0.3.0",
     "rucksack-css": "^0.8.5",
+    "seq-queue": "0.0.5",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.14",
     "webpack-isomorphic-tools": "^2.2.31"
