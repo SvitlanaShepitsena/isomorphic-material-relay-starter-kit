@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
 import textToPrice from '../../../utils/textToPrice.js';
 import getYear from '../../../utils/getYear';
-import {houseDefault, cloudinaryPath}  from '../../../settings/settings.js';
+import settings from '../../../settings/settings.js';
 
 /*=materialUi*/
 import Card from 'material-ui/lib/card/card';
@@ -17,6 +17,7 @@ class HouseThumbInline extends React.Component {
     };
 
     showImg() {
+        var {houseDefault, cloudinaryPath} = settings;
         let {house} = this.props;
         var {mls, street} = house;
         var image = cloudinaryPath + house.id + '-photo-1.jpg';

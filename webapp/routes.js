@@ -24,9 +24,7 @@ import SearchPage from './containers/pages/search/SearchPage';
 
 function paginate(nextState, replace) {
 
-
     var page = nextState.params.page;
-
     if (!page) {
         console.log(nextState);
         var params = nextState.params;
@@ -34,7 +32,6 @@ function paginate(nextState, replace) {
         nextState.params.page = 1;
         replace({
             pathname: nextState.location.pathname + '/1',
-
         });
 
     } else{

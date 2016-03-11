@@ -38,7 +38,7 @@ class CityThumbPicture extends React.Component {
     }
 
     cityBackground() {
-        let img = this.state.img;
+        let {img} = this.state;
         return (
             <CardMedia overlay={<CardTitle className={styles.cityName}  subtitle={this.cityFormatted} />}>
                 <img alt={this.alt} src={img}/>
