@@ -72,7 +72,7 @@ class ZipTypeHousesListPage extends React.Component {
 
         let currentPage = Number(_.last(this.props.location.pathname.split('/')));
         let maxPage = Math.ceil(houseCount / 10);
-        let pageError = currentPage > maxPage;
+        let pageError = currentPage > maxPage || currentPage == 0;
 
         /*Formatter*/
         const cityFormatted = urlToText(city);

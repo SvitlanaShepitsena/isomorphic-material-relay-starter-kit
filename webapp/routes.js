@@ -23,27 +23,31 @@ import Error404 from './components/Error404/Error404.js';
 import SearchPage from './containers/pages/search/SearchPage';
 
 function paginate(nextState, replace) {
+    let {page} = nextState.params;
+    let {pathname} = nextState.location;
 
-    var page = nextState.params.page;
+    let page1 = `${pathname}/1`;
+
     if (!page) {
-        console.log(nextState);
-        var params = nextState.params;
-        params.page = 1;
-        nextState.params.page = 1;
         replace({
-            pathname: nextState.location.pathname + '/1',
+            pathname: page1
         });
 
-    } else{
+    } else {
         if (!page.match(/^\d+$/)) {
             replace({
-                pathname: nextState.location.pathname + '/1',
-
+                pathname: page1
             });
-
+        }
+        if (page == '0') {
+            const lastParam = pathname.lastIndexOf('/');
+            let baseUrl = pathname.substr(0, lastParam);
+            let startPage = `${baseUrl}/1`;
+            replace({
+                pathname: startPage
+            });
         }
     }
-
 };
 
 export default (()=> {

@@ -9,7 +9,6 @@ import settings from '../../../settings/settings.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
-import {browserHistory} from 'react-router'
 
 class CityZipTypeHousesListPage extends React.Component {
     state = {compare: true};
@@ -31,8 +30,8 @@ class CityZipTypeHousesListPage extends React.Component {
     pageHelmet() {
         let houses = this.props.Viewer.Houses.edges;
         let housesCount = this.props.Viewer.Houses_Count;
-        let {city, type, page} = this.props.params;
-        let zipType = this.props.params.zipType;
+        let {city, type, page, zipType} = this.props.params;
+
         /*Formatter*/
         const cityName = urlToText(city);
         const housesType = urlToText(type);
@@ -60,9 +59,7 @@ class CityZipTypeHousesListPage extends React.Component {
         let {routes, params}= this.props;
         let houses = this.props.Viewer.Houses;
         let houseCount = this.props.Viewer.Houses_Count;
-        console.log(houseCount);
-        let {city, type} = this.props.params;
-        let zipType = this.props.params.zipType;
+        let {city, type, zipType} = this.props.params;
         /*Formatter*/
         const cityFormatted = urlToText(city);
         const typeFormatted = urlToText(type);

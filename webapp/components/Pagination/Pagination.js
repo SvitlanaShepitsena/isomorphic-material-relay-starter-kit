@@ -10,9 +10,8 @@ import _ from 'lodash';
 
 class Pagination extends React.Component {
     static contextTypes = {location: PropTypes.object.isRequired};
-    static propTypes = {
-        lastPage: PropTypes.number.isRequired,
-    };
+    static propTypes = {lastPage: PropTypes.number.isRequired};
+
     handleClick = (e, type)=> {
         if (type == 'prev') {
             if (this.currentPage === 1) {
@@ -24,9 +23,9 @@ class Pagination extends React.Component {
     render() {
         const {lastPage} = this.props;
         var origPath = this.context.location.pathname;
-        let finish = origPath.lastIndexOf('/')+1;
-        let pathnames = origPath.split('/');
-        this.currentPage = Number(_.last(pathnames));
+        let finish = origPath.lastIndexOf('/') + 1;
+        let pathNames = origPath.split('/');
+        this.currentPage = Number(_.last(pathNames));
 
         let pathname = origPath.substr(0, finish);
 
@@ -39,11 +38,12 @@ class Pagination extends React.Component {
 
         let disablePrev = currentPage == 1;
         let disableNext = currentPage == lastPage;
+        const pageCounter = `Page ${currentPage} of ${lastPage}`;
 
         return (
             <div className={styles.row}>
                 <div className={styles.col2}>
-                    <span className={styles.counter}> {`Page ${currentPage} of ${lastPage}`} </span>
+                    <span className={styles.counter}> {pageCounter}</span>
                 </div>
                 <div className={styles.col2}>
                     <div className={styles.breadcrumbs}>

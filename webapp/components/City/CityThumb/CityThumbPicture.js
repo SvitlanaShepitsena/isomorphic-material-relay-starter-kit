@@ -30,7 +30,6 @@ class CityThumbPicture extends React.Component {
             if (response.status < 400) {
                 this.setState({img: imgUrl})
             }
-
         }).catch(()=> {
             this.setState({img: houseDefault});
         })
