@@ -138,7 +138,7 @@
     "isomorphic-relay": "^0.5.4",
     "isomorphic-relay-router": "^0.6.2",
     "isomorphic-style-loader": "0.0.12",
-    "jwt-simple": "^0.4.0",
+    "jwt-simple": "^0.5.0",
     "less": "^2.6.1",
     "lodash": "^4.6.1",
     "lost": "^6.7.2",

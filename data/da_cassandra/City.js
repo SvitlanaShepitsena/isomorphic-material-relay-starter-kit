@@ -38,7 +38,6 @@ export function City_get(city_id) {
             id: city.fields.city_id,
             name: city.fields.city_id,
         };
-        
 
         return objCity;
     });
@@ -63,16 +62,17 @@ export function Cities_with_args(args) {
 
     var body = {
 
-        fields: ['city_id'],
-        aggregations: {
+        fields: ["city_id"],
+        aggs: {
             cities: {
                 terms: {
-                    field: 'city_id'
+                    field: 'city_id',
+                    size:100
                 }
             }
         }
-
     };
+
 
     return runQuery(City, 'sale', body, res=> {
         var citiesAggs = res.aggregations.cities;
@@ -83,9 +83,10 @@ export function Cities_with_args(args) {
                 name: city.key,
                 count: city.doc_count
             }
-            
+
             return objCity;
         });
+        console.log(cities);
         return cities;
     });
 }
