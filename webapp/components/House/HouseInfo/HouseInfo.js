@@ -14,7 +14,9 @@ class HouseInfo extends React.Component {
 
     showHouseHeader() {
         let {house} = this.props;
-        let {mls, price, street, built}= house;
+        let {
+            mls,
+            price, street, built}= house;
         let city = house.city;
         let type = house.type;
         let zip = house.zip;
