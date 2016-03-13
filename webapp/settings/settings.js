@@ -11,7 +11,7 @@ export default {
     companyPhone: "(847) 674-9797",
     companyFax: "(847) 674-0411",
     citiesPath: "http://res.cloudinary.com/svitlana/image/upload/v1457452132/cities/",
-    cloudinaryPath: "http://res.cloudinary.com/remax1stclass/image/upload/",
+    cloudinaryPath: "http://res.cloudinary.com/realty-advisers/image/upload/",
     houseDefault: "http://res.cloudinary.com/svitlana/image/upload/house-picture-icon_og71rx.png",
     companySlogan: "You Need Only One Company For All Your Real Estate Needs",
     links: {

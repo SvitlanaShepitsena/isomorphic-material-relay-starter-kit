@@ -63,6 +63,7 @@ class SearchFormSimple extends Component {
                         </div>
                     </div>
                 </form>
+                
             </div>
         );
     }

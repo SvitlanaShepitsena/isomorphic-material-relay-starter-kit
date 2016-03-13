@@ -57,8 +57,7 @@ class CitiesSalePage extends React.Component {
             </div>
         );
     }
-}
-;
+};
 
 export default Relay.createContainer(CitiesSalePage, {
     initialVariables: {first: 100},
