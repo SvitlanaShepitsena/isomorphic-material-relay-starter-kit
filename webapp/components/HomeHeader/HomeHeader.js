@@ -35,6 +35,23 @@ class HomeHeader extends React.Component {
         );
     };
 
+    showPhone() {
+        return (
+            <div className={styles.row}>
+                <div className={styles.col1}>
+                    <h2 className={styles.h2content}>
+                        <span className={styles.h2Line}>
+                        <span className={styles.ready}> Ready to buy or sell a house?</span>
+                            <span className={styles.ourAgents}> Our agents will help you realize your dreams. </span>
+                        </span>
+                        <span className={styles.h2CallUs}> Call us for a free consultation:</span>
+                        <span className={styles.h2Phone}> (847) 674-9797 </span>
+                    </h2>
+                </div>
+            </div>
+        );
+    };
+
     showSearch() {
         return (
             <div className={styles.row}>
@@ -51,6 +68,9 @@ class HomeHeader extends React.Component {
                 {this.showLogo()}
                 {this.showSlogan()}
                 {this.showSearch()}
+                {this.showPhone()}
+                <h2 style={{textAlign:"center", fontSize:18, color:"whitesmoke"}}>
+                </h2>
             </div>
         )
     }

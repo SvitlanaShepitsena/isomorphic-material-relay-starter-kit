@@ -24,7 +24,7 @@
 
 .companyLogo {
   display: block;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
   padding-top: 16px;
 }
 
@@ -35,6 +35,40 @@
   font-weight: 300 !important;
   line-height: 70px;
   color: white;
+}
+
+@media (max-width: @mobileHorizontal) {
+  .h2Phone,
+  .h2CallUs,
+  .ready,
+  .ourAgents {
+    display: block;
+    text-align: center;
+
+  }
+}
+
+.h2Line {
+  display: block;
+}
+
+.ready,
+.ourAgents {
+  text-align: center;
+}
+
+.h2content {
+  @media (max-width: @mobileHorizontal) {
+    span {
+
+    }
+  }
+  color: @primary-4-color;
+  font-size: 22px;
+  text-align: center;
+  line-height: 1.9;
+  margin-top: 0;
+  margin-bottom: 32px;
 }
 
 @media (max-width: @mobileHorizontal) {
@@ -78,6 +112,5 @@
   .searchContainer {
     lost-column: 1/2;
     lost-offset: -1/4;
-    padding-bottom: 40px;
   }
 }
