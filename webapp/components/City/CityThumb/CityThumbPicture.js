@@ -39,7 +39,7 @@ class CityThumbPicture extends React.Component {
     cityBackground() {
         let {img} = this.state;
         return (
-            <CardMedia overlay={<CardTitle className={styles.cityName}  subtitle={<h3>{this.cityFormatted}</h3>} />}>
+            <CardMedia overlay={<CardTitle className={styles.cityName}  subtitle={<h2>{this.cityFormatted}</h2>} />}>
                 <img alt={this.alt} src={img}/>
             </CardMedia>
         );
@@ -50,7 +50,7 @@ class CityThumbPicture extends React.Component {
         const listingsNum = `Listings for sale: ${housesLength}`;
         return (
             <CardTitle className={styles.cityInfo}
-                       subtitle={ <h4> {listingsNum} </h4> }
+                       subtitle={ <h3> {listingsNum} </h3> }
             />
         );
     };
