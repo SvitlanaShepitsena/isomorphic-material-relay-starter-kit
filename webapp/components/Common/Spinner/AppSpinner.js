@@ -8,9 +8,10 @@ class AppSpinner extends React.Component {
 
     render() {
         var {size} = this.props;
+        const spinnerSize = size ? size : 1.2;
         return (
             <div style={{textAlign:"center"}}>
-                <Spinner size={size ? size : 1.2}/>
+                <Spinner size={spinnerSize}/>
             </div>
         );
     }
