@@ -8,10 +8,10 @@ import ContactMap from '../../../components/ContactMap/ContactMap.js';
 
 class ContactPage extends React.Component {
     pageHelmet() {
-        let helmetProps = helmetProps;
-        let {pageTitle, pageDescription} = helmetProps.contactPage;
-
+        let helmetProps = settings.metaProps;
         let appUrl = helmetProps.appUrl;
+       
+        const {pageTitle, pageDescription} = helmetProps.contactPage;
         const pageImage = helmetProps.fbImage;
         const pageUrl = `${appUrl}/contact`;
         return (

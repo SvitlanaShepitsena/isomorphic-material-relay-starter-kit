@@ -39,9 +39,9 @@ export default {
             pageTitle: "Contact Re/Max 1st Class Realty Skokie, IL",
             pageDescription: "Want to buy or sell home, rent apartment or house in North Illinois or Chicago? Call to Re/Max first class agents for a free consultation!"
         },
-        privacyPolicyPage: {
-            title: "Your privacy is very important for Re/Max 1st Class",
-            description: "Description of the types of information we collect about you when you visit the Re/Max 1st Class Website, and how we use that information"
+        privacyPage: {
+            pageTitle: "Your privacy is very important for Re/Max 1st Class",
+            pageDescription: "Description of the types of information we collect about you when you visit the Re/Max 1st Class Website, and how we use that information"
         },
         termsOfUsePage: {
             title: "Please read carefully before using remax1stclass site",

@@ -8,8 +8,9 @@ class AboutPage extends React.Component {
 
     pageHelmet() {
         let helmetProps = settings.metaProps;
-        let {pageTitle, pageDescription} = helmetProps.aboutPage;
         let appUrl = helmetProps.appUrl;
+        
+        const {pageTitle, pageDescription} = helmetProps.aboutPage;
         const pageImage = helmetProps.fbImage;
         const pageUrl = `${appUrl}/about`;
 
