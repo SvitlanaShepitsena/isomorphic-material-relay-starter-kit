@@ -7,15 +7,15 @@ import AboutContent from '../../../components/AppViews/About/AboutContent.js';
 class AboutPage extends React.Component {
 
     pageHelmet() {
-        let helmet = settings.metaProps;
-        let {pageTitle, pageDescription} = helmet.aboutPage;
-        let appUrl = helmet.appUrl;
-        const pageImage = helmet.fbImage;
+        let helmetProps = settings.metaProps;
+        let {pageTitle, pageDescription} = helmetProps.aboutPage;
+        let appUrl = helmetProps.appUrl;
+        const pageImage = helmetProps.fbImage;
         const pageUrl = `${appUrl}/about`;
 
         return (
             <Helmet
-                title={title}
+                title={pageTitle}
                 meta={[
                     {"name": "url", "content": `${pageUrl}`},
                     {"name": "description", "content": `${pageDescription}`},

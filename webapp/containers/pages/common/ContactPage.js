@@ -8,24 +8,24 @@ import ContactMap from '../../../components/ContactMap/ContactMap.js';
 
 class ContactPage extends React.Component {
     pageHelmet() {
-        let og = settings.metaProps.contactPage;
-        let appUrl = settings.metaProps.appUrl;
-        const url = `${appUrl}/contact`;
-        const title = og.title;
-        const description = og.description;
-        const image = og.fbImage;
+        let helmetProps = helmetProps;
+        let {pageTitle, pageDescription} = helmetProps.contactPage;
+
+        let appUrl = helmetProps.appUrl;
+        const pageImage = helmetProps.fbImage;
+        const pageUrl = `${appUrl}/contact`;
         return (
             <Helmet
-                title={title}
+                title={pageTitle}
                 meta={[
-                    {"name": "url", "content": `${url}`},
-                    {"name": "description", "content": `${description}`},
-                    {"name": "image", "content": `${image}`},
+                    {"name": "url", "content": `${pageUrl}`},
+                    {"name": "description", "content": `${pageDescription}`},
+                    {"name": "image", "content": `${pageImage}`},
 
-                    {"property": "og:url", "content": `${url}`},
-                    {"property": "og:title", "content": `${title}`},
-                    {"property": "og:description", "content": `${description}`},
-                    {"property": "og:image", "content": `${image}`}
+                    {"property": "og:url", "content": `${pageUrl}`},
+                    {"property": "og:title", "content": `${pageTitle}`},
+                    {"property": "og:description", "content": `${pageDescription}`},
+                    {"property": "og:image", "content": `${pageImage}`}
                 ]}
             />
         );
