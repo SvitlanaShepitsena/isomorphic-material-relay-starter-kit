@@ -43,9 +43,9 @@ export default {
             pageTitle: "Your privacy is very important for Re/Max 1st Class",
             pageDescription: "Description of the types of information we collect about you when you visit the Re/Max 1st Class Website, and how we use that information"
         },
-        termsOfUsePage: {
-            title: "Please read carefully before using remax1stclass site",
-            description: "To promote a safe, non-offensive environment for all visitors to our website, we have established these Terms of Use."
+        termsPage: {
+            pageTitle: "Please read carefully before using remax1stclass site",
+            pageDescription: "To promote a safe, non-offensive environment for all visitors to our website, we have established these Terms of Use."
         },
     }
 }
