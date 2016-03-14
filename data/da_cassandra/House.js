@@ -40,7 +40,7 @@ export function House_get(id) {
 }
 
 export function Houses_with_args_count(args) {
-    var body = {};
+    
 
     var body = {};
     /* Pagination functionality */
