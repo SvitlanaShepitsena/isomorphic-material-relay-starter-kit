@@ -48,7 +48,6 @@ class CitiesSalePage extends React.Component {
 
     render() {
         let allCities = this.props.Viewer.Cities.edges;
-        console.log(allCities);
         return (
             <div>
                 {this.pageHelmet()}

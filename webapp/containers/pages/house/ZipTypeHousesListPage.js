@@ -6,11 +6,11 @@ import urlToText from '../../../utils/urlToText.js';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
+
 /*Components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
-import {browserHistory} from 'react-router'
 
 class ZipTypeHousesListPage extends React.Component {
 
@@ -35,17 +35,17 @@ class ZipTypeHousesListPage extends React.Component {
         const zipTypeFormatted = urlToText(zipType);
 
         const title = `${cityName}, ${zipTypeFormatted} for sale | North Illinois Realty | p.${page}`;
-        const description = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${page})`;
+        const ogDescription = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${page})`;
         const image = `${settings.citiesPath}${cityName}2.jpg`;
         return (
             <Helmet
                 title={title}
                 meta={[
-                    {"name": "description", "content": `${description}`},
+                    {"name": "description", "content": `${ogDescription}`},
                     {"name": "image", "content": `${image}`},
 
                     {"property": "og:title", "content": `${title}`},
-                    {"property": "og:description", "content": `${description}`},
+                    {"property": "og:description", "content": `${ogDescription}`},
                     {"property": "og:image", "content": `${image}`}
                 ]}
             />
@@ -79,12 +79,8 @@ class ZipTypeHousesListPage extends React.Component {
 
         return (
             <div>
-
                 {pageError &&
-                <div>
-
-                    { this.noHouses()}
-                </div>
+                <div> { this.noHouses()} </div>
                 }
                 {!pageError &&
                 <div>

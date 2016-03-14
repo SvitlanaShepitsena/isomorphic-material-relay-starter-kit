@@ -2,14 +2,17 @@ import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import Helmet from "react-helmet";
 import settings from '../../../../settings/settings.js';
-import CitiesList from '../../../../components/City/CitiesList/CitiesList.js';
-import styles from './HomePage.less';
 
-/*Components*/
+/*=components*/
+import CitiesList from '../../../../components/City/CitiesList/CitiesList.js';
 import HomeHeader from '../../../../components/HomeHeader/HomeHeader.js';
+
+/*=styles*/
+import styles from './HomePage.less';
 
 class HomePage extends React.Component {
     getChildContext() {
+        //noinspection JSUnresolvedVariable
         return {
             location: this.props.location,
             route: this.props.route,
