@@ -27,12 +27,9 @@ class SearchPage extends React.Component {
         route: PropTypes.object
     };
 
-
-
     render() {
         const houses = this.props.Viewer.Houses;
         const count = Number(this.props.Viewer.Houses_Count);
-
 
         return (
             <div>

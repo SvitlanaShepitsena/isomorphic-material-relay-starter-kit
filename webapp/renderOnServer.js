@@ -42,7 +42,6 @@ export default (req, res, next, assetsPath) => {
                         Relay.injectNetworkLayer(new Relay.DefaultNetworkLayer(GRAPHQL_URL, {headers: headers}));
                         RelayStoreData.getDefaultInstance().getChangeEmitter().injectBatchingStrategy(() => {
                         });
-
                         if (error)
                             next(error);
                         else if (redirectLocation)
