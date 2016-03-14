@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
 import textToPrice from '../../../utils/textToPrice.js';
 import getYear from '../../../utils/getYear';
+import _ from 'lodash';
 
 import Card from 'material-ui/lib/card/card';
 import PhotoGallery from '../../PhotoGallery/PhotoGallery.js';
@@ -25,8 +26,7 @@ class HouseInfo extends React.Component {
     };
 
     showHouseHeader() {
-        let {house} = this.props;
-        house.details = house.details ? JSON.parse(house.details) : null;
+        let {house} = this;
         let {built, city, mls, price, street, type, zip}= house;
         /*Formatter*/
         let cityFormatted = urlToText(city);
@@ -64,7 +64,7 @@ class HouseInfo extends React.Component {
     };
 
     showDescription() {
-        let {description} = this.props.house;
+        let {description} = this.house;
         return (
             <article className={styles.row}>
                 {description &&
@@ -78,7 +78,7 @@ class HouseInfo extends React.Component {
     };
 
     showKeyFacts() {
-        let {house} = this.props;
+        let {house} = this;
         let {baths, beds, built, price, type} = house;
 
         /*Formatter*/
@@ -126,7 +126,7 @@ class HouseInfo extends React.Component {
                                 const val = exterior[extDetail];
                                 return (
                                     <li key={extDetail}>
-                                        {extDetail + ": " + val}
+                                        {_.startCase(extDetail) + ": " + val}
                                     </li>
                                 );
                             })
@@ -139,7 +139,7 @@ class HouseInfo extends React.Component {
     };
 
     render() {
-        let {house} = this.props;
+        let {house} = this;
         let {id} = house;
         let {image} = house;
         return (
