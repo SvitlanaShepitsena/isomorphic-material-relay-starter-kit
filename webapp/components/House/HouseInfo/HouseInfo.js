@@ -101,10 +101,10 @@ class HouseInfo extends React.Component {
     };
 
     showExteriorDetails() {
-        let exterior = this.props.house.details;
+        let {exterior} = this.props.house.details;
         return (
             <article className={styles.row}>
-                {Exterior &&
+                {exterior &&
                 <div className={styles.col1}>
                     <h4 className={styles.sectionHeader}>Exterior Details:</h4>
                     <ul>
