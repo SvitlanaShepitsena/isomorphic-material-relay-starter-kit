@@ -14,12 +14,7 @@ class HouseInfo extends React.Component {
 
     showHouseHeader() {
         let {house} = this.props;
-        let {
-            mls,
-            price, street, built}= house;
-        let city = house.city;
-        let type = house.type;
-        let zip = house.zip;
+        let {built, city, mls, price, street, type, zip}= house;
         /*Formatter*/
         let cityFormatted = urlToText(city);
         let streetFormatted = urlToText(street);
@@ -71,8 +66,7 @@ class HouseInfo extends React.Component {
 
     showKeyFacts() {
         let {house} = this.props;
-        let {baths, beds, price, built} = house;
-        let type = house.type;
+        let {baths, beds, built, price, type} = house;
 
         /*Formatter*/
         let yearFormatted = getYear(built);

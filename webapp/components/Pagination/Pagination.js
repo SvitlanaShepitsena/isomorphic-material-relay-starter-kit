@@ -30,8 +30,8 @@ class Pagination extends React.Component {
         let pathname = origPath.substr(0, finish);
 
         let currentPage = this.currentPage;
-        let prevPage = currentPage - 1;
-        let nextPage = currentPage + 1;
+        let prevPage = `${pathname}${currentPage - 1}`;
+        let nextPage = `${pathname}${currentPage + 1}`;
 
         let enablePrev = currentPage > 1;
         let enableNext = currentPage !== lastPage;
@@ -49,9 +49,9 @@ class Pagination extends React.Component {
                     <div className={styles.breadcrumbs}>
                         <div className={styles.linkContainer}>
                             {enablePrev &&
-                            <Link data-link='prev' to={{ pathname: pathname+prevPage}}
+                            <Link data-link='prev' to={{pathname: prevPage}}
                                   onClick={this.handleClick}>
-                                <RaisedButton className={styles.button} default={true} disabled={currentPage==1}
+                                <RaisedButton className={styles.button} default={true} disabled={disablePrev}
                                               icon={<Previous />} label="Previous" labelPosition="after"/>
                             </Link>
                             }
@@ -62,7 +62,7 @@ class Pagination extends React.Component {
                         </div>
                         <div className={styles.linkContainer}>
                             {enableNext &&
-                            <Link data-link='next' to={{ pathname: pathname+nextPage}}>
+                            <Link data-link='next' to={{ pathname: nextPage}}>
                                 <RaisedButton className={styles.button} default={true} icon={<Next />} label="Next"/>
                             </Link>
                             }
