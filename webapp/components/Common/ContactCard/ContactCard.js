@@ -10,9 +10,6 @@ class ContactCard extends React.Component {
     render() {
         const company = `${settings.companyName} Realty`;
         const address = `${settings.companyAddress}, ${settings.companyCity} ${settings.companyState} ${settings.companyZip}`
-        const cardContent = {
-            padding: '8px 4px'
-        }
 
         return (
             <Card className={styles.card}>
