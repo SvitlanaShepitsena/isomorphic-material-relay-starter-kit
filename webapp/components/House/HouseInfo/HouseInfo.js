@@ -14,6 +14,10 @@ class HouseInfo extends React.Component {
 
     showHouseHeader() {
         let {house} = this.props;
+        house.details = house.details ? JSON.parse(house.details) : null;
+        debugger;
+
+
         let {built, city, mls, price, street, type, zip}= house;
         /*Formatter*/
         let cityFormatted = urlToText(city);
