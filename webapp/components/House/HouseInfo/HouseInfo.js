@@ -102,7 +102,7 @@ class HouseInfo extends React.Component {
                             {price && <p> {priceText}</p> }
                             {built && <p> {yearText} </p> }
                         </div>
-                        <div >
+                        <div className={styles.col2}>
                             {beds && <p> {bedsText}</p> }
                             {baths && <p> {bathsText} </p> }
                         </div>
@@ -116,22 +116,53 @@ class HouseInfo extends React.Component {
     showExteriorDetails() {
         let {exterior} = this.house.details;
         return (
-            <article className={styles.row}>
+            <div className={styles.row}>
                 {exterior &&
                 <div className={styles.col1}>
                     <h4 className={styles.sectionHeader}>Exterior Details:</h4>
-                    <ul>
+                    <div className={styles.propList}>
                         {
                             Object.keys(exterior).map(extDetail => {
-                                const val = exterior[extDetail];
+                                const propKey = `${_.startCase(extDetail)}: `;
+                                const propVal = `${exterior[extDetail]}`;
                                 return (
-                                    <li key={extDetail}>
-                                        {_.startCase(extDetail) + ": " + val}
-                                    </li>
+                                    <div key={extDetail} className={styles.propItem}>
+                                        <span className={styles.propKey}> {propKey} </span>
+                                        <span className={styles.propVal}> {propVal} </span>
+                                    </div>
                                 );
                             })
                         }
-                    </ul>
+                    </div>
+                </div>
+                }
+            </div>
+        );
+    };
+
+    showInteriorDetails() {
+        let {interior} = this.house.details;
+        return (
+            <article className={styles.row}>
+                {interior &&
+                <div className={styles.col1}>
+                    <h4 className={styles.sectionHeader}>Exterior Details:</h4>
+                    <div className={styles.propList}>
+                        {
+                            Object.keys(interior).map(intDetail => {
+                                const propKey = `${_.startCase(intDetail)}: `;
+                                const propVal = `${interior[intDetail]}`;
+                                return (
+                                    <div key={intDetail} className={styles.propItem}>
+                                        <p>
+                                            <span className={styles.propKey}> {propKey} </span> <span
+                                            className={styles.propVal}> {propVal} </span>
+                                        </p>
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
                 </div>
                 }
             </article>
@@ -149,6 +180,7 @@ class HouseInfo extends React.Component {
                 {this.showDescription()}
                 {this.showKeyFacts()}
                 {this.showExteriorDetails()}
+                {this.showInteriorDetails()}
             </Card>
         )
     }
