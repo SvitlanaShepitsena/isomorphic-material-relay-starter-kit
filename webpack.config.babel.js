@@ -32,11 +32,11 @@ let config = {
         ]
     },
     postcss: [
+        require('postcss-font-awesome'),
         require('lost'),
         require('rucksack-css'),
         require('autoprefixer'),
-        require('postcss-color-rebeccapurple'),
-        require('postcss-font-awesome')
+        require('postcss-color-rebeccapurple')
     ],
 
     plugins: [
