@@ -28,8 +28,8 @@ export default {
         appTitle: "Houses Apartments for Sale Rent Chicago North Suburbs",
         fbImage: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
         housesForSalePage: {
-            title: "North Illinois apartments, homes, houses for sale",
-            description: "Browse Houses for sale at North and Northwest Chicago Suburbs. Detailed listing information with large photos"
+            pageTitle: "North Illinois apartments, homes, houses for sale",
+            pageDescription: "Browse Houses for sale at North and Northwest Chicago Suburbs. Detailed listing information with large photos"
         },
         aboutPage: {
             pageTitle: "About Re/Max 1st Class Realty, Illinois Real Estate",

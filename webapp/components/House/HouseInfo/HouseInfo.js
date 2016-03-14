@@ -12,6 +12,18 @@ class HouseInfo extends React.Component {
         house: PropTypes.object.isRequired
     };
 
+    componentWillReceiveProps(nextProps) {
+        let {house} = nextProps;
+        house.details = house.details ? JSON.parse(house.details) : null;
+        this.house = house;
+    };
+
+    componentWillMount() {
+        let {house} = this.props;
+        house.details = house.details ? JSON.parse(house.details) : null;
+        this.house = house;
+    };
+
     showHouseHeader() {
         let {house} = this.props;
         house.details = house.details ? JSON.parse(house.details) : null;
@@ -102,7 +114,7 @@ class HouseInfo extends React.Component {
     };
 
     showExteriorDetails() {
-        let {exterior} = this.props.house.details;
+        let {exterior} = this.house.details;
         return (
             <article className={styles.row}>
                 {exterior &&
