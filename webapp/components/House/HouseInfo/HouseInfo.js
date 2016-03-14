@@ -100,6 +100,31 @@ class HouseInfo extends React.Component {
         );
     };
 
+    showExteriorDetails() {
+        let exterior = this.props.house.details;
+        return (
+            <article className={styles.row}>
+                {Exterior &&
+                <div className={styles.col1}>
+                    <h4 className={styles.sectionHeader}>Exterior Details:</h4>
+                    <ul>
+                        {
+                            Object.keys(exterior).map(extDetail => {
+                                const val = exterior[extDetail];
+                                return (
+                                    <li key={extDetail}>
+                                        {extDetail + ": " + val}
+                                    </li>
+                                );
+                            })
+                        }
+                    </ul>
+                </div>
+                }
+            </article>
+        );
+    };
+
     render() {
         let {house} = this.props;
         let {id} = house;
@@ -110,6 +135,7 @@ class HouseInfo extends React.Component {
                 <PhotoGallery image={image} houseId={id}/>
                 {this.showDescription()}
                 {this.showKeyFacts()}
+                {this.showExteriorDetails()}
             </Card>
         )
     }

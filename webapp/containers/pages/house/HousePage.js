@@ -94,9 +94,9 @@ export default Relay.createContainer(HousePage, {
                     description,
                     price,
                     street,
-                    built
-                    city
-                    zip
+                    built,
+                    city,
+                    zip,
                     image
                 }
             }
