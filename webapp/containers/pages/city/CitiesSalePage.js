@@ -23,23 +23,23 @@ class CitiesSalePage extends React.Component {
     };
 
     pageHelmet() {
-        let og = settings.ogProps.housesForSalePage;
-        let appUrl = settings.ogProps.appUrl;
+        let og = settings.metaProps.housesForSalePage;
+        let appUrl = settings.metaProps.appUrl;
         const url = `${appUrl}/houses-for-sale`;
         const title = og.title;
-        const description = og.description;
-        const image = settings.ogProps.fbImage;
+        const metaDescription = og.description;
+        const image = settings.metaProps.fbImage;
         return (
             <Helmet
                 title={title}
                 meta={[
                     {"name": "url", "content": `${url}`},
-                    {"name": "description", "content": `${description}`},
+                    {"name": "description", "content": `${metaDescription}`},
                     {"name": "image", "content": `${image}`},
 
                     {"property": "og:url", "content": `${url}`},
                     {"property": "og:title", "content": `${title}`},
-                    {"property": "og:description", "content": `${description}`},
+                    {"property": "og:description", "content": `${metaDescription}`},
                     {"property": "og:image", "content": `${image}`}
                 ]}
             />

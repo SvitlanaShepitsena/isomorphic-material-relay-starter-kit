@@ -8,8 +8,8 @@ import ContactMap from '../../../components/ContactMap/ContactMap.js';
 
 class ContactPage extends React.Component {
     pageHelmet() {
-        let og = settings.ogProps.contactPage;
-        let appUrl = settings.ogProps.appUrl;
+        let og = settings.metaProps.contactPage;
+        let appUrl = settings.metaProps.appUrl;
         const url = `${appUrl}/contact`;
         const title = og.title;
         const description = og.description;

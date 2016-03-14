@@ -27,7 +27,7 @@ class HomePage extends React.Component {
     };
 
     pageHelmet() {
-        let helmet = settings.ogProps;
+        let helmet = settings.metaProps;
         const appType = helmet.appType;
         const homeUrl = helmet.appUrl;
         const homeDescription = helmet.appDescription;
