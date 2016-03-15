@@ -227,6 +227,7 @@ class HouseInfo extends React.Component {
 
     render() {
         let {house} = this;
+        debugger;
         let {id} = house;
         let {image} = house;
         return (
