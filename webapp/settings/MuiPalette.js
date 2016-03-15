@@ -9,27 +9,7 @@ export default {
     zIndex: zIndex,
     fontFamily: 'Roboto, sans-serif, Helvetica, Arial, sans-serif',
     palette: {
-        alternateTextColor: Colors.white,
-        canvasColor: Colors.white,
-        borderColor: Colors.grey300,
-        disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3),
-        pickerHeaderColor: Colors.blue500,
 
-        primary1Color: Colors.blue500,
-        primary2Color: Colors.blue700,
-        primary3Color: Colors.blue100,
-        primary4Color: Colors.blue50,
-        accent1Color: Colors.red600,
-        accent2Color: Colors.red500,
-        accent3Color: Colors.redA100,
-
-        success1Color: Colors.green500,
-        success2Color: Colors.green700,
-        success3Color: Colors.green100,
-
-        default1Color: Colors.grey400,
-        default2Color: Colors.grey700,
-        default3Color: Colors.grey200,
 
         textColor: 'rgba(0, 0, 0, 0.87)',
         additionalTextColor: "rgba(0, 0, 0, 0.67)",
