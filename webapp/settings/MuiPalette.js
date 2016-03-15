@@ -23,19 +23,6 @@ export default {
         footerText: '#9a9a9a',
         footerHeaderText: '#cdcdcd',
 
-        greenApp: Colors.green500,
-        pinkApp: Colors.pink500,
-        redApp: Colors.red500,
-        purpleApp: Colors.purple500,
-        indigoApp: Colors.indigo500,
-        blueApp: Colors.blue500,
-        tealApp: Colors.teal500,
-        cyanApp: Colors.cyan500,
-        limeApp: Colors.lime500,
-        amberApp: Colors.amber500,
-        yellowApp: Colors.yellow500,
-        orangeApp: Colors.orange500,
-        brownApp: Colors.brown500,
-        greyApp: Colors.grey500,
+
     }
 };
