@@ -74,7 +74,6 @@ class HouseInfo extends React.Component {
                 {description &&
                 <h4 className={styles.boldHeader}>Description:</h4>
                 }
-                <Divider style={{marginBottom: 16, marginTop: 0}}/>
                 <p className={styles.description}> {description} </p>
             </article>
         );
@@ -93,7 +92,6 @@ class HouseInfo extends React.Component {
             <article>
                 <br/>
                 <h4 className={styles.boldHeader}>Key Facts:</h4>
-                <Divider style={{marginBottom: 16, marginTop: 0}}/>
                 <div className={styles.row}>
                     <div className={styles.col2}>
                         {type && <p><span className={styles.propKey}>Type: </span> {typeFormatted} </p> }
@@ -202,6 +200,31 @@ class HouseInfo extends React.Component {
                             const propVal = `${utilities[util]}`;
                             return (
                                 <div key={util} className={styles.propItem}>
+                                    <p>
+                                        <span className={styles.propKey}> {propKey} </span>
+                                        <span className={styles.propVal}> {propVal} </span>
+                                    </p>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </article>
+        );
+    };
+
+    showPublicFacts() {
+        let {publicFacts} = this.house.details;
+        return (
+            <article>
+                <h4 className={styles.sectionHeader}>Public Facts:</h4>
+                <div className={styles.propList}>
+                    {
+                        Object.keys(publicFacts).map(publicFact => {
+                            const propKey = `${_.startCase(publicFact)}: `;
+                            const propVal = `${publicFacts[publicFact]}`;
+                            return (
+                                <div key={publicFact} className={styles.propItem}>
                                     <p>
                                         <span className={styles.propKey}> {propKey} </span>
                                         <span className={styles.propVal}> {propVal} </span>
