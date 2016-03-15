@@ -27,7 +27,6 @@ class ZipTypeList extends React.Component {
         let itemValueFormatted = urlToText(itemValue)
         
         if (!itemValue.match(/^\d+$/g)) {
-            
             itemValue += 's';
             itemValueFormatted += 's';
             var removePage = true;

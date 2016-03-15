@@ -19,10 +19,11 @@ class PhotoGallery extends React.Component {
 
         };
         var images = [];
-        const maxImage = Number(this.props.image);
+        let {image, houseId} = this.props;
+        const maxImage = Number(image);
         for (var i = 1; i <= maxImage; i++) {
-            var image = appSettings.cloudinaryPath + this.props.houseId + '-photo-' + i + '.jpg';
-            images.push(image);
+            var imageUrl = `${appSettings.cloudinaryPath}${houseId}-photo-${i}.jpg`;
+            images.push(imageUrl);
         }
 
         return (

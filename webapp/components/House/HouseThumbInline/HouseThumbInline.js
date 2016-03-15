@@ -53,7 +53,8 @@ class HouseThumbInline extends React.Component {
         let priceFormatted = textToPrice(price);
         let streetFormatted = urlToText(street);
         let typeFormatted = urlToText(type);
-        let yearFormatted = getYear(house.built);
+        let yearFormatted = getYear(built);
+        
         /*Composed String*/
         const bathsText = ` | Baths: ${baths}`;
         const bedsText = `Beds: ${beds}`;

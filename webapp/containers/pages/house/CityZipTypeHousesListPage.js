@@ -37,18 +37,18 @@ class CityZipTypeHousesListPage extends React.Component {
         const housesType = urlToText(type);
 
         let title = `${cityName}, ${zipType} ${housesType} listings for sale | North Illinois Realty | Page ${page}`;
-        let description = `✔ Browse ${cityName}, ${zipType} ${housesType} houses for sale. ${housesCount} listings for today. ☏  Let us guide you! Call us for a free consultation and schedule a showing!  | Page ${page}`;
+        let ogDescription = `✔ Browse ${cityName}, ${zipType} ${housesType} houses for sale. ${housesCount} listings for today. ☏  Let us guide you! Call us for a free consultation and schedule a showing!  | Page ${page}`;
         let image = `${settings.citiesPath}${cityName}2.jpg`;
 
         return (
             <Helmet
                 title={title}
                 meta={[
-                    {"name": "description", "content": `${description}`},
+                    {"name": "description", "content": `${ogDescription}`},
                     {"name": "image", "content": `${image}`},
 
                     {"property": "og:title", "content": `${title}`},
-                    {"property": "og:description", "content": `${description}`},
+                    {"property": "og:description", "content": `${ogDescription}`},
                     {"property": "og:image", "content": `${image}`}
                 ]}
             />

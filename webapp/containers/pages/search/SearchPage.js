@@ -1,11 +1,8 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import {Link, browserHistory} from 'react-router';
+
+/*=components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
-
-import urlToText from '../../../utils/urlToText.js';
-
-/*Components*/
 
 class SearchPage extends React.Component {
     state = {

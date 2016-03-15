@@ -13,9 +13,9 @@ class HousesListFiltered extends React.Component {
     static defaultProps = {};
     oneHouse = (edge)=> {
         let house = edge.node;
-        let itemKey = house.id;
         let type = house.type + 's';
         let zip = house.zip;
+        let itemKey = house.id;
         let houseThumbUrl = `${zip}/${type}/${house.id}/residential`;
         return (
             <div key={itemKey} className={styles.col2}>

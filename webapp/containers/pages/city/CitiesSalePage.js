@@ -23,24 +23,25 @@ class CitiesSalePage extends React.Component {
     };
 
     pageHelmet() {
-        let og = settings.ogProps.housesForSalePage;
-        let appUrl = settings.ogProps.appUrl;
-        const url = `${appUrl}/houses-for-sale`;
-        const title = og.title;
-        const description = og.description;
-        const image = settings.ogProps.fbImage;
+        let helmetProps = settings.metaProps;
+        let appUrl = helmetProps.appUrl;
+
+        const {pageTitle, pageDescription} = helmetProps.housesForSalePage;
+        const pageImage = helmetProps.fbImage;
+        const pageUrl = `${appUrl}/houses-for-sale`;
+
         return (
             <Helmet
-                title={title}
+                title={pageTitle}
                 meta={[
-                    {"name": "url", "content": `${url}`},
-                    {"name": "description", "content": `${description}`},
-                    {"name": "image", "content": `${image}`},
+                    {"name": "url", "content": `${pageUrl}`},
+                    {"name": "description", "content": `${pageDescription}`},
+                    {"name": "image", "content": `${pageImage}`},
 
-                    {"property": "og:url", "content": `${url}`},
-                    {"property": "og:title", "content": `${title}`},
-                    {"property": "og:description", "content": `${description}`},
-                    {"property": "og:image", "content": `${image}`}
+                    {"property": "og:url", "content": `${pageUrl}`},
+                    {"property": "og:title", "content": `${pageTitle}`},
+                    {"property": "og:description", "content": `${pageDescription}`},
+                    {"property": "og:image", "content": `${pageImage}`}
                 ]}
             />
         );
@@ -48,7 +49,6 @@ class CitiesSalePage extends React.Component {
 
     render() {
         let allCities = this.props.Viewer.Cities.edges;
-        console.log(allCities);
         return (
             <div>
                 {this.pageHelmet()}

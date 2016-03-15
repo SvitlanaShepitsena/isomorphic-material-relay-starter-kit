@@ -26,11 +26,8 @@ class HousePage extends React.Component {
 
     pageHelmet() {
         let house = this.props.Viewer.House;
-        let {mls, street} = house;
-        let houseDescription = house.description;
-        let city = house.city;
-        let zip = house.zip;
-        var type = house.type;
+        let {city, description, mls, street, type, zip} = house;
+
         /*Formatter*/
         const cityFormatted = urlToText(city);
         const streetFormatted = urlToText(street);
@@ -39,8 +36,8 @@ class HousePage extends React.Component {
         const title = `${cityFormatted} home for sale | ${streetFormatted}. ID: ${mls}`;
         const ogTitle = `FOR SALE! ☆ ${streetFormatted}, ${cityFormatted}, ${zip} ☆ Re/Max 1st Class`;
 
-        const description = `${mls} | Check out and schedule a showing! ${houseDescription}`;
-        const ogDescription = `${typeFormatted} ${mls}  ✔ Check out and schedule a showing! ☏  ${houseDescription}`;
+        const metaDescription = `${mls} | Check out and schedule a showing! ${description}`;
+        const ogDescription = `${typeFormatted} ${mls}  ✔ Check out and schedule a showing! ☏  ${description}`;
 
         const image = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
 
@@ -48,7 +45,7 @@ class HousePage extends React.Component {
             <Helmet
                 title={title}
                 meta={[
-                    {"name": "description", "content": `${description}`},
+                    {"name": "description", "content": `${metaDescription}`},
                     {"name": "image", "content": `${image}`},
 
                     {"property": "og:title", "content": `${ogTitle}`},
@@ -97,10 +94,11 @@ export default Relay.createContainer(HousePage, {
                     description,
                     price,
                     street,
-                    built
-                    city
-                    zip
-                    image
+                    built,
+                    city,
+                    zip,
+                    image,
+                    details
                 }
             }
         `,
