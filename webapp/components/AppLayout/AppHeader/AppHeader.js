@@ -25,7 +25,7 @@ class AppHeader extends React.Component {
                             <ul>
                                 <li className={styles.companyLogo}> <img src={settings.companyLogo} alt={settings.companyName + " Logo"} /> </li>
                                 <li className={styles.companyName} > {settings.companyName} </li>
-                                <li className={styles.companyPhone} > {settings.companyPhone} </li>
+                                <li className={styles.companyPhone} > <i className="fa fa-phone"/> {settings.companyPhone} </li>
                             </ul>
                         </Link>}>
                 <div className={styles.menuContainer}>
