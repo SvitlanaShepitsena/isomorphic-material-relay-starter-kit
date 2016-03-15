@@ -4,8 +4,12 @@ import textToPrice from '../../../utils/textToPrice.js';
 import getYear from '../../../utils/getYear';
 import _ from 'lodash';
 
+/*=MaterialUi*/
 import Card from 'material-ui/lib/card/card';
+import Divider from 'material-ui/lib/divider';
 import PhotoGallery from '../../PhotoGallery/PhotoGallery.js';
+
+/*=styles*/
 import styles from './HouseInfo.less';
 
 class HouseInfo extends React.Component {
@@ -66,13 +70,12 @@ class HouseInfo extends React.Component {
     showDescription() {
         let {description} = this.house;
         return (
-            <article className={styles.row}>
+            <article className={styles.descriptionArticle}>
                 {description &&
-                <div className={styles.col1}>
-                    <h4 className={styles.sectionHeader}>Description:</h4>
-                    <p className={styles.description}> {description} </p>
-                </div>
+                <h4 className={styles.boldHeader}>Description:</h4>
                 }
+                <Divider style={{marginBottom: 16, marginTop: 0}}/>
+                <p className={styles.description}> {description} </p>
             </article>
         );
     };
@@ -85,29 +88,24 @@ class HouseInfo extends React.Component {
         let yearFormatted = getYear(built);
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
-        /*String*/
-        const typeText = `Type: ${typeFormatted}`;
-        const priceText = `Price: ${priceFormatted}`;
-        const yearText = `Year Built: ${yearFormatted}`;
-        const bedsText = `Beds: ${beds}`;
-        const bathsText = `Baths: ${baths}`;
 
         return (
-            <article className={styles.row}>
-                <div className={styles.col1}>
-                    <h4 className={styles.sectionHeader}>Key Facts:</h4>
-                    <div className={styles.row}>
-                        <div className={styles.col2}>
-                            {type && <p> {typeText} </p> }
-                            {price && <p> {priceText}</p> }
-                            {built && <p> {yearText} </p> }
-                        </div>
-                        <div className={styles.col2}>
-                            {beds && <p> {bedsText}</p> }
-                            {baths && <p> {bathsText} </p> }
-                        </div>
+            <article>
+                <br/>
+                <h4 className={styles.boldHeader}>Key Facts:</h4>
+                <Divider style={{marginBottom: 16, marginTop: 0}}/>
+                <div className={styles.row}>
+                    <div className={styles.col2}>
+                        {type && <p><span className={styles.propKey}>Type: </span> {typeFormatted} </p> }
+                        {price && <p><span className={styles.propKey}>Price: </span> {priceFormatted} </p> }
+                        {built && <p><span className={styles.propKey}>Year Built: </span> {yearFormatted} </p> }
+                    </div>
+                    <div className={styles.col2}>
+                        {beds && <p><span className={styles.propKey}>Beds: </span> <span> {beds} </span></p> }
+                        {baths && <p><span className={styles.propKey}>Baths: </span> {baths} </p> }
                     </div>
                 </div>
+
             </article>
 
         );
@@ -116,55 +114,103 @@ class HouseInfo extends React.Component {
     showExteriorDetails() {
         let {exterior} = this.house.details;
         return (
-            <div className={styles.row}>
+            <article>
                 {exterior &&
-                <div className={styles.col1}>
-                    <h4 className={styles.sectionHeader}>Exterior Details:</h4>
-                    <div className={styles.propList}>
-                        {
-                            Object.keys(exterior).map(extDetail => {
-                                const propKey = `${_.startCase(extDetail)}: `;
-                                const propVal = `${exterior[extDetail]}`;
-                                return (
-                                    <div key={extDetail} className={styles.propItem}>
+                <h4 className={styles.sectionHeader}>Exterior Details:</h4>
+                }
+                <div className={styles.propList}>
+                    {
+                        Object.keys(exterior).map(extDetail => {
+                            const propKey = `${_.startCase(extDetail)}: `;
+                            const propVal = `${exterior[extDetail]}`;
+                            return (
+                                <div key={extDetail} className={styles.propItem}>
+                                    <p>
                                         <span className={styles.propKey}> {propKey} </span>
                                         <span className={styles.propVal}> {propVal} </span>
-                                    </div>
-                                );
-                            })
-                        }
-                    </div>
+                                    </p>
+                                </div>
+                            );
+                        })
+                    }
                 </div>
-                }
-            </div>
+            </article>
         );
     };
 
     showInteriorDetails() {
         let {interior} = this.house.details;
         return (
-            <article className={styles.row}>
+            <article>
                 {interior &&
-                <div className={styles.col1}>
-                    <h4 className={styles.sectionHeader}>Exterior Details:</h4>
-                    <div className={styles.propList}>
-                        {
-                            Object.keys(interior).map(intDetail => {
-                                const propKey = `${_.startCase(intDetail)}: `;
-                                const propVal = `${interior[intDetail]}`;
-                                return (
-                                    <div key={intDetail} className={styles.propItem}>
-                                        <p>
-                                            <span className={styles.propKey}> {propKey} </span> <span
-                                            className={styles.propVal}> {propVal} </span>
-                                        </p>
-                                    </div>
-                                );
-                            })
-                        }
-                    </div>
-                </div>
+                <h4 className={styles.sectionHeader}>Interior Details:</h4>
                 }
+                <div className={styles.propList}>
+                    {
+                        Object.keys(interior).map(intDetail => {
+                            const propKey = `${_.startCase(intDetail)}: `;
+                            const propVal = `${interior[intDetail]}`;
+                            return (
+                                <div key={intDetail} className={styles.propItem}>
+                                    <p>
+                                        <span className={styles.propKey}> {propKey} </span>
+                                        <span className={styles.propVal}> {propVal} </span>
+                                    </p>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </article>
+        );
+    };
+
+    showTaxes() {
+        let {taxes} = this.house.details;
+        return (
+            <article>
+                { taxes && <h4 className={styles.sectionHeader}>Taxes:</h4>}
+                <div className={styles.propList}>
+                    {
+                        Object.keys(taxes).map(tax => {
+                            const propKey = `${_.startCase(tax)}: `;
+                            const propVal = `${taxes[tax]}`;
+                            return (
+                                <div key={tax} className={styles.propItem}>
+                                    <p>
+                                        <span className={styles.propKey}> {propKey} </span>
+                                        <span className={styles.propVal}> {propVal} </span>
+                                    </p>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </article>
+        );
+    };
+
+    showUtilities() {
+        let {utilities} = this.house.details;
+        return (
+            <article>
+                { utilities && <h4 className={styles.sectionHeader}>Utilities:</h4>}
+                <div className={styles.propList}>
+                    {
+                        Object.keys(utilities).map(util => {
+                            const propKey = `${_.startCase(util)}: `;
+                            const propVal = `${utilities[util]}`;
+                            return (
+                                <div key={util} className={styles.propItem}>
+                                    <p>
+                                        <span className={styles.propKey}> {propKey} </span>
+                                        <span className={styles.propVal}> {propVal} </span>
+                                    </p>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
             </article>
         );
     };
@@ -177,10 +223,12 @@ class HouseInfo extends React.Component {
             <Card className={styles.container}>
                 {this.showHouseHeader()}
                 <PhotoGallery image={image} houseId={id}/>
-                {this.showDescription()}
                 {this.showKeyFacts()}
+                {this.showDescription()}
                 {this.showExteriorDetails()}
                 {this.showInteriorDetails()}
+                {this.showTaxes()}
+                {this.showUtilities()}
             </Card>
         )
     }

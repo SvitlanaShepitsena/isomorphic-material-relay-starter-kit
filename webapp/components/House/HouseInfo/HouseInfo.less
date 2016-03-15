@@ -17,10 +17,12 @@
 }
 
 .card article {
+  width: 100%;
   padding: 0 16px;
 }
 
 .container {
+  width: 100%;
   margin-top: 16px;
   padding: 16px 0;
   article {
@@ -33,6 +35,7 @@
   }
 }
 
+/*=desktop headers*/
 .headLeft {
   padding-left: 16px;
 }
@@ -49,17 +52,21 @@
   margin: 0 0 5px;
 }
 
-.description {
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 8px;
+.sectionHeader {
+  border-bottom: 1px dashed @divider-color;
+  color: @primary-2-color;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  margin-top: 0;
+  line-height: 2;
 }
 
-.sectionHeader {
+.boldHeader {
   color: @primary-2-color;
-  font-size: 18px;
-  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 16px !important;
+  font-weight: 600 !important;
   margin-bottom: 8px;
   margin-top: 4px;
 }
@@ -89,40 +96,8 @@
   font-style: italic;
 }
 
-/*=details*/
-.propList {
-  font-size: 15px;
-  min-width: 100%;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  lost-utility: clearfix;
-}
-
-.propItem {
-  p {
-    background-color: @default-3-color;
-  }
-  lost-column: 1/2 2 16px !important;
-  @media (max-width: @mobileHorizontal) {
-    lost-column: 1 !important;
-  }
-}
-
-.propKey {
-  line-height: 28px;
-  font-weight: 600;
-  color: @secondary-text-color;
-}
-
-.propVal {
-  line-height: 28px;
-  font-weight: 500;
-  color: @secondary-text-color;
-}
-
-/*=mobile*/
-@media (max-width: 599px) {
+/*=mobile header*/
+@media (max-width: @mobileHorizontal) {
   .address {
     text-align: center;
   }
@@ -178,5 +153,41 @@
 
   .col2 {
     lost-column: 1 0;
+  }
+}
+
+/*=displaying raw list*/
+.propList {
+  font-size: 15px;
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  lost-utility: clearfix;
+}
+
+.propItem {
+  p {
+    background-color: @default-3-color;
+  }
+  lost-column: 1/2 2 16px !important;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1 !important;
+  }
+}
+
+.propKey {
+  line-height: 28px;
+  font-weight: 600;
+  color: @secondary-text-color;
+}
+
+.propVal {
+  line-height: 28px;
+  font-weight: 500;
+  font-size: 15px;
+  color: @text-color;
+  @media screen and (max-width: @mobileHorizontal) {
+    font-size: 16px;
   }
 }
