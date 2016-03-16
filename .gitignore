@@ -330,7 +330,6 @@ npm-debug.log
 /node_modules/postcss-reduce-transforms
 /node_modules/globals
 /node_modules/range-parser
-/node_modules/isomorphic-relay
 /node_modules/babel-register
 /node_modules/postcss-filter-plugins
 /node_modules/lowercase-keys
@@ -338,7 +337,6 @@ npm-debug.log
 /node_modules/lodash._basecopy
 /node_modules/micromatch
 /node_modules/postcss-zindex
-/node_modules/isomorphic-relay-router
 /node_modules/find-versions
 /node_modules/coa
 /node_modules/postcss-minify-params
