@@ -23,13 +23,10 @@ class HouseThumbLarge extends React.Component {
         var {houseDefault, cloudinaryPath} = settings;
 
         let {house} = this.props;
-        var {baths, beds, mls, price, street, built} = house;
-        var city = house.city;
-        var zip = house.zip;
-        var type = house.type;
+        var {baths, beds, built, city, mls, price, street, type, zip} = house;
 
         /*Formatter*/
-        var year = getYear(built);
+        let yearFormatted = getYear(built);
         let cityFormatted = urlToText(city);
         let streetFormatted = urlToText(street);
         let typeFormatted = urlToText(type);
@@ -64,7 +61,7 @@ class HouseThumbLarge extends React.Component {
                         {zip && <span> {zip} </span> }
                      </h4>
                    }
-                    subtitle={ <span> Year: {!year && <span> n/a</span> }  { year && <span> {year}</span> } </span> }
+                    subtitle={ <span> Year: {!built && <span> n/a</span> }  { built && <span> {yearFormatted}</span> } </span> }
                 >
                 </CardTitle>
             </Card >

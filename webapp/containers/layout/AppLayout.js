@@ -1,6 +1,6 @@
 import React from 'react';
-import Relay from 'react-relay';
 
+/*=MaterialUi*/
 import AppCanvas from 'material-ui/lib/app-canvas';
 import LeftNav from 'material-ui/lib/left-nav';
 
@@ -29,7 +29,6 @@ class AppLayout extends React.Component {
     handleClose = () => this.setState({open: false});
 
     mobileNav() {
-        var styles = require('./AppLayout.less');
         let openMenu = this.state.open;
         return (
             <LeftNav docked={false} open={openMenu} onRequestChange={open => this.setState({open})}>
@@ -65,7 +64,6 @@ class AppLayout extends React.Component {
     };
 
     render() {
-        var styles = require('./AppLayout.less');
         return (
             <AppCanvas style={{position:"relative", height:"100%"}}>
                 <AppHeader onTouchTap={this.handleToggle}/>

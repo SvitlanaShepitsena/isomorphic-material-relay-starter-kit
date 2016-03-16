@@ -18,7 +18,7 @@ class CitiesList extends React.Component {
     };
     oneCity = (edge) => {
         let item = edge.node;
-        let {itemId, fullUrl, children} = this.props;
+        let {itemId, fullUrl} = this.props;
         let itemValue = item[itemId];
         let url = (fullUrl || '') + itemValue;
         let housesLength = Number(item.count);

@@ -10,18 +10,17 @@ import styles from './SearchFormSimple.less';
 import {browserHistory} from 'react-router'
 
 class SearchFormSimple extends Component {
+    state = {query: ''};
+
     componentDidMount() {
         ReactDOM.findDOMNode(this.refs.search).focus();
     }
 
     search = ()=> {
+        let searchUrl = `/search/${this.state.query}`;
         if (this.state.query.length) {
-            browserHistory.push({pathname: '/search/' + this.state.query});
+            browserHistory.push({pathname: searchUrl});
         }
-    };
-
-    state = {
-        query: ''
     };
 
     handleUpdateInput = (event) => {
@@ -31,7 +30,6 @@ class SearchFormSimple extends Component {
     };
 
     handleKeyDown = (evt) => {
-
         if (evt.keyCode == 13) {
             return this.search();
         }
@@ -63,6 +61,7 @@ class SearchFormSimple extends Component {
                         </div>
                     </div>
                 </form>
+
             </div>
         );
     }

@@ -27,7 +27,8 @@ export default new GraphQLObjectType({
         mls: {type: GraphQLString, resolve: (obj) =>obj.mls},
         built: {type: GraphQLString, resolve: (obj) =>obj.built},
         since: {type: GraphQLString, resolve: (obj) =>obj.since},
-        street: {type: GraphQLString, resolve: (obj) =>obj.street}
+        street: {type: GraphQLString, resolve: (obj) =>obj.street},
+        details: {type: GraphQLString, resolve: (obj) =>obj.details}
 
     }),
 });

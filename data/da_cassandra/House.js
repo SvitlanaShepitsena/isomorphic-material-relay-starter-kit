@@ -20,9 +20,21 @@ export function House_get(id) {
             }
         }
     }
-    return runQueryOneResult(House,'sale',body,res=>{
+    return runQueryOneResult(House, 'sale', body, res=> {
+        try {
+            var house = res.hits.hits[0]._source;
+            if (house.details) {
+                house.details = JSON.stringify(house.details);
+                console.log(house.details);
 
-        return res.hits.hits[0]._source;
+            }
+        } catch (e) {
+            console.log(e.message);
+            console.log(e.stack);
+            throw new Error('error in listing details');
+        }
+
+        return house;
 
     });
 

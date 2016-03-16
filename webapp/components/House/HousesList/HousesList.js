@@ -3,7 +3,6 @@ import {Link} from 'react-router';
 /*Components*/
 import HouseThumbInline from '../HouseThumbInline/HouseThumbInline';
 import Pagination from '../../Pagination/Pagination.js';
-import _ from 'lodash';
 
 import styles from './HousesList.less';
 
@@ -18,11 +17,9 @@ class HousesList extends React.Component {
     };
     oneHouse = (edge)=> {
         let house = edge.node;
+        let {city, type, zip} = house;
         let itemKey = house.id;
-        let city = house.city;
-        let type = house.type + 's';
-        let zip = house.zip;
-        let houseInlineUrl = `/houses-for-sale/${city}/${zip}/${type}/${house.id}/residential`;
+        let houseInlineUrl = `/houses-for-sale/${city}/${zip}/${type}s/${itemKey}/residential`;
         return (
             <div key={itemKey} className={styles.listInline}>
                 <Link to={houseInlineUrl}>
@@ -33,7 +30,7 @@ class HousesList extends React.Component {
     };
 
     render() {
-        const {list, count, limit} = this.props;
+        const {list, count} = this.props;
         const lastPage = Number(Math.ceil(count / 10));
         const housesList = list.edges;
 

@@ -6,11 +6,11 @@ import urlToText from '../../../utils/urlToText.js';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
+
 /*Components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
-import {browserHistory} from 'react-router'
 
 class ZipTypeHousesListPage extends React.Component {
 
@@ -34,19 +34,19 @@ class ZipTypeHousesListPage extends React.Component {
         const cityName = urlToText(city);
         const zipTypeFormatted = urlToText(zipType);
 
-        const title = `${cityName}, ${zipTypeFormatted} properties for sale | North Illinois Realty | Page ${page}`;
-        const description = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${page})`;
-        const image = `${settings.citiesPath}${cityName}2.jpg`;
+        const pageTitle = `${cityName}, ${zipTypeFormatted} for sale | North Illinois Realty | p.${page}`;
+        const ogDescription = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${page})`;
+        const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
         return (
             <Helmet
-                title={title}
+                title={pageTitle}
                 meta={[
-                    {"name": "description", "content": `${description}`},
-                    {"name": "image", "content": `${image}`},
+                    {"name": "description", "content": `${ogDescription}`},
+                    {"name": "image", "content": `${pageImage}`},
 
-                    {"property": "og:title", "content": `${title}`},
-                    {"property": "og:description", "content": `${description}`},
-                    {"property": "og:image", "content": `${image}`}
+                    {"property": "og:title", "content": `${pageTitle}`},
+                    {"property": "og:description", "content": `${ogDescription}`},
+                    {"property": "og:image", "content": `${pageImage}`}
                 ]}
             />
         );
@@ -72,19 +72,15 @@ class ZipTypeHousesListPage extends React.Component {
 
         let currentPage = Number(_.last(this.props.location.pathname.split('/')));
         let maxPage = Math.ceil(houseCount / 10);
-        let pageError = currentPage > maxPage;
+        let pageError = currentPage > maxPage || currentPage == 0;
 
         /*Formatter*/
         const cityFormatted = urlToText(city);
 
         return (
             <div>
-
                 {pageError &&
-                <div>
-
-                    { this.noHouses()}
-                </div>
+                <div> { this.noHouses()} </div>
                 }
                 {!pageError &&
                 <div>

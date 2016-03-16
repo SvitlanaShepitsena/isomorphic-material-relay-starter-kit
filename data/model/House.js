@@ -4,6 +4,7 @@ export default class House {
         this.id = fields.id;
         this.beds = fields.beds;
         this.description = fields.description;
+        this.details = fields.details;
         this.image = fields.image;
         this.mls = fields.mls;
         this.type_id = fields.type_id;

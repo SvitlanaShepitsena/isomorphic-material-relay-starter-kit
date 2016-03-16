@@ -1,11 +1,10 @@
 @import '../../../settings/palette.less';
+@import '../../../settings/vars.less';
 
 /*=grid*/
 .row {
-  min-width: 100%;
   width: 100%;
   height: 100%;
-  margin: 0 auto;
   lost-utility: clearfix;
 }
 
@@ -18,10 +17,12 @@
 }
 
 .card article {
+  width: 100%;
   padding: 0 16px;
 }
 
 .container {
+  width: 100%;
   margin-top: 16px;
   padding: 16px 0;
   article {
@@ -34,6 +35,7 @@
   }
 }
 
+/*=desktop headers*/
 .headLeft {
   padding-left: 16px;
 }
@@ -50,18 +52,24 @@
   margin: 0 0 5px;
 }
 
-.description {
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 8px;
+.sectionHeader {
+  border-bottom: 1px dashed @divider-color;
+  color: @primary-2-color;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  margin-top: 0;
+  line-height: 2;
 }
 
-.sectionHeader {
+.boldHeader {
+  border-bottom: 1px solid @divider-color;
   color: @primary-2-color;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 4px;
+  text-transform: uppercase;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  margin-bottom: 20px;
+  margin-top: 4px;
 }
 
 .mls {
@@ -89,8 +97,8 @@
   font-style: italic;
 }
 
-/*=mobile*/
-@media (max-width: 599px) {
+/*=mobile header*/
+@media (max-width: @mobileHorizontal) {
   .address {
     text-align: center;
   }
@@ -146,5 +154,41 @@
 
   .col2 {
     lost-column: 1 0;
+  }
+}
+
+/*=displaying raw list*/
+.propList {
+  font-size: 15px;
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  lost-utility: clearfix;
+}
+
+.propItem {
+  p {
+    background-color: @default-3-color;
+  }
+  lost-column: 1/2 2 16px !important;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1 !important;
+  }
+}
+
+.propKey {
+  line-height: 28px;
+  font-weight: 600;
+  color: @secondary-text-color;
+}
+
+.propVal {
+  line-height: 28px;
+  font-weight: 500;
+  font-size: 15px;
+  color: @text-color;
+  @media screen and (max-width: @mobileHorizontal) {
+    font-size: 16px;
   }
 }

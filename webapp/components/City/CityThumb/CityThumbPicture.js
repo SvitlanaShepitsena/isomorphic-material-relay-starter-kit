@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import axios from 'axios';
 import urlToText from '../../../utils/urlToText.js';
 import settings from '../../../settings/settings';
 
@@ -10,22 +11,36 @@ import CardTitle from 'material-ui/lib/card/card-title';
 import styles from './CityThumbPicture.less';
 
 class CityThumbPicture extends React.Component {
+    state = {
+        img: ''
+    };
     static propTypes = {
         cityName: PropTypes.string.isRequired,
         housesLength: PropTypes.number.isRequired
     };
 
-    cityBackground() {
+    componentWillMount() {
         let {cityName} = this.props;
-        var citiesPath = settings.citiesPath;
-        var {houseDefault} = settings;
-        const imgPath = `${citiesPath}${cityName}2.jpg `;
-        const cityImage = cityName ? imgPath : houseDefault;
-        let cityFormatted = urlToText(cityName);
-        const alt = `${cityFormatted}, IL homes for sale`;
+        let {houseDefault, citiesPath} = settings;
+        let imgUrl = `${citiesPath}${cityName}2.jpg `;
+        this.cityFormatted = urlToText(cityName);
+        this.alt = `${this.cityFormatted}, IL homes for sale`;
+
+        axios.get(imgUrl).then(response=> {
+            if (response.status < 400) {
+                this.setState({img: imgUrl})
+            }
+        }).catch(()=> {
+            this.setState({img: houseDefault});
+        })
+
+    }
+
+    cityBackground() {
+        let {img} = this.state;
         return (
-            <CardMedia overlay={<CardTitle className={styles.cityName}  subtitle={cityFormatted} />}>
-                <img alt={alt} src={cityImage}/>
+            <CardMedia overlay={<CardTitle className={styles.cityName}  subtitle={<h2>{this.cityFormatted}</h2>} />}>
+                <img alt={this.alt} src={img}/>
             </CardMedia>
         );
     }
@@ -34,18 +49,20 @@ class CityThumbPicture extends React.Component {
         let {housesLength} = this.props;
         const listingsNum = `Listings for sale: ${housesLength}`;
         return (
-            <CardTitle className={styles.cardTitle}
-                       subtitle={listingsNum}
+            <CardTitle className={styles.cityInfo}
+                       subtitle={ <h3> {listingsNum} </h3> }
             />
         );
     };
 
     render() {
         return (
-            <Card className={styles.container} shadow={0}>
-                {this.cityBackground()}
-                {this.cityInfo()}
-            </Card >
+            <div>
+                <Card className={styles.container} shadow={0}>
+                    {this.cityBackground()}
+                    {this.cityInfo()}
+                </Card >
+            </div>
 
         );
     }

@@ -1,11 +1,8 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import {Link, browserHistory} from 'react-router';
+
+/*=components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
-
-import urlToText from '../../../utils/urlToText.js';
-
-/*Components*/
 
 class SearchPage extends React.Component {
     state = {
@@ -27,12 +24,9 @@ class SearchPage extends React.Component {
         route: PropTypes.object
     };
 
-
-
     render() {
         const houses = this.props.Viewer.Houses;
         const count = Number(this.props.Viewer.Houses_Count);
-
 
         return (
             <div>
