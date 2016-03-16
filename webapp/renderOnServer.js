@@ -46,14 +46,15 @@ export default (req, res, next, assetsPath) => {
                             next(error);
                         else if (redirectLocation)
                             res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-                        else if (renderProps)
+                        else if (renderProps) {
+                            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+                            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
                             IsomorphicRouter.prepareData(renderProps).then(render, next);
+                        }
                         else
                             res.status(404).send('Not Found');
 
                         function render(data) {
-                            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-                            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
                             var txtData;
                             try {
                                 GLOBAL.navigator = {userAgent: req.headers['user-agent']};
