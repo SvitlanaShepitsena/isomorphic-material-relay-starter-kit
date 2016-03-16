@@ -33,24 +33,24 @@ class HousePage extends React.Component {
         const streetFormatted = urlToText(street);
         const typeFormatted = urlToText(type);
 
-        const title = `${cityFormatted} home for sale | ${streetFormatted}. ID: ${mls}`;
+        const pageTitle = `${cityFormatted} home for sale | ${streetFormatted}. ID: ${mls}`;
         const ogTitle = `FOR SALE! ☆ ${streetFormatted}, ${cityFormatted}, ${zip} ☆ Re/Max 1st Class`;
 
-        const metaDescription = `${mls} | Check out and schedule a showing! ${description}`;
+        const pageDescription = `${mls} | Check out and schedule a showing! ${description}`;
         const ogDescription = `${typeFormatted} ${mls}  ✔ Check out and schedule a showing! ☏  ${description}`;
 
-        const image = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
+        const pageImage = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
 
         return (
             <Helmet
-                title={title}
+                title={pageTitle}
                 meta={[
-                    {"name": "description", "content": `${metaDescription}`},
-                    {"name": "image", "content": `${image}`},
+                    {"name": "description", "content": `${pageDescription}`},
+                    {"name": "image", "content": `${pageImage}`},
 
                     {"property": "og:title", "content": `${ogTitle}`},
                     {"property": "og:description", "content": `${ogDescription}`},
-                    {"property": "og:image", "content": `${image}`}
+                    {"property": "og:image", "content": `${pageImage}`}
                 ]}
             />
         );

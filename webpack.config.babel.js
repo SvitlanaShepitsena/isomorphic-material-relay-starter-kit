@@ -35,7 +35,7 @@ let config = {
         require('postcss-font-awesome'),
         require('lost'),
         require('rucksack-css'),
-        require('autoprefixer'),
+        require('autoprefixer')({browsers: ['safari >= 9, ie >= 9']}),
         require('postcss-color-rebeccapurple')
     ],
 
@@ -59,7 +59,7 @@ let config = {
         aggregateTimeout: 90,
         poll: 250
     },
-    devtool: process.env.NODE_ENV == 'development' ? 'source-map' : null
+    devtool: 'source-map'
 };
 
 export default config;

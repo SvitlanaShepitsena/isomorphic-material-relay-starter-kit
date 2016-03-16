@@ -6,7 +6,7 @@
     <%- helmet.title %>
     <%- helmet.meta %>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=IE10,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -17,10 +17,11 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAB-GHMxBT6kovQ28i-pyIU-Ippo-IMXA&libraries=places"></script>
     <script src="https://wzrd.in/standalone/es7-shim@latest"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<%- assetsPath %>/app.css">
 </head>
 <body>
-<script>window.isomorphicVars= <%- isomorphicVars %></script>
+<script>window.isomorphicVars = <%- isomorphicVars %></script>
 <div id="root"><%- reactOutput %></div>
 <script id="preloadedData" type="application/json"><%- preloadedData %></script>
 <script src="<%- assetsPath %>/app.js"></script>

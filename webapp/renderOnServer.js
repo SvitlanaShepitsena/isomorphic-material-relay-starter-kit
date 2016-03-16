@@ -46,21 +46,34 @@ export default (req, res, next, assetsPath) => {
                             next(error);
                         else if (redirectLocation)
                             res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-                        else if (renderProps)
+                        else if (renderProps) {
+                            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+                            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
                             IsomorphicRouter.prepareData(renderProps).then(render, next);
+                        }
                         else
                             res.status(404).send('Not Found');
 
                         function render(data) {
+                            var txtData;
                             try {
                                 GLOBAL.navigator = {userAgent: req.headers['user-agent']};
+
+                                try {
+                                    txtData = JSON.stringify(data);
+                                } catch (e) {
+                                    console.log(e.stack);
+                                    console.log(e.message);
+
+                                }
+                                console.log(txtData);
 
                                 const reactOutput = ReactDOMServer.renderToString(
                                     <IsomorphicRouter.RouterContext {...renderProps} />
                                 );
                                 let helmet = Helmet.rewind();
                                 res.render(path.resolve(__dirname, '..', 'webapp/views', 'index.ejs'), {
-                                    preloadedData: JSON.stringify(data),
+                                    preloadedData: txtData,
                                     assetsPath: assetsPath,
                                     helmet,
                                     reactOutput,

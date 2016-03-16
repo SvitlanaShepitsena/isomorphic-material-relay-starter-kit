@@ -35,21 +35,21 @@ class CityPage extends React.Component {
     pageHelmet() {
         /*Formatter*/
         const cityName = urlToText(this.props.params.city);
-        const image = `${settings.citiesPath}${cityName}2.jpg`;
+        const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 
-        const title = `${cityName} houses for sale | North Illinois Realty`;
-        const description = `✔ Browse ${cityName} homes for sale, sorted by zip code or property type. ☏  Call us for a free consultation and schedule a showing!`;
+        const pageTitle = `${cityName} houses for sale | North Illinois Realty`;
+        const pageDescription = `✔ Browse ${cityName} homes for sale, sorted by zip code or property type. ☏  Call us for a free consultation and schedule a showing!`;
 
         return (
             <Helmet
-                title={title}
+                title={pageTitle}
                 meta={[
-                    {"name": "description", "content": `${description}`},
-                    {"name": "image", "content": `${image}`},
+                    {"name": "description", "content": `${pageDescription}`},
+                    {"name": "image", "content": `${pageImage}`},
 
-                    {"property": "og:title", "content": `${title}`},
-                    {"property": "og:description", "content": `${description}`},
-                    {"property": "og:image", "content": `${image}`}
+                    {"property": "og:title", "content": `${pageTitle}`},
+                    {"property": "og:description", "content": `${pageDescription}`},
+                    {"property": "og:image", "content": `${pageImage}`}
                 ]}
             />
         );
