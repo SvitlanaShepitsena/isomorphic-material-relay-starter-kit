@@ -42,7 +42,12 @@
     "setup-local": "cp ./doc/Example.env ./.env",
     "init": "cqlsh -f ./scripts/cassandra-init.cql",
     "schema": "./node_modules/.bin/babel-node ./scripts/build-schema.js",
+
+    "preprebuild": "npm run schema",
+    "prebuild": "rimraf public/assets/0.7.7",
     "build": "better-npm-run start-build",
+    "postbuild": "npm run start",
+
     "build-mui-icon-list": "./node_modules/.bin/babel-node ./scripts/build-mui-icon-list.js",
     "config-da-memory": "./node_modules/.bin/replace da_cassandra da_memory ./data/da/*",
     "config-da-cassandra": "./node_modules/.bin/replace da_memory da_cassandra ./data/da/*",
