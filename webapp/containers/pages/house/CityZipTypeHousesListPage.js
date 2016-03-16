@@ -47,7 +47,7 @@ class CityZipTypeHousesListPage extends React.Component {
                     {"name": "description", "content": `${ogDescription}`},
                     {"name": "image", "content": `${pageImage}`},
 
-                    {"property": "og:title", "content": `${title}`},
+                    {"property": "og:title", "content": `${pageTitle}`},
                     {"property": "og:description", "content": `${ogDescription}`},
                     {"property": "og:image", "content": `${pageImage}`}
                 ]}

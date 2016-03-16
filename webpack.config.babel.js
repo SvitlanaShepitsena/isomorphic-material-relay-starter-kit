@@ -35,7 +35,7 @@ let config = {
         require('postcss-font-awesome'),
         require('lost'),
         require('rucksack-css'),
-        require('autoprefixer'),
+        require('autoprefixer')({browsers: ['safari >= 9, ie >= 9']}),
         require('postcss-color-rebeccapurple')
     ],
 

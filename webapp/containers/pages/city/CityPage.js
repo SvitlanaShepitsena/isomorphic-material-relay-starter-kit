@@ -47,7 +47,7 @@ class CityPage extends React.Component {
                     {"name": "description", "content": `${pageDescription}`},
                     {"name": "image", "content": `${pageImage}`},
 
-                    {"property": "og:title", "content": `${title}`},
+                    {"property": "og:title", "content": `${pageTitle}`},
                     {"property": "og:description", "content": `${pageDescription}`},
                     {"property": "og:image", "content": `${pageImage}`}
                 ]}
