@@ -52,6 +52,8 @@ export default (req, res, next, assetsPath) => {
                             res.status(404).send('Not Found');
 
                         function render(data) {
+                            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+                            console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
                             var txtData;
                             try {
                                 GLOBAL.navigator = {userAgent: req.headers['user-agent']};
