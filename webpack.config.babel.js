@@ -59,7 +59,7 @@ let config = {
         aggregateTimeout: 90,
         poll: 250
     },
-    devtool: 'source-map'
+    devtool: process.env.NODE_ENV == 'development' ? 'source-map' : null
 };
 
 export default config;
