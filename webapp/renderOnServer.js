@@ -52,7 +52,6 @@ export default (req, res, next, assetsPath) => {
                             res.status(404).send('Not Found');
 
                         function render(data) {
-                            console.log(data);
                             var txtData;
                             try {
                                 GLOBAL.navigator = {userAgent: req.headers['user-agent']};
@@ -62,16 +61,16 @@ export default (req, res, next, assetsPath) => {
                                 } catch (e) {
                                     console.log(e.stack);
                                     console.log(e.message);
-                                    throw new Error(e.message);
 
                                 }
+                                console.log(txtData);
 
                                 const reactOutput = ReactDOMServer.renderToString(
                                     <IsomorphicRouter.RouterContext {...renderProps} />
                                 );
                                 let helmet = Helmet.rewind();
                                 res.render(path.resolve(__dirname, '..', 'webapp/views', 'index.ejs'), {
-                                    preloadedData: JSON.stringify(data),
+                                    preloadedData: txtData,
                                     assetsPath: assetsPath,
                                     helmet,
                                     reactOutput,
