@@ -414,7 +414,6 @@ npm-debug.log
 /node_modules/buffer
 /node_modules/react-hot-loader
 /node_modules/postcss-color-rebeccapurple
-/node_modules/babel-core
 /node_modules/http-proxy
 /node_modules/isarray
 /node_modules/lost
@@ -497,7 +496,6 @@ npm-debug.log
 /node_modules/extract-text-webpack-plugin
 /node_modules/json-schema
 /node_modules/nodemon
-/node_modules/babel-cli
 /node_modules/ansi-regex
 /node_modules/negotiator
 /node_modules/loud-rejection
