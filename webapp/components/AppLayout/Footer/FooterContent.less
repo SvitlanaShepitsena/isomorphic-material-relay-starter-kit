@@ -1,0 +1,72 @@
+@import '../../../settings/palette.less';
+@import '../../../settings/vars.less';
+
+.container {
+  lost-center: @appWidth;
+  lost-utility: clearfix;
+  width: 100%;
+  color: @footerText;
+  font-size: 14px;
+  min-height: @footerHeight;
+  padding-bottom: 8px;
+  height: auto;
+}
+
+.footer {
+  lost-column: 1 0;
+  background-color: @footerColor;
+  width: 100%;
+}
+
+.section {
+  padding-top: 16px;
+  lost-column: 1/3 3;
+  p {
+    margin: 5px 0;
+    a {
+      display: block;
+      text-decoration: none;
+      transition: .4s;
+      color: #9a9a9a;
+      font-weight: 300;
+    }
+  }
+}
+
+.sectionHeader {
+  color: @footerHeaderColor;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/*=mobile*/
+
+@media screen and (max-width: @mobileHorizontal) {
+
+  .section {
+    padding-left: 16px;
+    lost-column: 1;
+    p {
+      display: block;
+      font-size: 20px;
+      height: auto;
+      padding-bottom: 12px;
+      padding-left: 16px;
+    }
+  }
+
+  .sectionHeader {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 18px;
+  }
+}
+
+/*=tablet*/
+@media screen and (max-width: @tabletHorizontal) {
+  .container {
+    width: 96% !important;
+  }
+}

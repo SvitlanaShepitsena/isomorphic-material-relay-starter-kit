@@ -1,0 +1,116 @@
+@import '../../settings/palette.less';
+@import '../../settings/vars.less';
+
+.wrapper {
+  width: 100%;
+  background-color: @primary-1-color;
+}
+
+.row {
+  lost-center: @appWidth;
+  lost-utility: clearfix;
+  width: 98%;
+  height: 100%;
+}
+
+.col1 {
+  lost-column: 1;
+  text-align: center;
+}
+
+.col2 {
+  lost-column: 1/2;
+}
+
+.companyLogo {
+  display: block;
+  margin: 20px auto 0 auto;
+  padding-top: 16px;
+}
+
+.companySlogan {
+  font-family: Roboto, sans-serif !important;
+  text-transform: capitalize;
+  font-size: 44px;
+  font-weight: 300 !important;
+  line-height: 70px;
+  color: white;
+}
+
+@media (max-width: @mobileHorizontal) {
+  .h2Phone,
+  .h2CallUs,
+  .ready,
+  .ourAgents {
+    display: block;
+    text-align: center;
+
+  }
+}
+
+.h2Line {
+  display: block;
+}
+
+.ready,
+.ourAgents {
+  text-align: center;
+}
+
+.h2content {
+  @media (max-width: @mobileHorizontal) {
+    span {
+
+    }
+  }
+  color: @primary-4-color;
+  font-size: 22px;
+  text-align: center;
+  line-height: 1.9;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+@media (max-width: @mobileHorizontal) {
+  .row {
+    width: 90% !important;
+  }
+
+  .companySlogan {
+    font-size: 26px;
+    line-height: 1.8;
+  }
+
+  .companyLogo {
+    display: none;
+  }
+
+}
+
+@media (max-width: @lgTabletHorizontal) {
+  .row {
+    width: 90%;
+  }
+}
+
+@media (max-width: @lgTablet) {
+  .searchContainer {
+    lost-column: 1;
+  }
+}
+
+@media (min-width: @lgTablet) {
+
+  .searchContainer {
+    lost-column: 8/12;
+    lost-offset: -2/12;
+  }
+
+}
+
+@media (min-width: @lgTabletHorizontal) {
+  .searchContainer {
+    lost-column: 1/2;
+    lost-offset: -1/4;
+  }
+}

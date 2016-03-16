@@ -1,0 +1,5 @@
+.idea/*
+graphql/schema.graphql
+/node_modules/
+!/node_modules/react-relay/
+npm-debug.log

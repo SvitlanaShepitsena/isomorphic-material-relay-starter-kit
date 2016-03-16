@@ -1,0 +1,209 @@
+@import '../../settings/palette.less';
+@import '../../settings/vars.less';
+
+/*global styles for app*/
+
+html, body {
+  font-family: @fontFamily;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-family: @fontFamily;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  opacity: 0.54;
+  @media (max-width: @mobileHorizontal) {
+    font-size: 40px;
+  }
+}
+
+h1 {
+  font-family: @fontFamily;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  @media (max-width: @mobileHorizontal) {
+    font-size: 42px;
+  }
+}
+
+h2 {
+  font-family: @fontFamily;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 48px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  @media (max-width: @mobileHorizontal) {
+    font-size: 36px;
+  }
+}
+
+h3 {
+  font-family: @fontFamily;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  @media (max-width: @mobileHorizontal) {
+    font-size: 30px;
+  }
+}
+
+h4 {
+  font-family: @fontFamily;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  @media (max-width: @mobileHorizontal) {
+    font-size: 22px;
+  }
+}
+
+h5 {
+  font-family: @fontFamily;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+h6 {
+  font-family: @fontFamily;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0;
+  margin-bottom: 16px;
+}
+
+a {
+  color: @primary-2-color;
+  font-weight: 500;
+}
+
+blockquote {
+  font-family: @fontFamily;
+  position: relative;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+}
+
+blockquote:before {
+  position: absolute;
+  left: -0.5em;
+  content: '“';
+}
+
+blockquote:after {
+  content: '”';
+  margin-left: -0.05em;
+}
+
+mark {
+  background-color: #f4ff81;
+}
+
+dt {
+  font-weight: 700;
+}
+
+address {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  font-style: normal;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    padding: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=global styles for app*/
+
+/*=layout*/
+.layoutWrapper {
+  width: 100%;
+}
+
+.contentWrapper {
+  lost-center: @appWidth;
+  lost-utility: clearfix;
+  width: 98%;
+  height: 100%;
+  @media (max-width: @tabletHorizontal) {
+    width: 95%;
+  }
+}
+
+.mainContent {
+  padding: 16px 0;
+  @media screen and (min-width: @desktop) {
+    lost-column: 2/3 0;
+  }
+  @media (max-width: @tabletHorizontal) {
+    lost-column: 1;
+  }
+}
+
+.asideContent {
+  padding: 16px 0;
+  @media screen and (min-width: @desktop) {
+    lost-column: 1/3 0;
+  }
+  @media (max-width: @tabletHorizontal) {
+    lost-column: 1;
+  }
+}
+
+

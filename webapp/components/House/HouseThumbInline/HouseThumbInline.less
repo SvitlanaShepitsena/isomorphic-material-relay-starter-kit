@@ -1,0 +1,91 @@
+@import '../../../settings/palette.less';
+@import '../../../settings/vars.less';
+/*=grid*/
+.row {
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  lost-utility: clearfix;
+}
+
+.col1 {
+  lost-column: 1;
+}
+
+.colImage {
+  lost-column: 1/3 3 16px;
+}
+
+.colInfo {
+  color: @text-color;
+  p {
+    line-height: 1.5;
+    margin: 5px 0;
+  }
+  line-height: 1.5;
+  lost-column: 2/3;
+}
+
+.image {
+  display: block;
+  width: 170px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/*=house props*/
+.address {
+  font-weight: 500;
+  color: @text-color;
+  font-size: 18px;
+  margin: 16px 0 0;
+  line-height: 1;
+  padding-bottom: 5px;
+}
+
+.mls {
+  color: @secondary-text-color;
+  font-weight: 600;
+}
+
+.type {
+  font-weight: 600;
+}
+
+.price {
+  font-size: 18px;
+  color: @primary-2-color;
+  margin: 8px 0;
+}
+
+.year {
+  font-size: 14px;
+  font-style: italic;
+}
+
+/*=desktop*/
+@media screen and (min-width: @tablet) {
+  .imageContainer {
+    padding: 8px;
+  }
+}
+
+/*=mobile*/
+@media (max-width: 430px) {
+  .address2 {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .colImage {
+    lost-column: 1 0 !important;
+  }
+
+  .colInfo {
+    padding: 0px 8px 8px;
+    lost-column: 1 0 !important;
+  }
+
+}
+

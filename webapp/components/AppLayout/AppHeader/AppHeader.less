@@ -1,0 +1,65 @@
+@import '../../../settings/vars.less';
+
+.container {
+  max-height: 65px;
+  z-index: 3 !important;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+    }
+  }
+  button {
+    @media screen and (min-width: @tablet) {
+      display: none !important;
+    }
+  }
+
+}
+
+.companyName {
+  padding-left: 5px;
+  vertical-align: top;
+  font-size: 20px;
+  color: white;
+  @media (max-width: @tablet) {
+    display: none !important;
+  }
+}
+
+.companyLogo {
+  display: inline-block;
+  vertical-align: middle;
+  img {
+    display: block;
+    padding: 8px;
+    width: 50px;
+    padding-left: 0 !important;
+  }
+}
+
+.menuContainer {
+  padding-top: 8px;
+  @media (max-width: @tablet) {
+    display: none !important;
+  }
+}
+
+
+.companyPhone {
+  color: white;
+  vert-align: middle;
+  font-size: 22px;
+  font-weight: 500;
+  @media (max-width: @mobile) {
+    padding-left: 18px;
+    color: white;
+    vert-align: middle;
+  }
+  @media screen and (min-width: @lgMobile) {
+    padding-left: 26px;
+  }
+}
+
