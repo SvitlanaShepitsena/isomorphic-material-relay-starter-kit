@@ -1,7 +1,5 @@
 import React from 'react'
-import Colors from 'material-ui';
 import Colors from '../../node_modules/material-ui/lib/styles/colors';
-import ColorManipulator from '../../node_modules/material-ui/lib/utils/color-manipulator';
 import Spacing from '../../node_modules/material-ui/lib/styles/spacing';
 import zIndex from '../../node_modules/material-ui/lib/styles/zIndex';
 
