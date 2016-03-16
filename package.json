@@ -89,9 +89,9 @@
   "dependencies": {
     "autoprefixer": "^6.3.3",
     "axios": "^0.9.1",
-    "babel-cli": "^6.6.5",
-    "babel-core": "^6.7.0",
-    "babel-loader": "^6.2.4",
+    "babel-cli": "6.4.5",
+    "babel-core": "6.4.5",
+    "babel-loader": "6.2.1",
     "babel-plugin-check-es2015-constants": "^6.6.5",
     "babel-plugin-syntax-decorators": "^6.5.0",
     "babel-plugin-syntax-trailing-function-commas": "^6.5.0",
