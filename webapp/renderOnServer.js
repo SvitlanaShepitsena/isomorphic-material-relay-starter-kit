@@ -52,8 +52,19 @@ export default (req, res, next, assetsPath) => {
                             res.status(404).send('Not Found');
 
                         function render(data) {
+                            console.log(data);
+                            var txtData;
                             try {
                                 GLOBAL.navigator = {userAgent: req.headers['user-agent']};
+
+                                try {
+                                    txtData = JSON.stringify(data);
+                                } catch (e) {
+                                    console.log(e.stack);
+                                    console.log(e.message);
+                                    throw new Error(e.message);
+
+                                }
 
                                 const reactOutput = ReactDOMServer.renderToString(
                                     <IsomorphicRouter.RouterContext {...renderProps} />
