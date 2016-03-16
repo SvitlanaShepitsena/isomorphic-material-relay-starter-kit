@@ -20,7 +20,6 @@ class CityZipTypeHousesListPage extends React.Component {
             params: this.props.routeParams,
         };
     };
-
     static childContextTypes = {
         location: PropTypes.object,
         params: PropTypes.object,
