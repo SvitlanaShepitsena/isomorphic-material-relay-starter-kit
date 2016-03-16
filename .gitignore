@@ -245,7 +245,6 @@ npm-debug.log
 /node_modules/babel-plugin-transform-react-display-name
 /node_modules/meow
 /node_modules/batch
-/node_modules/babel-runtime
 /node_modules/postcss-fontpath
 /node_modules/image-size
 /node_modules/inherits
