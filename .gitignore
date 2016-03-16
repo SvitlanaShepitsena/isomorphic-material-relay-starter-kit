@@ -59,7 +59,6 @@ npm-debug.log
 /node_modules/trim-right
 /node_modules/regenerate
 /node_modules/unpipe
-/node_modules/react-router-relay
 /node_modules/spdx-license-ids
 /node_modules/uuid
 /node_modules/tough-cookie
