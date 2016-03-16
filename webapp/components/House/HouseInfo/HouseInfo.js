@@ -24,7 +24,7 @@ class HouseInfo extends React.Component {
 
     componentWillMount() {
         let {house} = this.props;
-        debugger;
+
 
         house.details = house.details ? JSON.parse(house.details) : null;
         this.house = house;
