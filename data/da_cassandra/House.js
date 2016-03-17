@@ -210,6 +210,7 @@ export function Houses_with_args_count(args) {
 export function Houses_with_args(args, getResults) {
     let cqlText;
     let cqlParams = [];
+    console.log(args);
 
     // query to elastic search
     var body = {};
@@ -350,6 +351,9 @@ export function Houses_with_args(args, getResults) {
                 ]}
             }
         }
+        console.log(body);
+        return runQuery(House, 'sale', body, getResults);
+
     }
 
     if (args.city && args.type && !args.zip) {

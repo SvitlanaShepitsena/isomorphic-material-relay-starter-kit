@@ -27,17 +27,19 @@ class CityZipTypeHousesListPage extends React.Component {
         route: PropTypes.object
     };
 
+
+
     pageHelmet() {
         let houses = this.props.Viewer.Houses.edges;
         let housesCount = this.props.Viewer.Houses_Count;
-        let {city, type, page, zipType} = this.props.params;
+        let {city, type, page, zip} = this.props.params;
 
         /*Formatter*/
         const cityName = urlToText(city);
         const housesType = urlToText(type);
 
-        const pageTitle = `${cityName}, ${zipType} ${housesType} listings for sale | North Illinois Realty | Page ${page}`;
-        const ogDescription = `✔ Browse ${cityName}, ${zipType} ${housesType} houses for sale. ${housesCount} listings for today. ☏  Let us guide you! Call us for a free consultation and schedule a showing!  | Page ${page}`;
+        const pageTitle = `${cityName}, ${zip} ${housesType} listings for sale | North Illinois Realty | Page ${page}`;
+        const ogDescription = `✔ Browse ${cityName}, ${zip} ${housesType} houses for sale. ${housesCount} listings for today. ☏  Let us guide you! Call us for a free consultation and schedule a showing!  | Page ${page}`;
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 
         return (
@@ -88,6 +90,7 @@ export default Relay.createContainer(CityZipTypeHousesListPage, {
             type = type.substr(0, type.length - 1);
         }
         page = Number(page);
+        console.log(zip);
         return {city, zip, type, page}
     },
     fragments: {
