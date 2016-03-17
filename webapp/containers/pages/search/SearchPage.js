@@ -23,19 +23,30 @@ class SearchPage extends React.Component {
         params: PropTypes.object,
         route: PropTypes.object
     };
+    noresults = ()=> {
+        return ( <div>
+                <h2>No results found for {this.props.params.query}</h2>
 
-    render() {
+            </div>
+        )
+    };
+    searchResults = ()=> {
         const houses = this.props.Viewer.Houses;
         const count = Number(this.props.Viewer.Houses_Count);
-
         return (
             <div>
-                <h2>Search Results:</h2>
+                <h2>Search Results({count}):</h2>
                 {houses && <HousesList list={houses} listType="inline" count={count}/>}
             </div>
-        );
+        )
+    };
+
+    render() {
+        const count = Number(this.props.Viewer.Houses_Count);
+
+        return count > 0 ? this.searchResults() : this.noresults()
     }
-};
+}
 export default Relay.createContainer(SearchPage, {
     initialVariables: {query: null, page: null},
     prepareVariables({query, page}) {

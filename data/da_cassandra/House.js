@@ -43,7 +43,6 @@ export function House_get(id) {
 export function Houses_with_args_count(args) {
     var body = {};
 
-    var body = {};
     /* Pagination functionality */
     if (args.page && args.page > 1) {
         body.from = Number(args.page - 1) * 10;
@@ -57,7 +56,9 @@ export function Houses_with_args_count(args) {
                 _all: args.query
             }
         }
-
+        return runCountQuery('sale', body, res=> {
+            return res.hits.total
+        });
     }
     if (args.city && (!args.zip || args.zip == 'all') && !args.type) {
         body.query =
@@ -107,18 +108,20 @@ export function Houses_with_args_count(args) {
                         "query": {
                             "match_all": {}
                         },
-                        "filter": {and:[
-                            {
-                                "term": {
-                                    "type_id": args.zip
+                        "filter": {
+                            and: [
+                                {
+                                    "term": {
+                                        "type_id": args.zip
+                                    }
+                                },
+                                {
+                                    "term": {
+                                        "city_id": args.city
+                                    }
                                 }
-                            },
-                            {
-                                "term": {
-                                    "city_id": args.city
-                                }
-                            }
-                        ]}
+                            ]
+                        }
                     }
                 }
             } else {
@@ -166,18 +169,20 @@ export function Houses_with_args_count(args) {
                 "query": {
                     "match_all": {}
                 },
-                "filter": {and:[
-                    {
-                        "term": {
-                            "zip_id": args.zip
+                "filter": {
+                    and: [
+                        {
+                            "term": {
+                                "zip_id": args.zip
+                            }
+                        },
+                        {
+                            "term": {
+                                "type_id": args.type
+                            }
                         }
-                    },
-                    {
-                        "term": {
-                            "type_id": args.type
-                        }
-                    }
-                ]}
+                    ]
+                }
             }
         }
     }
@@ -189,18 +194,20 @@ export function Houses_with_args_count(args) {
                 "query": {
                     "match_all": {}
                 },
-                "filter": {and:[
-                    {
-                        "term": {
-                            "type_id": args.type
+                "filter": {
+                    and: [
+                        {
+                            "term": {
+                                "type_id": args.type
+                            }
+                        },
+                        {
+                            "term": {
+                                "city_id": args.city
+                            }
                         }
-                    },
-                    {
-                        "term": {
-                            "city_id": args.city
-                        }
-                    }
-                ]}
+                    ]
+                }
             }
         }
     }
@@ -211,6 +218,7 @@ export function Houses_with_args(args, getResults) {
     let cqlText;
     let cqlParams = [];
     console.log(args);
+    console.log(getResults);
 
     // query to elastic search
     var body = {};
@@ -227,7 +235,10 @@ export function Houses_with_args(args, getResults) {
                 _all: args.query
             }
         }
+        return runQuery(House, 'sale', body, res=> {
 
+            return _.map(res.hits.hits, "_source");
+        });
     }
     if (args.city && (!args.zip || args.zip == 'all') && !args.type) {
 
@@ -278,18 +289,20 @@ export function Houses_with_args(args, getResults) {
                         "query": {
                             "match_all": {}
                         },
-                        "filter": {and:[
-                            {
-                                "term": {
-                                    "type_id": args.zip
+                        "filter": {
+                            and: [
+                                {
+                                    "term": {
+                                        "type_id": args.zip
+                                    }
+                                },
+                                {
+                                    "term": {
+                                        "city_id": args.city
+                                    }
                                 }
-                            },
-                            {
-                                "term": {
-                                    "city_id": args.city
-                                }
-                            }
-                        ]}
+                            ]
+                        }
                     }
                 }
             } else {
@@ -337,18 +350,20 @@ export function Houses_with_args(args, getResults) {
                 "query": {
                     "match_all": {}
                 },
-                "filter": {and:[
-                    {
-                        "term": {
-                            "zip_id": args.zip
+                "filter": {
+                    and: [
+                        {
+                            "term": {
+                                "zip_id": args.zip
+                            }
+                        },
+                        {
+                            "term": {
+                                "type_id": args.type
+                            }
                         }
-                    },
-                    {
-                        "term": {
-                            "type_id": args.type
-                        }
-                    }
-                ]}
+                    ]
+                }
             }
         }
         console.log(body);
@@ -363,22 +378,23 @@ export function Houses_with_args(args, getResults) {
                 "query": {
                     "match_all": {}
                 },
-                "filter": {and:[
-                    {
-                        "term": {
-                            "type_id": args.type
+                "filter": {
+                    and: [
+                        {
+                            "term": {
+                                "type_id": args.type
+                            }
+                        },
+                        {
+                            "term": {
+                                "city_id": args.city
+                            }
                         }
-                    },
-                    {
-                        "term": {
-                            "city_id": args.city
-                        }
-                    }
-                ]}
+                    ]
+                }
             }
         }
     }
-
 
     return runQuery(House, 'sale', body, getResults);
 }

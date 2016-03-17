@@ -45,6 +45,13 @@ CREATE TABLE houses_by_city (
   PRIMARY KEY ((city_id), since, id)
   )WITH CLUSTERING ORDER BY (since DESC);
 
+CREATE TABLE last_house_added(
+    id int,
+    city int,
+    cityPage int,
+    houseId int,
+  PRIMARY KEY (id));
+
 
 CREATE TABLE  city ( id text, name text, PRIMARY KEY (id));
 
