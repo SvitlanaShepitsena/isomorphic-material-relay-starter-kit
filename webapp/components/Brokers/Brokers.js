@@ -59,7 +59,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n1}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -69,7 +69,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n2}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -79,7 +79,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n3}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -89,7 +89,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n4}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -99,7 +99,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n5}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -109,7 +109,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n6}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -119,7 +119,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n7}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -129,7 +129,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n8}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -139,7 +139,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n9}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -149,7 +149,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n10}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -159,7 +159,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n11}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -169,7 +169,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n12}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
                 <div className={styles.brokerCard}>
@@ -179,7 +179,7 @@ class Brokers extends React.Component {
                     <div className={styles.brokerInfo}>
                         <h3>{names.n13}</h3>
                         {this.showStars()}
-                        <h4>(847) 674-97-97</h4>
+                        <h4>{settings.companyPhone}</h4>
                     </div>
                 </div>
             </div>
