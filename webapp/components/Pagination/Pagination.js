@@ -51,7 +51,7 @@ class Pagination extends React.Component {
                             {enablePrev &&
                             <Link data-link='prev' to={{pathname: prevPage}}
                                   onClick={this.handleClick}>
-                                <RaisedButton className={styles.button} default={true} disabled={disablePrev}
+                                <RaisedButton className={styles.button} default={true} disabled={currentPage==1}
                                               icon={<Previous />} label="Previous" labelPosition="after"/>
                             </Link>
                             }

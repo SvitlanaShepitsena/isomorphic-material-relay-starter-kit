@@ -20,6 +20,7 @@ class CityZipTypeHousesListPage extends React.Component {
             params: this.props.routeParams,
         };
     };
+
     static childContextTypes = {
         location: PropTypes.object,
         params: PropTypes.object,
@@ -68,7 +69,6 @@ class CityZipTypeHousesListPage extends React.Component {
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
                 <h1>{`${typeFormatted} for Sale in ${cityFormatted}, ${zipType}`}</h1>
-                {!houses && <Spinner/> }
                 {houses &&
                 <HousesList
                     list={houses}

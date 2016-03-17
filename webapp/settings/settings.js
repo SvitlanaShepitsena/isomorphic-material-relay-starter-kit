@@ -13,7 +13,40 @@ export default {
     citiesPath: "http://res.cloudinary.com/realty-advisers/image/upload/",
     cloudinaryPath: "http://res.cloudinary.com/realty-advisers/image/upload/",
     houseDefault: "http://res.cloudinary.com/svitlana/image/upload/house-picture-icon_og71rx.png",
+    brokersUrl: "https://s3-us-west-2.amazonaws.com/remax1stclass/brokers",
     companySlogan: "You Need Only One Company For All Your Real Estate Needs",
+    brokers: {
+        ids: {
+            id1: "anthony-davidson",
+            id2: "arlyn-tratt",
+            id3: "barry-benviniste",
+            id4: "boris_oberman",
+            id5: "cherylette-hilton",
+            id6: "dan-florian",
+            id7: "elena-dan",
+            id8: "elizabeth-cherny",
+            id9: "ivy-moy",
+            id10: "marius-dan",
+            id11: "mark-feyman",
+            id12: "nona-lisitza",
+            id13: "tanya-pomeranets"
+        },
+        names: {
+            n1: "Anthony Davidson",
+            n2: "Arlyn Tratt",
+            n3: "Barry Benviniste",
+            n4: "Boris Oberman",
+            n5: "Cherylette Hilton",
+            n6: "Dan Florian",
+            n7: "Elena Dan",
+            n8: "Elizabeth Cherny",
+            n9: "Ivy Moy",
+            n10: "Marius Dan",
+            n11: "Mark Feyman",
+            n12: "Nona Lisitza",
+            n13: "Tanya Pomeranets"
+        }
+    },
     links: {
         twitter: "https://twitter.com/remaxfirstclass",
         facebook: "https://www.facebook.com/ReMax-1st-Class-Realty-177448822432081",
