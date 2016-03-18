@@ -17,6 +17,30 @@ console.log('Application ' + chalk.bold.magenta(process.env.npm_package_name) + 
 console.log(chalk.blue('----------------------------------------------------------------------------------------------------'));
 
 let router = express();
+//REDIRECT www.domain.com TO domain.com
+router.get('/*', function (req, res, next) {
+    var protocol = 'http' + (req.connection.encrypted ? 's' : '') + '://'
+        , host = req.headers.host
+        , href
+        ;
+
+    console.log(host);
+
+    if (host.indexOf("localhost" > -1) || /^www\./i.test(host)) {
+        next();
+        return;
+    } else {
+
+
+        // remove www.
+        host = 'www.' + host;
+        href = protocol + host + req.url;
+        res.statusCode = 301;
+        res.setHeader('Location', href);
+        res.write('Redirecting to ' + host + req.url + '');
+        res.end();
+    }
+});
 
 router.set('trust proxy', 'loopback');
 router.set('x-powered-by', false);
