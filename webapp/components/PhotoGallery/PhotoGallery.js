@@ -27,30 +27,26 @@ class PhotoGallery extends React.Component {
         }
 
         return (
-            <div className={styles.row}>
-                <div className={styles.col1}>
-                    <div className={styles.container}>
-                        <Slider   {...settings}>
-                            {images.map(image=> {
-                                return (
-                                    <div key={image}>
-                                        { image &&
-                                        <img className={styles.itemImage}
-                                             src={image}
-                                             alt=""/>
-                                        }
-                                        { !image &&
-                                        <img className={styles.defaultImage}
-                                             src={appSettings.houseDefault}
-                                             alt=""/>
-                                        }
-                                    </div>
-                                )
-                            })
-                            }
-                        </Slider>
-                    </div>
-                </div>
+            <div className={styles.container}>
+                <Slider   {...settings}>
+                    {images.map(image=> {
+                        return (
+                            <div key={image}>
+                                { image &&
+                                <img className={styles.itemImage}
+                                     src={image}
+                                     alt=""/>
+                                }
+                                { !image &&
+                                <img className={styles.defaultImage}
+                                     src={appSettings.houseDefault}
+                                     alt=""/>
+                                }
+                            </div>
+                        )
+                    })
+                    }
+                </Slider>
             </div>
         )
     }
