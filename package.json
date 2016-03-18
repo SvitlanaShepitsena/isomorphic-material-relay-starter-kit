@@ -37,6 +37,7 @@
     "node": "4.2.4",
     "npm": "3.3.6"
   },
+
   "scripts": {
     "postinstall": "npm run schema&&npm run build",
     "setup-local": "cp ./doc/Example.env ./.env",
