@@ -37,6 +37,7 @@
     "node": "4.2.4",
     "npm": "3.3.6"
   },
+
   "scripts": {
     "postinstall": "npm run schema&&npm run build",
     "setup-local": "cp ./doc/Example.env ./.env",
@@ -46,7 +47,7 @@
     "preprebuild": "npm run schema",
     "prebuild": "rimraf public/assets/0.7.7",
     "build": "better-npm-run start-build",
-    "postbuild": "npm run start",
+    "postbuild2": "npm run start",
 
     "build-mui-icon-list": "./node_modules/.bin/babel-node ./scripts/build-mui-icon-list.js",
     "config-da-memory": "./node_modules/.bin/replace da_cassandra da_memory ./data/da/*",
