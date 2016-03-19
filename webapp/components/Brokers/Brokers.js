@@ -64,16 +64,6 @@ class Brokers extends React.Component {
                 </div>
                 <div className={styles.brokerCard}>
                     <div className={styles.imgContainer}>
-                        <ImageBackground imgWidth="auto" imgHeight="115" backgroundImage={broker2}/>
-                    </div>
-                    <div className={styles.brokerInfo}>
-                        <h3>{names.n2}</h3>
-                        {this.showStars()}
-                        <h4>{settings.companyPhone}</h4>
-                    </div>
-                </div>
-                <div className={styles.brokerCard}>
-                    <div className={styles.imgContainer}>
                         <ImageBackground imgWidth="auto" imgHeight="115" backgroundImage={broker3}/>
                     </div>
                     <div className={styles.brokerInfo}>
@@ -128,16 +118,6 @@ class Brokers extends React.Component {
                     </div>
                     <div className={styles.brokerInfo}>
                         <h3>{names.n8}</h3>
-                        {this.showStars()}
-                        <h4>{settings.companyPhone}</h4>
-                    </div>
-                </div>
-                <div className={styles.brokerCard}>
-                    <div className={styles.imgContainer}>
-                        <ImageBackground imgWidth="auto" imgHeight="115" backgroundImage={broker9}/>
-                    </div>
-                    <div className={styles.brokerInfo}>
-                        <h3>{names.n9}</h3>
                         {this.showStars()}
                         <h4>{settings.companyPhone}</h4>
                     </div>

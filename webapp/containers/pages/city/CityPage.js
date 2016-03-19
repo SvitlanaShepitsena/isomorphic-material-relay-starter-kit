@@ -119,8 +119,6 @@ class CityPage extends React.Component {
 
                 <HousesListFiltered list={newHouses} cityName={cityFormatted} housesNumber={housesCount}/>
 
-                <ButtonAll url="all" btnLabel={allTitle}/>
-
                 {this.welcomeText()}
 
                 {zips && this.showByZip()}
