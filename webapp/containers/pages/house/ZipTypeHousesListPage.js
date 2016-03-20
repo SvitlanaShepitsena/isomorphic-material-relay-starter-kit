@@ -94,8 +94,7 @@ class ZipTypeHousesListPage extends React.Component {
                         children="Houses"
                         sectionTitle={`${cityFormatted}, ${zipType} Homes for Sale by Property Type`}
                     />}
-                    {!houses && <Spinner/>}
-                    <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>
+
                 </div>
                 }
             </div>
@@ -130,25 +129,6 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         }
                     }
                 }
-                Houses(city:$city,zip:$zipType,first:100,page:$page) {
-                    edges{
-                        cursor
-                        node{
-                            id
-                            city
-                            zip
-                            type
-                            price
-                            built
-                            street
-                            beds
-                            description
-                            mls
-                            image
-                        }
-                    }
-                }
-
             }
         `,
     },

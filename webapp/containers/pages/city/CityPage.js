@@ -95,12 +95,10 @@ class CityPage extends React.Component {
 
     render() {
         let zipsList = this.props.Viewer.City.Zips.edges;
-        let typesList = this.props.Viewer.City.Types.edges;
         let newHouses = this.props.Viewer.City.Houses;
 
         let housesCount = this.props.Viewer.City.Houses_Count;
         let zips = zipsList.length;
-        let types = typesList.length;
         let houses = newHouses.length;
         const cityFormatted = urlToText(this.props.params.city);
 
@@ -122,8 +120,7 @@ class CityPage extends React.Component {
                 {this.welcomeText()}
 
                 {zips && this.showByZip()}
-                <br/>
-                { types && this.showByType()}
+
             </div>
         );
     }
@@ -163,14 +160,6 @@ export default Relay.createContainer(CityPage, {
                         }
                     }
 
-                    Types(first:100){
-                        edges{
-                            node{
-                                type,
-                                Houses_Count(city:$city)
-                            }
-                        }
-                    }
                 }
             }
         `,
