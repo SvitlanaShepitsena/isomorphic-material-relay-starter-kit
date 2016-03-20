@@ -69,7 +69,7 @@ class Breadcrumbs extends React.Component {
                     compoundUrl += `/${url}`;
 
                     const linkText = compoundAnchors.replace(/Houses For Sale >/i, 'Chicago Suburbs >');
-                    
+
                     return (
                         <span key={path}>
                             {index > 0 && <span> > </span>}
