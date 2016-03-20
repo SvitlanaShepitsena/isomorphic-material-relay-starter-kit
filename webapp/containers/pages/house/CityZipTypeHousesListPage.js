@@ -61,7 +61,7 @@ class CityZipTypeHousesListPage extends React.Component {
         let {routes, params}= this.props;
         let houses = this.props.Viewer.Houses;
         let houseCount = this.props.Viewer.Houses_Count;
-        let {city, type, zipType} = this.props.params;
+        let {city, type, zip} = this.props.params;
         /*Formatter*/
         const cityFormatted = urlToText(city);
         const typeFormatted = urlToText(type);
@@ -70,7 +70,7 @@ class CityZipTypeHousesListPage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
-                <h1>{`${typeFormatted} for Sale in ${cityFormatted}, ${zipType}`}</h1>
+                <h1>{`${typeFormatted} for Sale in ${cityFormatted}, ${zip}`}</h1>
                 {houses &&
                 <HousesList
                     list={houses}
@@ -90,7 +90,6 @@ export default Relay.createContainer(CityZipTypeHousesListPage, {
             type = type.substr(0, type.length - 1);
         }
         page = Number(page);
-        console.log(zip);
         return {city, zip, type, page}
     },
     fragments: {

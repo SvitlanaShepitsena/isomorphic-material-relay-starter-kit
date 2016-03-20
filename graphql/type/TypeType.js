@@ -52,7 +52,6 @@ export default new GraphQLObjectType({
             },
             resolve: (obj, args) => {
                 args.type = obj.id;
-                console.log(args);
 
                 return Houses_with_args_count(args);
             }

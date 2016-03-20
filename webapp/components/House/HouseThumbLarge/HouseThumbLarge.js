@@ -32,8 +32,8 @@ class HouseThumbLarge extends React.Component {
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
 
-        var image = cloudinaryPath + house.id + '-photo-1.jpg';
-        const listingAlt = "House for sale: " + mls + " " + streetFormatted + ", " + cityFormatted + ", IL " + zip;
+        var image = `${cloudinaryPath}${house.id}-photo-1.jpg`;
+        const listingAlt = `House for sale: ${mls} ${streetFormatted}, ${cityFormatted}, IL ${zip}`;
 
         return (
             <Card className={styles.container} shadow={0}>
@@ -42,8 +42,8 @@ class HouseThumbLarge extends React.Component {
                     overlay={<CardTitle className={styles.cardTitle}
                     subtitle={
                      <span>
-                     { beds && <span> {"Beds: " + beds} </span> }
-                     { baths && <span> {"Beds: " + baths} </span> }
+                     { beds && <span> {`Beds: ${beds}`} </span> }
+                     { baths && <span> {`Baths: ${baths}`} </span> }
                     </span> }
                     />
                     }>

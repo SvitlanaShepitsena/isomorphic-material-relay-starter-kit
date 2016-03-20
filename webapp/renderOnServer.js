@@ -69,7 +69,6 @@ export default (req, res, next, assetsPath) => {
                                 });
                             }
                             catch (err) {
-                                console.log(err.stack);
                             }
                             queueTask.done();
                         }

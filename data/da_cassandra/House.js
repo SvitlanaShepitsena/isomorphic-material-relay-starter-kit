@@ -25,7 +25,6 @@ export function House_get(id) {
             var house = res.hits.hits[0]._source;
             if (house.details) {
                 house.details = JSON.stringify(house.details);
-                console.log(house.details);
 
             }
         } catch (e) {
@@ -217,8 +216,6 @@ export function Houses_with_args_count(args) {
 export function Houses_with_args(args, getResults) {
     let cqlText;
     let cqlParams = [];
-    console.log(args);
-    console.log(getResults);
 
     // query to elastic search
     var body = {};
@@ -366,7 +363,6 @@ export function Houses_with_args(args, getResults) {
                 }
             }
         }
-        console.log(body);
         return runQuery(House, 'sale', body, getResults);
 
     }
