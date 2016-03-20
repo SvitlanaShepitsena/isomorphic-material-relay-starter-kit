@@ -18,14 +18,12 @@ export default {
     brokers: {
         ids: {
             id1: "anthony-davidson",
-            id2: "arlyn-tratt",
             id3: "barry-benviniste",
             id4: "boris_oberman",
             id5: "cherylette-hilton",
             id6: "dan-florian",
             id7: "elena-dan",
             id8: "elizabeth-cherny",
-            id9: "ivy-moy",
             id10: "marius-dan",
             id11: "mark-feyman",
             id12: "nona-lisitza",
@@ -33,14 +31,12 @@ export default {
         },
         names: {
             n1: "Anthony Davidson",
-            n2: "Arlyn Tratt",
             n3: "Barry Benviniste",
             n4: "Boris Oberman",
             n5: "Cherylette Hilton",
             n6: "Dan Florian",
             n7: "Elena Dan",
             n8: "Elizabeth Cherny",
-            n9: "Ivy Moy",
             n10: "Marius Dan",
             n11: "Mark Feyman",
             n12: "Nona Lisitza",
@@ -56,7 +52,7 @@ export default {
     },
     metaProps: {
         appType: "website",
-        appUrl: "http://ec2-52-37-159-184.us-west-2.compute.amazonaws.com",
+        appUrl: "http://www.remax1stclass.com",
         appDescription: "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston houses apartments for sale rent",
         appTitle: "Houses Apartments for Sale Rent Chicago North Suburbs",
         fbImage: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
