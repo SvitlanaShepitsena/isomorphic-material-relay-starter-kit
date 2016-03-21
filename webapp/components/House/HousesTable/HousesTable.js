@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 /*Components*/
-import HouseTableItem from '../HouseThumbInline/HouseThumbInline';
+import HouseTableItem from '../HouseTableItem/HouseTableItem';
 import Pagination from '../../Pagination/Pagination.js';
 
 import styles from './HousesList.less';
