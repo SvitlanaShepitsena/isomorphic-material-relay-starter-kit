@@ -3,7 +3,7 @@ import axios from 'axios';
 import _ from 'lodash';
 
 var client = new elasticsearch.Client({
-    // host: 'http://readonly:g0b84i1e6xqd7x7l3f@c70ba15ff4ddeae311e19fc3234bebc8.us-east-1.aws.found.io:9200/',
+    // host: 'http://readonly:wp19bf7c6srl6na0dw@be0b02e7ce5ed1a8d97a31cab78e71b4.us-east-1.aws.found.io:9200/',
     host: 'http://localhost:9200/',
     apiVersion: '2.2'
 });
