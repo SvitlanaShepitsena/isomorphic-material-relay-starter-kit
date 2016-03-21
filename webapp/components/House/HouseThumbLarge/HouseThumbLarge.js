@@ -38,7 +38,7 @@ class HouseThumbLarge extends React.Component {
         return (
             <Card className={styles.container} shadow={0}>
                 <CardHeader
-                    title={<span><span className={styles.new}>NEW</span><span className={styles.price}>{priceFormatted}</span></span>}
+                    title={<span><span className={styles.new}>NEW!</span><span className={styles.price}>{priceFormatted}</span></span>}
                     subtitle={typeFormatted}/>
                 <CardMedia
                     overlay={<CardTitle className={styles.cardTitle}
