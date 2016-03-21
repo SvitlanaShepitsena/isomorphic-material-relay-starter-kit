@@ -63,25 +63,23 @@ class HouseTableItem extends React.Component {
         return (
             <div>
                 <div className={styles.row}>
-                    <div className={styles.cellMls}>
-                        {mls && <span > {mlsText} </span>}
-                    </div>
                     <div className={styles.cellAddress}>
+                        {mls && <span className={styles.mls}> {mlsText} </span>}
                         {street && <span> {streetFormatted} </span> }
                         {city && < span > {cityFormatted} </span> }
                         <span> IL, </span> {zip && <span> {zip} </span> }
                     </div>
-                    <div className={styles.cell1}>
-                        {price && <span> {priceFormatted} </span> }
-                    </div>
-                    <div className={styles.cell1}>
-                        {beds && < span > {bedsText} </span>}
-                    </div>
-                    <div className={styles.cell1}>
-                        {baths && <span> {bathsText} </span> }
-                    </div>
-                    <div className={styles.cellYear}>
-                        {built && < span > {yearText} </span>}
+                    <div className={styles.cellInfo}>
+                        <div className={styles.cell1}>
+                            {price && <span> {priceFormatted} </span> }
+                        </div>
+                        <div className={styles.cellBd}>
+                            {beds && < span > {bedsText} </span>}
+                            {baths && <span> {bathsText} </span> }
+                        </div>
+                        <div className={styles.cellYear}>
+                            {built && < span > {yearText} </span>}
+                        </div>
                     </div>
                 </div>
             </div>
