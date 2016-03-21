@@ -10,9 +10,9 @@ import Card from 'material-ui/lib/card/card';
 import ImageBackground from '../../Common/ImageBackground/ImageBackground.js';
 
 /*=styles*/
-import styles from './HouseThumbInline.less';
+import styles from './HouseTableItem.less';
 
-class HouseThumbInline extends React.Component {
+class HouseTableItem extends React.Component {
     state = {
         img: ''
     };
@@ -56,45 +56,44 @@ class HouseThumbInline extends React.Component {
         let yearFormatted = getYear(built);
 
         /*Composed String*/
-        const bathsText = ` | Baths: ${baths}`;
-        const bedsText = `Beds: ${beds}`;
-        const mlsText = ` | MLS#: ${mls}`;
+        const bathsText = `${baths} ba`;
+        const bedsText = `${beds} bd`;
+        const mlsText = `#${mls}`;
         const yearText = `Year: ${yearFormatted}`;
         return (
-            <div className={styles.colInfo}>
-                <h4 className={styles.address}>
-                    {street && <span> {streetFormatted} </span> }
-                        <span className={styles.address2}>
+            <div>
+                <div className={styles.row}>
+                    <div className={styles.cellMls}>
+                        {mls && <span > {mlsText} </span>}
+                    </div>
+                    <div className={styles.cellAddress}>
+                        {street && <span> {streetFormatted} </span> }
                         {city && < span > {cityFormatted} </span> }
-                            <span> IL, </span>
-                            {zip && <span> {zip} </span> }
-                        </span>
-                </h4>
-                <h3 className={styles.price}>
-                    {price && <span> {priceFormatted} </span> }
-                </h3>
-                <p >
-                    {type && <span className={styles.type}> {typeFormatted}</span> }
-                    {mls && <span className={styles.mls}> {mlsText} </span>}
-                </p>
-                <p>
-                    {beds && < span > {bedsText} </span>}
-                    {baths && <span> {bathsText} </span> }
-                </p>
-                <p>
-                    {built && < span className={styles.year}> {yearText} </span>}
-                </p>
+                        <span> IL, </span> {zip && <span> {zip} </span> }
+                    </div>
+                    <div className={styles.cell1}>
+                        {price && <span> {priceFormatted} </span> }
+                    </div>
+                    <div className={styles.cell1}>
+                        {beds && < span > {bedsText} </span>}
+                    </div>
+                    <div className={styles.cell1}>
+                        {baths && <span> {bathsText} </span> }
+                    </div>
+                    <div className={styles.cellYear}>
+                        {built && < span > {yearText} </span>}
+                    </div>
+                </div>
             </div>
         );
     };
 
     render() {
         return (
-            <Card className={styles.row} shadow={0}>
-                {this.showImg()}
+            <div className={styles.row} shadow={0}>
                 {this.showInfo()}
-            </Card>
+            </div>
         );
     }
 }
-export default HouseThumbInline;
+export default HouseTableItem;

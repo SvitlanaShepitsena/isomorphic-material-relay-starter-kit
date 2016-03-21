@@ -26,7 +26,7 @@ router.get('/*', function (req, res, next) {
 
     // console.log(host)
 
-    if (host.indexOf("localhost" > -1) || /^www\./i.test(host)) {
+    if (/^www\./i.test(host)) {
         next();
         return;
     } else {

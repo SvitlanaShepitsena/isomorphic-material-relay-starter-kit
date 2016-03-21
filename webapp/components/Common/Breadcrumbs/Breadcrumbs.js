@@ -41,6 +41,7 @@ class Breadcrumbs extends React.Component {
                             case 'city':
                                 compoundAnchors += ` in ${anchor}`;
                                 break;
+                            case 'zip':
                             case 'zipType':
                                 if (digits) {
                                     compoundAnchors += ` at ${anchor}`;

@@ -10,6 +10,8 @@ import ButtonAll from '../../../components/House/ButtonAll/ButtonAll.js';
 import HousesListFiltered from '../../../components/House/HousesListFiltered/HousesListFiltered.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 import AppSpinner from '../../../components/Common/Spinner/AppSpinner.js';
+/*=styles*/
+import palette from '../../../settings/MuiPalette.js';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -81,12 +83,15 @@ class CityPage extends React.Component {
     }
 
     welcomeText() {
+        const textAccent = {
+            color: palette.palette.accent1Color
+        };
         const cityFormatted = urlToText(this.props.params.city);
         return (
             <article style={{lostColumn:1}}>
                 <h4> { `Re/Max 1st Class Realty helps you to find your dream home by offering newest listings for sale in  ${cityFormatted}.` } </h4>
                 <p> { `For your best experience, we are filtering ${cityFormatted} listings for you by City Zip.` } </p>
-                <h3 style={{color: "#D32F2F"}}> { `Let us guide you, call us for a free consultation about ${cityFormatted} properties for sale: (847) 674-9797.` }
+                <h3 style={textAccent}> { `Let us guide you, call us for a free consultation about ${cityFormatted} properties for sale: (847) 674-9797.` }
                 </h3>
             </article>
         );

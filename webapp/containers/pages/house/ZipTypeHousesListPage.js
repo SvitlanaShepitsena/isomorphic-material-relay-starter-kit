@@ -8,7 +8,7 @@ import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
 
 /*Components*/
-import HousesList from '../../../components/House/HousesList/HousesList.js';
+import HousesTable from '../../../components/House/HousesTable/HousesTable.js';
 import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 
@@ -94,7 +94,7 @@ class ZipTypeHousesListPage extends React.Component {
                         children="Houses"
                         sectionTitle={`${cityFormatted}, ${zipType} Homes for Sale by Property Type`}
                     />}
-
+                    <HousesTable list={houses} count={houseCount} cityName={cityFormatted}/>
                 </div>
                 }
             </div>
@@ -108,11 +108,9 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
         if (!page || isNaN(page)) {
             page = 1;
         }
-        console.log(page);
 
         if (_.last(zipType) === 's') {
             zipType = zipType.substr(0, zipType.length - 1);
-            console.log(zipType);
         }
         page = Number(page);
         return {city, zipType, page}
@@ -129,6 +127,25 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         }
                     }
                 }
+                Houses(city:$city,zip:$zipType,first:100,page:$page) {
+                    edges{
+                        cursor
+                        node{
+                            id
+                            city
+                            zip
+                            type
+                            price
+                            built
+                            street
+                            beds
+                            description
+                            mls
+                            image
+                        }
+                    }
+                }
+
             }
         `,
     },
