@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 import HouseThumbInline from '../HouseThumbInline/HouseThumbInline';
 import Pagination from '../../Pagination/Pagination.js';
 
-import styles from './HousesList.less';
+import styles from './HousesListDescription.less';
 
 class HousesListDescription extends React.Component {
     static propTypes = {

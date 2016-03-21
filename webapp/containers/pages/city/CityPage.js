@@ -118,11 +118,14 @@ class CityPage extends React.Component {
 
                 <h1> {pageTitle} </h1>
 
-                {zips && this.showByZip()}
 
                 {!(houses || zips || types) && <AppSpinner/> }
 
                 <HousesListFiltered list={newHouses} cityName={cityFormatted} housesNumber={housesCount}/>
+
+                <ButtonAll url="all" btnLabel={allTitle}/>
+
+                {zips && this.showByZip()}
 
                 {this.welcomeText()}
 
@@ -139,7 +142,7 @@ export default Relay.createContainer(CityPage, {
                 City(city:$city){
                     name
                     Houses_Count
-                    Houses(first:2){
+                    Houses(first:3){
                         edges{
                             node{
                                 id
