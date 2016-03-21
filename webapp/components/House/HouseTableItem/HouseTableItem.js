@@ -52,33 +52,43 @@ class HouseTableItem extends React.Component {
         let cityFormatted = urlToText(city);
         let priceFormatted = textToPrice(price);
         let streetFormatted = urlToText(street);
-        let typeFormatted = urlToText(type);
         let yearFormatted = getYear(built);
 
         /*Composed String*/
         const bathsText = `${baths} ba`;
         const bedsText = `${beds} bd`;
         const mlsText = `#${mls}`;
-        const yearText = `Year: ${yearFormatted}`;
+        const yearText = `Y: ${yearFormatted}`;
         return (
-            <div>
+            <div className={styles.container}>
                 <div className={styles.row}>
-                    <div className={styles.cellAddress}>
-                        {mls && <span className={styles.mls}> {mlsText} </span>}
-                        {street && <span> {streetFormatted} </span> }
-                        {city && < span > {cityFormatted} </span> }
-                        <span> IL, </span> {zip && <span> {zip} </span> }
+                    <div className={styles.cell6}>
+                        <div className={styles.rowMlsAddress}>
+                            <div className={styles.cellMls}>
+                                {mls && <span className={styles.mls}> {mlsText} </span>}
+                            </div>
+                            <div className={styles.cellAddress}>
+                                {street && <span> {streetFormatted} </span> }
+                                {city && < span > {cityFormatted} </span> }
+                                <span> IL, </span>
+                                {zip && <span> {zip} </span> }
+                            </div>
+                        </div>
                     </div>
-                    <div className={styles.cellInfo}>
-                        <div className={styles.cell1}>
-                            {price && <span> {priceFormatted} </span> }
-                        </div>
-                        <div className={styles.cellBd}>
-                            {beds && < span > {bedsText} </span>}
-                            {baths && <span> {bathsText} </span> }
-                        </div>
-                        <div className={styles.cellYear}>
-                            {built && < span > {yearText} </span>}
+                    <div className={styles.cell6}>
+                        <div className={styles.rowInfo}>
+                            <div className={styles.cellPrice}>
+                                {price && <span> {priceFormatted} </span> }
+                            </div>
+                            <div className={styles.cellYear}>
+                                {built && < span > {yearText} </span>}
+                            </div>
+                            <div className={styles.cellBeds}>
+                                {beds && < span > {bedsText} </span>}
+                            </div>
+                            <div className={styles.cellBaths}>
+                                {baths && <span> {bathsText} </span> }
+                            </div>
                         </div>
                     </div>
                 </div>

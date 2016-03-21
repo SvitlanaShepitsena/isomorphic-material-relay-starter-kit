@@ -69,19 +69,6 @@ class CityPage extends React.Component {
 
     }
 
-    showByType() {
-        const cityFormatted = urlToText(this.props.params.city);
-        let typesList = this.props.Viewer.City.Types.edges;
-
-        let typesTitle = `${cityFormatted} Homes for Sale by Property Type`;
-        return (
-            <ZipTypeList itemId="__dataID__" list={typesList} children="Houses"
-                         sectionTitle={typesTitle}
-            />
-        );
-
-    }
-
     welcomeText() {
         const textAccent = {
             color: palette.palette.accent1Color
@@ -153,6 +140,7 @@ export default Relay.createContainer(CityPage, {
                                 built
                                 street
                                 beds
+                                baths
                                 description
                                 image
                             }

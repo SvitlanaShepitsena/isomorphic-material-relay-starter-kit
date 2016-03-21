@@ -1,55 +1,107 @@
 @import '../../../settings/palette.less';
 @import '../../../settings/vars.less';
 /*=grid*/
+
+.container {
+  background-color: @default-3-color;
+  padding: 8px;
+  vertical-align: bottom;
+}
+
 .row {
   min-width: 100%;
   width: 100%;
-  line-height: 2;
-  font-size: 14px;
+  margin: 0 auto;
+  line-height: 1.5;
+  font-size: 13px;
   height: 100%;
   color: @text-color;
   lost-utility: clearfix;
+  @media (max-width: @mobileHorizontal) {
+    font-size: 15px;
+    line-height: 2;
+  }
 }
 
-.col1 {
+.cell {
   lost-column: 1;
 }
 
-.cell1 {
-  lost-column: 1/12;
-}
-
-.cellAddress {
-  lost-column: 7/12;
-  color: @primary-2-color;
-}
-
-.mls {
-  color: @additional-text-color;
-  padding-right: 16px;
-}
-
-.cellBd {
-  lost-column: 2/12;
-  text-align: right;
-}
-
-.cellYear {
-  text-align: right;
-  lost-column: 2/12;
+.cell2 {
+  lost-column: 2/12 0 8px;
 }
 
 .cell3 {
-  lost-column: 3/12;
+  lost-column: 3/12 0 8px;
 }
 
-.colAddress {
-  lost-column: 5/12 0;
+.cell4 {
+  lost-column: 4/12 0 8px;
 }
 
-.colInfo {
-  lost-column: 7/12 0;
+.cell6 {
+  lost-column: 6/12 0 8px;
+  @media (max-width: @mobileHorizontal) {
+    width: 100%;
+    lost-column: 1 0 0px;
+  }
 }
 
+.rowMlsAddress {
+  composes: row;
+}
+
+.rowInfo {
+  composes: row;
+}
+
+.cellMls {
+  composes: cell3;
+  color: @additional-text-color;
+  font-size: 12px !important;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1 ;
+    font-weight: 500;
+  }
+}
+
+.cellAddress {
+  lost-column: 3/4 0 8px;
+  color: @text-color;
+  font-weight: 600;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1 0 0;
+  }
+}
+
+.cellPrice {
+  composes: cell3;
+  color: @accent-1-color;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1/2 0 0px;
+    font-weight: 600;
+  }
+}
+
+.cellYear {
+  composes: cell3;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1/2 0 0px;
+  }
+}
+
+.cellBeds {
+  composes: cell2;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1/2 0 0px;
+  }
+}
+
+.cellBaths {
+  composes: cell4;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1/2 0 0px;
+  }
+}
 
 

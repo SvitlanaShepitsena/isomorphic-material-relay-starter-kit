@@ -25,14 +25,13 @@ class HouseInfo extends React.Component {
     componentWillMount() {
         let {house} = this.props;
 
-
         house.details = house.details ? JSON.parse(house.details) : null;
         this.house = house;
     };
 
     showHouseHeader() {
         let {house} = this;
-        let {built, city, mls, price, street, type, zip}= house;
+        let {built, city, mls, price, street, since, type, zip}= house;
         /*Formatter*/
         let cityFormatted = urlToText(city);
         let streetFormatted = urlToText(street);
@@ -62,6 +61,7 @@ class HouseInfo extends React.Component {
                         {price && <h4 className={styles.price}> {priceFormatted} </h4> }
                         {mls && <p className={styles.mls}> {mlsText} </p> }
                         {built && <p className={styles.year}> {yearText} </p> }
+                        {since && <p className={styles.year}> {since} </p> }
                     </div>
                 </div>
             </div>
@@ -79,8 +79,7 @@ class HouseInfo extends React.Component {
     };
 
     showKeyFacts() {
-        let {house} = this;
-        let {baths, beds, built, price, type} = house;
+        let {baths, beds, built, price, type} = this.house;
 
         /*Formatter*/
         let yearFormatted = getYear(built);

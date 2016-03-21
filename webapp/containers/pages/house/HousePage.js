@@ -66,12 +66,7 @@ class HousePage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
-                {!house &&
-                <Spinner/>
-                }
-                {house &&
                 <HouseInfo house={house}/>
-                }
             </div>
         );
     }
@@ -98,6 +93,7 @@ export default Relay.createContainer(HousePage, {
                     price,
                     street,
                     built,
+                    since,
                     city,
                     zip,
                     image,

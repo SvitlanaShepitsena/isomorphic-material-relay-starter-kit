@@ -132,16 +132,18 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         cursor
                         node{
                             id
+                            baths
+                            beds
                             city
-                            zip
-                            type
+                            description
+                            image
+                            mls
                             price
                             built
                             street
-                            beds
-                            description
-                            mls
-                            image
+                            since
+                            type
+                            zip
                         }
                     }
                 }

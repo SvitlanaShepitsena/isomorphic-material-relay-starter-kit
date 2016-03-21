@@ -3,6 +3,11 @@ import {Link} from 'react-router';
 /*Components*/
 import HouseTableItem from '../HouseTableItem/HouseTableItem';
 import Pagination from '../../Pagination/Pagination.js';
+/*=materialUi*/
+import Card from 'material-ui/lib/card/card';
+import CardActions from 'material-ui/lib/card/card-actions';
+import CardTitle from 'material-ui/lib/card/card-title';
+import Divider from 'material-ui/lib/divider';
 
 import styles from './HousesList.less';
 
@@ -35,14 +40,14 @@ class HousesTable extends React.Component {
         const housesList = list.edges;
 
         return (
-            <div className={styles.row}>
+            <Card className={styles.row} style={{padding:"16px"}}>
                 <Pagination lastPage={lastPage}/>
                 <div className={styles.col1}>
                     <div className={styles.row}>
                         {housesList.map(this.oneHouse)}
                     </div>
                 </div>
-            </div>
+            </Card>
         );
     }
 }
