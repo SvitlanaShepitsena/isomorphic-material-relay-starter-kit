@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
 import textToPrice from '../../../utils/textToPrice.js';
 import getYear from '../../../utils/getYear';
+import getDate from '../../../utils/getDate';
 import _ from 'lodash';
 
 /*=MaterialUi*/
@@ -24,7 +25,6 @@ class HouseInfo extends React.Component {
 
     componentWillMount() {
         let {house} = this.props;
-
         house.details = house.details ? JSON.parse(house.details) : null;
         this.house = house;
     };
@@ -38,6 +38,8 @@ class HouseInfo extends React.Component {
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
         let yearFormatted = getYear(built);
+
+        let dateFormatted = `Posted: ${getDate(since)}`;
         /*String*/
         const yearText = `Year: ${yearFormatted}`;
         const mlsText = `MLS#: ${mls}`;
@@ -61,7 +63,7 @@ class HouseInfo extends React.Component {
                         {price && <h4 className={styles.price}> {priceFormatted} </h4> }
                         {mls && <p className={styles.mls}> {mlsText} </p> }
                         {built && <p className={styles.year}> {yearText} </p> }
-                        {since && <p className={styles.year}> {since} </p> }
+                        {since && <p className={styles.year}> {`${dateFormatted}` }</p> }
                     </div>
                 </div>
             </div>

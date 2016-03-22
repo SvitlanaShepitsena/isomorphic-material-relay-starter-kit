@@ -63,7 +63,7 @@ class Pagination extends React.Component {
                         <div className={styles.linkContainer}>
                             {enableNext &&
                             <Link data-link='next' to={{ pathname: nextPage}}>
-                                <RaisedButton className={styles.button} default={true} icon={<Next />} label="Next"/>
+                                <RaisedButton className={styles.button} default={true} icon={<Next />} labelPosition="before" label="Next"/>
                             </Link>
                             }
                             {disableNext &&

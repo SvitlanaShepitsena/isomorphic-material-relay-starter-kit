@@ -9,6 +9,7 @@ import _ from "lodash";
 
 /*Components*/
 import HousesTable from '../../../components/House/HousesTable/HousesTable.js';
+import HousesTableDescription from '../../../components/House/HousesTableDescription/HousesTableDescription.js';
 import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 
@@ -94,7 +95,12 @@ class ZipTypeHousesListPage extends React.Component {
                         children="Houses"
                         sectionTitle={`${cityFormatted}, ${zipType} Homes for Sale by Property Type`}
                     />}
+                    {!showTypesList &&
+                    <HousesTableDescription list={houses} count={houseCount} cityName={cityFormatted}/>
+                    }
+                    {showTypesList &&
                     <HousesTable list={houses} count={houseCount} cityName={cityFormatted}/>
+                    }
                 </div>
                 }
             </div>

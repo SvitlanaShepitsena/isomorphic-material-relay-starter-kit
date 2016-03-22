@@ -1,14 +1,14 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 /*Components*/
-import HouseTableItem from '../HouseTableItem/HouseTableItem';
+import HouseTableItemDescription from '../HouseTableItemDescription/HouseTableItemDescription';
 import Pagination from '../../Pagination/Pagination.js';
 /*=materialUi*/
-import Card from 'material-ui/lib/card/card';
 
-import styles from './HousesTable.less';
 
-class HousesTable extends React.Component {
+import styles from './HousesTableDescription.less';
+
+class HousesTableDescription extends React.Component {
     static propTypes = {
         list: PropTypes.object.isRequired,
         count: PropTypes.number.isRequired,
@@ -18,6 +18,7 @@ class HousesTable extends React.Component {
         limit: 10
     };
     oneHouse = (edge)=> {
+
         let house = edge.node;
         let {city, type, zip} = house;
         let itemKey = house.id;
@@ -25,7 +26,7 @@ class HousesTable extends React.Component {
         return (
             <div key={itemKey} className={styles.listInline}>
                 <Link to={houseInlineUrl}>
-                    <HouseTableItem house={house}/>
+                    <HouseTableItemDescription house={house}/>
                 </Link>
             </div>
         )
@@ -37,15 +38,15 @@ class HousesTable extends React.Component {
         const housesList = list.edges;
 
         return (
-            <Card className={styles.row} style={{padding:"16px"}}>
+            <div className={styles.row} >
                 <Pagination lastPage={lastPage}/>
                 <div className={styles.col1}>
                     <div className={styles.row}>
                         {housesList.map(this.oneHouse)}
                     </div>
                 </div>
-            </Card>
+            </div>
         );
     }
 }
-export default HousesTable;
+export default HousesTableDescription;

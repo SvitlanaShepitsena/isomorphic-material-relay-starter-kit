@@ -142,43 +142,7 @@
               "deprecationReason": null
             },
             {
-              "name": "city",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "zip",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "type",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "price",
+              "name": "baths",
               "description": null,
               "args": [],
               "type": {
@@ -202,7 +166,19 @@
               "deprecationReason": null
             },
             {
-              "name": "baths",
+              "name": "built",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "city",
               "description": null,
               "args": [],
               "type": {
@@ -215,6 +191,18 @@
             },
             {
               "name": "description",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "details",
               "description": null,
               "args": [],
               "type": {
@@ -250,7 +238,7 @@
               "deprecationReason": null
             },
             {
-              "name": "built",
+              "name": "price",
               "description": null,
               "args": [],
               "type": {
@@ -286,7 +274,19 @@
               "deprecationReason": null
             },
             {
-              "name": "details",
+              "name": "type",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "zip",
               "description": null,
               "args": [],
               "type": {
