@@ -64,7 +64,7 @@ class HouseTableItemDescription extends React.Component {
         const priceText = `Price: ${priceFormatted}`;
         return (
             <Card className={styles.container}>
-                <h3>
+                <h3 className={styles.address}>
                     {street && <span> {streetFormatted} </span> }
                     {city && < span > {cityFormatted} </span> }
                     <span> IL, </span>

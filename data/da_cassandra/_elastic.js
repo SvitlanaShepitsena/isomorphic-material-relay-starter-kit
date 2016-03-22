@@ -16,6 +16,9 @@ function ensureNoErrorOrReport(qText, qVar, err, reject) {
         return true;
 }
 
+
+
+
 export function runQuery(objectPrototype, index, body, getResults) {
     return new Promise((resolve, reject) => {
         client.search({

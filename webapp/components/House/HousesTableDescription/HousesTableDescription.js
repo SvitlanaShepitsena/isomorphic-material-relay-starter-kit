@@ -25,7 +25,7 @@ class HousesTableDescription extends React.Component {
         let houseInlineUrl = `/houses-for-sale/${city}/${zip}/${type}s/${itemKey}/residential`;
         return (
             <div key={itemKey} className={styles.listInline}>
-                <Link to={houseInlineUrl}>
+                <Link className={styles.linkDescription} to={houseInlineUrl}>
                     <HouseTableItemDescription house={house}/>
                 </Link>
             </div>

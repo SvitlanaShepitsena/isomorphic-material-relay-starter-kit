@@ -27,8 +27,6 @@ class CityZipTypeHousesListPage extends React.Component {
         route: PropTypes.object
     };
 
-
-
     pageHelmet() {
         let houses = this.props.Viewer.Houses.edges;
         let housesCount = this.props.Viewer.Houses_Count;
@@ -38,7 +36,7 @@ class CityZipTypeHousesListPage extends React.Component {
         const cityName = urlToText(city);
         const housesType = urlToText(type);
 
-        const pageTitle = `${cityName}, ${zip} ${housesType} listings for sale | North Illinois Realty | Page ${page}`;
+        const pageTitle = `${cityName}, ${zip} ${housesType} for sale | North Illinois Realty |P${page}`;
         const ogDescription = `✔ Browse ${cityName}, ${zip} ${housesType} houses for sale. ${housesCount} listings for today. ☏  Let us guide you! Call us for a free consultation and schedule a showing!  | Page ${page}`;
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 

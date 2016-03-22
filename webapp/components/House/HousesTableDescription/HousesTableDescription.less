@@ -1,3 +1,4 @@
+@import '../../../settings/palette.less';
 
 .row {
   min-width: 100%;
@@ -14,4 +15,14 @@
 .listInline {
   lost-column: 1;
   margin-bottom: 16px;
+}
+
+.linkDescription {
+  a{
+    &:hover
+    &:active
+    &:focus {
+      color: @default-1-color !important;
+    }
+  }
 }
