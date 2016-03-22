@@ -38,6 +38,7 @@ class HouseInfo extends React.Component {
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
         let yearFormatted = getYear(built);
+        let noYear = yearFormatted == 0;
 
         let dateFormatted = `Posted: ${getDate(since)}`;
         /*String*/
@@ -62,7 +63,8 @@ class HouseInfo extends React.Component {
                     <div className={styles.headRight}>
                         {price && <h4 className={styles.price}> {priceFormatted} </h4> }
                         {mls && <p className={styles.mls}> {mlsText} </p> }
-                        {built && <p className={styles.year}> {yearText} </p> }
+                        {!noYear && <p className={styles.year}> {yearText} </p> }
+                        {noYear && <p className={styles.year}> Year: n/a </p> }
                         {since && <p className={styles.year}> {`${dateFormatted}` }</p> }
                     </div>
                 </div>
@@ -87,6 +89,7 @@ class HouseInfo extends React.Component {
         let yearFormatted = getYear(built);
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
+        let noYear = yearFormatted == 0;
 
         return (
             <article>
@@ -96,7 +99,7 @@ class HouseInfo extends React.Component {
                     <div className={styles.col2}>
                         {type && <p><span className={styles.propKey}>Type: </span> {typeFormatted} </p> }
                         {price && <p><span className={styles.propKey}>Price: </span> {priceFormatted} </p> }
-                        {built && <p><span className={styles.propKey}>Year Built: </span> {yearFormatted} </p> }
+                        {!noYear && <p><span className={styles.propKey}>Year Built: </span> {yearFormatted} </p> }
                     </div>
                     <div className={styles.col2}>
                         {beds && <p><span className={styles.propKey}>Beds: </span> <span> {beds} </span></p> }

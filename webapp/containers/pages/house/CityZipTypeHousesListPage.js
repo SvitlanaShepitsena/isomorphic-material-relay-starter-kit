@@ -36,7 +36,7 @@ class CityZipTypeHousesListPage extends React.Component {
         const cityName = urlToText(city);
         const housesType = urlToText(type);
 
-        const pageTitle = `${cityName}, ${zip} ${housesType} for sale | North Illinois Realty |P${page}`;
+        const pageTitle = `${cityName}, ${zip} ${housesType} for sale | Illinois Realty |P${page}`;
         const ogDescription = `✔ Browse ${cityName}, ${zip} ${housesType} houses for sale. ${housesCount} listings for today. ☏  Let us guide you! Call us for a free consultation and schedule a showing!  | Page ${page}`;
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 
