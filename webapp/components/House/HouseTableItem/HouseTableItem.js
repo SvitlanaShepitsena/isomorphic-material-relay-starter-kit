@@ -59,6 +59,7 @@ class HouseTableItem extends React.Component {
         const bedsText = `${beds} bd`;
         const mlsText = `#${mls}`;
         const yearText = `Y: ${yearFormatted}`;
+        const noYear = yearFormatted == 0;
         return (
             <div className={styles.container}>
                 <div className={styles.row}>
@@ -71,7 +72,7 @@ class HouseTableItem extends React.Component {
                                 {street && <span> {streetFormatted} </span> }
                                 {city && < span > {cityFormatted} </span> }
                                 <span> IL, </span>
-                                {zip && <span> {zip} </span> }
+                                {zip && <span style={{paddingRight:5}}> {zip} </span> }
                             </div>
                         </div>
                     </div>
@@ -81,7 +82,8 @@ class HouseTableItem extends React.Component {
                                 {price && <span> {priceFormatted} </span> }
                             </div>
                             <div className={styles.cellYear}>
-                                {built && < span > {yearText} </span>}
+                                {!noYear && < span > {yearText} </span>}
+                                {noYear && < span > Y: n/a </span>}
                             </div>
                             <div className={styles.cellBeds}>
                                 {beds && < span > {bedsText} </span>}

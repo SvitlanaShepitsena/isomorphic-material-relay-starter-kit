@@ -65,7 +65,7 @@ class HouseInfo extends React.Component {
                         {mls && <p className={styles.mls}> {mlsText} </p> }
                         {!noYear && <p className={styles.year}> {yearText} </p> }
                         {noYear && <p className={styles.year}> Year: n/a </p> }
-                        {since && <p className={styles.year}> {`${dateFormatted}` }</p> }
+                        {since && <p className={styles.date}> {`${dateFormatted}` }</p> }
                     </div>
                 </div>
             </div>
@@ -123,6 +123,29 @@ class HouseInfo extends React.Component {
                         const propVal = `${exterior[extDetail]}`;
                         return (
                             <div key={extDetail} className={styles.propItem}>
+                                <p>
+                                    <span className={styles.propKey}> {propKey} </span>
+                                    <span className={styles.propVal}> {propVal} </span>
+                                </p>
+                            </div>
+                        );
+                    })}
+                </div>
+            </article>
+        );
+    };
+
+    showMoreInfo() {
+        let {moreInfo} = this.house.details;
+        return (moreInfo &&
+            <article>
+                <h4 className={styles.sectionHeader}>More Info:</h4>
+                <div className={styles.propList}>
+                    {Object.keys(moreInfo).map(info => {
+                        const propKey = `${_.startCase(info)}: `;
+                        const propVal = `${moreInfo[info]}`;
+                        return (
+                            <div key={info} className={styles.propItem}>
                                 <p>
                                     <span className={styles.propKey}> {propKey} </span>
                                     <span className={styles.propVal}> {propVal} </span>
@@ -239,10 +262,12 @@ class HouseInfo extends React.Component {
             <Card className={styles.container}>
                 {this.showHouseHeader()}
                 <PhotoGallery image={image} houseId={id}/>
+
                 {this.showKeyFacts()}
                 {this.showDescription()}
                 {this.showExteriorDetails()}
                 {this.showInteriorDetails()}
+                {this.showMoreInfo()}
                 {this.showTaxes()}
                 {this.showUtilities()}
                 {this.showPublicFacts()}

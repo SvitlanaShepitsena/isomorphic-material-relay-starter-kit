@@ -62,6 +62,7 @@ class HouseTableItemDescription extends React.Component {
         const yearText = `Year: ${yearFormatted}`;
         const imagesText = `(${image} pictures)`;
         const priceText = `Price: ${priceFormatted}`;
+        const noYear = yearFormatted == 0;
         return (
             <Card className={styles.container}>
                 <h3 className={styles.address}>
@@ -81,7 +82,8 @@ class HouseTableItemDescription extends React.Component {
                             {type && <span>{typeText}</span>}
                         </div>
                         <div className={styles.cellKeyFacts}>
-                            {built && <span> {yearText} </span>}
+                            {!noYear && <span> {yearText} </span>}
+                            {noYear && <span> Y: n/a </span>}
                             {mls && <span className={styles.keyFact}> {mlsText} </span>}
                         </div>
                         <div className={styles.cellKeyFacts}>
