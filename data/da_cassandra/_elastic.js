@@ -3,8 +3,8 @@ import axios from 'axios';
 import _ from 'lodash';
 
 var client = new elasticsearch.Client({
-    // host: 'http://readonly:wp19bf7c6srl6na0dw@be0b02e7ce5ed1a8d97a31cab78e71b4.us-east-1.aws.found.io:9200/',
-    host: 'http://localhost:9200/',
+    host: 'http://readonly:wp19bf7c6srl6na0dw@be0b02e7ce5ed1a8d97a31cab78e71b4.us-east-1.aws.found.io:9200/',
+    // host: 'http://localhost:9200/',
     apiVersion: '2.2'
 });
 
@@ -15,9 +15,6 @@ function ensureNoErrorOrReport(qText, qVar, err, reject) {
     else
         return true;
 }
-
-
-
 
 export function runQuery(objectPrototype, index, body, getResults) {
     return new Promise((resolve, reject) => {
