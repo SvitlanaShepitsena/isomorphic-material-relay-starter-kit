@@ -45,7 +45,9 @@ class Pagination extends React.Component {
         return (
             <div className={styles.row}>
                 <div className={styles.col2}>
-                    <span className={styles.counter}> {pageCounter}</span>
+                    <div className={styles.counterContainer}>
+                        <span className={styles.counter}> {pageCounter}</span>
+                    </div>
                 </div>
                 <div className={styles.col2}>
                     <div className={styles.breadcrumbs}>

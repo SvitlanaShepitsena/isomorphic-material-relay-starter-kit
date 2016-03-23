@@ -1,15 +1,15 @@
 import React from 'react';
 import Helmet from "react-helmet";
+import AboutContent from '../../../components/AppViews/About/AboutContent.js';
 import settings from '../../../settings/settings.js';
 /*=Components*/
-import H1Header from '../../../components/Common/H1Header/H1Header.js';
 
 class AboutPage extends React.Component {
 
     pageHelmet() {
         let helmetProps = settings.metaProps;
         let appUrl = helmetProps.appUrl;
-        
+
         const {pageTitle, pageDescription} = helmetProps.aboutPage;
         const pageImage = helmetProps.fbImage;
         const pageUrl = `${appUrl}/about`;
