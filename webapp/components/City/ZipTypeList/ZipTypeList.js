@@ -52,17 +52,15 @@ class ZipTypeList extends React.Component {
     render() {
         let {list, sectionTitle} = this.props;
         return (
-            <div className={styles.row}>
-                <Card className={styles.col1}>
-                    <CardTitle title={sectionTitle}/>
-                    <Divider />
-                    <CardActions>
-                        <ul>
-                            {list.map(this.oneZip)}
-                        </ul>
-                    </CardActions>
-                </Card>
-            </div>
+            <Card className={styles.card}>
+                <CardTitle title={<span className={styles.sectionTitle}>{sectionTitle}</span> }/>
+                <Divider />
+                <CardActions>
+                    <ul style={{lineHeight: 3.8, paddingTop:8}}>
+                        {list.map(this.oneZip)}
+                    </ul>
+                </CardActions>
+            </Card>
         );
     }
 }

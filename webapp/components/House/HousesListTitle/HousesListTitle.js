@@ -2,6 +2,8 @@ import React, {PropTypes} from 'react';
 import styles from './HousesListTitle.less';
 import urlToText from '../../../utils/urlToText.js';
 
+import H1Header from '../../../components/Common/H1Header/H1Header.js';
+
 class HousesListTitle extends React.Component {
     static propTypes = {
         zipType: PropTypes.string.isRequired,
@@ -20,20 +22,20 @@ class HousesListTitle extends React.Component {
         return (
             <div>
                 {all &&
-                <h1>{`All Houses for Sale in ${cityFormatted}`}
+                <H1Header>{`All Houses for Sale in ${cityFormatted}`}
                     <span className={styles.counter}> {listingsNum}</span>
-                </h1>}
+                </H1Header>}
                 {/* City Type*/}
                 {filterType && zipType.length > 3 &&
-                <h1>{`${typeFormatted} for Sale in ${cityFormatted}`}
+                <H1Header>{`${typeFormatted} for Sale in ${cityFormatted}`}
                     <span className={styles.counter}> {listingsNum}</span>
-                </h1>}
+                </H1Header>}
 
                 {/* City Zip*/}
                 {filterZip &&
-                <h1>{`Houses for Sale in ${cityFormatted}, ${zipType}`}
+                <H1Header>{`Houses for Sale in ${cityFormatted}, ${zipType}`}
                     <span className={styles.counter}> {listingsNum}</span>
-                </h1>
+                </H1Header>
                 }
             </div>
         );

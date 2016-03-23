@@ -9,7 +9,9 @@ import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import ButtonAll from '../../../components/House/ButtonAll/ButtonAll.js';
 import HousesListFiltered from '../../../components/House/HousesListFiltered/HousesListFiltered.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
+import H1Header from '../../../components/Common/H1Header/H1Header.js';
 import AppSpinner from '../../../components/Common/Spinner/AppSpinner.js';
+
 /*=styles*/
 import palette from '../../../settings/MuiPalette.js';
 
@@ -100,13 +102,9 @@ class CityPage extends React.Component {
         return (
             <div>
                 {this.pageHelmet()}
-
                 <Breadcrumbs routes={this.props.routes} params={this.props.params}/>
 
-                <h1> {pageTitle} </h1>
-
-
-                {!(houses || zips || types) && <AppSpinner/> }
+                <H1Header> {pageTitle}</H1Header>
 
                 <HousesListFiltered list={newHouses} cityName={cityFormatted} housesNumber={housesCount}/>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import H1Header from '../../../components/Common/H1Header/H1Header.js';
 
 class Terms extends React.Component {
 
@@ -7,7 +8,7 @@ class Terms extends React.Component {
         // Determine error text, since we already have the errors in state
         return (
             <div className="TermsContent">
-                <h1>Re/Max 1st Class Terms of Use</h1>
+                <H1Header> Re/Max 1st Class Terms of Use</H1Header>
                 <hr/>
                 <article>
                     <h4 className="ml mr">Please Read Carefully before using remax1stclass.com</h4>

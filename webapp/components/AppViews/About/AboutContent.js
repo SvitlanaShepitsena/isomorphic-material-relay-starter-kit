@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from './AboutContent.less';
+import H1Header from '../../../components/Common/H1Header/H1Header.js';
 
 class AboutContent extends React.Component {
 
     render() {
         return (
             <div>
-                <h1>Why Re/Max 1st Class Realty is worth to work with: </h1>
+                <H1Header>
+                    Why Re/Max 1st Class Realty is worth to work with:
+                </H1Header>
                 <hr/>
                 <article className={styles.content}>
                     <p>

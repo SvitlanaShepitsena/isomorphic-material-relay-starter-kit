@@ -22,28 +22,24 @@ class ButtonWithBadge extends React.Component {
             backgroundColor: muiPalette.palette.default3Color,
             color: muiPalette.palette.textColor,
             right: 18,
-            top: 18
+            top: 0
         };
         let defaultBtnLabelStyle = {
             color: muiPalette.palette.primary2Color,
-            fontSize: 15,
+            fontSize: 12,
             fontWeight: 500
         };
         let {btnLabelStyle, badgeStyle, btnLabel, btnUrl, badgeValue} = this.props;
 
         return (
-            <div>
-                <Badge badgeContent={badgeValue}
-                       badgeStyle={badgeStyle ? badgeStyle : defaultBadgeStyle}
-                >
-                    <SvLink url={btnUrl} removePage={this.props.removePage} >
-                        <FlatButton
-                            labelStyle={btnLabelStyle ? btnLabelStyle: defaultBtnLabelStyle}
-                            primary={true}
-                            label={btnLabel}/>
-                    </SvLink>
-                </Badge>
-            </div>
+            <Badge badgeContent={badgeValue} badgeStyle={badgeStyle ? badgeStyle : defaultBadgeStyle}>
+                <SvLink url={btnUrl} removePage={this.props.removePage}>
+                    <FlatButton
+                        labelStyle={btnLabelStyle ? btnLabelStyle: defaultBtnLabelStyle}
+                        primary={true}
+                        label={btnLabel}/>
+                </SvLink>
+            </Badge>
         );
     }
 }

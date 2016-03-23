@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
 /*=Components*/
-import AboutContent from '../../../components/AppViews/About/AboutContent.js';
+import H1Header from '../../../components/Common/H1Header/H1Header.js';
 
 class AboutPage extends React.Component {
 

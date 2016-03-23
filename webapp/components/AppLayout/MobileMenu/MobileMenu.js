@@ -24,6 +24,10 @@ class MobileMenu extends React.Component {
                     <Link className={styles.link}
                           to="/about">About Us</Link>
                 </MenuItem>
+                <MenuItem onTouchTap={this.props.onTouchTap}>
+                    <Link className={styles.link}
+                          to="/contact">Contact</Link>
+                </MenuItem>
             </div>
         );
     }
