@@ -4,8 +4,9 @@ import _ from 'lodash';
 
 var client = new elasticsearch.Client({
     // host: 'http://readonly:wp19bf7c6srl6na0dw@be0b02e7ce5ed1a8d97a31cab78e71b4.us-east-1.aws.found.io:9200/',
-    host: 'http://172.17.0.2:9300/',
+    // host: 'http://172.17.0.2:9300/',
     // host: 'http://192.168.99.100:32769',
+    host: 'http://localhost:9200/',
     apiVersion: '2.2'
 });
 
