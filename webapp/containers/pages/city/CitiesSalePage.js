@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
 /*=Components*/
 import CitiesList from '../../../components/City/CitiesList/CitiesList.js';
+import H1Header from '../../../components/Common/H1Header/H1Header.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 class CitiesSalePage extends React.Component {
@@ -52,7 +53,7 @@ class CitiesSalePage extends React.Component {
         return (
             <div>
                 {this.pageHelmet()}
-                <h1> North Chicago Suburbs Houses for Sale </h1>
+                <H1Header>North Chicago Suburbs Houses for Sale</H1Header>
                 <CitiesList list={allCities} itemId="name" children="Houses"/>
             </div>
         );

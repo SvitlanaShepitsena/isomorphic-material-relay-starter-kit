@@ -55,13 +55,9 @@ export function runCountQuery(index, body, getResults) {
                 }
                 resolve(count)
             })
-
         } catch (e) {
-
         }
-
     })
-
 }
 
 export function runQueryOneResult(objectPrototype, index, body, getResults) {

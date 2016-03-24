@@ -37,12 +37,16 @@
 
 /*=desktop headers*/
 .headLeft {
-  padding-left: 16px;
+  @media (min-width: @lgMobileHorizontal) {
+    padding-left: 16px;
+  }
 }
 
 .headRight {
-  text-align: right;
-  padding-right: 16px;
+  @media (min-width: @lgMobileHorizontal) {
+    text-align: right;
+    padding-right: 16px;
+  }
   p {
     margin: 0;
   }
@@ -159,7 +163,7 @@
   }
 
   .col2 {
-    lost-column: 1 0;
+    lost-column: 1 0 0;
   }
 }
 

@@ -7,7 +7,7 @@ class PrivacyContent extends React.Component {
         // Determine error text, since we already have the errors in state
         return (
             <div className="PrivacyContent">
-                <h1>Re/Max 1st Class Privacy Policy</h1>
+                <H1Header> Re/Max 1st Class Privacy Policy </H1Header>
                 <hr/>
                 <h4 className="ml mr">Please Read Carefully before using remax1stclass.com</h4>
                 <article>
@@ -243,7 +243,7 @@ class PrivacyContent extends React.Component {
                         <p className="ml mr mb">To see the Terms of Use that apply to this Web Site, <span
                             className="ml">
                                                             <Link to="/terms"> click here. </Link>
-                            
+
                         </span><span className="ml">All trademarks, service marks, and other proprietary materials herein are the property of Re/Max 1st Class 2015. All rights reserved.</span>
                         </p>
                     </section>

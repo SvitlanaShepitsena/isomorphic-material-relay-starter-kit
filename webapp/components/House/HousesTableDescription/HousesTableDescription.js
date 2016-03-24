@@ -5,7 +5,6 @@ import HouseTableItemDescription from '../HouseTableItemDescription/HouseTableIt
 import Pagination from '../../Pagination/Pagination.js';
 /*=materialUi*/
 
-
 import styles from './HousesTableDescription.less';
 
 class HousesTableDescription extends React.Component {
@@ -38,7 +37,7 @@ class HousesTableDescription extends React.Component {
         const housesList = list.edges;
 
         return (
-            <div className={styles.row} >
+            <div className={styles.row}>
                 <Pagination lastPage={lastPage}/>
                 <div className={styles.col1}>
                     <div className={styles.row}>
