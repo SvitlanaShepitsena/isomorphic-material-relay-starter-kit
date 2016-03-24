@@ -45,12 +45,15 @@ class Breadcrumbs extends React.Component {
                             case 'zipType':
                                 if (digits) {
                                     compoundAnchors += ` at ${anchor}`;
+                                    url += '/1';
 
                                 } else {
                                     compoundAnchors = replaceHouses;
                                 }
                                 break;
                             case 'type':
+                                compoundUrl = compoundUrl.substr(0, compoundUrl.length - 2);
+                                url += '/1';
                                 compoundAnchors = replaceHouses;
                                 break;
                             case 'id':

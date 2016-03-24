@@ -33,6 +33,8 @@ class ZipTypeList extends React.Component {
         }
 
         let urlValue = `${itemValue}`;
+        urlValue = urlValue.match(/\/1^/) ? urlValue : urlValue + '/1';
+
         let badgeValue = item[`${children}_Count`];
         if (badgeValue) {
 

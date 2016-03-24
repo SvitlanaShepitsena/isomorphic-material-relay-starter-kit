@@ -62,10 +62,9 @@ export default (()=> {
 
             <Route path="/houses-for-sale/:city/:zipType(/:page)" component={ZipTypeHousesListPage}
                    queries={ViewerQueries}
-                   onEnter={paginate}
             />
             <Route path="/houses-for-sale/:city/:zip/:type(/:page)" component={CityZipTypeHousesListPage}
-                   queries={ViewerQueries} onEnter={paginate}/>
+                   queries={ViewerQueries} />
 
             <Route path="/houses-for-sale/:city/:zipType/:type/:id/:realty" component={HousePage}
                    queries={ViewerQueries}
