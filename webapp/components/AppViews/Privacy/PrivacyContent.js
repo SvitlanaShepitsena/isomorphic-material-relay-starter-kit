@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import H1Header from '../../Common/H1Header/H1Header.js';
 
 class PrivacyContent extends React.Component {
 
