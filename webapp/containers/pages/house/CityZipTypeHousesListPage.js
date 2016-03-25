@@ -9,6 +9,7 @@ import settings from '../../../settings/settings.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
+import H1Header from '../../../components/Common/H1Header/H1Header.js';
 
 class CityZipTypeHousesListPage extends React.Component {
     state = {compare: true};
@@ -68,7 +69,7 @@ class CityZipTypeHousesListPage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
-                <h1>{`${typeFormatted} for Sale in ${cityFormatted}, ${zip}`}</h1>
+                <H1Header>{`${typeFormatted} for Sale in ${cityFormatted}, ${zip}`}</H1Header>
                 {houses &&
                 <HousesList
                     list={houses}

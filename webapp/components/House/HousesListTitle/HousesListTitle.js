@@ -27,7 +27,7 @@ class HousesListTitle extends React.Component {
                 </H1Header>}
                 {/* City Type*/}
                 {filterType && zipType.length > 3 &&
-                <H1Header>{`${typeFormatted} for Sale in ${cityFormatted}`}
+                <H1Header>{`${typeFormatted} for Sale in ${cityFormatted}, ${zipType}`}
                     <span className={styles.counter}> {listingsNum}</span>
                 </H1Header>}
 
