@@ -1,0 +1,2 @@
+User-agent: SEMrushBot-Desktop
+Crawl-delay: 5
