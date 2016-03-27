@@ -63,7 +63,7 @@ class CityPage extends React.Component {
         let {city} = this.props.params;
         let cityFormatted = urlToText(city);
         let zipsList = this.props.Viewer.City.Zips.edges;
-        const zipsTitle = `${cityFormatted} Homes for Sale by Zip`
+        const zipsTitle = `${cityFormatted} Houses for Sale by Zip`
         return (
             <ZipTypeList itemId="__dataID__" list={zipsList} children="Houses"
                          sectionTitle={zipsTitle}/>
@@ -96,8 +96,8 @@ class CityPage extends React.Component {
         let houses = newHouses.length;
         const cityFormatted = urlToText(this.props.params.city);
 
-        const pageTitle = ` Homes for Sale in ${cityFormatted}`;
-        const allTitle = `All ${cityFormatted} homes for sale(${housesCount})`;
+        const pageTitle = ` ${cityFormatted} Homes for Sale`;
+        const allTitle = `All ${cityFormatted} listings for sale(${housesCount})`;
 
         return (
             <div>

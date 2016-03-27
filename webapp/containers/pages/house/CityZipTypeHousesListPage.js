@@ -64,12 +64,17 @@ class CityZipTypeHousesListPage extends React.Component {
         /*Formatter*/
         const cityFormatted = urlToText(city);
         const typeFormatted = urlToText(type);
-
+        const counter = {
+            color: "blue",
+            fontSize: 16
+        }
         return (
             <div>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
-                <H1Header>{`${typeFormatted} for Sale in ${cityFormatted}, ${zip}`}</H1Header>
+                <H1Header>{`${typeFormatted} for Sale in ${cityFormatted}, ${zip}`}
+                    <span style={counter}> {listingsNum}</span>
+                </H1Header>
                 {houses &&
                 <HousesList
                     list={houses}
