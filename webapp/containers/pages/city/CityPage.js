@@ -79,7 +79,7 @@ class CityPage extends React.Component {
         return (
             <article style={{lostColumn:1}}>
                 <h4> { `Re/Max 1st Class Realty helps you to find your dream home by offering newest listings for sale in  ${cityFormatted}.` } </h4>
-                <p> { `For your best experience, we are filtering ${cityFormatted} listings for you by City Zip.` } </p>
+                <p> { `For your best experience, we are filtering ${cityFormatted} listings by City Zip.` } </p>
                 <h3 style={textAccent}> { `Let us guide you, call us for a free consultation about ${cityFormatted} properties for sale: (847) 674-9797.` }
                 </h3>
             </article>
