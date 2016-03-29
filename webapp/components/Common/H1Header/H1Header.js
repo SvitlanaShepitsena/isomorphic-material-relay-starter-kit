@@ -6,9 +6,7 @@ class H1Header extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1 className={styles.h1}> {this.props.children} </h1>
-            </div>
+            <h1 className={styles.h1}> {this.props.children} </h1>
         );
     }
 }

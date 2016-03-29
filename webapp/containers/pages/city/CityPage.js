@@ -41,8 +41,8 @@ class CityPage extends React.Component {
         const cityName = urlToText(this.props.params.city);
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 
-        const pageTitle = `${cityName} houses for sale | North Illinois Realty`;
-        const pageDescription = `✔ Browse ${cityName} homes for sale, sorted by zip code or property type. ☏  Call us for a free consultation and schedule a showing!`;
+        const pageTitle = `${cityName} homes for sale | ${cityName} Realty`;
+        const pageDescription = `✔ Wish to buy a home in ${cityName}? ☏  Call ${cityName} local professional brokers for a free consultation and schedule a showing!`;
 
         return (
             <Helmet
@@ -73,15 +73,17 @@ class CityPage extends React.Component {
 
     welcomeText() {
         const textAccent = {
+            fontSize: 20,
+            margin: "0",
             color: palette.palette.accent1Color
         };
         const cityFormatted = urlToText(this.props.params.city);
         return (
             <article style={{lostColumn:1}}>
-                <h4> { `Re/Max 1st Class Realty helps you to find your dream home by offering newest listings for sale in  ${cityFormatted}.` } </h4>
-                <p> { `For your best experience, we are filtering ${cityFormatted} listings by City Zip.` } </p>
-                <h3 style={textAccent}> { `Let us guide you, call us for a free consultation about ${cityFormatted} properties for sale: (847) 674-9797.` }
-                </h3>
+                <h3> { `Re/Max 1st Class Realty helps you to find your dream home by offering newest listings for sale in  ${cityFormatted}.` } </h3>
+                <p style={{padding:0}}> { `For your best experience, we are filtering ${cityFormatted} listings by City Zip.` } </p>
+                <h2 style={textAccent}> { `Let our real estate professionals guide you, call Re/Max 1st Class brokers for a free consultation about ${cityFormatted} properties for sale: (847) 674-9797.` }
+                </h2>
             </article>
         );
 
@@ -96,7 +98,7 @@ class CityPage extends React.Component {
         let houses = newHouses.length;
         const cityFormatted = urlToText(this.props.params.city);
 
-        const pageTitle = ` ${cityFormatted} Homes for Sale`;
+        const pageTitle = `${cityFormatted} Homes for Sale`;
         const allTitle = `All ${cityFormatted} listings for sale(${housesCount})`;
 
         return (

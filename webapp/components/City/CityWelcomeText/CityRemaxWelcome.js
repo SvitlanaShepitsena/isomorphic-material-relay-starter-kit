@@ -28,10 +28,10 @@ class CityRemaxWelcome extends Component {
                 </p>
 
                 {saleRent == 'sale' &&
-                <h3 style={{color: "#D32F2F"}}> {
-                    "Let us guide you, call us for a free consultation about " + cityName + " properties for sale: (847) 674-9797"
+                <h2 style={{color: "#D32F2F"}}> {
+                    "Let our real estate professionals guide you, call Re/Max 1st Class brokers for a free consultation about " + cityName + " properties for sale: (847) 674-9797"
                 }
-                </h3>
+                </h2>
                 }
 
             </article>
