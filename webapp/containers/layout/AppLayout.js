@@ -44,7 +44,7 @@ class AppLayout extends React.Component {
         let {children} = this.props;
         let {pathname} = this.props.location;
         let homeRoute = pathname == '/';
-        let cityRoute = pathname == '/houses-for-sale';
+        let cityRoute = pathname == '/homes-for-sale';
         return (
             <div className={styles.layoutWrapper}>
                 {homeRoute &&

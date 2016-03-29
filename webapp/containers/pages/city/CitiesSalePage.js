@@ -29,7 +29,7 @@ class CitiesSalePage extends React.Component {
 
         const {pageTitle, pageDescription} = helmetProps.housesForSalePage;
         const pageImage = helmetProps.fbImage;
-        const pageUrl = `${appUrl}/houses-for-sale`;
+        const pageUrl = `${appUrl}/homes-for-sale`;
 
         return (
             <Helmet

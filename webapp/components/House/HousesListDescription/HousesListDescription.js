@@ -19,7 +19,7 @@ class HousesListDescription extends React.Component {
         let house = edge.node;
         let {city, type, zip} = house;
         let itemKey = house.id;
-        let houseInlineUrl = `/houses-for-sale/${city}/${zip}/${type}s/${itemKey}/residential`;
+        let houseInlineUrl = `/homes-for-sale/${city}/${zip}/${type}s/${itemKey}/residential`;
         return (
             <div key={itemKey} className={styles.listInline}>
                 <Link to={houseInlineUrl}>

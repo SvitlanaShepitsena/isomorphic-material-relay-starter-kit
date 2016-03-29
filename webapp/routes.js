@@ -55,18 +55,18 @@ export default (()=> {
         <Route path="/" component={AppLayout} name="App">
             <IndexRoute component={HomePage} queries={ViewerQueries} name="Home"/>
 
-            <Route path="/houses-for-sale" component={CitiesSalePage} queries={ViewerQueries}
+            <Route path="/homes-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                    name="Chicago North Suburbs Houses for Sale"/>
 
-            <Route path="/houses-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
+            <Route path="/homes-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
 
-            <Route path="/houses-for-sale/:city/:zipType(/:page)" component={ZipTypeHousesListPage}
+            <Route path="/homes-for-sale/:city/:zipType(/:page)" component={ZipTypeHousesListPage}
                    queries={ViewerQueries}
             />
-            <Route path="/houses-for-sale/:city/:zip/:type(/:page)" component={CityZipTypeHousesListPage}
-                   queries={ViewerQueries} />
+            <Route path="/homes-for-sale/:city/:zip/:type(/:page)" component={CityZipTypeHousesListPage}
+                   queries={ViewerQueries}/>
 
-            <Route path="/houses-for-sale/:city/:zipType/:type/:id/:realty" component={HousePage}
+            <Route path="/homes-for-sale/:city/:zipType/:type/:id/:realty" component={HousePage}
                    queries={ViewerQueries}
 
             />

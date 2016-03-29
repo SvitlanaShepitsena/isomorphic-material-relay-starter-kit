@@ -53,7 +53,7 @@ class HomePage extends React.Component {
 
     citiesList() {
         const citiesList = this.props.Viewer.Cities.edges;
-        const cityUrl = "houses-for-sale/";
+        const cityUrl = "homes-for-sale/";
         const itemId = "name";
         const cityChildren = "Houses";
         return (

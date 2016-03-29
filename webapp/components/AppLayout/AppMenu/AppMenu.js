@@ -20,7 +20,7 @@ class AppMenu extends React.Component {
                 <li>
                     <MenuItem>
                         <Link className={styles.link}
-                              to="/houses-for-sale">Houses For Sale </Link>
+                              to="/homes-for-sale">Houses For Sale </Link>
                     </MenuItem>
                 </li>
                 <li>
