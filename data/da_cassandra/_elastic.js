@@ -30,7 +30,6 @@ export function runQuery(objectPrototype, index, body, getResults) {
             if (getResults) {
                 items = getResults(res);
             } else {
-
                 items = res.hits.hits.map(item=> {
                     return item._source;
                 });
