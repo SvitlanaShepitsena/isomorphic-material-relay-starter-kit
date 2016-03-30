@@ -263,19 +263,19 @@ export function Houses_with_args(args, getResults) {
         }
     }
 
-    if (args.zip && !args.type) {
-        body.query =
-        {
-            filtered: {
-                query: {
-                    match_all: {}
-                },
-                filter: {
-                    term: {zip_id: args.zip}
-                }
-            }
-        }
-    }
+    // if (args.zip && !args.type) {
+    //     body.query =
+    //     {
+    //         filtered: {
+    //             query: {
+    //                 match_all: {}
+    //             },
+    //             filter: {
+    //                 term: {zip_id: args.zip}
+    //             }
+    //         }
+    //     }
+    // }
 
     if (args.city && args.zip && !args.type) {
         if (args.zip !== 'all') {
@@ -308,14 +308,20 @@ export function Houses_with_args(args, getResults) {
                         "query": {
                             "match_all": {}
                         },
-                        "filter": [
-                            {
-                                "term": {
-                                    "zip_id": args.zip
+                        "filter": {
+                            and: [
+                                {
+                                    "term": {
+                                        "zip_id": args.zip
+                                    }
+                                },
+                                {
+                                    "term": {
+                                        "city_id": args.city
+                                    }
                                 }
-                            }
-
-                        ]
+                            ]
+                        }
                     }
                 }
 
@@ -340,6 +346,7 @@ export function Houses_with_args(args, getResults) {
         }
     }
 
+    return runQuery(House, 'sale', body, getResults);
     if (args.zip && args.type) {
 
         body.query = {
