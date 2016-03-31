@@ -72,7 +72,7 @@ class CityZipTypeHousesListPage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
-                <H1Header>{`${typeFormatted} for Sale in ${cityFormatted}, ${zip}`}
+                <H1Header>{`${cityFormatted}, ${zip} ${typeFormatted} for Sale`}
                 </H1Header>
                 {houses &&
                 <HousesList

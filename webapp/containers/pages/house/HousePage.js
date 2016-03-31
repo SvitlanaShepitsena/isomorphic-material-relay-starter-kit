@@ -36,7 +36,7 @@ class HousePage extends React.Component {
         const streetFormatted = urlToText(street);
         const typeFormatted = urlToText(type);
 
-        const title = `${cityFormatted} home for sale | ${streetFormatted}. #${mls}`;
+        const title = `${cityFormatted} ${typeFormatted} for sale | ${streetFormatted}. #${mls}`;
         const ogTitle = `FOR SALE! ☆ ${streetFormatted}, ${cityFormatted}, ${zip} ☆ Re/Max 1st Class`;
 
         const description = `${mls} | Check out and schedule a showing! ${houseDescription}`;

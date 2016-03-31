@@ -22,18 +22,18 @@ class HousesListTitle extends React.Component {
         return (
             <div>
                 {all &&
-                <H1Header>{`All Houses for Sale in ${cityFormatted}`}
+                <H1Header>{`All ${cityFormatted} homes for sale`}
                     <span className={styles.counter}> {listingsNum}</span>
                 </H1Header>}
                 {/* City Type*/}
                 {filterType && zipType.length > 3 &&
-                <H1Header>{`${typeFormatted} for Sale in ${cityFormatted}, ${zipType}`}
+                <H1Header>{`${cityFormatted}, ${zipType} ${typeFormatted} for Sale `}
                     <span className={styles.counter}> {listingsNum}</span>
                 </H1Header>}
 
                 {/* City Zip*/}
                 {filterZip &&
-                <H1Header>{`Houses for Sale in ${cityFormatted}, ${zipType}`}
+                <H1Header>{`${cityFormatted}, ${zipType} homes for sale`}
                     <span className={styles.counter}> {listingsNum}</span>
                 </H1Header>
                 }
