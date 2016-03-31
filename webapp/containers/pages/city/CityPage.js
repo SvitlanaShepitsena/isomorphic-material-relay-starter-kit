@@ -68,7 +68,6 @@ class CityPage extends React.Component {
             <ZipTypeList itemId="__dataID__" list={zipsList} children="Houses"
                          sectionTitle={zipsTitle}/>
         );
-
     }
 
     welcomeText() {
