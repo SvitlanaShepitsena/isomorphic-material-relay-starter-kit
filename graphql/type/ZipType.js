@@ -35,22 +35,32 @@ export default new GraphQLObjectType({
             type: HousesConnection.connectionType,
             args: {
                 ...connectionArgs,
+                city: {
+                    type: GraphQLString
+                },
                 type: {
                     type: GraphQLString
                 },
 
             },
-            resolve: (obj, {...args}) => Houses_with_args(...args, {zip: obj.id}).then((arr) => connectionFromArray(arr, args))
+            resolve: (obj, {...args}) => {
+                args = Object.assign(args, {zip: obj.id});
+                return Houses_with_args(args).then((arr) => connectionFromArray(arr, args))}
         },
         Houses_Count: {
             type: GraphQLInt,
             args: {
                 ...connectionArgs,
-                type: {
+                city: {
                     type: GraphQLString
                 },
+                type: {
+                    type: GraphQLString
+                }
             },
-            resolve: (obj, {...args}) => Houses_with_args_count(...args, {zip: obj.id})
+            resolve: (obj, {...args}) => {
+                args = Object.assign(args, {zip: obj.id});
+                return Houses_with_args_count(args)}
         },
         Types: {
             type: TypesConnection.connectionType,

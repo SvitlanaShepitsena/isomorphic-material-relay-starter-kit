@@ -40,6 +40,7 @@ export function House_get(id) {
 }
 
 export function Houses_with_args_count(args) {
+    // console.log(JSON.stringify(args));
     var body = {};
 
     /* Pagination functionality */
@@ -49,17 +50,17 @@ export function Houses_with_args_count(args) {
     }
     /* Search case look over all fields*/
     if (args.query) {
+
         body.query =
         {
             match: {
                 _all: args.query
             }
         }
-        return runCountQuery('sale', body, res=> {
-            return res.hits.total
-        });
+        return runCountQuery('sale', body, res=> { return res.hits.total });
     }
     if (args.city && (!args.zip || args.zip == 'all') && !args.type) {
+
         body.query =
         {
             filtered: {
@@ -129,16 +130,24 @@ export function Houses_with_args_count(args) {
                         "query": {
                             "match_all": {}
                         },
-                        "filter": [
-                            {
-                                "term": {
-                                    "zip_id": args.zip
+                        "filter": {
+                            and: [
+                                {
+                                    "term": {
+                                        "zip_id": args.zip
+                                    }
+                                },
+                                {
+                                    "term": {
+                                        "city_id": args.city
+                                    }
                                 }
-                            }
-
-                        ]
+                            ]
+                        }
                     }
                 }
+
+                return runCountQuery('sale', body);
 
             }
         } else {
@@ -159,6 +168,9 @@ export function Houses_with_args_count(args) {
             }
 
         }
+
+
+        return runCountQuery('sale', body);
     }
 
     if (args.zip && args.type) {

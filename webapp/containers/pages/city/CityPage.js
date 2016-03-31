@@ -41,8 +41,8 @@ class CityPage extends React.Component {
         const cityName = urlToText(this.props.params.city);
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 
-        const pageTitle = `${cityName} homes for sale | ${cityName} Realty`;
-        const pageDescription = `✔Wish to buy a home in ${cityName}? ☏  Call ${cityName} local professional brokers for a free consultation and schedule a showing!`;
+        const pageTitle = `${cityName} homes for sale | Buy ${cityName} home | ${cityName} Realty`;
+        const pageDescription = `✔Wish to buy a home in ${cityName}? ☏  Call ${cityName} real estate professionals for a free consultation and schedule a showing!`;
 
         return (
             <Helmet
@@ -151,7 +151,7 @@ export default Relay.createContainer(CityPage, {
                             node{
                                 code,
 
-                                Houses_Count
+                                Houses_Count(city:$city)
                             }
                         }
                     }
