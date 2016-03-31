@@ -38,8 +38,8 @@ class CityZipTypeHousesListPage extends React.Component {
         const cityName = urlToText(city);
         const housesType = urlToText(type);
 
-        const pageTitle = `${cityName} Real Estate | ${housesCount} ${cityName} ${housesType} for sale (${zip}) |P${page}`;
-        const ogDescription = `✔Find ${cityName}, ${zip} ${housesType} for sale. ${housesCount} listings for today. ☏  Call ${cityName} brokers for a free consultation and schedule a showing!  | Page ${page}`;
+        const pageTitle = `${cityName} Real Estate | ${cityName} ${housesType} for Sale (${zip}) p.${page}`;
+        const ogDescription = `✔ Find ${cityName}, ${zip} ${housesType} for sale. ${housesCount} listings for today. ☏  Call ${cityName} brokers for a free consultation and schedule a showing!  | Page ${page}`;
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 
         return (
