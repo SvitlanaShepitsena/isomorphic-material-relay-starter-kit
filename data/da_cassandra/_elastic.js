@@ -40,6 +40,7 @@ export function runQuery(objectPrototype, index, body, getResults) {
 }
 
 export function runCountQuery(index, body, getResults) {
+    // console.log(JSON.stringify(body));
     return new Promise((resolve, reject) => {
         try {
             client.search({

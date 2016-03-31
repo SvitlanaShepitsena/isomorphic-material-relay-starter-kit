@@ -151,7 +151,7 @@ export default Relay.createContainer(CityPage, {
                             node{
                                 code,
 
-                                Houses_Count
+                                Houses_Count(city:$city)
                             }
                         }
                     }
