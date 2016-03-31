@@ -35,8 +35,8 @@ class ZipTypeHousesListPage extends React.Component {
         const cityName = urlToText(city);
         const zipTypeFormatted = urlToText(zipType);
 
-        const pageTitle = `${cityName}, ${zipTypeFormatted} for sale | North Illinois Realty | P.${page}`;
-        const ogDescription = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${page})`;
+        const pageTitle = `${zipTypeFormatted} homes for sale | ${cityName} brokers | North Illinois Realty | P.${page}`;
+        const ogDescription = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏   Free consultation from ${cityName} brokers! (Page ${page})`;
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
         return (
             <Helmet

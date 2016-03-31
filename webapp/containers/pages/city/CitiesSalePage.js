@@ -53,7 +53,7 @@ class CitiesSalePage extends React.Component {
         return (
             <div>
                 {this.pageHelmet()}
-                <H1Header>North Chicago Suburbs Houses for Sale</H1Header>
+                <H1Header>North Chicago Suburbs Homes for Sale</H1Header>
                 <CitiesList list={allCities} itemId="name" children="Houses"/>
             </div>
         );

@@ -41,7 +41,7 @@ class CityPage extends React.Component {
         const cityName = urlToText(this.props.params.city);
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 
-        const pageTitle = `${cityName} homes for sale | ${cityName} Realty`;
+        const pageTitle = `${cityName} homes for sale | ${cityName} Realty `;
         const pageDescription = `✔Wish to buy a home in ${cityName}? ☏  Call ${cityName} local professional brokers for a free consultation and schedule a showing!`;
 
         return (
