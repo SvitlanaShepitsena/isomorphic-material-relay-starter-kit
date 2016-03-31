@@ -95,7 +95,7 @@
     },
     "./webapp/components/Common/H1Header/H1Header.less": {
       "h1": "H1Header__h1__cIu",
-      "_style": "@media (max-width: 749px) {\n  .H1Header__h1__cIu {\n    font-size: 30px !important;\n    margin-top: 8px !important;\n    margin-bottom: 4px !important;\n    line-height: 1.5 !important;\n  }\n}\n@media (min-width: 750px) {\n  .H1Header__h1__cIu {\n    font-size: 36px !important;\n  }\n}\n@media (min-width: 781px) {\n  .H1Header__h1__cIu {\n    font-size: 40px !important;\n  }\n}\n"
+      "_style": "@media (max-width: 749px) {\n  .H1Header__h1__cIu {\n    font-size: 30px !important;\n    margin-top: 8px !important;\n    margin-bottom: 4px !important;\n    line-height: 1.5 !important;\n  }\n}\n@media (min-width: 750px) {\n  .H1Header__h1__cIu {\n    font-size: 34px !important;\n  }\n}\n@media (min-width: 781px) {\n  .H1Header__h1__cIu {\n    font-size: 36px !important;\n  }\n}\n"
     },
     "./webapp/components/Common/ContactCard/ContactCard.less": {
       "card": "ContactCard__card__1Bb",

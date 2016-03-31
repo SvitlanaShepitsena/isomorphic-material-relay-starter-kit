@@ -4,6 +4,7 @@ import urlToText from '../../../utils/urlToText.js';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
+import palette from '../../../settings/MuiPalette.js';
 
 /*Components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
@@ -37,8 +38,8 @@ class CityZipTypeHousesListPage extends React.Component {
         const cityName = urlToText(city);
         const housesType = urlToText(type);
 
-        const pageTitle = `${cityName}, ${zip} ${housesType} for sale | Illinois Realty |P${page}`;
-        const ogDescription = `✔ Browse ${cityName}, ${zip} ${housesType} houses for sale. ${housesCount} listings for today. ☏  Let us guide you! Call us for a free consultation and schedule a showing!  | Page ${page}`;
+        const pageTitle = `${cityName} Real Estate | ${housesCount} ${cityName} ${housesType} for sale (${zip}) |P${page}`;
+        const ogDescription = `✔Find ${cityName}, ${zip} ${housesType} for sale. ${housesCount} listings for today. ☏  Call ${cityName} brokers for a free consultation and schedule a showing!  | Page ${page}`;
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 
         return (
@@ -64,15 +65,19 @@ class CityZipTypeHousesListPage extends React.Component {
         /*Formatter*/
         const cityFormatted = urlToText(city);
         const typeFormatted = urlToText(type);
+
+        const headerText = `${cityFormatted} ${typeFormatted} for Sale, ${zip}`;
+        const counterText = `(${houseCount} listings)`;
         const counter = {
-            color: "blue",
+            color: palette.palette.primary1Color,
             fontSize: 16
         }
         return (
             <div>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
-                <H1Header>{`${cityFormatted}, ${zip} ${typeFormatted} for Sale`}
+                <H1Header> {headerText}
+                    <span style={counter}> {counterText}</span>
                 </H1Header>
                 {houses &&
                 <HousesList
