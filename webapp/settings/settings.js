@@ -53,8 +53,8 @@ export default {
     metaProps: {
         appType: "website",
         appUrl: "http://www.skokie-remax.com",
-        appDescription: "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston houses apartments for sale rent",
-        appTitle: "Northern Illinois Homes for sale | Skokie Real Estate",
+        appTitle: "Northern Illinois Homes for sale | Skokie Real Estate Agents",
+        appDescription: "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston homes apartments for sale rent",
         fbImage: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
         housesForSalePage: {
             pageTitle: "North Illinois apartments, homes, houses for sale",
