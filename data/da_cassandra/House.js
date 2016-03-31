@@ -343,12 +343,11 @@ export function Houses_with_args(args, getResults) {
                 }
             }
 
+            return runQuery(House, 'sale', body, getResults);
         }
     }
 
-    return runQuery(House, 'sale', body, getResults);
-    if (args.zip && args.type) {
-
+    if (args.city && args.zip && args.type) {
         body.query = {
             "filtered": {
                 "query": {
@@ -356,6 +355,11 @@ export function Houses_with_args(args, getResults) {
                 },
                 "filter": {
                     and: [
+                        {
+                            "term": {
+                                "city_id": args.city
+                            }
+                        },
                         {
                             "term": {
                                 "zip_id": args.zip

@@ -38,7 +38,7 @@ export function City_get(city_id) {
             id: city.fields.city_id,
             name: city.fields.city_id,
         };
-        
+
 
         return objCity;
     });
@@ -83,9 +83,10 @@ export function Cities_with_args(args) {
                 name: city.key,
                 count: city.doc_count
             }
-            
+
             return objCity;
         });
+        console.log(cities);
         return cities;
     });
 }
