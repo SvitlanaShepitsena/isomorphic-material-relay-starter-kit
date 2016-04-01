@@ -55,7 +55,7 @@ class ZipTypeList extends React.Component {
         let {list, sectionTitle} = this.props;
         return (
             <Card className={styles.card}>
-                <CardTitle title={<span className={styles.sectionTitle}>{sectionTitle}</span> }/>
+                <CardTitle title={<h2 className={styles.sectionTitle}>{sectionTitle}</h2> }/>
                 <Divider />
                 <CardActions>
                     <ul style={{lineHeight: 3.8, paddingTop:8}}>

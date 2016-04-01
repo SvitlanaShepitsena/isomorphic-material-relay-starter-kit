@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import _ from 'lodash';
-
+/*=styles*/
+import styles from './Breadcrumbs.less';
 class Breadcrumbs extends React.Component {
     static contextTypes = {
         route: PropTypes.object.isRequired,
@@ -77,10 +78,11 @@ class Breadcrumbs extends React.Component {
                     return (
                         <span key={path}>
                             {index > 0 && <span> > </span>}
-                            {index < lastIndex ? <Link
-                                to={`${compoundUrl}`}>
-                                {linkText}
-                            </Link> : <span>{compoundAnchors}</span>
+                            {index < lastIndex ? <h3 className={styles.breadcrumb}>
+                                <Link
+                                    to={`${compoundUrl}`}>
+                                    {linkText}
+                                </Link></h3> : <span><h3 className={styles.breadcrumb}>{compoundAnchors}</h3></span>
                             }
                         </span>
                     );
