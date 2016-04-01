@@ -67,7 +67,9 @@ export function Cities_with_args(args) {
         aggs: {
             cities: {
                 terms: {
-                    field: 'city_id'
+                    field: 'city_id',
+                    size: 100
+
                 }
             }
         }

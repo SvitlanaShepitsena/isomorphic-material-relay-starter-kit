@@ -261,7 +261,7 @@ class HouseInfo extends React.Component {
         return (
             <Card className={styles.container}>
                 {this.showHouseHeader()}
-                <PhotoGallery image={image} houseId={id}/>
+                <PhotoGallery image={image} city={house.city} houseId={id}/>
 
                 {this.showKeyFacts()}
                 {this.showDescription()}

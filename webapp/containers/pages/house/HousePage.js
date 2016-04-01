@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import Helmet from "react-helmet";
-import settings from '../../../settings/settings.js';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import urlToText from '../../../utils/urlToText.js';
+import settings from '../../../settings/settings.js';
 
 /*Components*/
 import HouseInfo from '../../../components/House/HouseInfo/HouseInfo.js';
@@ -41,8 +41,12 @@ class HousePage extends React.Component {
 
         const description = `${mls} | Check out and schedule a showing! ${houseDescription}`;
         const ogDescription = `${typeFormatted} ${mls}  ✔ Check out and schedule a showing! ☏  ${houseDescription}`;
-
-        const image = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
+        let image;
+        if (city == 'evanston') {
+            image = `${settings.cloudinaryPath2}${house.id}-photo-1.jpg`;
+        } else {
+            image = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
+        }
 
         return (
             <Helmet
