@@ -29,6 +29,25 @@ class HouseInfo extends React.Component {
         this.house = house;
     };
 
+    render() {
+        const {city, id, image} = this.house;
+        return (
+            <Card className={styles.container}>
+                {this.showHouseHeader()}
+                <PhotoGallery image={image} city={city} houseId={id}/>
+
+                {this.showKeyFacts()}
+                {this.showDescription()}
+                {this.showExteriorDetails()}
+                {this.showInteriorDetails()}
+                {this.showMoreInfo()}
+                {this.showTaxes()}
+                {this.showUtilities()}
+                {this.showPublicFacts()}
+            </Card>
+        )
+    }
+
     showHouseHeader() {
         let {house} = this;
         let {built, city, mls, price, street, since, type, zip}= house;
@@ -40,11 +59,12 @@ class HouseInfo extends React.Component {
         let yearFormatted = getYear(built);
         let noYear = yearFormatted == 0;
 
-        let dateFormatted = `Posted: ${getDate(since)}`;
         /*String*/
         const yearText = `Year: ${yearFormatted}`;
         const mlsText = `MLS#: ${mls}`;
         const cityText = `${cityFormatted}, IL`;
+        const dateFormatted = `Posted: ${getDate(since)}`;
+
         return (
             <div className={styles.row}>
                 <div className={styles.col2}>
@@ -56,7 +76,7 @@ class HouseInfo extends React.Component {
                             {zip && <span> {zip} </span> }
                         </h1>
 
-                        {type && <p className={styles.type}> {typeFormatted} </p> }
+                        {type && <h3 className={styles.type}> {typeFormatted} </h3> }
                     </div>
                 </div>
                 <div className={styles.col2}>
@@ -65,7 +85,7 @@ class HouseInfo extends React.Component {
                         {mls && <p className={styles.mls}> {mlsText} </p> }
                         {!noYear && <p className={styles.year}> {yearText} </p> }
                         {noYear && <p className={styles.year}> Year: n/a </p> }
-                        {since && <p className={styles.date}> {`${dateFormatted}` }</p> }
+                        {since && <p className={styles.date}> {dateFormatted}</p> }
                     </div>
                 </div>
             </div>
@@ -106,9 +126,7 @@ class HouseInfo extends React.Component {
                         {baths && <p><span className={styles.propKey}>Baths: </span> {baths} </p> }
                     </div>
                 </div>
-
             </article>
-
         );
     };
 
@@ -120,7 +138,7 @@ class HouseInfo extends React.Component {
                 <div className={styles.propList}>
                     {Object.keys(exterior).map(extDetail => {
                         const propKey = `${_.startCase(extDetail)}: `;
-                        const propVal = `${exterior[extDetail]}`;
+                        const propVal = exterior[extDetail];
                         return (
                             <div key={extDetail} className={styles.propItem}>
                                 <p>
@@ -143,7 +161,7 @@ class HouseInfo extends React.Component {
                 <div className={styles.propList}>
                     {Object.keys(moreInfo).map(info => {
                         const propKey = `${_.startCase(info)}: `;
-                        const propVal = `${moreInfo[info]}`;
+                        const propVal = moreInfo[info]
                         return (
                             <div key={info} className={styles.propItem}>
                                 <p>
@@ -166,7 +184,7 @@ class HouseInfo extends React.Component {
                 <div className={styles.propList}>
                     {Object.keys(interior).map(intDetail => {
                         const propKey = `${_.startCase(intDetail)}: `;
-                        const propVal = `${interior[intDetail]}`;
+                        const propVal = interior[intDetail];
                         return (
                             <div key={intDetail} className={styles.propItem}>
                                 <p>
@@ -190,7 +208,7 @@ class HouseInfo extends React.Component {
                     {
                         Object.keys(taxes).map(tax => {
                             const propKey = `${_.startCase(tax)}: `;
-                            const propVal = `${taxes[tax]}`;
+                            const propVal = taxes[tax];
                             return (
                                 <div key={tax} className={styles.propItem}>
                                     <p>
@@ -215,7 +233,7 @@ class HouseInfo extends React.Component {
                     {
                         Object.keys(utilities).map(util => {
                             const propKey = `${_.startCase(util)}: `;
-                            const propVal = `${utilities[util]}`;
+                            const propVal = utilities[util];
                             return (
                                 <div key={util} className={styles.propItem}>
                                     <p>
@@ -238,7 +256,7 @@ class HouseInfo extends React.Component {
                 <div className={styles.propList}>
                     {Object.keys(publicFacts).map(publicFact => {
                         const propKey = `${_.startCase(publicFact)}: `;
-                        const propVal = `${publicFacts[publicFact]}`;
+                        const propVal = publicFacts[publicFact];
                         return (
                             <div key={publicFact} className={styles.propItem}>
                                 <p>
@@ -254,25 +272,5 @@ class HouseInfo extends React.Component {
         );
     };
 
-    render() {
-        let {house} = this;
-        let {id} = house;
-        let {image} = house;
-        return (
-            <Card className={styles.container}>
-                {this.showHouseHeader()}
-                <PhotoGallery image={image} city={house.city} houseId={id}/>
-
-                {this.showKeyFacts()}
-                {this.showDescription()}
-                {this.showExteriorDetails()}
-                {this.showInteriorDetails()}
-                {this.showMoreInfo()}
-                {this.showTaxes()}
-                {this.showUtilities()}
-                {this.showPublicFacts()}
-            </Card>
-        )
-    }
 }
 export default HouseInfo;
