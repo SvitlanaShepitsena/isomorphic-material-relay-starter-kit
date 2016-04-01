@@ -64,7 +64,7 @@ export function Cities_with_args(args) {
     var body = {
 
         fields: ['city_id'],
-        aggregations: {
+        aggs: {
             cities: {
                 terms: {
                     field: 'city_id'
@@ -75,7 +75,13 @@ export function Cities_with_args(args) {
     };
 
     return runQuery(City, 'sale', body, res=> {
+        try {
         var citiesAggs = res.aggregations.cities;
+        console.log(citiesAggs);
+
+        } catch (e) {
+            console.log(e.message);
+        }
 
         var cities = citiesAggs.buckets.map(city=> {
             let objCity = {
@@ -86,7 +92,6 @@ export function Cities_with_args(args) {
 
             return objCity;
         });
-        console.log(cities);
         return cities;
     });
 }
