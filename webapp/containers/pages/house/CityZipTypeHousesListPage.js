@@ -38,7 +38,7 @@ class CityZipTypeHousesListPage extends React.Component {
         const cityName = urlToText(city);
         const housesType = urlToText(type);
 
-        const pageTitle = `${cityName} ${housesType} for Sale | ${cityName} Real Estate p.${page}`;
+        const pageTitle = `${cityName} ${housesType} for Sale, ${zip} | ${cityName} Real Estate p.${page}`;
         const ogDescription = `✔ Find ${cityName}, ${zip} ${housesType} for sale. ${housesCount} listings for today. ☏  Call ${cityName} brokers for a free consultation and schedule a showing! | Page ${page}`;
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 
