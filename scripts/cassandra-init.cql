@@ -1,8 +1,8 @@
-DROP KEYSPACE IF EXISTS remax2;
+DROP KEYSPACE IF EXISTS remax;
 
-CREATE KEYSPACE remax2 WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+CREATE KEYSPACE remax WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
 
-USE remax2;
+USE remax;
 
 
 CREATE TABLE "User"(

@@ -26,13 +26,13 @@ router.get('/*', function (req, res, next) {
 
     // console.log(host)
 
-    if (/^www\./i.test(host)) {
+    if (/^www\./i.test(host) || (/(\d+\.?){0,4}\/?/).test(host)) {
         next();
         return;
     } else {
-
-
-        // remove www.
+        next();
+        return;
+        console.log(host);
         host = 'www.' + host;
         href = protocol + host + req.url;
         res.statusCode = 301;
