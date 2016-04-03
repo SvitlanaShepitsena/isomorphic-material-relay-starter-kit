@@ -54,28 +54,18 @@ export default (()=> {
     return (
         <Route path="/" component={AppLayout} name="App">
             <IndexRoute component={HomePage} queries={ViewerQueries} name="Home"/>
-
             <Route path="/homes-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                    name="Chicago North Suburbs Houses for Sale"/>
-
             <Route path="/homes-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
-
             <Route path="/homes-for-sale/:city/:zipType(/:page)" component={ZipTypeHousesListPage}
-                   queries={ViewerQueries}
-            />
+                   queries={ViewerQueries}/>
             <Route path="/homes-for-sale/:city/:zip/:type(/:page)" component={CityZipTypeHousesListPage}
                    queries={ViewerQueries}/>
-
             <Route path="/homes-for-sale/:city/:zipType/:type/:id/:realty" component={HousePage}
-                   queries={ViewerQueries}
-
-            />
-
+                   queries={ViewerQueries}/>
             <Route path="/search/:query(/:page)" component={SearchPage} queries={ViewerQueries} name="Search"
-                   onEnter={paginate}
-            />
-
-            <Route path="/about" component={AboutPage} name="Houses for Sale"/>
+                   onEnter={paginate}/>
+            <Route path="/about" component={AboutPage} name="About"/>
             <Route path="/privacy" component={PrivacyPage} name="Privacy"/>
             <Route path="/terms" component={TermsPage} name="Terms"/>
             <Route path="/contact" component={ContactPage} name="Contact"/>
