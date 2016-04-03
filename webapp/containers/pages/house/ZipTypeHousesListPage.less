@@ -1,0 +1,26 @@
+@import '../../../settings/vars.less';
+
+.row {
+  min-width: 100%;
+  width: 100%;
+  lost-utility: clearfix;
+}
+
+.item {
+  padding: 0 !important;
+  div {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  display: inline-block;;
+  @media (min-width: @mobile) {
+    lost-column: 1 0 0;
+  }
+  @media (min-width: @lgMobile) {
+    lost-column: 1/2 2 0;
+  }
+  @media (min-width: @lgTablet) {
+    lost-column: 1/3 3 0;
+  }
+}
+

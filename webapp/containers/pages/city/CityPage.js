@@ -14,6 +14,7 @@ import AppSpinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 /*=styles*/
 import palette from '../../../settings/MuiPalette.js';
+import styles from './CityPage.less';
 
 class CityPage extends React.Component {
     getChildContext() {
@@ -65,8 +66,11 @@ class CityPage extends React.Component {
         let zipsList = this.props.Viewer.City.Zips.edges;
         const zipsTitle = `${cityFormatted} Houses for Sale by Zip`
         return (
-            <ZipTypeList itemId="__dataID__" list={zipsList} children="Houses"
-                         sectionTitle={zipsTitle}/>
+            <ZipTypeList
+                listClass={styles.row}
+                itemClass={styles.item}
+                itemId="__dataID__" list={zipsList} children="Houses"
+                sectionTitle={zipsTitle}/>
         );
     }
 

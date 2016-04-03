@@ -36,10 +36,24 @@ class ZipTypeList extends React.Component {
         urlValue = urlValue.match(/\/1^/) ? urlValue : urlValue + '/1';
 
         let badgeValue = item[`${children}_Count`];
+
+        if (itemValueFormatted.toLowerCase() == 'condominium units') {
+            itemValueFormatted = "Condominiums / Condos";
+        }
+        if (itemValueFormatted.toLowerCase() == 'co op units') {
+            itemValueFormatted = "Cooperatives / Co-ops";
+        }
+        if (itemValueFormatted.toLowerCase() == 'townhouse townhomes') {
+            itemValueFormatted = "Townhouses / Townhomes";
+        }
+        if (itemValueFormatted.toLowerCase() == 'duplexs') {
+            itemValueFormatted = "Duplexes";
+        }
+
         if (badgeValue) {
 
             return (
-                <li className={styles.item} key={itemValue}>
+                <li className={this.props.itemClass} key={itemValue}>
                     <ButtonWithBadge
                         btnLabel={itemValueFormatted}
                         btnUrl={urlValue}
@@ -58,7 +72,7 @@ class ZipTypeList extends React.Component {
                 <CardTitle title={<h2 className={styles.sectionTitle}>{sectionTitle}</h2> }/>
                 <Divider />
                 <CardActions>
-                    <ul style={{lineHeight: 3.8, paddingTop:8}}>
+                    <ul className={this.props.listClass} style={{lineHeight: 3.8, paddingTop:8}}>
                         {list.map(this.oneZip)}
                     </ul>
                 </CardActions>

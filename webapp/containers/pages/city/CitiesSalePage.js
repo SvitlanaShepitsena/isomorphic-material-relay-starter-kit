@@ -12,8 +12,8 @@ class CitiesSalePage extends React.Component {
     getChildContext() {
         return {
             location: this.props.location,
-            route: this.props.route,
             params: this.props.routeParams,
+            route: this.props.route,
         };
     };
 

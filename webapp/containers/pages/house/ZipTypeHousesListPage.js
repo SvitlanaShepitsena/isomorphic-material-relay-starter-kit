@@ -13,13 +13,15 @@ import HousesTableDescription from '../../../components/House/HousesTableDescrip
 import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
 
+import styles from './ZipTypeHousesListPage.less';
+
 class ZipTypeHousesListPage extends React.Component {
 
     getChildContext() {
         return {
             location: this.props.location,
-            route: this.props.route,
             params: this.props.routeParams,
+            route: this.props.route,
         };
     };
 
@@ -79,11 +81,11 @@ class ZipTypeHousesListPage extends React.Component {
         /*Formatter*/
         const cityFormatted = urlToText(city);
 
+        const zipTypeListTitle = `${cityFormatted} ${zipType} Houses for Sale by Property Type`;
         return (
             <div>
-                {pageError &&
-                <div> { this.noHouses()} </div>
-                }
+                {pageError && <div> { this.noHouses()} </div> }
+
                 {!pageError &&
                 <div>
                     {this.pageHelmet()}
@@ -91,10 +93,12 @@ class ZipTypeHousesListPage extends React.Component {
                     <HousesListTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
                     {showTypesList &&
                     <ZipTypeList
+                        listClass={styles.row}
+                        itemClass={styles.item}
                         itemId="type"
                         list={typesList}
                         children="Houses"
-                        sectionTitle={`${cityFormatted} ${zipType} Houses for Sale by Property Type`}
+                        sectionTitle={zipTypeListTitle}
                     />}
                     {!showTypesList &&
                     <HousesTableDescription list={houses} count={houseCount} cityName={cityFormatted}/>

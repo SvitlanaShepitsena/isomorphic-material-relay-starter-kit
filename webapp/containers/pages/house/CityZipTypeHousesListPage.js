@@ -36,7 +36,19 @@ class CityZipTypeHousesListPage extends React.Component {
 
         /*Formatter*/
         const cityName = urlToText(city);
-        const housesType = urlToText(type);
+        let housesType = urlToText(type);
+        if (housesType.toLowerCase() == 'condominium units') {
+            housesType = "Condos";
+        }
+        if (housesType.toLowerCase() == 'co op units') {
+            housesType = "Co-ops";
+        }
+        if (housesType.toLowerCase() == 'townhouse townhomes') {
+            housesType = "Townhomes";
+        }
+        if (housesType.toLowerCase() == 'duplexs') {
+            housesType = "Duplexes";
+        }
 
         const pageTitle = `${cityName} ${housesType} for Sale, ${zip} | ${cityName} Real Estate p.${page}`;
         const ogDescription = `✔ Find ${cityName}, ${zip} ${housesType} for sale. ${housesCount} listings for today. ☏  Call ${cityName} brokers for a free consultation and schedule a showing! | Page ${page}`;
@@ -64,7 +76,19 @@ class CityZipTypeHousesListPage extends React.Component {
         let {city, type, zip} = this.props.params;
         /*Formatter*/
         const cityFormatted = urlToText(city);
-        const typeFormatted = urlToText(type);
+        let typeFormatted = urlToText(type);
+        if (typeFormatted.toLowerCase() == 'condominium units') {
+            typeFormatted = "Condos";
+        }
+        if (typeFormatted.toLowerCase() == 'co op units') {
+            typeFormatted = "Co-ops";
+        }
+        if (typeFormatted.toLowerCase() == 'townhouse townhomes') {
+            typeFormatted = "Townhomes";
+        }
+        if (typeFormatted.toLowerCase() == 'duplexs') {
+            typeFormatted = "Duplexes";
+        }
 
         const headerText = `${cityFormatted} ${typeFormatted} for Sale, ${zip}`;
         const counterText = `(${houseCount} listings)`;
