@@ -34,9 +34,10 @@ class ZipTypeHousesListPage extends React.Component {
         /*Formatter*/
         const cityName = urlToText(city);
         const zipTypeFormatted = urlToText(zipType);
+        let houseCount = this.props.Viewer.Houses_Count;
 
-        const pageTitle = `${zipTypeFormatted} homes for sale | ${cityName} brokers | Northern Illinois Realty | P.${page}`;
-        const ogDescription = `✔Wish to buy ${cityName}, ${zipTypeFormatted} home? ${zipTypeFormatted} properties for sale. ☏   Free consultation from ${cityName} realtors! (Page ${page})`;
+        const pageTitle = `${cityName}, ${zipTypeFormatted} homes for sale | ${cityName} brokers | Northern Illinois Realty | P.${page}`;
+        const ogDescription = `✔Wish to buy ${cityName} IL, ${zipTypeFormatted} home? ${houseCount} listings for sale in ${cityName} IL, ${zipTypeFormatted}. ☏  Free consultation from ${cityName} realtors. (Page ${page})`;
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
         return (
             <Helmet
@@ -93,7 +94,7 @@ class ZipTypeHousesListPage extends React.Component {
                         itemId="type"
                         list={typesList}
                         children="Houses"
-                        sectionTitle={`${cityFormatted}, ${zipType} Homes for Sale by Property Type`}
+                        sectionTitle={`${cityFormatted} ${zipType} Houses for Sale by Property Type`}
                     />}
                     {!showTypesList &&
                     <HousesTableDescription list={houses} count={houseCount} cityName={cityFormatted}/>

@@ -4,6 +4,9 @@ import Relay from 'react-relay';
 /*=components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 
+/*=styles*/
+import styles from './SearchPage.less';
+
 class SearchPage extends React.Component {
     state = {
         page: 1,
@@ -23,19 +26,26 @@ class SearchPage extends React.Component {
         params: PropTypes.object,
         route: PropTypes.object
     };
-    noresults = ()=> {
+    noListings = ()=> {
+        const queryString = this.props.params.query;
+        const noResult = `0 listings found`;
         return ( <div>
-                <h2>No results found for {this.props.params.query}</h2>
-
+                <h2 className={styles.searchResults}>
+                    {queryString}: <strong>{noResult}</strong>
+                </h2>
             </div>
         )
     };
     searchResults = ()=> {
+        const queryString = this.props.params.query;
         const houses = this.props.Viewer.Houses;
         const count = Number(this.props.Viewer.Houses_Count);
+        const listingsFound = `${count} listings:`;
         return (
             <div>
-                <h2>Search Results({count}):</h2>
+                <h2 className={styles.searchResults}>
+                    {`For ${queryString}:`} <strong>{listingsFound}</strong>
+                </h2>
                 {houses && <HousesList list={houses} listType="inline" count={count}/>}
             </div>
         )
@@ -43,8 +53,7 @@ class SearchPage extends React.Component {
 
     render() {
         const count = Number(this.props.Viewer.Houses_Count);
-
-        return count > 0 ? this.searchResults() : this.noresults()
+        return count > 0 ? this.searchResults() : this.noListings()
     }
 }
 export default Relay.createContainer(SearchPage, {

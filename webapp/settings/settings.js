@@ -10,8 +10,10 @@ export default {
     companyZip: "60076",
     companyPhone: "(847) 674-9797",
     companyFax: "(847) 674-0411",
-    citiesPath: "http://res.cloudinary.com/realty-advisers/image/upload/",
+    // citiesPath: "http://res.cloudinary.com/realty-advisers/image/upload/",
+    citiesPath: "http://res.cloudinary.com/realtyskokie/image/upload/",
     cloudinaryPath: "http://res.cloudinary.com/realty-advisers/image/upload/",
+    cloudinaryPath2: "http://res.cloudinary.com/realtyskokie/image/upload/",
     houseDefault: "http://res.cloudinary.com/svitlana/image/upload/house-picture-icon_og71rx.png",
     brokersUrl: "https://s3-us-west-2.amazonaws.com/remax1stclass/brokers",
     companySlogan: "You Need Only One Company For All Your Real Estate Needs",
@@ -53,7 +55,7 @@ export default {
     metaProps: {
         appType: "website",
         appUrl: "http://www.remax1stclass.com",
-        appTitle: "Northern Illinois Homes for sale | Skokie Real Estate Agents",
+        appTitle: "Northern Illinois Homes for Sale | Skokie Real Estate Agents",
         appDescription: "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston homes apartments for sale rent",
         fbImage: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
         housesForSalePage: {

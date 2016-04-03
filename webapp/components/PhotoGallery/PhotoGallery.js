@@ -5,11 +5,13 @@ import styles from './PhotoGallery.less';
 
 class PhotoGallery extends React.Component {
     static propTypes = {
+        city: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
         houseId: PropTypes.string.isRequired
     };
 
     render() {
+        var {city} = this.props;
         var settings = {
             dots: true,
             infinite: true,
@@ -22,7 +24,12 @@ class PhotoGallery extends React.Component {
         let {image, houseId} = this.props;
         const maxImage = Number(image);
         for (var i = 1; i <= maxImage; i++) {
-            var imageUrl = `${appSettings.cloudinaryPath}${houseId}-photo-${i}.jpg`;
+            let imageUrl;
+            if (city == 'evanston') {
+                imageUrl = `${appSettings.cloudinaryPath2}${houseId}-photo-${i}.jpg`;
+            } else {
+                imageUrl = `${appSettings.cloudinaryPath}${houseId}-photo-${i}.jpg`;
+            }
             images.push(imageUrl);
         }
 

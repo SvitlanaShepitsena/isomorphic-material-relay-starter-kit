@@ -23,8 +23,9 @@ class HouseThumbLarge extends React.Component {
         var {houseDefault, cloudinaryPath} = settings;
 
         let {house} = this.props;
-        var {baths, beds, built, city, mls, price, street, type, zip} = house;
-
+        let city = house.city;
+        var {baths, beds, built, mls, price, street, type, zip} = house;
+        console.log(city);
         /*Formatter*/
         let yearFormatted = getYear(built);
         let cityFormatted = urlToText(city);
@@ -32,8 +33,14 @@ class HouseThumbLarge extends React.Component {
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
 
-        var image = `${cloudinaryPath}${house.id}-photo-1.jpg`;
         const listingAlt = `House for sale: ${mls} ${streetFormatted}, ${cityFormatted}, IL ${zip}`;
+
+        let image;
+        if (city == 'evanston') {
+            image = `${settings.cloudinaryPath2}${house.id}-photo-1.jpg`;
+        } else {
+            image = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
+        }
 
         return (
             <Card className={styles.container} shadow={0}>
