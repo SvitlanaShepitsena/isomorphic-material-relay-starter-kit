@@ -31,7 +31,7 @@ router.get('/*', function (req, res, next) {
         return;
     } else {
 
-
+        console.log(host);
         host = 'www.' + host;
         href = protocol + host + req.url;
         res.statusCode = 301;
