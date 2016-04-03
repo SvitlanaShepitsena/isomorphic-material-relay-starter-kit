@@ -46,6 +46,9 @@ class CityZipTypeHousesListPage extends React.Component {
         if (housesType.toLowerCase() == 'townhouse townhomes') {
             housesType = "Townhomes";
         }
+        if (housesType.toLowerCase() == 'duplexs') {
+            housesType = "Duplexes";
+        }
 
         const pageTitle = `${cityName} ${housesType} for Sale, ${zip} | ${cityName} Real Estate p.${page}`;
         const ogDescription = `✔ Find ${cityName}, ${zip} ${housesType} for sale. ${housesCount} listings for today. ☏  Call ${cityName} brokers for a free consultation and schedule a showing! | Page ${page}`;
@@ -82,6 +85,9 @@ class CityZipTypeHousesListPage extends React.Component {
         }
         if (typeFormatted.toLowerCase() == 'townhouse townhomes') {
             typeFormatted = "Townhomes";
+        }
+        if (typeFormatted.toLowerCase() == 'duplexs') {
+            typeFormatted = "Duplexes";
         }
 
         const headerText = `${cityFormatted} ${typeFormatted} for Sale, ${zip}`;

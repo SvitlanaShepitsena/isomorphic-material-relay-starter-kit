@@ -46,6 +46,9 @@ class ZipTypeList extends React.Component {
         if (itemValueFormatted.toLowerCase() == 'townhouse townhomes') {
             itemValueFormatted = "Townhouses / Townhomes";
         }
+        if (itemValueFormatted.toLowerCase() == 'duplexs') {
+            itemValueFormatted = "Duplexes";
+        }
 
         if (badgeValue) {
 
