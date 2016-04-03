@@ -26,7 +26,7 @@ router.get('/*', function (req, res, next) {
 
     // console.log(host)
 
-    if (/^www\./i.test(host) || (/(\d+\.?){0,4}/).test(host)) {
+    if (/^www\./i.test(host) || (/(\d+\.?){0,4}\/?/).test(host)) {
         next();
         return;
     } else {
