@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import urlToText from '../../../utils/urlToText.js';
+
 import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
@@ -37,15 +38,6 @@ class CityZipTypeHousesListPage extends React.Component {
         /*Formatter*/
         const cityName = urlToText(city);
         let housesType = urlToText(type);
-        if (housesType.toLowerCase() == 'condominium units') {
-            housesType = "Condos";
-        }
-        if (housesType.toLowerCase() == 'co op units') {
-            housesType = "Co-ops";
-        }
-        if (housesType.toLowerCase() == 'townhouse townhomes') {
-            housesType = "Townhomes";
-        }
 
         const pageTitle = `${cityName} ${housesType} for Sale, ${zip} | ${cityName} Real Estate p.${page}`;
         const ogDescription = `✔ Find ${cityName}, ${zip} ${housesType} for sale. ${housesCount} listings for today. ☏  Call ${cityName} brokers for a free consultation and schedule a showing! | Page ${page}`;
@@ -74,22 +66,6 @@ class CityZipTypeHousesListPage extends React.Component {
         /*Formatter*/
         const cityFormatted = urlToText(city);
         let typeFormatted = urlToText(type);
-
-        if (typeFormatted.toLowerCase() == 'condominium units') {
-            typeFormatted = "Condos";
-        }
-        if (typeFormatted.toLowerCase() == 'multi family homes') {
-            typeFormatted = "Multi-Family Homes";
-        }
-        if (typeFormatted.toLowerCase() == 'co op units') {
-            typeFormatted = "Co-ops";
-        }
-        if (typeFormatted.toLowerCase() == 'townhouse townhomes') {
-            typeFormatted = "Townhomes";
-        }
-        if (typeFormatted.toLowerCase() == 'raw lands') {
-            typeFormatted = "Raw Land";
-        }
 
         const headerText = `${cityFormatted} ${typeFormatted} for Sale, ${zip}`;
         const counterText = `(${houseCount} listings)`;
