@@ -74,6 +74,7 @@ class CityZipTypeHousesListPage extends React.Component {
         /*Formatter*/
         const cityFormatted = urlToText(city);
         let typeFormatted = urlToText(type);
+
         if (typeFormatted.toLowerCase() == 'condominium units') {
             typeFormatted = "Condos";
         }
@@ -100,7 +101,6 @@ class CityZipTypeHousesListPage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
-                {type}
                 <H1Header> {headerText}
                     <span style={counter}> {counterText}</span>
                 </H1Header>
@@ -119,7 +119,7 @@ class CityZipTypeHousesListPage extends React.Component {
 export default Relay.createContainer(CityZipTypeHousesListPage, {
     initialVariables: {city: '', zip: '', type: '', page: null},
     prepareVariables({city, zip, type, page}) {
-        if (type.toLowerCase() == 'duplexes') {
+        if (type.toLowerCase() === 'duplexes') {
             type = type.substr(0, type.length - 2);
         } else {
             if (_.last(type) === 's') {
