@@ -3,6 +3,7 @@ import Relay from 'react-relay';
 import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
 import urlToText from '../../../utils/urlToText.js';
+import seoType from '../../../utils/seoType.js';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
@@ -35,7 +36,11 @@ class ZipTypeHousesListPage extends React.Component {
         let {city, zipType, page} = this.props.params;
         /*Formatter*/
         const cityName = urlToText(city);
-        const zipTypeFormatted = urlToText(zipType);
+        let zipTypeFormatted = urlToText(zipType);
+
+        if (!zipTypeFormatted.match(/^\d+$/g)) {
+            zipTypeFormatted = seoType(zipTypeFormatted);
+        }
         let houseCount = this.props.Viewer.Houses_Count;
 
         const pageTitle = `${cityName}, ${zipTypeFormatted} homes for sale | ${cityName} brokers | Northern Illinois Realty | P.${page}`;

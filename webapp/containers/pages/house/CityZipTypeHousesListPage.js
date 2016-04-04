@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import urlToText from '../../../utils/urlToText.js';
+import seoType from '../../../utils/seoType.js';
 
 import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Helmet from "react-helmet";
@@ -38,6 +39,7 @@ class CityZipTypeHousesListPage extends React.Component {
         /*Formatter*/
         const cityName = urlToText(city);
         let housesType = urlToText(type);
+        housesType = seoType(housesType);
 
         const pageTitle = `${cityName} ${housesType} for Sale, ${zip} | ${cityName} Real Estate p.${page}`;
         const ogDescription = `✔ Find ${cityName}, ${zip} ${housesType} for sale. ${housesCount} listings for today. ☏  Call ${cityName} brokers for a free consultation and schedule a showing! | Page ${page}`;
@@ -65,7 +67,8 @@ class CityZipTypeHousesListPage extends React.Component {
         let {city, type, zip} = this.props.params;
         /*Formatter*/
         const cityFormatted = urlToText(city);
-        const typeFormatted = urlToText(type);
+        var typeFormatted = urlToText(type);
+        typeFormatted = seoType(typeFormatted);
 
         const headerText = `${cityFormatted} ${typeFormatted} for Sale, ${zip}`;
         const counterText = `(${houseCount} listings)`;
