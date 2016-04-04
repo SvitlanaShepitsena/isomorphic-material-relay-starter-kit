@@ -3,7 +3,6 @@ import _ from 'lodash';
 import City from '../model/City'
 
 export function City_by_house(house_id) {
-
     var body = {
 
         fields: ['city_id'],
@@ -38,7 +37,6 @@ export function City_get(city_id) {
             id: city.fields.city_id,
             name: city.fields.city_id,
         };
-
 
         return objCity;
     });
@@ -78,8 +76,8 @@ export function Cities_with_args(args) {
 
     return runQuery(City, 'sale', body, res=> {
         try {
-        var citiesAggs = res.aggregations.cities;
-        console.log(citiesAggs);
+            var citiesAggs = res.aggregations.cities;
+            console.log(citiesAggs);
 
         } catch (e) {
             console.log(e.message);
@@ -94,7 +92,7 @@ export function Cities_with_args(args) {
 
             return objCity;
         });
-        return cities;
+        return _.sortBy(cities, 'id');
     });
 }
 

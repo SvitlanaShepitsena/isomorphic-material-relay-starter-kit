@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 /*Components*/
+import typePlural from '../../../utils/typePlural.js';
 import HouseTableItem from '../HouseTableItem/HouseTableItem';
 import Pagination from '../../Pagination/Pagination.js';
 /*=materialUi*/
@@ -21,7 +22,8 @@ class HousesTable extends React.Component {
         let house = edge.node;
         let {city, type, zip} = house;
         let itemKey = house.id;
-        let houseInlineUrl = `/homes-for-sale/${city}/${zip}/${type}s/${itemKey}/residential`;
+        let housesType = typePlural(type);
+        let houseInlineUrl = `/homes-for-sale/${city}/${zip}/${housesType}/${itemKey}/residential`;
         return (
             <div key={itemKey} className={styles.listInline}>
                 <Link to={houseInlineUrl}>

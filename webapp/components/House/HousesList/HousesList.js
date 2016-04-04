@@ -1,9 +1,13 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
+var _ = require("lodash");
+
 /*Components*/
 import HouseThumbInline from '../HouseThumbInline/HouseThumbInline';
 import Pagination from '../../Pagination/Pagination.js';
+import typePlural from '../../../utils/typePlural.js';
 
+/*=styles*/
 import styles from './HousesList.less';
 
 class HousesList extends React.Component {
@@ -19,7 +23,9 @@ class HousesList extends React.Component {
         let house = edge.node;
         let {city, type, zip} = house;
         let itemKey = house.id;
-        let houseInlineUrl = `/homes-for-sale/${city}/${zip}/${type}s/${itemKey}/residential`;
+        let housesType = typePlural(type);
+
+        let houseInlineUrl = `/homes-for-sale/${city}/${zip}/${housesType}/${itemKey}/residential`;
         return (
             <div key={itemKey} className={styles.listInline}>
                 <Link to={houseInlineUrl}>
@@ -37,6 +43,7 @@ class HousesList extends React.Component {
         return (
             <div className={styles.row}>
                 <Pagination lastPage={lastPage}/>
+
                 <div className={styles.col1}>
                     <div className={styles.row}>
                         {housesList.map(this.oneHouse)}
