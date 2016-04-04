@@ -81,6 +81,7 @@ class ZipTypeHousesListPage extends React.Component {
         /*Formatter*/
         const cityFormatted = urlToText(city);
 
+        console.log(cityFormatted);
         const zipTypeListTitle = `${cityFormatted} ${zipType} Houses for Sale by Property Type`;
         return (
             <div>

@@ -34,19 +34,6 @@ class ZipTypeList extends React.Component {
             var removePage = true;
         }
 
-        if (itemValueFormatted.toLowerCase() == 'condominium units') {
-            itemValueFormatted = "Condominiums / Condos";
-        }
-        if (itemValueFormatted.toLowerCase() == 'multi family homes') {
-            itemValueFormatted = "Multi-Family Homes";
-        }
-        if (itemValueFormatted.toLowerCase() == 'co op units') {
-            itemValueFormatted = "Cooperatives / Co-ops";
-        }
-        if (itemValueFormatted.toLowerCase() == 'townhouse townhomes') {
-            itemValueFormatted = "Townhouses / Townhomes";
-        }
-
         let urlValue = `${itemValue}`;
         urlValue = urlValue.match(/\/1^/) ? urlValue : urlValue + '/1';
 

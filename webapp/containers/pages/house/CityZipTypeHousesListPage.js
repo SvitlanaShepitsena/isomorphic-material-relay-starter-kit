@@ -65,7 +65,7 @@ class CityZipTypeHousesListPage extends React.Component {
         let {city, type, zip} = this.props.params;
         /*Formatter*/
         const cityFormatted = urlToText(city);
-        let typeFormatted = urlToText(type);
+        const typeFormatted = urlToText(type);
 
         const headerText = `${cityFormatted} ${typeFormatted} for Sale, ${zip}`;
         const counterText = `(${houseCount} listings)`;
