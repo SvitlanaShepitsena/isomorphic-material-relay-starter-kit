@@ -18,29 +18,29 @@ require('dotenv').load();
 
 let router = express();
 
-// router.get('/*', function (req, res, next) {
-//     var protocol = 'http' + (req.connection.encrypted ? 's' : '') + '://'
-//         , host = req.headers.host
-//         , href
-//         ;
-//
-//     // console.log(host)
-//
-//     if (/^www\./i.test(host) || (/(\d+\.?){0,4}\/?/).test(host)) {
-//         next();
-//         return;
-//     } else {
-//         next();
-//         return;
-//         console.log(host);
-//         host = 'www.' + host;
-//         href = protocol + host + req.url;
-//         res.statusCode = 301;
-//         res.setHeader('Location', href);
-//         res.write('Redirecting to ' + host + req.url + '');
-//         res.end();
-//     }
-// });
+router.get('/*', function (req, res, next) {
+    var protocol = 'http' + (req.connection.encrypted ? 's' : '') + '://'
+        , host = req.headers.host
+        , href
+        ;
+
+    // console.log(host)
+
+    if (/^www\./i.test(host) || (/(\d+\.?){0,4}\/?/).test(host)) {
+        next();
+        return;
+    } else {
+        next();
+        return;
+        console.log(host);
+        host = 'www.' + host;
+        href = protocol + host + req.url;
+        res.statusCode = 301;
+        res.setHeader('Location', href);
+        res.write('Redirecting to ' + host + req.url + '');
+        res.end();
+    }
+});
 
 router.set('trust proxy', 'loopback');
 router.set('x-powered-by', false);
