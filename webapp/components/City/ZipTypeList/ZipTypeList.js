@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
+import _ from 'lodash';
 
 /*=materialUi*/
 import Card from 'material-ui/lib/card/card';
@@ -8,6 +9,7 @@ import CardTitle from 'material-ui/lib/card/card-title';
 import Divider from 'material-ui/lib/divider';
 /*=styles*/
 import styles from './ZipTypeList.less';
+import typePlural from '../../../utils/typePlural.js';
 
 /*=Components*/
 import ButtonWithBadge from '../../Common/ButtonWithBadge/ButtonWithBadge.js';
@@ -27,28 +29,22 @@ class ZipTypeList extends React.Component {
         let itemValueFormatted = urlToText(itemValue)
 
         if (!itemValue.match(/^\d+$/g)) {
-            itemValue += 's';
-
-            itemValueFormatted += 's';
+            itemValue = typePlural(itemValue);
+            itemValueFormatted = typePlural(itemValueFormatted);
             var removePage = true;
         }
-        // if (itemValue.toLowerCase() == 'duplexs') {
-        //     itemValue = "duplexes";
-        // }
+
         if (itemValueFormatted.toLowerCase() == 'condominium units') {
             itemValueFormatted = "Condominiums / Condos";
+        }
+        if (itemValueFormatted.toLowerCase() == 'multi family homes') {
+            itemValueFormatted = "Multi-Family Homes";
         }
         if (itemValueFormatted.toLowerCase() == 'co op units') {
             itemValueFormatted = "Cooperatives / Co-ops";
         }
         if (itemValueFormatted.toLowerCase() == 'townhouse townhomes') {
             itemValueFormatted = "Townhouses / Townhomes";
-        }
-        if (itemValueFormatted.toLowerCase() == 'duplexs') {
-            itemValueFormatted = "Duplexes";
-        }
-        if (itemValueFormatted.toLowerCase() == 'raw lands') {
-            itemValueFormatted = "Raw Land";
         }
 
         let urlValue = `${itemValue}`;

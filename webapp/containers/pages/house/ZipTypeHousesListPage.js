@@ -120,8 +120,13 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
             page = 1;
         }
 
-        if (_.last(zipType) === 's') {
-            zipType = zipType.substr(0, zipType.length - 1);
+        if (zipType.toLowerCase() === 'duplexes') {
+            zipType = zipType.substr(0, zipType.length - 2);
+        }
+        else {
+            if (_.last(zipType) === 's') {
+                zipType = zipType.substr(0, zipType.length - 1);
+            }
         }
         page = Number(page);
         return {city, zipType, page}

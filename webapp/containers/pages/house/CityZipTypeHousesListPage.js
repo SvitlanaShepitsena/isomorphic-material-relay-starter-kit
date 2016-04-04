@@ -46,9 +46,6 @@ class CityZipTypeHousesListPage extends React.Component {
         if (housesType.toLowerCase() == 'townhouse townhomes') {
             housesType = "Townhomes";
         }
-        if (housesType.toLowerCase() == 'duplexs') {
-            housesType = "Duplexes";
-        }
 
         const pageTitle = `${cityName} ${housesType} for Sale, ${zip} | ${cityName} Real Estate p.${page}`;
         const ogDescription = `✔ Find ${cityName}, ${zip} ${housesType} for sale. ${housesCount} listings for today. ☏  Call ${cityName} brokers for a free consultation and schedule a showing! | Page ${page}`;
@@ -80,14 +77,14 @@ class CityZipTypeHousesListPage extends React.Component {
         if (typeFormatted.toLowerCase() == 'condominium units') {
             typeFormatted = "Condos";
         }
+        if (typeFormatted.toLowerCase() == 'multi family homes') {
+            typeFormatted = "Multi-Family Homes";
+        }
         if (typeFormatted.toLowerCase() == 'co op units') {
             typeFormatted = "Co-ops";
         }
         if (typeFormatted.toLowerCase() == 'townhouse townhomes') {
             typeFormatted = "Townhomes";
-        }
-        if (typeFormatted.toLowerCase() == 'duplexs') {
-            typeFormatted = "Duplexes";
         }
         if (typeFormatted.toLowerCase() == 'raw lands') {
             typeFormatted = "Raw Land";
@@ -103,6 +100,7 @@ class CityZipTypeHousesListPage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
+                {type}
                 <H1Header> {headerText}
                     <span style={counter}> {counterText}</span>
                 </H1Header>
@@ -121,8 +119,12 @@ class CityZipTypeHousesListPage extends React.Component {
 export default Relay.createContainer(CityZipTypeHousesListPage, {
     initialVariables: {city: '', zip: '', type: '', page: null},
     prepareVariables({city, zip, type, page}) {
-        if (_.last(type) === 's') {
-            type = type.substr(0, type.length - 1);
+        if (type.toLowerCase() == 'duplexes') {
+            type = type.substr(0, type.length - 2);
+        } else {
+            if (_.last(type) === 's') {
+                type = type.substr(0, type.length - 1);
+            }
         }
         page = Number(page);
         return {city, zip, type, page}
