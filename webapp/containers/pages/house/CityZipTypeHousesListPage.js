@@ -89,6 +89,9 @@ class CityZipTypeHousesListPage extends React.Component {
         if (typeFormatted.toLowerCase() == 'duplexs') {
             typeFormatted = "Duplexes";
         }
+        if (typeFormatted.toLowerCase() == 'raw lands') {
+            typeFormatted = "Raw Land";
+        }
 
         const headerText = `${cityFormatted} ${typeFormatted} for Sale, ${zip}`;
         const counterText = `(${houseCount} listings)`;

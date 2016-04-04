@@ -28,15 +28,13 @@ class ZipTypeList extends React.Component {
 
         if (!itemValue.match(/^\d+$/g)) {
             itemValue += 's';
+
             itemValueFormatted += 's';
             var removePage = true;
         }
-
-        let urlValue = `${itemValue}`;
-        urlValue = urlValue.match(/\/1^/) ? urlValue : urlValue + '/1';
-
-        let badgeValue = item[`${children}_Count`];
-
+        // if (itemValue.toLowerCase() == 'duplexs') {
+        //     itemValue = "duplexes";
+        // }
         if (itemValueFormatted.toLowerCase() == 'condominium units') {
             itemValueFormatted = "Condominiums / Condos";
         }
@@ -49,6 +47,14 @@ class ZipTypeList extends React.Component {
         if (itemValueFormatted.toLowerCase() == 'duplexs') {
             itemValueFormatted = "Duplexes";
         }
+        if (itemValueFormatted.toLowerCase() == 'raw lands') {
+            itemValueFormatted = "Raw Land";
+        }
+
+        let urlValue = `${itemValue}`;
+        urlValue = urlValue.match(/\/1^/) ? urlValue : urlValue + '/1';
+
+        let badgeValue = item[`${children}_Count`];
 
         if (badgeValue) {
 
