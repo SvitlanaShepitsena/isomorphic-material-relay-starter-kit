@@ -1,19 +1,17 @@
-
 export default (text)=> {
-    text = text.toLowerCase()
-    if (text == 'condominium units') {
+    if (text == 'Condominium Units') {
         text = "Condos";
     }
-    if (text == 'multi family homes') {
+    if (text == 'Multi Family Homes') {
         text = "Multi-Family Homes";
     }
-    if (text == 'co op units') {
+    if (text == 'Co Op Units') {
         text = "Co-ops";
     }
-    if (text == 'townhouse townhomes') {
+    if (text == 'Townhouse Townhomes') {
         text = "Townhomes";
     }
-    if (text == 'raw lands') {
+    if (text == 'Raw Lands') {
         text = "Raw Land";
     }
     return text;

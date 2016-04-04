@@ -9,6 +9,7 @@ import CardTitle from 'material-ui/lib/card/card-title';
 import Divider from 'material-ui/lib/divider';
 /*=styles*/
 import styles from './ZipTypeList.less';
+import seoType from '../../../utils/seoType.js';
 import typePlural from '../../../utils/typePlural.js';
 
 /*=Components*/
@@ -26,11 +27,12 @@ class ZipTypeList extends React.Component {
         let {itemId, children} = this.props;
 
         let itemValue = item[itemId];
-        let itemValueFormatted = urlToText(itemValue)
+        let itemValueFormatted = urlToText(itemValue);
 
         if (!itemValue.match(/^\d+$/g)) {
             itemValue = typePlural(itemValue);
             itemValueFormatted = typePlural(itemValueFormatted);
+            itemValueFormatted = seoType(itemValueFormatted);
             var removePage = true;
         }
 
