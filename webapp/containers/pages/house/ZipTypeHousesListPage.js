@@ -121,14 +121,14 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
             page = 1;
         }
 
-        if (zipType.toLowerCase() === 'duplexes') {
-            zipType = zipType.substr(0, zipType.length - 2);
-        }
-        else {
-            if (_.last(zipType) === 's') {
-                zipType = zipType.substr(0, zipType.length - 1);
-            }
-        }
+        // if (zipType.toLowerCase() === 'duplexes') {
+        //     zipType = zipType.substr(0, zipType.length - 2);
+        // }
+        // else {
+        //     if (_.last(zipType) === 's') {
+        //         zipType = zipType.substr(0, zipType.length - 1);
+        //     }
+        // }
         page = Number(page);
         return {city, zipType, page}
     },
@@ -136,11 +136,11 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
         Viewer: () => Relay.QL`
             fragment on Viewer {
                 Houses_Count(city:$city,zip:$zipType)
-                Types(zip: $zipType, first:100) {
+                Types(zip: $zipType, city:$city,first:100) {
                     edges {
                         node {
                             type,
-                            Houses_Count(zip:$zipType)
+                            Houses_Count(zip:$zipType, city:$city)
                         }
                     }
                 }

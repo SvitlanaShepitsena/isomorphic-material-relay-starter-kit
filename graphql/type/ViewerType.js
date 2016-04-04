@@ -28,7 +28,7 @@ export default new GraphQLObjectType({
 
         // ->->-> User properties
 
-       
+
 
         Houses: {
             type: HousesConnection.connectionType,

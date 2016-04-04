@@ -7,48 +7,34 @@ export function Types_with_args(args) {
 
     var body;
 
-    if (!(args.city && args.zip)) {
-        body = {
 
-            fields: ['type_id'],
-            aggregations: {
-                types: {
-                    terms: {
-                        field: 'type_id'
-                    }
-                }
-            }
 
-        };
-
-        return runQuery(Type, 'sale', body, (res)=> {
-                var Aggs = res.aggregations.types;
-
-                return Aggs.buckets.map(item=> {
-                    let objType = {
-                        id: item.key,
-                        type: item.key,
-                        count: item.doc_count
-                    }
-                    
-                    return objType;
-                });
-            }
-        );
-    }
-
-    if (args.city && !args.zip) {
+    if (args.city && args.zip) {
         body = {
             "query": {
-                "match": {
-                    "city_id": args.city
+                "filtered": {
+                    "query":    { "match_all": {}},
+                    "filter":   { "and": {
+                        "filters": [
+                            {
+                                "term": {
+                                    "city_id": args.city
+                                }},
+                            {
+                                "term": {
+                                    "zip_id": args.zip
+                                }}
+                        ]
+                    }}
+
                 }
             },
             "aggs": {
 
                 "types": {
                     "terms": {
-                        "field": "type_id"
+                        "field": "type_id",
+                        "size":100
 
                     }
                 }
@@ -71,7 +57,7 @@ export function Types_with_args(args) {
 
 
 
-                    return objType.count>0?objType:null;
+                    return objType;
                 }));
             }
         );
@@ -79,51 +65,51 @@ export function Types_with_args(args) {
     }
 
 
-    if (args.zip) {
-
-
-        body = {
-            "query": {
-                "match": {
-                    "zip_id": args.zip
-                }
-            },
-            "aggs": {
-
-                "types": {
-                    "terms": {
-                        "field": "type_id"
-
-                    }
-                }
-            }
-        }
-        return runQuery(Type, 'sale', body, (res)=> {
-                var Aggs = res.aggregations.types;
-
-                return Aggs.buckets.map(item=> {
-                    let objType = {
-                        id: item.key,
-                        type: item.key,
-                        count: item.doc_count
-                    }
-
-
-
-
-
-
-
-
-
-
-
-                    // return objType;
-                });
-            }
-        );
-
-    }
+    // if (args.zip) {
+    //
+    //
+    //     body = {
+    //         "query": {
+    //             "match": {
+    //                 "zip_id": args.zip
+    //             }
+    //         },
+    //         "aggs": {
+    //
+    //             "types": {
+    //                 "terms": {
+    //                     "field": "type_id"
+    //
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return runQuery(Type, 'sale', body, (res)=> {
+    //             var Aggs = res.aggregations.types;
+    //
+    //             return Aggs.buckets.map(item=> {
+    //                 let objType = {
+    //                     id: item.key,
+    //                     type: item.key,
+    //                     count: item.doc_count
+    //                 }
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //                 return objType;
+    //             });
+    //         }
+    //     );
+    //
+    // }
 
 }
 
