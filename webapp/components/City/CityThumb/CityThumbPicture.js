@@ -22,10 +22,9 @@ class CityThumbPicture extends React.Component {
     componentWillMount() {
         let {cityName} = this.props;
         let {houseDefault, citiesPath} = settings;
-        let imgUrl = `${citiesPath}${cityName}4.jpg `;
+        let imgUrl = `${citiesPath}${cityName.toLowerCase().replace(/\s+/gi,'-')}.jpg `;
         this.cityFormatted = urlToText(cityName);
         this.alt = `${this.cityFormatted}, IL homes for sale`;
-
         axios.get(imgUrl).then(response=> {
             if (response.status < 400) {
                 this.setState({img: imgUrl})
