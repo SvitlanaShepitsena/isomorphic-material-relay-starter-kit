@@ -37,6 +37,10 @@ class CityPage extends React.Component {
         })
     };
 
+    componentDidUpdate() {
+        this.getDOMNode().scrollTop = 0;
+    };
+
     pageHelmet() {
         /*Formatter*/
         const cityName = urlToText(this.props.params.city);
