@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import ReactDOM from 'react-dom';
 import Relay from 'react-relay';
 import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
@@ -38,7 +39,8 @@ class CityPage extends React.Component {
     };
 
     componentDidUpdate() {
-        this.getDOMNode().scrollTop = 0;
+        console.log('run here CityPage.js');
+        ReactDOM.findDOMNode(this).scrollIntoView();
     };
 
     pageHelmet() {

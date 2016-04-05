@@ -55,6 +55,13 @@ export default (()=> {
     return (
         <Route path="/" component={AppLayout} name="App">
             <IndexRoute component={HomePage} queries={ViewerQueries} name="Home"/>
+            <Redirect from="/houses-for-sale" to="/homes-for-sale"/>
+            <Redirect from="/houses-for-sale/:city" to="/homes-for-sale/:city"/>
+            <Redirect from="/houses-for-sale/:city/:zipType(/:page)" to="/homes-for-sale/:city/:zipType(/:page)"/>
+            <Redirect from="/houses-for-sale/:city/:zip/:type(/:page)" to="/homes-for-sale/:city/:zip/:type(/:page)"/>
+            <Redirect from="/houses-for-sale/:city/:zipType/:type/:id/:realty"
+                      to="/homes-for-sale/:city/:zipType/:type/:id/:realty"/>
+
             <Route path="/homes-for-sale" component={CitiesSalePage} queries={ViewerQueries}
                    name="Chicago North Suburbs Houses for Sale"/>
             <Route path="/homes-for-sale/:city" component={CityPage} queries={ViewerQueries}/>
