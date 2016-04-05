@@ -23,6 +23,10 @@ class CitiesSalePage extends React.Component {
         route: PropTypes.object
     };
 
+    componentDidUpdate() {
+        this.getDOMNode().scrollTop = 0;
+    };
+
     pageHelmet() {
         let helmetProps = settings.metaProps;
         let appUrl = helmetProps.appUrl;
