@@ -20,7 +20,7 @@ import ZipTypeHousesListPage from './containers/pages/house/ZipTypeHousesListPag
 import CityZipTypeHousesListPage from './containers/pages/house/CityZipTypeHousesListPage';
 import Error404 from './components/Error404/Error404.js';
 
-import SearchPage from './containers/pages/search/SearchPage';
+import SearchResultPage from './containers/pages/search/SearchResultPage';
 
 function paginate(nextState, replace) {
     let {page} = nextState.params;
@@ -63,7 +63,7 @@ export default (()=> {
                    queries={ViewerQueries}/>
             <Route path="/homes-for-sale/:city/:zipType/:type/:id/:realty" component={HousePage}
                    queries={ViewerQueries}/>
-            <Route path="/search/:query(/:page)" component={SearchPage} queries={ViewerQueries} name="Search"
+            <Route path="/search/:query(/:page)" component={SearchResultPage} queries={ViewerQueries} name="Search"
                    onEnter={paginate}/>
             <Route path="/about" component={AboutPage} name="About"/>
             <Route path="/privacy" component={PrivacyPage} name="Privacy"/>

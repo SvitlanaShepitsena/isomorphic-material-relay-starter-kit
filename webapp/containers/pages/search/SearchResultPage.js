@@ -5,9 +5,9 @@ import Relay from 'react-relay';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 
 /*=styles*/
-import styles from './SearchPage.less';
+import styles from './SearchResultPage.less';
 
-class SearchPage extends React.Component {
+class SearchResultPage extends React.Component {
     state = {
         page: 1,
         loading: false
@@ -56,7 +56,7 @@ class SearchPage extends React.Component {
         return count > 0 ? this.searchResults() : this.noListings()
     }
 }
-export default Relay.createContainer(SearchPage, {
+export default Relay.createContainer(SearchResultPage, {
     initialVariables: {query: null, page: null},
     prepareVariables({query, page}) {
         if (!page || isNaN(page)) {

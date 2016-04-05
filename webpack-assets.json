@@ -48,7 +48,7 @@
       "cityInfo": "CityThumbPicture__cityInfo__1qM",
       "cardText": "CityThumbPicture__cardText__1L7",
       "cityName": "CityThumbPicture__cityName__3Hz",
-      "_style": ".CityThumbPicture__container__hY5 {\n  margin: 0;\n  padding-bottom: 16px;\n}\n.CityThumbPicture__cityInfo__1qM {\n  padding-bottom: 0 !important;\n  margin: 0;\n}\n.CityThumbPicture__cityInfo__1qM h3 {\n  padding-bottom: 0 !important;\n  margin: 0;\n  line-height: 1.5;\n  font-size: 13px;\n}\n@media (max-width: 600px) {\n  .CityThumbPicture__cityInfo__1qM h3 {\n    font-size: 14px;\n  }\n}\n.CityThumbPicture__cardText__1L7 {\n  padding: 5px 12px 0;\n  font-size: 13px;\n}\n@media (max-width: 600px) {\n  .CityThumbPicture__cardText__1L7 {\n    font-size: 14px;\n  }\n}\n.CityThumbPicture__cityName__3Hz {\n  padding: 0 0 5px 16px;\n}\n.CityThumbPicture__cityName__3Hz span h2 {\n  line-height: 1;\n  margin: 0;\n  padding: 0;\n  font-size: 16px !important;\n  color: whitesmoke !important;\n}\n@media (max-width: 600px) {\n  .CityThumbPicture__cityName__3Hz span h2 {\n    font-size: 22px !important;\n  }\n}\n"
+      "_style": ".CityThumbPicture__container__hY5 {\n  margin: 0;\n  padding-bottom: 16px;\n}\n.CityThumbPicture__cityInfo__1qM {\n  padding-bottom: 0 !important;\n  margin: 0;\n}\n.CityThumbPicture__cityInfo__1qM h3 {\n  padding-bottom: 0 !important;\n  margin: 0;\n  line-height: 1.5;\n  font-size: 13px;\n}\n@media (max-width: 600px) {\n  .CityThumbPicture__cityInfo__1qM h3 {\n    font-size: 14px;\n  }\n}\n.CityThumbPicture__cardText__1L7 {\n  padding: 5px 12px 0;\n  font-size: 13px;\n}\n@media (max-width: 600px) {\n  .CityThumbPicture__cardText__1L7 {\n    font-size: 14px;\n  }\n}\n.CityThumbPicture__cityName__3Hz {\n  padding: 0 0 5px 16px;\n}\n.CityThumbPicture__cityName__3Hz span h2 {\n  line-height: 1;\n  margin: 0;\n  padding: 0;\n  font-size: 16px !important;\n  font-weight: 500;\n  color: whitesmoke !important;\n}\n@media (max-width: 600px) {\n  .CityThumbPicture__cityName__3Hz span h2 {\n    font-size: 22px !important;\n  }\n}\n"
     },
     "./webapp/components/City/CitiesList/CitiesList.less": {
       "container": "CitiesList__container__msh",
@@ -265,9 +265,9 @@
       "listInline": "HousesList__listInline__2Fm",
       "_style": ".HousesList__row__3Bj {\n  min-width: 100%;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n  *zoom: 1;\n}\n.HousesList__row__3Bj:before {\n  content: '';\n  display: table;\n}\n.HousesList__row__3Bj:after {\n  content: '';\n  display: table;\n  clear: both;\n}\n.HousesList__col1__ado {\n  width: calc(99.99% * 1 - (30px - 30px * 1));\n}\n.HousesList__col1__ado:nth-child(1n) {\n  float: left;\n  margin-right: 30px;\n  clear: none;\n}\n.HousesList__col1__ado:last-child {\n  margin-right: 0;\n}\n.HousesList__col1__ado:nth-child(undefinedn) {\n  margin-right: 0;\n  float: right;\n}\n.HousesList__col1__ado:nth-child(undefinedn + 1) {\n  clear: left;\n}\n.HousesList__listInline__2Fm {\n  width: calc(99.99% * 1 - (30px - 30px * 1));\n  margin-bottom: 16px;\n}\n.HousesList__listInline__2Fm:nth-child(1n) {\n  float: left;\n  margin-right: 30px;\n  clear: none;\n}\n.HousesList__listInline__2Fm:last-child {\n  margin-right: 0;\n}\n.HousesList__listInline__2Fm:nth-child(undefinedn) {\n  margin-right: 0;\n  float: right;\n}\n.HousesList__listInline__2Fm:nth-child(undefinedn + 1) {\n  clear: left;\n}\n"
     },
-    "./webapp/containers/pages/search/SearchPage.less": {
-      "searchResults": "SearchPage__searchResults__2NB",
-      "_style": ".SearchPage__searchResults__2NB {\n  font-size: 14px;\n  margin: 0;\n  padding: 0;\n}\n@media (max-width: 1050px) {\n  .SearchPage__searchResults__2NB {\n    font-size: 12px;\n  }\n}\n"
+    "./webapp/containers/pages/search/SearchResultPage.less": {
+      "searchResults": "SearchResultPage__searchResults__3BQ",
+      "_style": ".SearchResultPage__searchResults__3BQ {\n  font-size: 14px;\n  margin: 0;\n  padding: 0;\n}\n@media (max-width: 1050px) {\n  .SearchResultPage__searchResults__3BQ {\n    font-size: 12px;\n  }\n}\n"
     }
   }
 }
