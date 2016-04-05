@@ -21,6 +21,7 @@ import CityZipTypeHousesListPage from './containers/pages/house/CityZipTypeHouse
 import Error404 from './components/Error404/Error404.js';
 
 import SearchResultPage from './containers/pages/search/SearchResultPage';
+import SearchPage from './containers/pages/common/SearchPage.js';
 
 function paginate(nextState, replace) {
     let {page} = nextState.params;
@@ -65,6 +66,7 @@ export default (()=> {
                    queries={ViewerQueries}/>
             <Route path="/search/:query(/:page)" component={SearchResultPage} queries={ViewerQueries} name="Search"
                    onEnter={paginate}/>
+            <Route path="/residential-real-estate" component={SearchPage} name="Residential"/>
             <Route path="/about" component={AboutPage} name="About"/>
             <Route path="/privacy" component={PrivacyPage} name="Privacy"/>
             <Route path="/terms" component={TermsPage} name="Terms"/>

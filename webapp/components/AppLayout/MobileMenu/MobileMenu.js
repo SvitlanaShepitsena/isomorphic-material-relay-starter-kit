@@ -19,6 +19,10 @@ class MobileMenu extends React.Component {
                 </MenuItem>
                 <MenuItem onTouchTap={onTouchTap}>
                     <Link className={styles.link}
+                          to="/residential-real-estate">Search</Link>
+                </MenuItem>
+                <MenuItem onTouchTap={onTouchTap}>
+                    <Link className={styles.link}
                           to="/homes-for-sale">Houses fo Sale</Link>
                 </MenuItem>
                 {/*                    <MenuItem onTouchTap={this.handleClose}>
