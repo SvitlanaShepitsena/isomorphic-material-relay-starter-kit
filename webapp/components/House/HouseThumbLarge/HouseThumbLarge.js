@@ -35,12 +35,8 @@ class HouseThumbLarge extends React.Component {
 
         const listingAlt = `House for sale: ${mls} ${streetFormatted}, ${cityFormatted}, IL ${zip}`;
 
-        let image;
-        if (city == 'evanston') {
-            image = `${settings.cloudinaryPath2}${house.id}-photo-1.jpg`;
-        } else {
-            image = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
-        }
+        let image= `${settings.cloudinaryPath}${house.id}/house-photo-1.jpg`;
+
 
         return (
             <Card className={styles.container} shadow={0}>
