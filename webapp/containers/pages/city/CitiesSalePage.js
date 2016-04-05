@@ -12,8 +12,8 @@ class CitiesSalePage extends React.Component {
     getChildContext() {
         return {
             location: this.props.location,
-            params: this.props.routeParams,
             route: this.props.route,
+            params: this.props.routeParams,
         };
     };
 
@@ -54,6 +54,7 @@ class CitiesSalePage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <H1Header>North Chicago Suburbs Homes for Sale</H1Header>
+
                 <CitiesList list={allCities} itemId="name" children="Houses"/>
             </div>
         );
