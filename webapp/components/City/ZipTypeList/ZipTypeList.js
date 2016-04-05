@@ -28,6 +28,7 @@ class ZipTypeList extends React.Component {
 
         let itemValue = item[itemId];
         let itemValueFormatted = urlToText(itemValue);
+        console.log(itemValue);
 
         if (!itemValue.match(/^\d+$/g)) {
             itemValue = typePlural(itemValue);
