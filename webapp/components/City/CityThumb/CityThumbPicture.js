@@ -38,9 +38,10 @@ class CityThumbPicture extends React.Component {
 
     cityBackground() {
         let {img} = this.state;
+        const cardSubtitle = `${this.cityFormatted} Homes for Sale`;
         return (
             <CardMedia
-                overlay={<CardTitle className={styles.cityName}  subtitle={<h2>{`${this.cityFormatted} Realty`}</h2>} />}>
+                overlay={<CardTitle className={styles.cityName}  subtitle={<h2>{cardSubtitle}</h2>} />}>
                 <img style={{width:"300px",height:"200px"}} alt={this.alt} src={img}/>
             </CardMedia>
         );
