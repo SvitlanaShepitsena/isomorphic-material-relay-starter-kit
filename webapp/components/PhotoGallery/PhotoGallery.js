@@ -24,12 +24,14 @@ class PhotoGallery extends React.Component {
         let {image, houseId} = this.props;
         const maxImage = Number(image);
         for (var i = 1; i <= maxImage; i++) {
-            let imageUrl  = `${appSettings.cloudinaryPath}${houseId}-photo-${i}.jpg`;
+            let imageUrl = `${appSettings.cloudinaryPath}${houseId}-photo-${i}.jpg`;
             images.push(imageUrl);
         }
 
         return (
             <div className={styles.container}>
+
+                {!images.length == 0 &&
                 <Slider   {...settings}>
                     {images.map(image=> {
                         return (
@@ -49,6 +51,7 @@ class PhotoGallery extends React.Component {
                     })
                     }
                 </Slider>
+                }
             </div>
         )
     }

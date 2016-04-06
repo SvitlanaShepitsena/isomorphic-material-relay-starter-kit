@@ -1,18 +1,17 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-import urlToText from '../../../utils/urlToText.js';
-import seoType from '../../../utils/seoType.js';
+import _ from "lodash";
 
-import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
-import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
 import palette from '../../../settings/MuiPalette.js';
-
+import urlToText from '../../../utils/urlToText.js';
+import seoType from '../../../utils/seoType.js';
 /*Components*/
+import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
+import H1Header from '../../../components/Common/H1Header/H1Header.js';
+import Helmet from "react-helmet";
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
-import _ from "lodash";
-import H1Header from '../../../components/Common/H1Header/H1Header.js';
 
 class CityZipTypeHousesListPage extends React.Component {
     state = {compare: true};

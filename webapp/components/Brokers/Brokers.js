@@ -47,7 +47,6 @@ class Brokers extends React.Component {
         const broker9 = `${brokersUrl}/${brokers.id9}.jpg`
         const broker10 = `${brokersUrl}/${brokers.id10}.jpg`
         const broker11 = `${brokersUrl}/${brokers.id11}.jpg`
-        const broker12 = `${brokersUrl}/${brokers.id12}.jpg`
         const broker13 = `${brokersUrl}/${brokers.id13}.jpg`
         return (
             <div className={styles.container}>
@@ -138,16 +137,6 @@ class Brokers extends React.Component {
                     </div>
                     <div className={styles.brokerInfo}>
                         <h3>{names.n11}</h3>
-                        {this.showStars()}
-                        <h4>{settings.companyPhone}</h4>
-                    </div>
-                </div>
-                <div className={styles.brokerCard}>
-                    <div className={styles.imgContainer}>
-                        <ImageBackground imgWidth="auto" imgHeight="115" backgroundImage={broker12}/>
-                    </div>
-                    <div className={styles.brokerInfo}>
-                        <h3>{names.n12}</h3>
                         {this.showStars()}
                         <h4>{settings.companyPhone}</h4>
                     </div>
