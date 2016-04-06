@@ -35,7 +35,7 @@ class HouseThumbLarge extends React.Component {
 
         const listingAlt = `House for sale: ${mls} ${streetFormatted}, ${cityFormatted}, IL ${zip}`;
 
-        let image= `${settings.cloudinaryPath}${house.id}/house-photo-1.jpg`;
+        let image= `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
 
 
         return (
