@@ -15,19 +15,12 @@ class HousesListFiltered extends React.Component {
     static defaultProps = {};
     oneHouse = (edge)=> {
         let house = edge.node;
-<<<<<<< HEAD
-        let type = house.type + 's';
-        let zip = house.zip;
-        let itemKey = house.id;
-        let houseThumbUrl = `${zip}/${type}/${house.id}/residential`;
-=======
         let type = house.type;
         let housesType = typePlural(type);
 
         let zip = house.zip;
         let itemKey = house.id;
         let houseThumbUrl = `${zip}/${housesType}/${house.id}/residential`;
->>>>>>> work-local
         return (
             <div key={itemKey} className={styles.col3}>
                 <SvLink url={houseThumbUrl}>

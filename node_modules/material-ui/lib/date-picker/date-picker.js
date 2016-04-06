@@ -30,13 +30,9 @@ var _textField = require('../text-field');
 
 var _textField2 = _interopRequireDefault(_textField);
 
-var _themeManager = require('../styles/theme-manager');
+var _getMuiTheme = require('../styles/getMuiTheme');
 
-var _themeManager2 = _interopRequireDefault(_themeManager);
-
-var _lightRawTheme = require('../styles/raw-themes/light-raw-theme');
-
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 var _deprecatedPropType = require('../utils/deprecatedPropType');
 
@@ -83,6 +79,11 @@ var DatePicker = _react2.default.createClass({
      * Disables the year selection in the date picker.
      */
     disableYearSelection: _react2.default.PropTypes.bool,
+
+    /**
+     * Disables the DatePicker.
+     */
+    disabled: _react2.default.PropTypes.bool,
 
     /**
      * Used to change the first day of week. It drastically varies from
@@ -203,14 +204,15 @@ var DatePicker = _react2.default.createClass({
       autoOk: false,
       disableYearSelection: false,
       style: {},
-      firstDayOfWeek: 0
+      firstDayOfWeek: 0,
+      disabled: false
     };
   },
   getInitialState: function getInitialState() {
     return {
       date: this._isControlled() ? this._getControlledDate() : this.props.defaultDate,
       dialogDate: new Date(),
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)()
     };
   },
   getChildContext: function getChildContext() {
@@ -282,7 +284,7 @@ var DatePicker = _react2.default.createClass({
 
     if (this.props.onTouchTap) this.props.onTouchTap(event);
 
-    setTimeout(function () {
+    if (!this.props.disabled) setTimeout(function () {
       _this.openDialog();
     }, 0);
   },

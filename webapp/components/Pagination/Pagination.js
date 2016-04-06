@@ -45,13 +45,9 @@ class Pagination extends React.Component {
         return (
             <div className={styles.row}>
                 <div className={styles.col2}>
-<<<<<<< HEAD
-                    <span className={styles.counter}> {pageCounter}</span>
-=======
                     <div className={styles.counterContainer}>
                         <span className={styles.counter}> {pageCounter}</span>
                     </div>
->>>>>>> work-local
                 </div>
                 <div className={styles.col2}>
                     <div className={styles.breadcrumbs}>
@@ -59,7 +55,7 @@ class Pagination extends React.Component {
                             {enablePrev &&
                             <Link data-link='prev' to={{pathname: prevPage}}
                                   onClick={this.handleClick}>
-                                <RaisedButton className={styles.button} default={true} disabled={disablePrev}
+                                <RaisedButton className={styles.button} default={true} disabled={currentPage==1}
                                               icon={<Previous />} label="Previous" labelPosition="after"/>
                             </Link>
                             }
@@ -71,12 +67,8 @@ class Pagination extends React.Component {
                         <div className={styles.linkContainer}>
                             {enableNext &&
                             <Link data-link='next' to={{ pathname: nextPage}}>
-<<<<<<< HEAD
-                                <RaisedButton className={styles.button} default={true} icon={<Next />} label="Next"/>
-=======
                                 <RaisedButton className={styles.button} default={true} icon={<Next />}
                                               labelPosition="before" label="Next"/>
->>>>>>> work-local
                             </Link>
                             }
                             {disableNext &&

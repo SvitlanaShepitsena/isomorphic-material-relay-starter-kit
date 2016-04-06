@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import TabTemplate from './tabTemplate';
 import InkBar from '../ink-bar';
 import StylePropable from '../mixins/style-propable';
-import Controllable from '../mixins/controllable';
-import DefaultRawTheme from '../styles/raw-themes/light-raw-theme';
-import ThemeManager from '../styles/theme-manager';
+import getMuiTheme from '../styles/getMuiTheme';
 import warning from 'warning';
 
 const Tabs = React.createClass({
@@ -80,12 +78,12 @@ const Tabs = React.createClass({
 
   mixins: [
     StylePropable,
-    Controllable,
   ],
 
   getDefaultProps() {
     return {
       initialSelectedIndex: 0,
+      onChange: () => {},
     };
   },
 
@@ -99,7 +97,7 @@ const Tabs = React.createClass({
         initialIndex < this.getTabCount() ?
         initialIndex :
         0,
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme),
+      muiTheme: this.context.muiTheme || getMuiTheme(),
     };
   },
 
@@ -130,6 +128,14 @@ const Tabs = React.createClass({
 
   getTabCount() {
     return React.Children.count(this.props.children);
+  },
+
+  // Do not use outside of this component, it will be removed once valueLink is deprecated
+  getValueLink(props) {
+    return props.valueLink || {
+      value: props.value,
+      requestChange: props.onChange,
+    };
   },
 
   _getSelectedIndex(props) {
@@ -186,10 +192,8 @@ const Tabs = React.createClass({
         margin: 0,
         padding: 0,
         width: '100%',
-        height: 48,
         backgroundColor: themeVariables.backgroundColor,
         whiteSpace: 'nowrap',
-        display: 'table',
       },
     };
 
@@ -197,9 +201,7 @@ const Tabs = React.createClass({
     let tabValue = valueLink.value;
     let tabContent = [];
 
-    let width = 100 / this.getTabCount() + '%';
-
-    let left = 'calc(' + width + '*' + this.state.selectedIndex + ')';
+    const width = 100 / this.getTabCount();
 
     let tabs = React.Children.map(children, (tab, index) => {
       warning(tab.type && tab.type.displayName === 'Tab',
@@ -221,15 +223,15 @@ const Tabs = React.createClass({
         key: index,
         selected: this._getSelected(tab, index),
         tabIndex: index,
-        width: width,
+        width: width + '%',
         onTouchTap: this._handleTabTouchTap,
       });
     });
 
     const inkBar = this.state.selectedIndex !== -1 ? (
       <InkBar
-        left={left}
-        width={width}
+        left={width * this.state.selectedIndex + '%'}
+        width={width + '%'}
         style={inkBarStyle}
       />
     ) : null;

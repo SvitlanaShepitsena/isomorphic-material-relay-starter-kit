@@ -12,10 +12,7 @@ import palette from '../../../settings/MuiPalette.js';
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
-<<<<<<< HEAD
-=======
 import H1Header from '../../../components/Common/H1Header/H1Header.js';
->>>>>>> work-local
 
 class CityZipTypeHousesListPage extends React.Component {
     state = {compare: true};
@@ -37,24 +34,15 @@ class CityZipTypeHousesListPage extends React.Component {
     pageHelmet() {
         let houses = this.props.Viewer.Houses.edges;
         let housesCount = this.props.Viewer.Houses_Count;
-<<<<<<< HEAD
-        let {city, type, page, zipType} = this.props.params;
-=======
         let {city, type, page, zip} = this.props.params;
->>>>>>> work-local
 
         /*Formatter*/
         const cityName = urlToText(city);
         let housesType = urlToText(type);
         housesType = seoType(housesType);
 
-<<<<<<< HEAD
-        const pageTitle = `${cityName}, ${zipType} ${housesType} listings for sale | North Illinois Realty | Page ${page}`;
-        const ogDescription = `✔ Browse ${cityName}, ${zipType} ${housesType} houses for sale. ${housesCount} listings for today. ☏  Let us guide you! Call us for a free consultation and schedule a showing!  | Page ${page}`;
-=======
         const pageTitle = `${cityName} ${housesType} for Sale, ${zip} | ${cityName} Real Estate p.${page}`;
         const ogDescription = `✔ Find ${cityName}, ${zip} ${housesType} for sale. ${housesCount} listings for today. ☏  Call ${cityName} brokers for a free consultation and schedule a showing! | Page ${page}`;
->>>>>>> work-local
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
 
         return (
@@ -76,11 +64,7 @@ class CityZipTypeHousesListPage extends React.Component {
         let {routes, params}= this.props;
         let houses = this.props.Viewer.Houses;
         let houseCount = this.props.Viewer.Houses_Count;
-<<<<<<< HEAD
-        let {city, type, zipType} = this.props.params;
-=======
         let {city, type, zip} = this.props.params;
->>>>>>> work-local
         /*Formatter*/
         const cityFormatted = urlToText(city);
         var typeFormatted = urlToText(type);

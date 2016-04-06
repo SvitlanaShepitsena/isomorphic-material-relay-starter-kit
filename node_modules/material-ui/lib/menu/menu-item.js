@@ -22,13 +22,9 @@ var _toggle = require('../toggle');
 
 var _toggle2 = _interopRequireDefault(_toggle);
 
-var _lightRawTheme = require('../styles/raw-themes/light-raw-theme');
+var _getMuiTheme = require('../styles/getMuiTheme');
 
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
-
-var _themeManager = require('../styles/theme-manager');
-
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 var _warning = require('warning');
 
@@ -100,7 +96,7 @@ var MenuItem = _react2.default.createClass({
     process.env.NODE_ENV !== "production" ? (0, _warning2.default)(false, 'This menu item component is deprecated use menus/menu-item instead.') : undefined;
 
     return {
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)()
     };
   },
   getChildContext: function getChildContext() {

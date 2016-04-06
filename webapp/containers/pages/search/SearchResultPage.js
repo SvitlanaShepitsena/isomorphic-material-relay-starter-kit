@@ -1,17 +1,11 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
-<<<<<<< HEAD:webapp/containers/pages/search/SearchPage.js
-
-/*=components*/
-import HousesList from '../../../components/House/HousesList/HousesList.js';
-=======
 
 /*=components*/
 import HousesList from '../../../components/House/HousesList/HousesList.js';
 
 /*=styles*/
 import styles from './SearchResultPage.less';
->>>>>>> work-local:webapp/containers/pages/search/SearchResultPage.js
 
 class SearchResultPage extends React.Component {
     state = {
@@ -32,13 +26,6 @@ class SearchResultPage extends React.Component {
         params: PropTypes.object,
         route: PropTypes.object
     };
-<<<<<<< HEAD:webapp/containers/pages/search/SearchPage.js
-
-    render() {
-        const houses = this.props.Viewer.Houses;
-        const count = Number(this.props.Viewer.Houses_Count);
-
-=======
     noListings = ()=> {
         const queryString = this.props.params.query;
         const noResult = `0 listings found`;
@@ -54,7 +41,6 @@ class SearchResultPage extends React.Component {
         const houses = this.props.Viewer.Houses;
         const count = Number(this.props.Viewer.Houses_Count);
         const listingsFound = `${count} listings:`;
->>>>>>> work-local:webapp/containers/pages/search/SearchResultPage.js
         return (
             <div>
                 <h2 className={styles.searchResults}>

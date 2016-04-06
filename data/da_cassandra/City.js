@@ -61,26 +61,18 @@ export function Cities_with_args(args) {
 
     var body = {
 
-<<<<<<< HEAD
-        fields: ["city_id"],
-=======
         fields: ['city_id'],
->>>>>>> work-local
         aggs: {
             cities: {
                 terms: {
                     field: 'city_id',
-<<<<<<< HEAD
-                    size:100
-=======
                     size: 100
 
->>>>>>> work-local
                 }
             }
         }
-    };
 
+    };
 
     return runQuery(City, 'sale', body, res=> {
         try {
@@ -100,12 +92,7 @@ export function Cities_with_args(args) {
 
             return objCity;
         });
-<<<<<<< HEAD
-        console.log(cities);
-        return cities;
-=======
         return _.sortBy(cities, 'id');
->>>>>>> work-local
     });
 }
 

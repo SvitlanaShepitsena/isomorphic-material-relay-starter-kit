@@ -27,12 +27,8 @@ export default new GraphQLObjectType({
         price: {type: GraphQLString, resolve: (obj) =>obj.price},
         since: {type: GraphQLString, resolve: (obj) =>obj.since},
         street: {type: GraphQLString, resolve: (obj) =>obj.street},
-<<<<<<< HEAD
-        details: {type: GraphQLString, resolve: (obj) =>obj.details}
-=======
         type: {type: GraphQLString, resolve: (obj) =>(obj.type_id)},
         zip: {type: GraphQLString, resolve: (obj) =>(obj.zip_id)},
->>>>>>> work-local
 
     }),
 });

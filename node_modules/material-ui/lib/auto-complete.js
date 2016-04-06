@@ -52,6 +52,10 @@ var _deprecatedPropType = require('./utils/deprecatedPropType');
 
 var _deprecatedPropType2 = _interopRequireDefault(_deprecatedPropType);
 
+var _getMuiTheme = require('./styles/getMuiTheme');
+
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -177,6 +181,11 @@ var AutoComplete = _react2.default.createClass({
     muiTheme: _react2.default.PropTypes.object
   },
 
+  //for passing default theme context to children
+  childContextTypes: {
+    muiTheme: _react2.default.PropTypes.object
+  },
+
   mixins: [_stylePropable2.default],
 
   getDefaultProps: function getDefaultProps() {
@@ -207,7 +216,13 @@ var AutoComplete = _react2.default.createClass({
     return {
       searchText: this.props.searchText,
       open: this.props.open,
-      anchorEl: null
+      anchorEl: null,
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)()
+    };
+  },
+  getChildContext: function getChildContext() {
+    return {
+      muiTheme: this.state.muiTheme
     };
   },
   componentWillMount: function componentWillMount() {

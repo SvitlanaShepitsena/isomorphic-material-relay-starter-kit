@@ -18,13 +18,9 @@ var _tooltip = require('../tooltip');
 
 var _tooltip2 = _interopRequireDefault(_tooltip);
 
-var _lightRawTheme = require('../styles/raw-themes/light-raw-theme');
+var _getMuiTheme = require('../styles/getMuiTheme');
 
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
-
-var _themeManager = require('../styles/theme-manager');
-
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -87,7 +83,7 @@ var TableHeaderColumn = _react2.default.createClass({
 
   getInitialState: function getInitialState() {
     return {
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default),
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)(),
       hovered: false
     };
   },

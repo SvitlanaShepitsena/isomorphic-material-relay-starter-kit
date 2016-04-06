@@ -40,13 +40,9 @@ var _flatButtonLabel = require('./buttons/flat-button-label');
 
 var _flatButtonLabel2 = _interopRequireDefault(_flatButtonLabel);
 
-var _lightRawTheme = require('./styles/raw-themes/light-raw-theme');
+var _getMuiTheme = require('./styles/getMuiTheme');
 
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
-
-var _themeManager = require('./styles/theme-manager');
-
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -68,8 +64,13 @@ var FlatButton = _react2.default.createClass({
     backgroundColor: _react2.default.PropTypes.string,
 
     /**
-     * Elements passed into the button. For example, the font
-     * icon passed into the GitHub button.
+     * This is what will be displayed inside the button.
+     * If a label is specified, the text within the label prop will
+     * be displayed. Otherwise, the component will expect children
+     * which will then be displayed. (In our example,
+     * we are nesting an `<input type="file" />` and a `span`
+     * that acts as our label to be displayed.) This only
+     * applies to flat and raised buttons.
      */
     children: _react2.default.PropTypes.node,
 
@@ -193,8 +194,7 @@ var FlatButton = _react2.default.createClass({
     return {
       disabled: false,
       labelStyle: {},
-      // labelPosition Should be after but we keep it like for now (prevent breaking changes)
-      labelPosition: 'before',
+      labelPosition: 'after',
       onKeyboardFocus: function onKeyboardFocus() {},
       onMouseEnter: function onMouseEnter() {},
       onMouseLeave: function onMouseLeave() {},
@@ -208,7 +208,7 @@ var FlatButton = _react2.default.createClass({
       hovered: false,
       isKeyboardFocused: false,
       touch: false,
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)()
     };
   },
   getChildContext: function getChildContext() {
@@ -293,10 +293,7 @@ var FlatButton = _react2.default.createClass({
       lineHeight: buttonHeight + 'px',
       minWidth: buttonMinWidth,
       padding: 0,
-      margin: 0,
-      //This is need so that ripples do not bleed past border radius.
-      //See: http://stackoverflow.com/questions/17298739
-      transform: 'translate3d(0, 0, 0)'
+      margin: 0
     }, style);
 
     var iconCloned = undefined;
@@ -319,7 +316,7 @@ var FlatButton = _react2.default.createClass({
       }
     }
 
-    var labelElement = label ? _react2.default.createElement(_flatButtonLabel2.default, { label: label, style: (0, _styles.mergeStyles)(labelStyle, labelStyleIcon) }) : undefined;
+    var labelElement = label ? _react2.default.createElement(_flatButtonLabel2.default, { label: label, style: (0, _styles.mergeStyles)(labelStyleIcon, labelStyle) }) : undefined;
 
     // Place label before or after children.
     var childrenFragment = labelPosition === 'before' ? {

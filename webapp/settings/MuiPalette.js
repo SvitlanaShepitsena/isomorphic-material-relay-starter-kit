@@ -1,5 +1,6 @@
 import React from 'react'
 import Colors from '../../node_modules/material-ui/lib/styles/colors';
+import ColorManipulator from '../../node_modules/material-ui/lib/utils/color-manipulator';
 import Spacing from '../../node_modules/material-ui/lib/styles/spacing';
 import zIndex from '../../node_modules/material-ui/lib/styles/zIndex';
 
@@ -11,7 +12,7 @@ export default {
         alternateTextColor: Colors.white,
         canvasColor: Colors.white,
         borderColor: Colors.grey300,
-        disabledColor: Colors.grey300,
+        disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3),
         pickerHeaderColor: Colors.blue500,
 
         primary1Color: Colors.blue500,

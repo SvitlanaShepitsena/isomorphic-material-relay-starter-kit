@@ -32,13 +32,9 @@ var _slideIn = require('../transition-groups/slide-in');
 
 var _slideIn2 = _interopRequireDefault(_slideIn);
 
-var _themeManager = require('../styles/theme-manager');
+var _getMuiTheme = require('../styles/getMuiTheme');
 
-var _themeManager2 = _interopRequireDefault(_themeManager);
-
-var _lightRawTheme = require('../styles/raw-themes/light-raw-theme');
-
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -89,7 +85,7 @@ var CalendarToolbar = _react2.default.createClass({
   },
   getInitialState: function getInitialState() {
     return {
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default),
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)(),
       transitionDirection: 'up'
     };
   },

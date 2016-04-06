@@ -22,14 +22,20 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var propTypes = {
   /**
-   * CSS class that will be added to the divider's root element
+   * The css class name of the root element.
    */
   className: _react2.default.PropTypes.string,
 
   /**
-   * If true, the divider will be indented 72px
+   * If true, the `Divider` will be indented `72px`.
    */
   inset: _react2.default.PropTypes.bool,
+
+  /**
+   * The material-ui theme applied to this component.
+   * @ignore
+   */
+  muiTheme: _react2.default.PropTypes.object.isRequired,
 
   /**
    * Override the inline-styles of the root element.
@@ -41,12 +47,12 @@ var defaultProps = {
   inset: false
 };
 
-var Divider = function Divider(_ref) {
-  var inset = _ref.inset;
-  var muiTheme = _ref.muiTheme;
-  var style = _ref.style;
+var Divider = function Divider(props) {
+  var inset = props.inset;
+  var muiTheme = props.muiTheme;
+  var style = props.style;
 
-  var other = _objectWithoutProperties(_ref, ['inset', 'muiTheme', 'style']);
+  var other = _objectWithoutProperties(props, ['inset', 'muiTheme', 'style']);
 
   var styles = {
     root: {

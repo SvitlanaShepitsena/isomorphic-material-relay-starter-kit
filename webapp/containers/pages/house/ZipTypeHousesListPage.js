@@ -13,11 +13,8 @@ import HousesTable from '../../../components/House/HousesTable/HousesTable.js';
 import HousesTableDescription from '../../../components/House/HousesTableDescription/HousesTableDescription.js';
 import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
-<<<<<<< HEAD
-=======
 
 import styles from './ZipTypeHousesListPage.less';
->>>>>>> work-local
 
 class ZipTypeHousesListPage extends React.Component {
 
@@ -46,13 +43,8 @@ class ZipTypeHousesListPage extends React.Component {
         }
         let houseCount = this.props.Viewer.Houses_Count;
 
-<<<<<<< HEAD
-        const pageTitle = `${cityName}, ${zipTypeFormatted} for sale | North Illinois Realty | p.${page}`;
-        const ogDescription = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${page})`;
-=======
         const pageTitle = `${cityName}, ${zipTypeFormatted} homes for sale | ${cityName} brokers | Northern Illinois Realty | P.${page}`;
         const ogDescription = `✔Wish to buy ${cityName} IL, ${zipTypeFormatted} home? ${houseCount} listings for sale in ${cityName} IL, ${zipTypeFormatted}. ☏  Free consultation from ${cityName} realtors. (Page ${page})`;
->>>>>>> work-local
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
         return (
             <Helmet
@@ -98,14 +90,8 @@ class ZipTypeHousesListPage extends React.Component {
         const zipTypeListTitle = `${cityFormatted} ${zipType} Houses for Sale by Property Type`;
         return (
             <div>
-<<<<<<< HEAD
-                {pageError &&
-                <div> { this.noHouses()} </div>
-                }
-=======
                 {pageError && <div> { this.noHouses()} </div> }
 
->>>>>>> work-local
                 {!pageError &&
                 <div>
                     {this.pageHelmet()}

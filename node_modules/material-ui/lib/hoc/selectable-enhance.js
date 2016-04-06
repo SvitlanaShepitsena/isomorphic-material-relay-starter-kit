@@ -11,9 +11,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _themeManager = require('../styles/theme-manager');
+var _getMuiTheme = require('../styles/getMuiTheme');
 
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 var _stylePropable = require('../mixins/style-propable');
 
@@ -22,10 +22,6 @@ var _stylePropable2 = _interopRequireDefault(_stylePropable);
 var _colorManipulator = require('../utils/color-manipulator');
 
 var _colorManipulator2 = _interopRequireDefault(_colorManipulator);
-
-var _lightRawTheme = require('../styles/raw-themes/light-raw-theme');
-
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55,7 +51,7 @@ var SelectableContainerEnhance = exports.SelectableContainerEnhance = function S
 
     getInitialState: function getInitialState() {
       return {
-        muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+        muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)()
       };
     },
     getChildContext: function getChildContext() {
@@ -75,11 +71,11 @@ var SelectableContainerEnhance = exports.SelectableContainerEnhance = function S
       };
     },
 
-    _extendChild: function _extendChild(child, styles, selectedItemStyle) {
+    extendChild: function extendChild(child, styles, selectedItemStyle) {
       var _this = this;
 
       if (child && child.type && child.type.displayName === 'ListItem') {
-        var selected = this._isChildSelected(child, this.props);
+        var selected = this.isChildSelected(child, this.props);
         var selectedChildrenStyles = {};
         if (selected) {
           selectedChildrenStyles = this.mergeStyles(styles, selectedItemStyle);
@@ -87,32 +83,45 @@ var SelectableContainerEnhance = exports.SelectableContainerEnhance = function S
 
         var mergedChildrenStyles = this.mergeStyles(child.props.style || {}, selectedChildrenStyles);
 
-        this._keyIndex += 1;
+        this.keyIndex += 1;
 
         return _react2.default.cloneElement(child, {
           onTouchTap: function onTouchTap(e) {
-            _this._handleItemTouchTap(e, child);
+            _this.handleItemTouchTap(e, child);
             if (child.props.onTouchTap) {
               child.props.onTouchTap(e);
             }
           },
-          key: this._keyIndex,
+          key: this.keyIndex,
           style: mergedChildrenStyles,
           nestedItems: child.props.nestedItems.map(function (child) {
-            return _this._extendChild(child, styles, selectedItemStyle);
-          })
+            return _this.extendChild(child, styles, selectedItemStyle);
+          }),
+          initiallyOpen: this.isInitiallyOpen(child)
         });
       } else {
         return child;
       }
     },
-    _isChildSelected: function _isChildSelected(child, props) {
+    isInitiallyOpen: function isInitiallyOpen(child) {
+      if (child.props.initiallyOpen) {
+        return child.props.initiallyOpen;
+      }
+      return this.hasSelectedDescendant(false, child);
+    },
+    hasSelectedDescendant: function hasSelectedDescendant(previousValue, child) {
+      if (_react2.default.isValidElement(child) && child.props.nestedItems && child.props.nestedItems.length > 0) {
+        return child.props.nestedItems.reduce(this.hasSelectedDescendant, previousValue);
+      }
+      return previousValue || this.isChildSelected(child, this.props);
+    },
+    isChildSelected: function isChildSelected(child, props) {
       var itemValue = this.getValueLink(props).value;
       var childValue = child.props.value;
 
-      return itemValue && itemValue === childValue;
+      return itemValue === childValue;
     },
-    _handleItemTouchTap: function _handleItemTouchTap(e, item) {
+    handleItemTouchTap: function handleItemTouchTap(e, item) {
       var valueLink = this.getValueLink(this.props);
       var itemValue = item.props.value;
       var menuValue = valueLink.value;
@@ -127,7 +136,7 @@ var SelectableContainerEnhance = exports.SelectableContainerEnhance = function S
       var children = _props.children;
       var selectedItemStyle = _props.selectedItemStyle;
 
-      this._keyIndex = 0;
+      this.keyIndex = 0;
       var styles = {};
 
       if (!selectedItemStyle) {
@@ -139,7 +148,7 @@ var SelectableContainerEnhance = exports.SelectableContainerEnhance = function S
       }
 
       var newChildren = _react2.default.Children.map(children, function (child) {
-        return _this2._extendChild(child, styles, selectedItemStyle);
+        return _this2.extendChild(child, styles, selectedItemStyle);
       });
 
       return _react2.default.createElement(

@@ -26,17 +26,9 @@ var _stylePropable = require('../mixins/style-propable');
 
 var _stylePropable2 = _interopRequireDefault(_stylePropable);
 
-var _controllable = require('../mixins/controllable');
+var _getMuiTheme = require('../styles/getMuiTheme');
 
-var _controllable2 = _interopRequireDefault(_controllable);
-
-var _lightRawTheme = require('../styles/raw-themes/light-raw-theme');
-
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
-
-var _themeManager = require('../styles/theme-manager');
-
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 var _warning = require('warning');
 
@@ -117,11 +109,12 @@ var Tabs = _react2.default.createClass({
     muiTheme: _react2.default.PropTypes.object
   },
 
-  mixins: [_stylePropable2.default, _controllable2.default],
+  mixins: [_stylePropable2.default],
 
   getDefaultProps: function getDefaultProps() {
     return {
-      initialSelectedIndex: 0
+      initialSelectedIndex: 0,
+      onChange: function onChange() {}
     };
   },
   getInitialState: function getInitialState() {
@@ -130,7 +123,7 @@ var Tabs = _react2.default.createClass({
 
     return {
       selectedIndex: valueLink.value !== undefined ? this._getSelectedIndex(this.props) : initialIndex < this.getTabCount() ? initialIndex : 0,
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)()
     };
   },
   getChildContext: function getChildContext() {
@@ -153,6 +146,14 @@ var Tabs = _react2.default.createClass({
   },
   getTabCount: function getTabCount() {
     return _react2.default.Children.count(this.props.children);
+  },
+
+  // Do not use outside of this component, it will be removed once valueLink is deprecated
+  getValueLink: function getValueLink(props) {
+    return props.valueLink || {
+      value: props.value,
+      requestChange: props.onChange
+    };
   },
   _getSelectedIndex: function _getSelectedIndex(props) {
     var valueLink = this.getValueLink(props);
@@ -205,10 +206,8 @@ var Tabs = _react2.default.createClass({
         margin: 0,
         padding: 0,
         width: '100%',
-        height: 48,
         backgroundColor: themeVariables.backgroundColor,
-        whiteSpace: 'nowrap',
-        display: 'table'
+        whiteSpace: 'nowrap'
       }
     };
 
@@ -216,9 +215,7 @@ var Tabs = _react2.default.createClass({
     var tabValue = valueLink.value;
     var tabContent = [];
 
-    var width = 100 / this.getTabCount() + '%';
-
-    var left = 'calc(' + width + '*' + this.state.selectedIndex + ')';
+    var width = 100 / this.getTabCount();
 
     var tabs = _react2.default.Children.map(children, function (tab, index) {
       process.env.NODE_ENV !== "production" ? (0, _warning2.default)(tab.type && tab.type.displayName === 'Tab', 'Tabs only accepts Tab Components as children.\n        Found ' + (tab.type.displayName || tab.type) + ' as child number ' + (index + 1) + ' of Tabs') : undefined;
@@ -234,14 +231,14 @@ var Tabs = _react2.default.createClass({
         key: index,
         selected: _this._getSelected(tab, index),
         tabIndex: index,
-        width: width,
+        width: width + '%',
         onTouchTap: _this._handleTabTouchTap
       });
     });
 
     var inkBar = this.state.selectedIndex !== -1 ? _react2.default.createElement(_inkBar2.default, {
-      left: left,
-      width: width,
+      left: width * this.state.selectedIndex + '%',
+      width: width + '%',
       style: inkBarStyle
     }) : null;
 

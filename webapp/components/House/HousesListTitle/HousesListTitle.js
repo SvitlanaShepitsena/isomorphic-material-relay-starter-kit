@@ -22,22 +22,6 @@ class HousesListTitle extends React.Component {
         return (
             <div>
                 {all &&
-<<<<<<< HEAD
-                <h1>{`All Houses for Sale in ${cityFormatted}`}
-                    <span className={styles.counter}> {listingsNum}</span>
-                </h1>}
-                {/* City Type*/}
-                {filterType && zipType.length > 3 &&
-                <h1>{`${typeFormatted} for Sale in ${cityFormatted}`}
-                    <span className={styles.counter}> {listingsNum}</span>
-                </h1>}
-
-                {/* City Zip*/}
-                {filterZip &&
-                <h1>{`Houses for Sale in ${cityFormatted}, ${zipType}`}
-                    <span className={styles.counter}> {listingsNum}</span>
-                </h1>
-=======
                 <H1Header>{`All ${cityFormatted} Homes for sale`}
                     <span className={styles.counter}> {listingsNum}</span>
                 </H1Header>}
@@ -52,7 +36,6 @@ class HousesListTitle extends React.Component {
                 <H1Header>{`${cityFormatted}, ${zipType} Homes for Sale`}
                     <span className={styles.counter}> {listingsNum}</span>
                 </H1Header>
->>>>>>> work-local
                 }
             </div>
         );

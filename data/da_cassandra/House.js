@@ -40,12 +40,8 @@ export function House_get(id) {
 }
 
 export function Houses_with_args_count(args) {
-<<<<<<< HEAD
-    
-=======
     // console.log(JSON.stringify(args));
     var body = {};
->>>>>>> work-local
 
     /* Pagination functionality */
     if (args.page && args.page > 1) {
@@ -373,14 +369,11 @@ export function Houses_with_args(args, getResults) {
                     and: [
                         {
                             "term": {
-<<<<<<< HEAD
-=======
                                 "city_id": args.city
                             }
                         },
                         {
                             "term": {
->>>>>>> work-local
                                 "zip_id": args.zip
                             }
                         },

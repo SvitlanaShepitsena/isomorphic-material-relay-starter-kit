@@ -9,11 +9,7 @@ class AboutPage extends React.Component {
     pageHelmet() {
         let helmetProps = settings.metaProps;
         let appUrl = helmetProps.appUrl;
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> work-local
         const {pageTitle, pageDescription} = helmetProps.aboutPage;
         const pageImage = helmetProps.fbImage;
         const pageUrl = `${appUrl}/about`;

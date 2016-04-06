@@ -1,7 +1,6 @@
 import React from 'react';
 import StylePropable from '../mixins/style-propable';
-import DefaultRawTheme from '../styles/raw-themes/light-raw-theme';
-import ThemeManager from '../styles/theme-manager';
+import getMuiTheme from '../styles/getMuiTheme';
 
 const TableRow = React.createClass({
 
@@ -26,6 +25,14 @@ const TableRow = React.createClass({
      * Controls whether or not the row reponseds to hover events.
      */
     hoverable: React.PropTypes.bool,
+
+    /**
+     * Controls whether or not the row should be rendered as being
+     * hovered. This property is evaluated in addition to this.state.hovered
+     * and can be used to synchronize the hovered state with some other
+     * external events.
+     */
+    hovered: React.PropTypes.bool,
 
     /**
      * Called when a row cell is clicked.
@@ -112,6 +119,7 @@ const TableRow = React.createClass({
     return {
       displayBorder: true,
       hoverable: false,
+      hovered: false,
       selectable: true,
       selected: false,
       striped: false,
@@ -120,7 +128,7 @@ const TableRow = React.createClass({
 
   getInitialState() {
     return {
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme),
+      muiTheme: this.context.muiTheme || getMuiTheme(),
       hovered: false,
     };
   },
@@ -145,7 +153,7 @@ const TableRow = React.createClass({
   getStyles() {
     let theme = this.getTheme();
     let cellBgColor = 'inherit';
-    if (this.state.hovered) {
+    if (this.props.hovered || this.state.hovered) {
       cellBgColor = theme.hoverColor;
     } else if (this.props.selected) {
       cellBgColor = theme.selectedColor;

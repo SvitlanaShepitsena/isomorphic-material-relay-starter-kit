@@ -26,22 +26,16 @@ class HousePage extends React.Component {
 
     pageHelmet() {
         let house = this.props.Viewer.House;
-        let {city, description, mls, street, type, zip} = house;
-
+        let {mls, street} = house;
+        let houseDescription = house.description;
+        let city = house.city;
+        let zip = house.zip;
+        var type = house.type;
         /*Formatter*/
         const cityFormatted = urlToText(city);
         const streetFormatted = urlToText(street);
         const typeFormatted = urlToText(type);
 
-<<<<<<< HEAD
-        const pageTitle = `${cityFormatted} home for sale | ${streetFormatted}. ID: ${mls}`;
-        const ogTitle = `FOR SALE! ☆ ${streetFormatted}, ${cityFormatted}, ${zip} ☆ Re/Max 1st Class`;
-
-        const pageDescription = `${mls} | Check out and schedule a showing! ${description}`;
-        const ogDescription = `${typeFormatted} ${mls}  ✔ Check out and schedule a showing! ☏  ${description}`;
-
-        const pageImage = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
-=======
         const title = `${cityFormatted} ${typeFormatted} for sale | ${streetFormatted}. #${mls}`;
         const ogTitle = `FOR SALE! ☆ ${streetFormatted}, ${cityFormatted}, ${zip} ☆ Re/Max 1st Class`;
 
@@ -53,18 +47,17 @@ class HousePage extends React.Component {
         } else {
             image = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
         }
->>>>>>> work-local
 
         return (
             <Helmet
-                title={pageTitle}
+                title={title}
                 meta={[
-                    {"name": "description", "content": `${pageDescription}`},
-                    {"name": "image", "content": `${pageImage}`},
+                    {"name": "description", "content": `${description}`},
+                    {"name": "image", "content": `${image}`},
 
                     {"property": "og:title", "content": `${ogTitle}`},
                     {"property": "og:description", "content": `${ogDescription}`},
-                    {"property": "og:image", "content": `${pageImage}`}
+                    {"property": "og:image", "content": `${image}`}
                 ]}
             />
         );
@@ -104,10 +97,7 @@ export default Relay.createContainer(HousePage, {
                     price,
                     street,
                     built,
-<<<<<<< HEAD
-=======
                     since,
->>>>>>> work-local
                     city,
                     zip,
                     image,

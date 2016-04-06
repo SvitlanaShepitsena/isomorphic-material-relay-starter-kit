@@ -26,17 +26,13 @@ var _menuItem = require('../menus/menu-item');
 
 var _menuItem2 = _interopRequireDefault(_menuItem);
 
-var _lightRawTheme = require('../styles/raw-themes/light-raw-theme');
-
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
-
 var _clearfix = require('../clearfix');
 
 var _clearfix2 = _interopRequireDefault(_clearfix);
 
-var _themeManager = require('../styles/theme-manager');
+var _getMuiTheme = require('../styles/getMuiTheme');
 
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 var _popover = require('../popover/popover');
 
@@ -189,7 +185,7 @@ var DropDownMenu = _react2.default.createClass({
     return {
       open: this.props.openImmediately,
       selectedIndex: this._isControlled() ? null : this.props.selectedIndex || 0,
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)()
     };
   },
   getChildContext: function getChildContext() {

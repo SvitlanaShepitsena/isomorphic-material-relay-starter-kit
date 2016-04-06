@@ -46,13 +46,9 @@ var _children = require('./utils/children');
 
 var _children2 = _interopRequireDefault(_children);
 
-var _lightRawTheme = require('./styles/raw-themes/light-raw-theme');
+var _getMuiTheme = require('./styles/getMuiTheme');
 
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
-
-var _themeManager = require('./styles/theme-manager');
-
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 var _warning = require('warning');
 
@@ -185,7 +181,7 @@ var FloatingActionButton = _react2.default.createClass({
       initialZDepth: zDepth,
       touch: false,
       zDepth: zDepth,
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)()
     };
   },
   getChildContext: function getChildContext() {
@@ -236,14 +232,7 @@ var FloatingActionButton = _react2.default.createClass({
         backgroundColor: this._getBackgroundColor(),
         borderRadius: '50%',
         textAlign: 'center',
-        verticalAlign: 'bottom',
-        /*
-         This is need so that ripples do not bleed
-          past border radius.
-          See: http://stackoverflow.com/questions/17298739/
-            css-overflow-hidden-not-working-in-chrome-when-parent-has-border-radius-and-chil
-         */
-        transform: 'translate3d(0, 0, 0)'
+        verticalAlign: 'bottom'
       },
       containerWhenMini: {
         height: themeVariables.miniSize,

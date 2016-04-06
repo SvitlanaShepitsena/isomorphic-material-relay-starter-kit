@@ -11,13 +11,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lightRawTheme = require('./styles/raw-themes/light-raw-theme');
+var _getMuiTheme = require('./styles/getMuiTheme');
 
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
-
-var _themeManager = require('./styles/theme-manager');
-
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28,7 +24,7 @@ function getDisplayName(WrappedComponent) {
 function muiThemeable(WrappedComponent) {
   var MuiComponent = function MuiComponent(props, _ref) {
     var _ref$muiTheme = _ref.muiTheme;
-    var muiTheme = _ref$muiTheme === undefined ? _themeManager2.default.getMuiTheme(_lightRawTheme2.default) : _ref$muiTheme;
+    var muiTheme = _ref$muiTheme === undefined ? (0, _getMuiTheme2.default)() : _ref$muiTheme;
 
     return _react2.default.createElement(WrappedComponent, _extends({}, props, { muiTheme: muiTheme }));
   };

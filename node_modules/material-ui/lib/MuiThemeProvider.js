@@ -2,8 +2,6 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _class, _temp;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -16,7 +14,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MuiThemeProvider = (_temp = _class = function (_Component) {
+var MuiThemeProvider = function (_Component) {
   _inherits(MuiThemeProvider, _Component);
 
   function MuiThemeProvider() {
@@ -40,11 +38,14 @@ var MuiThemeProvider = (_temp = _class = function (_Component) {
   }]);
 
   return MuiThemeProvider;
-}(_react.Component), _class.propTypes = {
+}(_react.Component);
+
+MuiThemeProvider.propTypes = {
   children: _react.PropTypes.element,
   muiTheme: _react.PropTypes.object
-}, _class.childContextTypes = {
+};
+MuiThemeProvider.childContextTypes = {
   muiTheme: _react.PropTypes.object
-}, _temp);
+};
 exports.default = MuiThemeProvider;
 module.exports = exports['default'];

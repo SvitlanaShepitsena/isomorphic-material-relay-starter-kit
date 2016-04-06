@@ -1,7 +1,7 @@
 import React from 'react';
 import StylePropable from '../mixins/style-propable';
-import DefaultRawTheme from '../styles/raw-themes/light-raw-theme';
-import ThemeManager from '../styles/theme-manager';
+import getMuiTheme from '../styles/getMuiTheme';
+import EnhancedButton from '../enhanced-button';
 
 const Tab = React.createClass({
 
@@ -10,6 +10,11 @@ const Tab = React.createClass({
      * The css class name of the root element.
      */
     className: React.PropTypes.string,
+
+    /**
+     * Sets the icon of the tab, you can pass `FontIcon` or `SvgIcon` elements.
+     */
+    icon: React.PropTypes.node,
 
     /**
      * Sets the text value of the tab item to the string specified.
@@ -67,7 +72,7 @@ const Tab = React.createClass({
 
   getInitialState() {
     return {
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme),
+      muiTheme: this.context.muiTheme || getMuiTheme(),
     };
   },
 
@@ -99,33 +104,55 @@ const Tab = React.createClass({
       style,
       value,
       width,
+      icon,
       ...other,
     } = this.props;
 
+    const textColor = selected ? this.state.muiTheme.tabs.selectedTextColor : this.state.muiTheme.tabs.textColor;
+
     const styles = this.mergeStyles({
-      display: 'table-cell',
-      cursor: 'pointer',
-      textAlign: 'center',
-      verticalAlign: 'middle',
-      height: 48,
-      color: selected ? this.state.muiTheme.tabs.selectedTextColor : this.state.muiTheme.tabs.textColor,
-      outline: 'none',
-      fontSize: 14,
+      padding: '0px 12px',
+      height: (label && icon) ? 72 : 48,
+      color: textColor,
       fontWeight: 500,
-      whiteSpace: 'initial',
-      fontFamily: this.state.muiTheme.rawTheme.fontFamily,
-      boxSizing: 'border-box',
+      fontSize: 14,
       width: width,
+      textTransform: 'uppercase',
     }, style);
 
+    let iconElement;
+    if (icon && React.isValidElement(icon)) {
+      const params = {
+        style: {
+          fontSize: 24,
+          marginBottom: (label) ? 5 : 0,
+          display: label ? 'block' : 'inline-block',
+          color: textColor,
+        },
+      };
+      // If it's svg icon set color via props
+      if (icon.type.displayName !== 'FontIcon') {
+        params.color = textColor;
+      }
+      iconElement = React.cloneElement(icon, params);
+    }
+
+    const rippleColor = styles.color;
+    const rippleOpacity = 0.3;
+
     return (
-      <div
+      <EnhancedButton
         {...other}
-        style={this.prepareStyles(styles)}
+        style={styles}
+        focusRippleColor={rippleColor}
+        touchRippleColor={rippleColor}
+        focusRippleOpacity={rippleOpacity}
+        touchRippleOpacity={rippleOpacity}
         onTouchTap={this._handleTouchTap}
       >
+        {iconElement}
         {label}
-      </div>
+      </EnhancedButton>
     );
   },
 

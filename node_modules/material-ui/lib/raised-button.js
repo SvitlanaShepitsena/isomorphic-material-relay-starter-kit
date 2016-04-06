@@ -42,13 +42,9 @@ var _paper = require('./paper');
 
 var _paper2 = _interopRequireDefault(_paper);
 
-var _lightRawTheme = require('./styles/raw-themes/light-raw-theme');
+var _getMuiTheme = require('./styles/getMuiTheme');
 
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
-
-var _themeManager = require('./styles/theme-manager');
-
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -73,8 +69,8 @@ var RaisedButton = _react2.default.createClass({
      * This is what will be displayed inside the button.
      * If a label is specified, the text within the label prop will
      * be displayed. Otherwise, the component will expect children
-     * which will then be displayed (in our example,
-     * we are nesting an <input type="file" />and a span
+     * which will then be displayed. (In our example,
+     * we are nesting an `<input type="file" />` and a `span`
      * that acts as our label to be displayed.) This only
      * applies to flat and raised buttons.
      */
@@ -204,8 +200,7 @@ var RaisedButton = _react2.default.createClass({
   getDefaultProps: function getDefaultProps() {
     return {
       disabled: false,
-      // labelPosition should be after but we keep it like for now (prevent breaking changes)
-      labelPosition: 'before',
+      labelPosition: 'after',
       fullWidth: false,
       primary: false,
       secondary: false
@@ -219,7 +214,7 @@ var RaisedButton = _react2.default.createClass({
       touched: false,
       initialZDepth: zDepth,
       zDepth: zDepth,
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)()
     };
   },
   getChildContext: function getChildContext() {
@@ -275,14 +270,7 @@ var RaisedButton = _react2.default.createClass({
         overflow: 'hidden',
         borderRadius: 2,
         transition: _transitions2.default.easeOut(),
-        backgroundColor: this._getBackgroundColor(),
-        /*
-          This is need so that ripples do not bleed
-          past border radius.
-          See: http://stackoverflow.com/questions/17298739/
-            css-overflow-hidden-not-working-in-chrome-when-parent-has-border-radius-and-chil
-         */
-        transform: 'translate3d(0, 0, 0)'
+        backgroundColor: this._getBackgroundColor()
       },
       label: {
         position: 'relative',

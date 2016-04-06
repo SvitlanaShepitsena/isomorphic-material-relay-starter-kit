@@ -24,11 +24,7 @@ class PhotoGallery extends React.Component {
         let {image, houseId} = this.props;
         const maxImage = Number(image);
         for (var i = 1; i <= maxImage; i++) {
-<<<<<<< HEAD
-            var imageUrl = `${appSettings.cloudinaryPath}${houseId}-photo-${i}.jpg`;
-=======
             let imageUrl  = `${appSettings.cloudinaryPath}${houseId}/house-photo-${i}.jpg`;
->>>>>>> work-local
             images.push(imageUrl);
         }
 

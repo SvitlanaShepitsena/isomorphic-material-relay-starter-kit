@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import settings from '../../settings/settings.js';
 
-
 /*=components*/
 import Search from '../../components/Search/SearchFormSimple.js';
 

@@ -54,11 +54,7 @@ class HouseThumbInline extends React.Component {
         let streetFormatted = urlToText(street);
         let typeFormatted = urlToText(type);
         let yearFormatted = getYear(built);
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> work-local
         /*Composed String*/
         const bathsText = ` | Baths: ${baths}`;
         const bedsText = `Beds: ${beds}`;

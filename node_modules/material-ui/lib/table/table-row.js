@@ -14,13 +14,9 @@ var _stylePropable = require('../mixins/style-propable');
 
 var _stylePropable2 = _interopRequireDefault(_stylePropable);
 
-var _lightRawTheme = require('../styles/raw-themes/light-raw-theme');
+var _getMuiTheme = require('../styles/getMuiTheme');
 
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
-
-var _themeManager = require('../styles/theme-manager');
-
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -50,6 +46,14 @@ var TableRow = _react2.default.createClass({
      * Controls whether or not the row reponseds to hover events.
      */
     hoverable: _react2.default.PropTypes.bool,
+
+    /**
+     * Controls whether or not the row should be rendered as being
+     * hovered. This property is evaluated in addition to this.state.hovered
+     * and can be used to synchronize the hovered state with some other
+     * external events.
+     */
+    hovered: _react2.default.PropTypes.bool,
 
     /**
      * Called when a row cell is clicked.
@@ -134,6 +138,7 @@ var TableRow = _react2.default.createClass({
     return {
       displayBorder: true,
       hoverable: false,
+      hovered: false,
       selectable: true,
       selected: false,
       striped: false
@@ -141,7 +146,7 @@ var TableRow = _react2.default.createClass({
   },
   getInitialState: function getInitialState() {
     return {
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default),
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)(),
       hovered: false
     };
   },
@@ -163,7 +168,7 @@ var TableRow = _react2.default.createClass({
   getStyles: function getStyles() {
     var theme = this.getTheme();
     var cellBgColor = 'inherit';
-    if (this.state.hovered) {
+    if (this.props.hovered || this.state.hovered) {
       cellBgColor = theme.hoverColor;
     } else if (this.props.selected) {
       cellBgColor = theme.selectedColor;

@@ -14,13 +14,13 @@ var _stylePropable = require('../mixins/style-propable');
 
 var _stylePropable2 = _interopRequireDefault(_stylePropable);
 
-var _lightRawTheme = require('../styles/raw-themes/light-raw-theme');
+var _getMuiTheme = require('../styles/getMuiTheme');
 
-var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
-var _themeManager = require('../styles/theme-manager');
+var _enhancedButton = require('../enhanced-button');
 
-var _themeManager2 = _interopRequireDefault(_themeManager);
+var _enhancedButton2 = _interopRequireDefault(_enhancedButton);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34,6 +34,11 @@ var Tab = _react2.default.createClass({
      * The css class name of the root element.
      */
     className: _react2.default.PropTypes.string,
+
+    /**
+     * Sets the icon of the tab, you can pass `FontIcon` or `SvgIcon` elements.
+     */
+    icon: _react2.default.PropTypes.node,
 
     /**
      * Sets the text value of the tab item to the string specified.
@@ -89,7 +94,7 @@ var Tab = _react2.default.createClass({
 
   getInitialState: function getInitialState() {
     return {
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+      muiTheme: this.context.muiTheme || (0, _getMuiTheme2.default)()
     };
   },
   getChildContext: function getChildContext() {
@@ -118,31 +123,53 @@ var Tab = _react2.default.createClass({
     var style = _props.style;
     var value = _props.value;
     var width = _props.width;
+    var icon = _props.icon;
 
-    var other = _objectWithoutProperties(_props, ['label', 'onActive', 'onTouchTap', 'selected', 'style', 'value', 'width']);
+    var other = _objectWithoutProperties(_props, ['label', 'onActive', 'onTouchTap', 'selected', 'style', 'value', 'width', 'icon']);
+
+    var textColor = selected ? this.state.muiTheme.tabs.selectedTextColor : this.state.muiTheme.tabs.textColor;
 
     var styles = this.mergeStyles({
-      display: 'table-cell',
-      cursor: 'pointer',
-      textAlign: 'center',
-      verticalAlign: 'middle',
-      height: 48,
-      color: selected ? this.state.muiTheme.tabs.selectedTextColor : this.state.muiTheme.tabs.textColor,
-      outline: 'none',
-      fontSize: 14,
+      padding: '0px 12px',
+      height: label && icon ? 72 : 48,
+      color: textColor,
       fontWeight: 500,
-      whiteSpace: 'initial',
-      fontFamily: this.state.muiTheme.rawTheme.fontFamily,
-      boxSizing: 'border-box',
-      width: width
+      fontSize: 14,
+      width: width,
+      textTransform: 'uppercase'
     }, style);
 
+    var iconElement = undefined;
+    if (icon && _react2.default.isValidElement(icon)) {
+      var params = {
+        style: {
+          fontSize: 24,
+          marginBottom: label ? 5 : 0,
+          display: label ? 'block' : 'inline-block',
+          color: textColor
+        }
+      };
+      // If it's svg icon set color via props
+      if (icon.type.displayName !== 'FontIcon') {
+        params.color = textColor;
+      }
+      iconElement = _react2.default.cloneElement(icon, params);
+    }
+
+    var rippleColor = styles.color;
+    var rippleOpacity = 0.3;
+
     return _react2.default.createElement(
-      'div',
+      _enhancedButton2.default,
       _extends({}, other, {
-        style: this.prepareStyles(styles),
+        style: styles,
+        focusRippleColor: rippleColor,
+        touchRippleColor: rippleColor,
+        focusRippleOpacity: rippleOpacity,
+        touchRippleOpacity: rippleOpacity,
         onTouchTap: this._handleTouchTap
       }),
+      iconElement,
       label
     );
   }

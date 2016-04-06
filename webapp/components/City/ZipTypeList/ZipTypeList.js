@@ -31,14 +31,9 @@ class ZipTypeList extends React.Component {
         console.log(itemValue);
 
         if (!itemValue.match(/^\d+$/g)) {
-<<<<<<< HEAD
-            itemValue += 's';
-            itemValueFormatted += 's';
-=======
             itemValue = typePlural(itemValue);
             itemValueFormatted = typePlural(itemValueFormatted);
             itemValueFormatted = seoType(itemValueFormatted);
->>>>>>> work-local
             var removePage = true;
         }
 
