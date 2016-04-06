@@ -12,8 +12,9 @@ export function Zips_with_args(args) {
             aggregations: {
                 zips: {
                     terms: {
-                        field: 'zip_id'
-                    }
+                        field: 'zip_id',
+                        size: 100
+                    },
                 }
             }
 
@@ -28,7 +29,7 @@ export function Zips_with_args(args) {
                         zip: item.key,
                         count: item.doc_count
                     }
-                    
+
                     return objZip;
                 });
             }
@@ -46,10 +47,12 @@ export function Zips_with_args(args) {
 
                 "zips": {
                     "terms": {
-                        "field": "zip_id"
+                        "field": "zip_id",
+                        size: 100
 
                     }
-                }
+
+                },
             }
         }
         return runQuery(Zip, 'sale', body, (res)=> {
@@ -61,7 +64,7 @@ export function Zips_with_args(args) {
                         zip: item.key,
                         count: item.doc_count
                     }
-                    
+
                     return objZip;
                 });
             }
