@@ -13,7 +13,10 @@ class ButtonAll extends React.Component {
     };
 
     render() {
-        const {url, btnLabel}=this.props;
+        let {url, btnLabel}=this.props;
+        if (url.match(/all$/g)) {
+            url += '/1';
+        }
         return (
             <div className={styles.row}>
                 <div className={styles.col1}>

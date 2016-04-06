@@ -54,12 +54,17 @@ class HouseThumbInline extends React.Component {
         let streetFormatted = urlToText(street);
         let typeFormatted = urlToText(type);
         let yearFormatted = getYear(built);
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> work-local
         /*Composed String*/
         const bathsText = ` | Baths: ${baths}`;
         const bedsText = `Beds: ${beds}`;
         const mlsText = ` | MLS#: ${mls}`;
         const yearText = `Year: ${yearFormatted}`;
+        const noYear = yearFormatted == 0;
         return (
             <div className={styles.colInfo}>
                 <h4 className={styles.address}>
@@ -82,7 +87,8 @@ class HouseThumbInline extends React.Component {
                     {baths && <span> {bathsText} </span> }
                 </p>
                 <p>
-                    {built && < span className={styles.year}> {yearText} </span>}
+                    {!noYear && < span className={styles.year}> {yearText} </span>}
+                    {noYear && < span className={styles.year}> Year: n/a </span>}
                 </p>
             </div>
         );

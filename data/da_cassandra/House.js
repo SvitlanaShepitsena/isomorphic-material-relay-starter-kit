@@ -40,9 +40,13 @@ export function House_get(id) {
 }
 
 export function Houses_with_args_count(args) {
+<<<<<<< HEAD
     
-
+=======
+    // console.log(JSON.stringify(args));
     var body = {};
+>>>>>>> work-local
+
     /* Pagination functionality */
     if (args.page && args.page > 1) {
         body.from = Number(args.page - 1) * 10;
@@ -50,15 +54,17 @@ export function Houses_with_args_count(args) {
     }
     /* Search case look over all fields*/
     if (args.query) {
+
         body.query =
         {
             match: {
                 _all: args.query
             }
         }
-
+        return runCountQuery('sale', body, res=> { return res.hits.total });
     }
     if (args.city && (!args.zip || args.zip == 'all') && !args.type) {
+
         body.query =
         {
             filtered: {
@@ -128,16 +134,24 @@ export function Houses_with_args_count(args) {
                         "query": {
                             "match_all": {}
                         },
-                        "filter": [
-                            {
-                                "term": {
-                                    "zip_id": args.zip
+                        "filter": {
+                            and: [
+                                {
+                                    "term": {
+                                        "zip_id": args.zip
+                                    }
+                                },
+                                {
+                                    "term": {
+                                        "city_id": args.city
+                                    }
                                 }
-                            }
-
-                        ]
+                            ]
+                        }
                     }
                 }
+
+                return runCountQuery('sale', body);
 
             }
         } else {
@@ -158,6 +172,9 @@ export function Houses_with_args_count(args) {
             }
 
         }
+
+
+        return runCountQuery('sale', body);
     }
 
     if (args.zip && args.type) {
@@ -231,7 +248,10 @@ export function Houses_with_args(args, getResults) {
                 _all: args.query
             }
         }
+        return runQuery(House, 'sale', body, res=> {
 
+            return _.map(res.hits.hits, "_source");
+        });
     }
     if (args.city && (!args.zip || args.zip == 'all') && !args.type) {
 
@@ -259,19 +279,19 @@ export function Houses_with_args(args, getResults) {
         }
     }
 
-    if (args.zip && !args.type) {
-        body.query =
-        {
-            filtered: {
-                query: {
-                    match_all: {}
-                },
-                filter: {
-                    term: {zip_id: args.zip}
-                }
-            }
-        }
-    }
+    // if (args.zip && !args.type) {
+    //     body.query =
+    //     {
+    //         filtered: {
+    //             query: {
+    //                 match_all: {}
+    //             },
+    //             filter: {
+    //                 term: {zip_id: args.zip}
+    //             }
+    //         }
+    //     }
+    // }
 
     if (args.city && args.zip && !args.type) {
         if (args.zip !== 'all') {
@@ -304,14 +324,20 @@ export function Houses_with_args(args, getResults) {
                         "query": {
                             "match_all": {}
                         },
-                        "filter": [
-                            {
-                                "term": {
-                                    "zip_id": args.zip
+                        "filter": {
+                            and: [
+                                {
+                                    "term": {
+                                        "zip_id": args.zip
+                                    }
+                                },
+                                {
+                                    "term": {
+                                        "city_id": args.city
+                                    }
                                 }
-                            }
-
-                        ]
+                            ]
+                        }
                     }
                 }
 
@@ -333,11 +359,11 @@ export function Houses_with_args(args, getResults) {
                 }
             }
 
+            return runQuery(House, 'sale', body, getResults);
         }
     }
 
-    if (args.zip && args.type) {
-
+    if (args.city && args.zip && args.type) {
         body.query = {
             "filtered": {
                 "query": {
@@ -347,6 +373,14 @@ export function Houses_with_args(args, getResults) {
                     and: [
                         {
                             "term": {
+<<<<<<< HEAD
+=======
+                                "city_id": args.city
+                            }
+                        },
+                        {
+                            "term": {
+>>>>>>> work-local
                                 "zip_id": args.zip
                             }
                         },
@@ -359,6 +393,8 @@ export function Houses_with_args(args, getResults) {
                 }
             }
         }
+        return runQuery(House, 'sale', body, getResults);
+
     }
 
     if (args.city && args.type && !args.zip) {

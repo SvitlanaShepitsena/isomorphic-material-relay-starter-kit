@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
 /*=Components*/
 import CitiesList from '../../../components/City/CitiesList/CitiesList.js';
+import H1Header from '../../../components/Common/H1Header/H1Header.js';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 
 class CitiesSalePage extends React.Component {
@@ -22,13 +23,14 @@ class CitiesSalePage extends React.Component {
         route: PropTypes.object
     };
 
+
     pageHelmet() {
         let helmetProps = settings.metaProps;
         let appUrl = helmetProps.appUrl;
 
         const {pageTitle, pageDescription} = helmetProps.housesForSalePage;
         const pageImage = helmetProps.fbImage;
-        const pageUrl = `${appUrl}/houses-for-sale`;
+        const pageUrl = `${appUrl}/homes-for-sale`;
 
         return (
             <Helmet
@@ -52,7 +54,8 @@ class CitiesSalePage extends React.Component {
         return (
             <div>
                 {this.pageHelmet()}
-                <h1> North Chicago Suburbs Houses for Sale </h1>
+                <H1Header>North Chicago Suburbs Homes for Sale</H1Header>
+
                 <CitiesList list={allCities} itemId="name" children="Houses"/>
             </div>
         );

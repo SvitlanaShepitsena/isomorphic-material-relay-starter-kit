@@ -14,8 +14,8 @@ class SvLink extends React.Component {
         var pathname = this.context.location.pathname;
         if (this.props.removePage) {
             let start = pathname.lastIndexOf('/');
-            // we need to check that the part we drop is page. 
-            
+            // we need to check that the part we drop is page.
+
             const lastParam = pathname.substring(start + 1);
             if (lastParam.match(/^\d+$/g)) {
                 pathname = pathname.substring(0, start);
@@ -24,7 +24,10 @@ class SvLink extends React.Component {
         }
         let fullUrl = (`${pathname}/${href}`).replace(/\/+/g, '/');
         if (this.props.removePage) {
-            fullUrl += '/1';
+            if (!fullUrl.match(/(\/1)$/)) {
+
+                fullUrl += '/1';
+            }
         }
         const anchor = _.startCase(href);
         let {children}= this.props;

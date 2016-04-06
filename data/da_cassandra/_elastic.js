@@ -3,7 +3,12 @@ import axios from 'axios';
 import _ from 'lodash';
 
 var client = new elasticsearch.Client({
-    host: 'http://readonly:g0b84i1e6xqd7x7l3f@c70ba15ff4ddeae311e19fc3234bebc8.us-east-1.aws.found.io:9200/',
+    // host: 'http://readonly:wp19bf7c6srl6na0dw@be0b02e7ce5ed1a8d97a31cab78e71b4.us-east-1.aws.found.io:9200/',
+    host: 'http://readonly:6uokm6knfb1sldo8bk@0041f679a3bd033df17b12a8e2474db6.us-east-1.aws.found.io:9200/',
+    // host: 'http://172.17.0.2:9300/',
+    // host: 'http://192.168.99.100:32771',
+    // host: 'http://172.17.0.2:9200',
+    // host: 'http://localhost:9200/',
     apiVersion: '2.2'
 });
 
@@ -14,7 +19,6 @@ function ensureNoErrorOrReport(qText, qVar, err, reject) {
     else
         return true;
 }
-
 export function runQuery(objectPrototype, index, body, getResults) {
     return new Promise((resolve, reject) => {
         client.search({
@@ -26,7 +30,6 @@ export function runQuery(objectPrototype, index, body, getResults) {
             if (getResults) {
                 items = getResults(res);
             } else {
-
                 items = res.hits.hits.map(item=> {
                     return item._source;
                 });
@@ -37,6 +40,7 @@ export function runQuery(objectPrototype, index, body, getResults) {
 }
 
 export function runCountQuery(index, body, getResults) {
+    // console.log(JSON.stringify(body));
     return new Promise((resolve, reject) => {
         try {
             client.search({
@@ -54,13 +58,9 @@ export function runCountQuery(index, body, getResults) {
                 }
                 resolve(count)
             })
-
         } catch (e) {
-
         }
-
     })
-
 }
 
 export function runQueryOneResult(objectPrototype, index, body, getResults) {

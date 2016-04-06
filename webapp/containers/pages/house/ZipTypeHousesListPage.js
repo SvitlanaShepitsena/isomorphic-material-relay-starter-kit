@@ -3,22 +3,29 @@ import Relay from 'react-relay';
 import Helmet from "react-helmet";
 import settings from '../../../settings/settings.js';
 import urlToText from '../../../utils/urlToText.js';
+import seoType from '../../../utils/seoType.js';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import _ from "lodash";
 
 /*Components*/
-import HousesList from '../../../components/House/HousesList/HousesList.js';
+import HousesTable from '../../../components/House/HousesTable/HousesTable.js';
+import HousesTableDescription from '../../../components/House/HousesTableDescription/HousesTableDescription.js';
 import HousesListTitle from '../../../components/House/HousesListTitle/HousesListTitle.js';
 import ZipTypeList from '../../../components/City/ZipTypeList/ZipTypeList.js';
+<<<<<<< HEAD
+=======
+
+import styles from './ZipTypeHousesListPage.less';
+>>>>>>> work-local
 
 class ZipTypeHousesListPage extends React.Component {
 
     getChildContext() {
         return {
             location: this.props.location,
-            route: this.props.route,
             params: this.props.routeParams,
+            route: this.props.route,
         };
     };
 
@@ -32,10 +39,20 @@ class ZipTypeHousesListPage extends React.Component {
         let {city, zipType, page} = this.props.params;
         /*Formatter*/
         const cityName = urlToText(city);
-        const zipTypeFormatted = urlToText(zipType);
+        let zipTypeFormatted = urlToText(zipType);
 
+        if (!zipTypeFormatted.match(/^\d+$/g)) {
+            zipTypeFormatted = seoType(zipTypeFormatted);
+        }
+        let houseCount = this.props.Viewer.Houses_Count;
+
+<<<<<<< HEAD
         const pageTitle = `${cityName}, ${zipTypeFormatted} for sale | North Illinois Realty | p.${page}`;
         const ogDescription = `✔ Browse ${cityName}, ${zipTypeFormatted} houses for sale. ☏  Call us for a free consultation and schedule a showing!(Page ${page})`;
+=======
+        const pageTitle = `${cityName}, ${zipTypeFormatted} homes for sale | ${cityName} brokers | Northern Illinois Realty | P.${page}`;
+        const ogDescription = `✔Wish to buy ${cityName} IL, ${zipTypeFormatted} home? ${houseCount} listings for sale in ${cityName} IL, ${zipTypeFormatted}. ☏  Free consultation from ${cityName} realtors. (Page ${page})`;
+>>>>>>> work-local
         const pageImage = `${settings.citiesPath}${cityName}2.jpg`;
         return (
             <Helmet
@@ -77,11 +94,18 @@ class ZipTypeHousesListPage extends React.Component {
         /*Formatter*/
         const cityFormatted = urlToText(city);
 
+        console.log(cityFormatted);
+        const zipTypeListTitle = `${cityFormatted} ${zipType} Houses for Sale by Property Type`;
         return (
             <div>
+<<<<<<< HEAD
                 {pageError &&
                 <div> { this.noHouses()} </div>
                 }
+=======
+                {pageError && <div> { this.noHouses()} </div> }
+
+>>>>>>> work-local
                 {!pageError &&
                 <div>
                     {this.pageHelmet()}
@@ -89,13 +113,19 @@ class ZipTypeHousesListPage extends React.Component {
                     <HousesListTitle zipType={zipType} cityFormatted={cityFormatted} count={houseCount}/>
                     {showTypesList &&
                     <ZipTypeList
+                        listClass={styles.row}
+                        itemClass={styles.item}
                         itemId="type"
                         list={typesList}
                         children="Houses"
-                        sectionTitle={`${cityFormatted}, ${zipType} Homes for Sale by Property Type`}
+                        sectionTitle={zipTypeListTitle}
                     />}
-                    {!houses && <Spinner/>}
-                    <HousesList list={houses} count={houseCount} cityName={cityFormatted}/>
+                    {!showTypesList &&
+                    <HousesTableDescription list={houses} count={houseCount} cityName={cityFormatted}/>
+                    }
+                    {showTypesList &&
+                    <HousesTable list={houses} count={houseCount} cityName={cityFormatted}/>
+                    }
                 </div>
                 }
             </div>
@@ -109,12 +139,15 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
         if (!page || isNaN(page)) {
             page = 1;
         }
-        console.log(page);
 
-        if (_.last(zipType) === 's') {
-            zipType = zipType.substr(0, zipType.length - 1);
-            console.log(zipType);
-        }
+        // if (zipType.toLowerCase() === 'duplexes') {
+        //     zipType = zipType.substr(0, zipType.length - 2);
+        // }
+        // else {
+        //     if (_.last(zipType) === 's') {
+        //         zipType = zipType.substr(0, zipType.length - 1);
+        //     }
+        // }
         page = Number(page);
         return {city, zipType, page}
     },
@@ -122,11 +155,11 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
         Viewer: () => Relay.QL`
             fragment on Viewer {
                 Houses_Count(city:$city,zip:$zipType)
-                Types(zip: $zipType, first:100) {
+                Types(zip: $zipType, city:$city,first:100) {
                     edges {
                         node {
                             type,
-                            Houses_Count(zip:$zipType)
+                            Houses_Count(zip:$zipType, city:$city)
                         }
                     }
                 }
@@ -135,16 +168,18 @@ export default Relay.createContainer(ZipTypeHousesListPage, {
                         cursor
                         node{
                             id
+                            baths
+                            beds
                             city
-                            zip
-                            type
+                            description
+                            image
+                            mls
                             price
                             built
                             street
-                            beds
-                            description
-                            mls
-                            image
+                            since
+                            type
+                            zip
                         }
                     }
                 }

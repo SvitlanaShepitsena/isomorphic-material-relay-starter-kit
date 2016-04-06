@@ -3,6 +3,9 @@ export default class House {
     constructor(fields) {
         this.id = fields.id;
         this.beds = fields.beds;
+        this.beds = fields.beds;
+        this.baths = fields.baths;
+        this.since = fields.since;
         this.description = fields.description;
         this.details = fields.details;
         this.image = fields.image;

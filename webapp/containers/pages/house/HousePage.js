@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 import Relay from 'react-relay';
 import Helmet from "react-helmet";
-import settings from '../../../settings/settings.js';
 import Breadcrumbs from '../../../components/Common/Breadcrumbs/Breadcrumbs';
 import Spinner from '../../../components/Common/Spinner/AppSpinner.js';
 import urlToText from '../../../utils/urlToText.js';
+import settings from '../../../settings/settings.js';
 
 /*Components*/
 import HouseInfo from '../../../components/House/HouseInfo/HouseInfo.js';
@@ -33,6 +33,7 @@ class HousePage extends React.Component {
         const streetFormatted = urlToText(street);
         const typeFormatted = urlToText(type);
 
+<<<<<<< HEAD
         const pageTitle = `${cityFormatted} home for sale | ${streetFormatted}. ID: ${mls}`;
         const ogTitle = `FOR SALE! ☆ ${streetFormatted}, ${cityFormatted}, ${zip} ☆ Re/Max 1st Class`;
 
@@ -40,6 +41,19 @@ class HousePage extends React.Component {
         const ogDescription = `${typeFormatted} ${mls}  ✔ Check out and schedule a showing! ☏  ${description}`;
 
         const pageImage = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
+=======
+        const title = `${cityFormatted} ${typeFormatted} for sale | ${streetFormatted}. #${mls}`;
+        const ogTitle = `FOR SALE! ☆ ${streetFormatted}, ${cityFormatted}, ${zip} ☆ Re/Max 1st Class`;
+
+        const description = `${mls} | Check out and schedule a showing! ${houseDescription}`;
+        const ogDescription = `${typeFormatted} ${mls}  ✔ Check out and schedule a showing! ☏  ${houseDescription}`;
+        let image;
+        if (city == 'evanston') {
+            image = `${settings.cloudinaryPath2}${house.id}-photo-1.jpg`;
+        } else {
+            image = `${settings.cloudinaryPath}${house.id}-photo-1.jpg`;
+        }
+>>>>>>> work-local
 
         return (
             <Helmet
@@ -63,12 +77,7 @@ class HousePage extends React.Component {
             <div>
                 {this.pageHelmet()}
                 <Breadcrumbs routes={routes} params={params}/>
-                {!house &&
-                <Spinner/>
-                }
-                {house &&
                 <HouseInfo house={house}/>
-                }
             </div>
         );
     }
@@ -95,6 +104,10 @@ export default Relay.createContainer(HousePage, {
                     price,
                     street,
                     built,
+<<<<<<< HEAD
+=======
+                    since,
+>>>>>>> work-local
                     city,
                     zip,
                     image,

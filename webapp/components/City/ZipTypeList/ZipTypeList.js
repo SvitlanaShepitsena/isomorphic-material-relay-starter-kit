@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import urlToText from '../../../utils/urlToText.js';
+import _ from 'lodash';
 
 /*=materialUi*/
 import Card from 'material-ui/lib/card/card';
@@ -8,6 +9,8 @@ import CardTitle from 'material-ui/lib/card/card-title';
 import Divider from 'material-ui/lib/divider';
 /*=styles*/
 import styles from './ZipTypeList.less';
+import seoType from '../../../utils/seoType.js';
+import typePlural from '../../../utils/typePlural.js';
 
 /*=Components*/
 import ButtonWithBadge from '../../Common/ButtonWithBadge/ButtonWithBadge.js';
@@ -24,22 +27,33 @@ class ZipTypeList extends React.Component {
         let {itemId, children} = this.props;
 
         let itemValue = item[itemId];
-        let itemValueFormatted = urlToText(itemValue)
-        
+        let itemValueFormatted = urlToText(itemValue);
+        console.log(itemValue);
+
         if (!itemValue.match(/^\d+$/g)) {
+<<<<<<< HEAD
             itemValue += 's';
             itemValueFormatted += 's';
+=======
+            itemValue = typePlural(itemValue);
+            itemValueFormatted = typePlural(itemValueFormatted);
+            itemValueFormatted = seoType(itemValueFormatted);
+>>>>>>> work-local
             var removePage = true;
         }
 
+        let urlValue = `${itemValue}`;
+        urlValue = urlValue.match(/\/1^/) ? urlValue : urlValue + '/1';
+
         let badgeValue = item[`${children}_Count`];
+
         if (badgeValue) {
 
             return (
-                <li className={styles.item} key={itemValue}>
+                <li className={this.props.itemClass} key={itemValue}>
                     <ButtonWithBadge
                         btnLabel={itemValueFormatted}
-                        btnUrl={itemValue}
+                        btnUrl={urlValue}
                         badgeValue={badgeValue}
                         removePage={removePage}
                     />
@@ -51,17 +65,15 @@ class ZipTypeList extends React.Component {
     render() {
         let {list, sectionTitle} = this.props;
         return (
-            <div className={styles.row}>
-                <Card className={styles.col1}>
-                    <CardTitle title={sectionTitle}/>
-                    <Divider />
-                    <CardActions>
-                        <ul>
-                            {list.map(this.oneZip)}
-                        </ul>
-                    </CardActions>
-                </Card>
-            </div>
+            <Card className={styles.card}>
+                <CardTitle title={<h2 className={styles.sectionTitle}>{sectionTitle}</h2> }/>
+                <Divider />
+                <CardActions>
+                    <ul className={this.props.listClass} style={{lineHeight: 3.8, paddingTop:8}}>
+                        {list.map(this.oneZip)}
+                    </ul>
+                </CardActions>
+            </Card>
         );
     }
 }

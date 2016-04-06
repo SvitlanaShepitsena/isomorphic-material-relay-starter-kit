@@ -4,6 +4,8 @@ import {Link} from 'react-router'
 import RaisedButton from 'material-ui/lib/raised-button';
 import Next from 'material-ui/lib/svg-icons/navigation/chevron-right';
 import Previous from 'material-ui/lib/svg-icons/navigation/chevron-left';
+import IconButton from 'material-ui/lib/icon-button';
+
 /*=styles*/
 import styles from './Pagination.less';
 import _ from 'lodash';
@@ -43,7 +45,13 @@ class Pagination extends React.Component {
         return (
             <div className={styles.row}>
                 <div className={styles.col2}>
+<<<<<<< HEAD
                     <span className={styles.counter}> {pageCounter}</span>
+=======
+                    <div className={styles.counterContainer}>
+                        <span className={styles.counter}> {pageCounter}</span>
+                    </div>
+>>>>>>> work-local
                 </div>
                 <div className={styles.col2}>
                     <div className={styles.breadcrumbs}>
@@ -63,12 +71,49 @@ class Pagination extends React.Component {
                         <div className={styles.linkContainer}>
                             {enableNext &&
                             <Link data-link='next' to={{ pathname: nextPage}}>
+<<<<<<< HEAD
                                 <RaisedButton className={styles.button} default={true} icon={<Next />} label="Next"/>
+=======
+                                <RaisedButton className={styles.button} default={true} icon={<Next />}
+                                              labelPosition="before" label="Next"/>
+>>>>>>> work-local
                             </Link>
                             }
                             {disableNext &&
                             <RaisedButton className={styles.button} default={true} disabled={true} icon={<Next />}
                                           label="Next"/>
+                            }
+                        </div>
+                    </div>
+                    <div className={styles.breadcrumbsMobile}>
+                        <div className={styles.linkContainer}>
+                            {enablePrev &&
+                            <Link data-link='prev' to={{pathname: prevPage}}
+                                  onClick={this.handleClick}>
+                                <IconButton disabled={currentPage==1} className={styles.button} default={true}>
+                                    <Previous />
+                                </IconButton>
+                            </Link>
+                            }
+                            {disablePrev &&
+                            <IconButton disabled={currentPage==1} className={styles.button} default={true}
+                                        disabled={true}>
+                                <Previous />
+                            </IconButton>
+                            }
+                        </div>
+                        <div className={styles.linkContainer}>
+                            {enableNext &&
+                            <Link data-link='next' to={{ pathname: nextPage}}>
+                                <IconButton className={styles.button} default={true}>
+                                    <Next />
+                                </IconButton>
+                            </Link>
+                            }
+                            {disableNext &&
+                            <IconButton className={styles.button} default={true} disabled={true}>
+                                <Next />
+                            </IconButton>
                             }
                         </div>
                     </div>

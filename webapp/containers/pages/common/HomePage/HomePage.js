@@ -53,7 +53,7 @@ class HomePage extends React.Component {
 
     citiesList() {
         const citiesList = this.props.Viewer.Cities.edges;
-        const cityUrl = "houses-for-sale/";
+        const cityUrl = "homes-for-sale/";
         const itemId = "name";
         const cityChildren = "Houses";
         return (
@@ -85,7 +85,7 @@ class HomePage extends React.Component {
 ;
 
 export default Relay.createContainer(HomePage, {
-    initialVariables: {first: 6},
+    initialVariables: {first: 9},
     fragments: {
         Viewer: () => Relay.QL`
             fragment on Viewer {

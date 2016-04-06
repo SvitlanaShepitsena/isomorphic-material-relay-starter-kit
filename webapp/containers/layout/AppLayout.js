@@ -13,6 +13,7 @@ import Footer from '../../components/AppLayout/Footer/FooterContent.js';
 /*App Color Theme*/
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import muiPalette from '../../settings/MuiPalette.js';
+import Brokers from '../../components/Brokers/Brokers.js';
 
 class AppLayout extends React.Component {
     getChildContext() {
@@ -43,7 +44,7 @@ class AppLayout extends React.Component {
         let {children} = this.props;
         let {pathname} = this.props.location;
         let homeRoute = pathname == '/';
-        let cityRoute = pathname == '/houses-for-sale';
+        let cityRoute = pathname == '/homes-for-sale';
         return (
             <div className={styles.layoutWrapper}>
                 {homeRoute &&
@@ -55,6 +56,8 @@ class AppLayout extends React.Component {
                         {children}
                     </div>
                     <div className={styles.asideContent}>
+                        <Brokers></Brokers>
+
                         {/*                        {cityRoute && <ContactForm/>}*/}
                     </div>
                 </section>

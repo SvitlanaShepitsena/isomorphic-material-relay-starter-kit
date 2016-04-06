@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import {Link} from 'react-router';
 
 /*=materialUi*/
 import AppBar from 'material-ui/lib/app-bar';
@@ -17,12 +18,13 @@ class MobileDrawerHeader extends React.Component {
         const {onTouchTap} = this.props;
         let title = {
             fontSize: 18,
+            color: "#ffffff",
             fontWeight: 500
         };
         return (
             <AppBar primary={true}
-                    title={<span style={title} >
-                    {settings.companyName}
+                    title={<span  >
+                    <Link style={title} onTouchTap={onTouchTap} to="/"> {settings.companyName} </Link>
                     </span>}
                     showMenuIconButton={false}
                     iconElementRight={

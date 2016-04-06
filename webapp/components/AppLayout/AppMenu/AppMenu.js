@@ -14,7 +14,19 @@ class AppMenu extends React.Component {
                 <li>
                     <MenuItem>
                         <Link className={styles.link}
-                              to="/houses-for-sale">Houses For Sale </Link>
+                              to="/">Home </Link>
+                    </MenuItem>
+                </li>
+                <li>
+                    <MenuItem>
+                        <Link className={styles.link}
+                              to="/residential-real-estate">Search </Link>
+                    </MenuItem>
+                </li>
+                <li>
+                    <MenuItem>
+                        <Link className={styles.link}
+                              to="/homes-for-sale">Houses For Sale </Link>
                     </MenuItem>
                 </li>
                 <li>

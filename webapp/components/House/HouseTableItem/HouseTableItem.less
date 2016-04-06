@@ -1,0 +1,107 @@
+@import '../../../settings/palette.less';
+@import '../../../settings/vars.less';
+/*=grid*/
+
+.container {
+  background-color: @default-3-color;
+  padding: 8px;
+  vertical-align: bottom;
+}
+
+.row {
+  min-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  line-height: 1.5;
+  font-size: 13px;
+  height: 100%;
+  color: @text-color;
+  lost-utility: clearfix;
+  @media (max-width: @mobileHorizontal) {
+    font-size: 15px;
+    line-height: 2;
+  }
+}
+
+.cell {
+  lost-column: 1;
+}
+
+.cell2 {
+  lost-column: 2/12 0 8px;
+}
+
+.cell3 {
+  lost-column: 3/12 0 8px;
+}
+
+.cell4 {
+  lost-column: 4/12 0 8px;
+}
+
+.cell6 {
+  lost-column: 6/12 0 8px;
+  @media (max-width: @mobileHorizontal) {
+    width: 100%;
+    lost-column: 1 0 0px;
+  }
+}
+
+.rowMlsAddress {
+  composes: row;
+}
+
+.rowInfo {
+  composes: row;
+}
+
+.cellMls {
+  composes: cell3;
+  color: @additional-text-color;
+  font-size: 12px !important;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1 ;
+    font-weight: 500;
+  }
+}
+
+.cellAddress {
+  lost-column: 3/4 0 8px;
+  color: @text-color;
+  font-weight: 600;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1 0 0;
+  }
+}
+
+.cellPrice {
+  composes: cell3;
+  color: @primary-2-color;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1/2 0 0px;
+    font-weight: 600;
+  }
+}
+
+.cellYear {
+  composes: cell3;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1/2 0 0px;
+  }
+}
+
+.cellBeds {
+  composes: cell2;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1/2 0 0px;
+  }
+}
+
+.cellBaths {
+  composes: cell4;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1/2 0 0px;
+  }
+}
+
+

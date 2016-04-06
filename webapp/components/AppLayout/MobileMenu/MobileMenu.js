@@ -15,7 +15,15 @@ class MobileMenu extends React.Component {
             <div className={styles.container}>
                 <MenuItem onTouchTap={onTouchTap}>
                     <Link className={styles.link}
-                          to="/houses-for-sale">Houses fo Sale</Link>
+                          to="/">Home</Link>
+                </MenuItem>
+                <MenuItem onTouchTap={onTouchTap}>
+                    <Link className={styles.link}
+                          to="/residential-real-estate">Search</Link>
+                </MenuItem>
+                <MenuItem onTouchTap={onTouchTap}>
+                    <Link className={styles.link}
+                          to="/homes-for-sale">Houses fo Sale</Link>
                 </MenuItem>
                 {/*                    <MenuItem onTouchTap={this.handleClose}>
                  <Link to="/houses-for-rent">Houses fo Rent</Link>
@@ -23,6 +31,10 @@ class MobileMenu extends React.Component {
                 <MenuItem onTouchTap={this.props.onTouchTap}>
                     <Link className={styles.link}
                           to="/about">About Us</Link>
+                </MenuItem>
+                <MenuItem onTouchTap={this.props.onTouchTap}>
+                    <Link className={styles.link}
+                          to="/contact">Contact</Link>
                 </MenuItem>
             </div>
         );

@@ -22,10 +22,9 @@ class CityThumbPicture extends React.Component {
     componentWillMount() {
         let {cityName} = this.props;
         let {houseDefault, citiesPath} = settings;
-        let imgUrl = `${citiesPath}${cityName}4.jpg `;
+        let imgUrl = `${citiesPath}${cityName.toLowerCase().replace(/\s+/gi, '-')}4.jpg `;
         this.cityFormatted = urlToText(cityName);
         this.alt = `${this.cityFormatted}, IL homes for sale`;
-
         axios.get(imgUrl).then(response=> {
             if (response.status < 400) {
                 this.setState({img: imgUrl})
@@ -38,9 +37,11 @@ class CityThumbPicture extends React.Component {
 
     cityBackground() {
         let {img} = this.state;
+        const cardSubtitle = `${this.cityFormatted} Homes for Sale`;
         return (
-            <CardMedia overlay={<CardTitle className={styles.cityName}  subtitle={<h2>{this.cityFormatted}</h2>} />}>
-                <img alt={this.alt} src={img}/>
+            <CardMedia
+                overlay={<CardTitle className={styles.cityName}  subtitle={<h2>{cardSubtitle}</h2>} />}>
+                <img style={{width:"300px",height:"200px"}} alt={this.alt} src={img}/>
             </CardMedia>
         );
     }

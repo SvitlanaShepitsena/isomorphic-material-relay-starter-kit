@@ -23,8 +23,14 @@ class HouseThumbLarge extends React.Component {
         var {houseDefault, cloudinaryPath} = settings;
 
         let {house} = this.props;
+<<<<<<< HEAD
         var {baths, beds, built, city, mls, price, street, type, zip} = house;
 
+=======
+        let city = house.city;
+        var {baths, beds, built, mls, price, street, type, zip} = house;
+        console.log(city);
+>>>>>>> work-local
         /*Formatter*/
         let yearFormatted = getYear(built);
         let cityFormatted = urlToText(city);
@@ -32,23 +38,27 @@ class HouseThumbLarge extends React.Component {
         let typeFormatted = urlToText(type);
         let priceFormatted = textToPrice(price);
 
-        var image = cloudinaryPath + house.id + '-photo-1.jpg';
-        const listingAlt = "House for sale: " + mls + " " + streetFormatted + ", " + cityFormatted + ", IL " + zip;
+        const listingAlt = `House for sale: ${mls} ${streetFormatted}, ${cityFormatted}, IL ${zip}`;
+
+        let image= `${settings.cloudinaryPath}${house.id}/house-photo-1.jpg`;
+
 
         return (
             <Card className={styles.container} shadow={0}>
-                <CardHeader title={<span className={styles.price}>{priceFormatted}</span>} subtitle={typeFormatted}/>
+                <CardHeader
+                    title={<span><span className={styles.new}>NEW!</span><span className={styles.price}>{priceFormatted}</span></span>}
+                    subtitle={typeFormatted}/>
                 <CardMedia
                     overlay={<CardTitle className={styles.cardTitle}
                     subtitle={
                      <span>
-                     { beds && <span> {"Beds: " + beds} </span> }
-                     { baths && <span> {"Beds: " + baths} </span> }
+                     { beds && <span> {`Beds: ${beds}`} </span> }
+                     { baths && <span> {`Baths: ${baths}`} </span> }
                     </span> }
                     />
                     }>
                     <div>
-                        {image && <ImageBackground imgWidth="auto" imgHeight="220" backgroundImage={image}/> }
+                        {image && <ImageBackground imgWidth="auto" imgHeight="160" backgroundImage={image}/> }
                         {!image && <img className={styles.image} src={houseDefault} alt={listingAlt}/> }
                     </div>
                 </CardMedia>

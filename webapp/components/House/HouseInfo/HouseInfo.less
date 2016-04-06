@@ -37,12 +37,19 @@
 
 /*=desktop headers*/
 .headLeft {
-  padding-left: 16px;
+  @media (min-width: @lgMobileHorizontal) {
+    padding-left: 16px;
+  }
 }
 
 .headRight {
-  text-align: right;
-  padding-right: 16px;
+  @media (min-width: @lgMobileHorizontal) {
+    text-align: right;
+    padding-right: 16px;
+  }
+  p {
+    margin: 0;
+  }
 }
 
 /*=house*/
@@ -53,7 +60,11 @@
 }
 
 .sectionHeader {
+<<<<<<< HEAD
   border-bottom: 1px dashed @divider-color;
+=======
+  border-bottom: @dashedLine;
+>>>>>>> work-local
   color: @primary-2-color;
   font-size: 20px;
   font-weight: 500;
@@ -82,6 +93,9 @@
 }
 
 .type {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
   font-weight: 500;
   color: @additional-text-color;
 }
@@ -89,10 +103,12 @@
 .price {
   font-size: 18px;
   color: @primary-2-color;
-  margin: 8px 0;
+  margin: 0;
 }
 
 .year {
+  color: @text-color;
+  font-weight: 500;
   font-size: 14px;
   font-style: italic;
 }
@@ -121,6 +137,7 @@
         padding: 0 16px;
       }
       h4 {
+        margin-top: 0;
         padding: 0 16px;
       }
     }
@@ -153,7 +170,49 @@
   }
 
   .col2 {
-    lost-column: 1 0;
+    lost-column: 1 0 0;
+  }
+}
+
+.date {
+  color: @hint-text-color;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/*=displaying raw list*/
+.propList {
+  font-size: 15px;
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  lost-utility: clearfix;
+}
+
+.propItem {
+  p {
+    background-color: @default-3-color;
+  }
+  lost-column: 1/2 2 16px !important;
+  @media (max-width: @mobileHorizontal) {
+    lost-column: 1 !important;
+  }
+}
+
+.propKey {
+  line-height: 28px;
+  font-weight: 600;
+  color: @secondary-text-color;
+}
+
+.propVal {
+  line-height: 28px;
+  font-weight: 500;
+  font-size: 15px;
+  color: @text-color;
+  @media screen and (max-width: @mobileHorizontal) {
+    font-size: 16px;
   }
 }
 

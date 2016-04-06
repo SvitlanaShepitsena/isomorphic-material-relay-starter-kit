@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import _ from 'lodash';
-
+/*=styles*/
+import styles from './Breadcrumbs.less';
 class Breadcrumbs extends React.Component {
     static contextTypes = {
         route: PropTypes.object.isRequired,
@@ -35,21 +36,25 @@ class Breadcrumbs extends React.Component {
                             anchor += 's'
                         }
                         const digits = url.match(/^\d+$/g);
-                        const replaceHouses = compoundAnchors.replace('Houses', anchor);
+                        const replaceHouses = compoundAnchors.replace('Homes', anchor);
 
                         switch (paramName) {
                             case 'city':
                                 compoundAnchors += ` in ${anchor}`;
                                 break;
+                            case 'zip':
                             case 'zipType':
                                 if (digits) {
                                     compoundAnchors += ` at ${anchor}`;
+                                    url += '/1';
 
                                 } else {
                                     compoundAnchors = replaceHouses;
                                 }
                                 break;
                             case 'type':
+                                compoundUrl = compoundUrl.substr(0, compoundUrl.length - 2);
+                                url += '/1';
                                 compoundAnchors = replaceHouses;
                                 break;
                             case 'id':
@@ -69,14 +74,15 @@ class Breadcrumbs extends React.Component {
                     compoundUrl += `/${url}`;
 
                     const linkText = compoundAnchors.replace(/Houses For Sale >/i, 'Chicago Suburbs >');
-                    
+
                     return (
                         <span key={path}>
                             {index > 0 && <span> > </span>}
-                            {index < lastIndex ? <Link
-                                to={`${compoundUrl}`}>
-                                {linkText}
-                            </Link> : <span>{compoundAnchors}</span>
+                            {index < lastIndex ? <h3 className={styles.breadcrumb}>
+                                <Link
+                                    to={`${compoundUrl}`}>
+                                    {linkText}
+                                </Link></h3> : <span><h3 className={styles.breadcrumb}>{compoundAnchors}</h3></span>
                             }
                         </span>
                     );

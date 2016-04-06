@@ -12,11 +12,32 @@ import schema from '../graphql/schema'; // Schema for GraphQL server
 // Read environment
 require('dotenv').load();
 
-console.log(chalk.blue('----------------------------------------------------------------------------------------------------'));
-console.log('Application ' + chalk.bold.magenta(process.env.npm_package_name) + ' version ' + chalk.bold.magenta(process.env.npm_package_version) + ' running in ' + chalk.bold.magenta(process.env.NODE_ENV));
-console.log(chalk.blue('----------------------------------------------------------------------------------------------------'));
+// console.log(chalk.blue('----------------------------------------------------------------------------------------------------'));
+// console.log('Application ' + chalk.bold.magenta(process.env.npm_package_name) + ' version ' + chalk.bold.magenta(process.env.npm_package_version) + ' running in ' + chalk.bold.magenta(process.env.NODE_ENV));
+// console.log(chalk.blue('----------------------------------------------------------------------------------------------------'));
 
 let router = express();
+
+router.get('/*', function (req, res, next) {
+    var protocol = 'http' + (req.connection.encrypted ? 's' : '') + '://'
+        , host = req.headers.host
+        , href
+        ;
+
+    // console.log(host)
+
+    if (/^www\./i.test(host)) {
+        next();
+        return;
+    } else {
+        host = 'www.' + host;
+        href = protocol + host + req.url;
+        res.statusCode = 301;
+        res.setHeader('Location', href);
+        res.write('Redirecting to ' + host + req.url + '');
+        res.end();
+    }
+});
 
 router.set('trust proxy', 'loopback');
 router.set('x-powered-by', false);

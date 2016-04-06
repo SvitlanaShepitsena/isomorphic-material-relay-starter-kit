@@ -34,7 +34,9 @@ export default new GraphQLObjectType({
 
             },
             resolve: (obj, args) => {
-                return Houses_with_args({type: obj.id[0]}).then((arr) => connectionFromArray(arr, args))
+                args.type = obj.id;
+
+                return Houses_with_args(args).then((arr) => connectionFromArray(arr, args))
             }
 
         },
@@ -52,9 +54,8 @@ export default new GraphQLObjectType({
             },
             resolve: (obj, args) => {
                 args.type = obj.id;
-                console.log(args);
-
-                return Houses_with_args_count(args);
+                
+                return Houses_with_args(args).then(arr=>arr.length);
             }
         },
 
