@@ -46,6 +46,7 @@ class HousesTableDescription extends React.Component {
                         {housesList.map(this.oneHouse)}
                     </div>
                 </div>
+                <Pagination lastPage={lastPage}/>
             </div>
         );
     }

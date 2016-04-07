@@ -43,12 +43,12 @@ class HousesList extends React.Component {
         return (
             <div className={styles.row}>
                 <Pagination lastPage={lastPage}/>
-
                 <div className={styles.col1}>
                     <div className={styles.row}>
                         {housesList.map(this.oneHouse)}
                     </div>
                 </div>
+                <Pagination lastPage={lastPage}/>
             </div>
         );
     }
