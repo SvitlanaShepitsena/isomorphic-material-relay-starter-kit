@@ -30,8 +30,8 @@ class HomePage extends React.Component {
         let helmet = settings.metaProps;
         const appType = helmet.appType;
         const homeUrl = helmet.appUrl;
-        const homeDescription = helmet.appDescription;
         const homeTitle = helmet.appTitle;
+        const homeDescription = `Search Homes for Sale in Northern Illinois. Let our professional team help you to buy or sell your home.`;
         const fbImage = helmet.fbImage;
         return (
             <Helmet

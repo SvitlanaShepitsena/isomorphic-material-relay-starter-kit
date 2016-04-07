@@ -55,8 +55,8 @@ export default {
     metaProps: {
         appType: "website",
         appUrl: "http://www.remax1stclass.com",
-        appTitle: "Northern Illinois Homes for Sale, Skokie, IL Real Estate Agents",
-        appDescription: "Buy or sell home, rent apartment or house in North or Northwest Chicago Suburbs. Skokie Northbrook Glenview Evanston homes apartments for sale rent",
+        appTitle: "Northern Illinois Homes for Sale, Real Estate Professional Agents",
+        appDescription: "Re/Max 1st Class Realty Team will help you to buy or sell your home. Skokie Northbrook Glenview Evanston homes apartments for sale rent",
         fbImage: "https://res.cloudinary.com/svitlana/image/upload/v1454000456/220-Remax-1st-class-logo_a4xb5o.jpg",
         housesForSalePage: {
             pageTitle: "Northern Illinois homes for sale | Skokie Real Estate Professionals",
