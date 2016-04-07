@@ -35,11 +35,17 @@ class HouseThumbInline extends React.Component {
     }
 
     showImg() {
+        let {houseDefault} = settings;
         let {img} = this.state;
         return (
             <div className={styles.colImage}>
                 <div className={styles.imageContainer}>
+                    {img &&
                     <ImageBackground imgWidth="auto" imgHeight="150" backgroundImage={img}/>
+                    }
+                    {!img &&
+                    <ImageBackground imgWidth="auto" imgHeight="150" backgroundImage={houseDefault}/>
+                    }
                 </div>
             </div>
         );
