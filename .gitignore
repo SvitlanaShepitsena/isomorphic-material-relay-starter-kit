@@ -1,3 +1,4 @@
+/public/cities
 .idea/*
 .DS_Store
 graphql/schema.graphql
